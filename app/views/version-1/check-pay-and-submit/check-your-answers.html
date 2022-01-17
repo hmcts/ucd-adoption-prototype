@@ -16,23 +16,256 @@ Apply to adopt a child
 
       <form action="/version-1/check-pay-and-submit/check-your-answers" method="post" class="form">
 
-          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
-              <span class="govuk-caption-l">{{ data['checkpaysubmit'] }}</span>
+        <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+          <span class="govuk-caption-l">{{ data['checkpaysubmit'] }}</span>
           <h1 class="govuk-fieldset__heading">
-            Check your answers
+            WIP **** Check your answers **** WIP
           </h1>
         </legend>
 
+
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Number of applicants
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {% if data['numberApplicants'] === '1' %}
+                I'm applying on my own  
+              {% elseif data['numberApplicants'] === 'partner' %}
+                I'm applying with my spouse or civil partner
+              {% else %}
+                I'm applying with someone who is not my spouse or civil partner
+              {% endif %}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="../applicants/number-of-applicants.html">
+                Change
+                <span class="govuk-visually-hidden"> number of applicants</span>
+              </a>
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Date child moved in
+            </dt>
+            <dd class="govuk-summary-list__value">
+              5 January 2022
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="../applicants/date-child-moved-in.html">
+                Change
+                <span class="govuk-visually-hidden"> date child moved in</span>
+              </a>
+            </dd>
+          </div>
+        </dl>
+
+        <!-- **************** First applicant **************** -->
+        <h2 class="govuk-heading-m">{{data ['firstApplicant']}}'s details</h2>
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Full name
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {%if data['first-applicant-names'] and data['first-applicant-last-names'] %}
+                {{data['first-applicant-names']}} {{data['first-applicant-last-names']}}
+              {% else %}
+                Mary Poppins
+              {% endif %}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="../applicants/first-applicant-name.html">
+                Change
+                <span class="govuk-visually-hidden"> full name</span>
+              </a>
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Previous names
+            </dt>
+            <dd class="govuk-summary-list__value">
+              Mary Jane Poppins
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="../applicants/first-applicant-other-names.html">
+                Change
+                <span class="govuk-visually-hidden"> contact details</span>
+              </a>
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Date of birth
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {% if data['first-applicant-day'] and data['first-applicant-month'] and data['first-applicant-year'] %}
+                {{ data['first-applicant-day'] }} {{ data['monthName'][data['first-applicant-month']] }} {{ data['first-applicant-year'] }}
+              {% else %}
+                25 January 1987
+              {% endif %}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="../applicants/first-applicant-date-birth.html">
+                Change
+                <span class="govuk-visually-hidden"> date of birth</span>
+              </a>
+            </dd>
+          </div>
+        
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Nationality
+            </dt>
+            <dd class="govuk-summary-list__value">
+              British<br>Polish
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="../applicants/first-applicant-nationality.html">
+                Change
+                <span class="govuk-visually-hidden"> nationality</span>
+              </a>
+            </dd>
+          </div>
+        
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Occupation
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {%if data['first-applicant-occupation'] %}
+                {{data['first-applicant-occupation']}} 
+              {% else %}
+              Self-employed hairdresser
+              {% endif %}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="../applicants/first-applicant-occupation.html">
+                Change
+                <span class="govuk-visually-hidden"> occupation</span>
+              </a>
+            </dd>
+          </div>
+      
+        </dl>
+
+        <!-- **************** Second applicant **************** -->
+        <h2 class="govuk-heading-m">{{data ['secondApplicant']}}'s details</h2>
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Full name
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {%if data['second-applicant-names'] and data['second-applicant-last-names'] %}
+                {{data['second-applicant-names']}} {{data['second-applicant-last-names']}}
+              {% else %}
+                Mary Poppins
+              {% endif %}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="../applicants/second-applicant-name.html">
+                Change
+                <span class="govuk-visually-hidden"> full name</span>
+              </a>
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Previous names
+            </dt>
+            <dd class="govuk-summary-list__value">
+              Mary Jane Poppins
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="../applicants/second-applicant-other-names.html">
+                Change
+                <span class="govuk-visually-hidden"> contact details</span>
+              </a>
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Date of birth
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {% if data['second-applicant-day'] and data['second-applicant-month'] and data['second-applicant-year'] %}
+                {{ data['second-applicant-day'] }} {{ data['monthName'][data['second-applicant-month']] }} {{ data['second-applicant-year'] }}
+              {% else %}
+                25 January 1987
+              {% endif %}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="../applicants/second-applicant-date-birth.html">
+                Change
+                <span class="govuk-visually-hidden"> date of birth</span>
+              </a>
+            </dd>
+          </div>
+        
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Nationality
+            </dt>
+            <dd class="govuk-summary-list__value">
+              British<br>Polish
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="../applicants/second-applicant-nationality.html">
+                Change
+                <span class="govuk-visually-hidden"> nationality</span>
+              </a>
+            </dd>
+          </div>
+        
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Occupation
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {%if data['second-applicant-occupation'] %}
+                {{data['second-applicant-occupation']}} 
+              {% else %}
+              Self-employed hairdresser
+              {% endif %}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="../applicants/second-applicant-occupation.html">
+                Change
+                <span class="govuk-visually-hidden"> occupation</span>
+              </a>
+            </dd>
+          </div>
+      
+        </dl>
+
+    
+        <h2 class="govuk-heading-m">Now send your application</h2>
+
+        <p>By submitting this notification you are confirming that, to the best of your knowledge, the details you are providing are correct.</p>
+
         <div class="govuk-button-group govuk-!-margin-top-6">
           <button class="govuk-button" data-module="govuk-button" name="submit-and-pay" value="save-and-continue">
-            Submit and pay
+
           </button>
         </div>
 
       </form>
-
     </div>
   </div>
 </div>
 
 {% endblock %}
+
+
+

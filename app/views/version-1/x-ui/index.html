@@ -13,15 +13,7 @@ Apply to adopt a child
       </h1>
     </div>
     <div class="govuk-grid-column-one-third">
-        <div class="govuk-form-group">
-          <span class="govuk-body">Next step</span>
-          <select class="govuk-select" id="sort" name="sort">
-            <option value="published">Select an action</option>
-            <option value="updated" selected>Recently updated</option>
-            <option value="views">Most views</option>
-            <option value="comments">Most comments</option>
-          </select>
-        </div>
+        {% include "../../includes/next-steps.html" %}
     </div>
   </div>
   <div class="govuk-grid-row">
