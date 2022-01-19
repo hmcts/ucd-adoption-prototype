@@ -1192,7 +1192,7 @@ router.post('/version-1/applicants/second-applicant-upload', function(req, res) 
       href: '#mother-have-address'
       })
     }
-    else if (req.body['mother-have-address'] === 'no' && req.body['reason-mother'] === '') {
+    else if (req.body['mother-have-address'] === 'No' && req.body['reason-mother'] === '') {
       errors.push({
       text: 'Provide a reason',
       href: '#reason-mother'
@@ -1200,7 +1200,7 @@ router.post('/version-1/applicants/second-applicant-upload', function(req, res) 
     }
     if (req.body['submit-button'] === 'save-and-continue') {
       if (errors.length === 0) {
-        if (req.body['mother-have-address'] === 'no') {
+        if (req.body['mother-have-address'] === 'No') {
           req.session.data.motherStatus = 'completed'
           res.redirect('/version-1/task-list')
         }
@@ -1348,7 +1348,7 @@ router.post('/version-1/applicants/second-applicant-upload', function(req, res) 
 
     if (req.body['submit-button'] === 'save-and-continue') {
       if (errors.length === 0) {
-        if (req.body['father-in-certificate'] == 'no') {
+        if (req.body['father-in-certificate'] == 'No') {
           req.session.data.fatherStatus = 'completed'
           res.redirect('/version-1/children/other-parent-exists')
         }
@@ -1514,7 +1514,7 @@ router.post('/version-1/applicants/second-applicant-upload', function(req, res) 
       href: '#father-have-address'
       })
     }
-    else if (req.body['father-have-address'] === 'no' && req.body['reason-father'] === '') {
+    else if (req.body['father-have-address'] === 'No' && req.body['reason-father'] === '') {
       errors.push({
       text: 'Provide a reason',
       href: '#reason-father'
@@ -1523,7 +1523,7 @@ router.post('/version-1/applicants/second-applicant-upload', function(req, res) 
 
     if (req.body['submit-button'] === 'save-and-continue') {
       if (errors.length === 0) {
-        if (req.body['father-have-address'] == 'no') {
+        if (req.body['father-have-address'] == 'No') {
           req.session.data.fatherStatus = 'completed'
           res.redirect('/version-1/task-list')
         }
@@ -1677,7 +1677,7 @@ router.post('/version-1/applicants/second-applicant-upload', function(req, res) 
 
     if (req.body['submit-button'] === 'save-and-continue') {
       if (errors.length === 0) {
-        if (req.body['other-parent-exists'] === 'yes') {
+        if (req.body['other-parent-exists'] === 'Yes') {
           res.redirect('/version-1/children/other-parent-name')
         }
         else {
@@ -1733,7 +1733,7 @@ router.post('/version-1/applicants/second-applicant-upload', function(req, res) 
       href: '#other-parent-have-address'
       })
     }
-    else if (req.body['other-parent-have-address'] === 'no' && req.body['reason-other-parent'] === '') {
+    else if (req.body['other-parent-have-address'] === 'No' && req.body['reason-other-parent'] === '') {
       errors.push({
       text: 'Provide a reason',
       href: '#other-parent-reason'
@@ -1742,7 +1742,7 @@ router.post('/version-1/applicants/second-applicant-upload', function(req, res) 
 
     if (req.body['submit-button'] === 'save-and-continue') {
       if (errors.length === 0) {
-        if (req.body['other-parent-have-address'] == 'no') {
+        if (req.body['other-parent-have-address'] == 'No') {
           req.session.data.otherParentStatus = 'completed'
           res.redirect('/version-1/task-list')
         }

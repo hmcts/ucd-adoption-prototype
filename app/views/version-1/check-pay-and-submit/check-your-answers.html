@@ -488,19 +488,76 @@ Apply to adopt a child
               
               {%if data['mother-alive'] === 'Not sure' and data['mother-reason-not-sure'] %}
                 <p><span class="govuk-!-font-weight-bold">Reason: </span>{{data['mother-reason-not-sure']}}</p> 
-              {% endif %}
-              
+              {% endif %}              
             </dd>
             <dd class="govuk-summary-list__actions">
               <a href="../children/mother-alive.html">
                 Change
-                <span class="govuk-visually-hidden"> occupation</span>
+                <span class="govuk-visually-hidden"> alive status</span>
               </a>
             </dd>
           </div>      
 
           <!-- If birth mother is alive -->
           {%if data['mother-alive'] === 'Yes' %}
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Nationality
+            </dt>
+            <dd class="govuk-summary-list__value">
+              Irish
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="../children/mother-nationality.html">
+                Change
+                <span class="govuk-visually-hidden"> nationality</span>
+              </a>
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Occupation
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {%if data['mother-occupation'] %}
+                {{data['mother-occupation']}} 
+              {% else %}
+                Office administrator
+              {% endif %}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="../children/mother-occupation.html">
+                Change
+                <span class="govuk-visually-hidden"> occupation</span>
+              </a>
+            </dd>
+          </div>      
+          
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Address known
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {%if data['mother-have-address'] %}
+                {{data['mother-have-address']}} 
+              {% else %}
+                Yes
+              {% endif %}
+              {%if data['mother-have-address'] === 'No' and data['reason-mother'] %}
+                <p><span class="govuk-!-font-weight-bold">Reason: </span>{{data['reason-mother']}}</p> 
+              {% endif %}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="../children/mother-have-address.html">
+                Change
+                <span class="govuk-visually-hidden"> address known</span>
+              </a>
+            </dd>
+          </div>
+
+          {% if data['mother-have-address'] === 'Yes' %}
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
               Address
@@ -510,45 +567,249 @@ Apply to adopt a child
               <br> London SW1A 1AA            
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a href="../applicants/second-applicant-address.html">
+              <a href="../children/mother-address-postcode.html">
                 Change
                 <span class="govuk-visually-hidden"> address</span>
               </a>
             </dd>
           </div>
+          {% endif %}
+          {% endif %}
+
+        </dl>
+
+        <!-- **************** Birth father's details **************** -->
+        <h2 class="govuk-heading-m">Birth father's details</h2>
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
 
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
-              Email address
+              Name on birth certificate
             </dt>
             <dd class="govuk-summary-list__value">
-              agatha@christie.com
+              {% if data['father-in-certificate'] %}
+                {{data['father-in-certificate']}} 
+              {% else %}
+                Yes
+              {% endif %}
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a href="../applicants/second-applicant-contact.html">
+              <a href="../children/father-alive.html">
                 Change
-                <span class="govuk-visually-hidden"> email address</span>
+                <span class="govuk-visually-hidden"> alive status</span>
+              </a>
+            </dd>
+          </div>      
+
+          {% if data['father-in-certificate'] === 'Yes' %}
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Full name
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {%if data['father-first-names'] and data['father-last-names'] %}
+                {{data['father-first-names']}} {{data['father-last-names']}}
+              {% else %}
+                John Austen
+              {% endif %}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="../children/father-name.html">
+                Change
+                <span class="govuk-visually-hidden"> birth father's full name</span>
+              </a>
+            </dd>
+          </div>
+        
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Alive
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {%if data['father-alive'] %}
+                {{data['father-alive']}} 
+              {% else %}
+                Yes
+              {% endif %}
+              
+              {%if data['father-alive'] === 'Not sure' and data['father-reason-not-sure'] %}
+                <p><span class="govuk-!-font-weight-bold">Reason: </span>{{data['father-reason-not-sure']}}</p> 
+              {% endif %}              
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="../children/father-alive.html">
+                Change
+                <span class="govuk-visually-hidden"> alive status</span>
+              </a>
+            </dd>
+          </div>      
+
+          <!-- If birth father is alive -->
+          {%if data['father-alive'] === 'Yes' %}
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Nationality
+            </dt>
+            <dd class="govuk-summary-list__value">
+              British
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="../children/father-nationality.html">
+                Change
+                <span class="govuk-visually-hidden"> nationality</span>
               </a>
             </dd>
           </div>
 
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
-              Phone number
+              Occupation
             </dt>
             <dd class="govuk-summary-list__value">
-              07865432323
+              {%if data['father-occupation'] %}
+                {{data['father-occupation']}} 
+              {% else %}
+                Taxi driver
+              {% endif %}
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a href="../applicants/second-applicant-contact.html">
+              <a href="../children/father-occupation.html">
                 Change
-                <span class="govuk-visually-hidden"> phone number</span>
+                <span class="govuk-visually-hidden"> occupation</span>
+              </a>
+            </dd>
+          </div>      
+          
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Address known
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {%if data['father-have-address'] %}
+                {{data['father-have-address']}} 
+              {% else %}
+                Yes
+              {% endif %}
+              {%if data['father-have-address'] === 'No' and data['reason-father'] %}
+                <p><span class="govuk-!-font-weight-bold">Reason: </span>{{data['reason-father']}}</p> 
+              {% endif %}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="../children/father-have-address.html">
+                Change
+                <span class="govuk-visually-hidden"> address known</span>
+              </a>
+            </dd>
+          </div>
+
+          {% if data['father-have-address'] === 'Yes' %}
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Address
+            </dt>
+            <dd class="govuk-summary-list__value">
+              Buckingham Palace
+              <br> London SW1A 1AA            
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="../children/father-address-postcode.html">
+                Change
+                <span class="govuk-visually-hidden"> address</span>
               </a>
             </dd>
           </div>
           {% endif %}
-
+          {% endif %}
+          {% endif %}
         </dl>
+
+        <!-- **************** Other parent's details **************** -->
+        <h2 class="govuk-heading-m">Other parent's details</h2>
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Is there another person with parental responsibility?
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {% if data['other-parent-exists'] %}
+                {{data['other-parent-exists']}} 
+              {% else %}
+                No
+              {% endif %}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="../children/other-parent-exists.html">
+                Change
+                <span class="govuk-visually-hidden"> other parent exists status</span>
+              </a>
+            </dd>
+          </div>      
+
+          {% if data['other-parent-exists'] === 'Yes' %}
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Full name
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {%if data['other-parent-first-names'] and data['other-parent-last-names'] %}
+                {{data['other-parent-first-names']}} {{data['other-parent-last-names']}}
+              {% else %}
+                Peter Murphy
+              {% endif %}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="../children/other-parent-name.html">
+                Change
+                <span class="govuk-visually-hidden"> birth other-parent's full name</span>
+              </a>
+            </dd>
+          </div>
+          
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Address known
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {%if data['other-parent-have-address'] %}
+                {{data['other-parent-have-address']}} 
+              {% else %}
+                Yes
+              {% endif %}
+              {%if data['other-parent-have-address'] === 'No' and data['reason-other-parent'] %}
+                <p><span class="govuk-!-font-weight-bold">Reason: </span>{{data['reason-other-parent']}}</p> 
+              {% endif %}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="../children/other-parent-have-address.html">
+                Change
+                <span class="govuk-visually-hidden"> address known</span>
+              </a>
+            </dd>
+          </div>
+
+          {% if data['other-parent-have-address'] === 'Yes' %}
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Address
+            </dt>
+            <dd class="govuk-summary-list__value">
+              Buckingham Palace
+              <br> London SW1A 1AA            
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="../children/other-parent-address-postcode.html">
+                Change
+                <span class="govuk-visually-hidden"> address</span>
+              </a>
+            </dd>
+          </div>
+          {% endif %}
+          {% endif %}
+        </dl>
+
 
     
         <h2 class="govuk-heading-m">Now send your application</h2>
@@ -557,7 +818,7 @@ Apply to adopt a child
 
         <div class="govuk-button-group govuk-!-margin-top-6">
           <button class="govuk-button" data-module="govuk-button" name="submit-and-pay" value="save-and-continue">
-
+            Save and continue
           </button>
         </div>
 
