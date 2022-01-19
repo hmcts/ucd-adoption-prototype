@@ -481,24 +481,26 @@ Apply to adopt a child
             </dt>
             <dd class="govuk-summary-list__value">
               {%if data['mother-alive'] %}
-                {{data['second-applicant-occupation']}} 
+                {{data['mother-alive']}} 
               {% else %}
-              Self-employed hairdresser
+                Yes
               {% endif %}
+              
+              {%if data['mother-alive'] === 'Not sure' and data['mother-reason-not-sure'] %}
+                <p><span class="govuk-!-font-weight-bold">Reason: </span>{{data['mother-reason-not-sure']}}</p> 
+              {% endif %}
+              
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a href="../applicants/second-applicant-occupation.html">
+              <a href="../children/mother-alive.html">
                 Change
                 <span class="govuk-visually-hidden"> occupation</span>
               </a>
             </dd>
           </div>      
-        <!-- </dl> -->
 
-        <!-- **************** Second applicant contact details **************** -->
-        <!-- <h2 class="govuk-heading-m">{{data ['secondApplicant']}}'s contact details</h2>
-        <dl class="govuk-summary-list govuk-!-margin-bottom-9"> -->
-
+          <!-- If birth mother is alive -->
+          {%if data['mother-alive'] === 'Yes' %}
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
               Address
@@ -544,6 +546,7 @@ Apply to adopt a child
               </a>
             </dd>
           </div>
+          {% endif %}
 
         </dl>
 

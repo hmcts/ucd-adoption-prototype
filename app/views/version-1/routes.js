@@ -1093,7 +1093,7 @@ router.post('/version-1/applicants/second-applicant-upload', function(req, res) 
 
     if (req.body['submit-button'] === 'save-and-continue') {
       if (errors.length === 0) {
-        if (req.body['mother-alive'] === 'yes') {
+        if (req.body['mother-alive'] === 'Yes') {
           res.redirect('/version-1/children/mother-nationality')
         }
         else {
