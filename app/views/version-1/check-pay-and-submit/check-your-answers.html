@@ -63,7 +63,8 @@ Apply to adopt a child
           </div>
         </dl>
 
-        <!-- **************** First applicant **************** -->
+        <!-- **************** First applicant personal details **************** -->
+        <!-- <h2 class="govuk-heading-m">{{data ['firstApplicant']}}'s personal details</h2> -->
         <h2 class="govuk-heading-m">{{data ['firstApplicant']}}'s details</h2>
         <dl class="govuk-summary-list govuk-!-margin-bottom-9">
 
@@ -75,7 +76,7 @@ Apply to adopt a child
               {%if data['first-applicant-names'] and data['first-applicant-last-names'] %}
                 {{data['first-applicant-names']}} {{data['first-applicant-last-names']}}
               {% else %}
-                Mary Poppins
+                Agatha Mary Clarissa Christie
               {% endif %}
             </dd>
             <dd class="govuk-summary-list__actions">
@@ -91,7 +92,7 @@ Apply to adopt a child
               Previous names
             </dt>
             <dd class="govuk-summary-list__value">
-              Mary Jane Poppins
+              Agatha Mary Clarissa Miller
             </dd>
             <dd class="govuk-summary-list__actions">
               <a href="../applicants/first-applicant-other-names.html">
@@ -152,11 +153,66 @@ Apply to adopt a child
                 <span class="govuk-visually-hidden"> occupation</span>
               </a>
             </dd>
+          </div>      
+        <!-- </dl> -->
+
+
+        <!-- **************** First applicant contact details **************** -->
+        <!-- <h2 class="govuk-heading-m">{{data ['firstApplicant']}}'s contact details</h2>
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9"> -->
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Address
+            </dt>
+            <dd class="govuk-summary-list__value">
+              Buckingham Palace
+              <br> London SW1A 1AA            
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="../applicants/first-applicant-address.html">
+                Change
+                <span class="govuk-visually-hidden"> address</span>
+              </a>
+            </dd>
           </div>
-      
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Email address
+            </dt>
+            <dd class="govuk-summary-list__value">
+              agatha@christie.com
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="../applicants/first-applicant-contact.html">
+                Change
+                <span class="govuk-visually-hidden"> email address</span>
+              </a>
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Phone number
+            </dt>
+            <dd class="govuk-summary-list__value">
+              07865432323
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="../applicants/first-applicant-contact.html">
+                Change
+                <span class="govuk-visually-hidden"> phone number</span>
+              </a>
+            </dd>
+          </div>
+
         </dl>
 
-        <!-- **************** Second applicant **************** -->
+        
+
+        <!-- **************** Second applicant personal details **************** -->
+        <!-- <h2 class="govuk-heading-m">{{data ['secondApplicant']}}'s personal details</h2> -->
         <h2 class="govuk-heading-m">{{data ['secondApplicant']}}'s details</h2>
         <dl class="govuk-summary-list govuk-!-margin-bottom-9">
 
@@ -168,7 +224,7 @@ Apply to adopt a child
               {%if data['second-applicant-names'] and data['second-applicant-last-names'] %}
                 {{data['second-applicant-names']}} {{data['second-applicant-last-names']}}
               {% else %}
-                Mary Poppins
+              Arthur Ignatius Conan Doyle
               {% endif %}
             </dd>
             <dd class="govuk-summary-list__actions">
@@ -184,7 +240,7 @@ Apply to adopt a child
               Previous names
             </dt>
             <dd class="govuk-summary-list__value">
-              Mary Jane Poppins
+              
             </dd>
             <dd class="govuk-summary-list__actions">
               <a href="../applicants/second-applicant-other-names.html">
@@ -245,8 +301,250 @@ Apply to adopt a child
                 <span class="govuk-visually-hidden"> occupation</span>
               </a>
             </dd>
+          </div>      
+        <!-- </dl> -->
+
+        <!-- **************** Second applicant contact details **************** -->
+        <!-- <h2 class="govuk-heading-m">{{data ['secondApplicant']}}'s contact details</h2>
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9"> -->
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Address
+            </dt>
+            <dd class="govuk-summary-list__value">
+              Buckingham Palace
+              <br> London SW1A 1AA            
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="../applicants/second-applicant-address.html">
+                Change
+                <span class="govuk-visually-hidden"> address</span>
+              </a>
+            </dd>
           </div>
-      
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Email address
+            </dt>
+            <dd class="govuk-summary-list__value">
+              agatha@christie.com
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="../applicants/second-applicant-contact.html">
+                Change
+                <span class="govuk-visually-hidden"> email address</span>
+              </a>
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Phone number
+            </dt>
+            <dd class="govuk-summary-list__value">
+              07865432323
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="../applicants/second-applicant-contact.html">
+                Change
+                <span class="govuk-visually-hidden"> phone number</span>
+              </a>
+            </dd>
+          </div>
+
+        </dl>
+
+         <!-- **************** Child's details **************** -->
+        <h2 class="govuk-heading-m">Child's details</h2>
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Full name
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {%if data['child-first-names'] and data['child-last-names'] %}
+                {{data['child-first-names']}} {{data['child-last-names']}}
+              {% else %}
+                Jane Austen
+              {% endif %}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="../children/child-name.html">
+                Change
+                <span class="govuk-visually-hidden"> full name</span>
+              </a>
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Date of birth
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {% if data['child-birth-day'] and data['child-birth-month'] and data['child-birth-year'] %}
+                {{ data['child-birth-day'] }} {{ data['monthName'][data['child-birth-month']] }} {{ data['child-birth-year'] }}
+              {% else %}
+                12 May 2019
+              {% endif %}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="../children/child-date-birth.html">
+                Change
+                <span class="govuk-visually-hidden"> date of birth</span>
+              </a>
+            </dd>
+          </div>
+        
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Sex at birth
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {%if data['child-sex'] %}
+                {{data['child-sex']}}
+              {% else %}
+                Female
+              {% endif %}              
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="../children/child-sex.html">
+                Change
+                <span class="govuk-visually-hidden"> sex at birth</span>
+              </a>
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Nationality
+            </dt>
+            <dd class="govuk-summary-list__value">
+              British
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="../children/child-nationality.html">
+                Change
+                <span class="govuk-visually-hidden"> nationality</span>
+              </a>
+            </dd>
+          </div>
+        
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Full name after adoption
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {%if data['certificate-first-names'] and data['certificate-last-names'] %}
+                {{data['certificate-first-names']}} {{data['certificate-last-names']}}
+              {% else %}
+                Jane Christie Doyle
+              {% endif %}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="../children/child-adoption-certificate.html">
+                Change
+                <span class="govuk-visually-hidden"> birth certificate details</span>
+              </a>
+            </dd>
+          </div>
+        </dl>
+
+        <!-- **************** Birth mother's details **************** -->
+        <h2 class="govuk-heading-m">Birth mother's details</h2>
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Full name
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {%if data['mother-first-names'] and data['mother-last-names'] %}
+                {{data['mother-first-names']}} {{data['mother-last-names']}}
+              {% else %}
+                Marianne Austen
+              {% endif %}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="../children/mother-name.html">
+                Change
+                <span class="govuk-visually-hidden"> birth mother's full name</span>
+              </a>
+            </dd>
+          </div>
+        
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Alive
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {%if data['mother-alive'] %}
+                {{data['second-applicant-occupation']}} 
+              {% else %}
+              Self-employed hairdresser
+              {% endif %}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="../applicants/second-applicant-occupation.html">
+                Change
+                <span class="govuk-visually-hidden"> occupation</span>
+              </a>
+            </dd>
+          </div>      
+        <!-- </dl> -->
+
+        <!-- **************** Second applicant contact details **************** -->
+        <!-- <h2 class="govuk-heading-m">{{data ['secondApplicant']}}'s contact details</h2>
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9"> -->
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Address
+            </dt>
+            <dd class="govuk-summary-list__value">
+              Buckingham Palace
+              <br> London SW1A 1AA            
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="../applicants/second-applicant-address.html">
+                Change
+                <span class="govuk-visually-hidden"> address</span>
+              </a>
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Email address
+            </dt>
+            <dd class="govuk-summary-list__value">
+              agatha@christie.com
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="../applicants/second-applicant-contact.html">
+                Change
+                <span class="govuk-visually-hidden"> email address</span>
+              </a>
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Phone number
+            </dt>
+            <dd class="govuk-summary-list__value">
+              07865432323
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="../applicants/second-applicant-contact.html">
+                Change
+                <span class="govuk-visually-hidden"> phone number</span>
+              </a>
+            </dd>
+          </div>
+
         </dl>
 
     

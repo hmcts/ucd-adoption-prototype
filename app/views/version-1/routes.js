@@ -1083,7 +1083,7 @@ router.post('/version-1/applicants/second-applicant-upload', function(req, res) 
       href: '#mother-alive'
       })
     }
-    else if (req.body['mother-alive'] === 'unsure' && req.body['reason-not-sure'] === '') {
+    else if (req.body['mother-alive'] === 'Not sure' && req.body['mother-reason-not-sure'] === '') {
       // console.log("Mother no reason")
       errors.push({
       text: 'Enter more detail',
@@ -1405,7 +1405,7 @@ router.post('/version-1/applicants/second-applicant-upload', function(req, res) 
       href: '#father-alive'
       })
     }
-    else if (req.body['father-alive'] === 'unsure' && req.body['reason-not-sure'] === '') {
+    else if (req.body['father-alive'] === 'Not sure' && req.body['father-reason-not-sure'] === '') {
       // console.log("father no reason")
       errors.push({
       text: 'Enter more details',
@@ -1415,7 +1415,7 @@ router.post('/version-1/applicants/second-applicant-upload', function(req, res) 
 
     if (req.body['submit-button'] === 'save-and-continue') {
       if (errors.length === 0) {
-        if (req.body['father-alive'] === 'yes') {
+        if (req.body['father-alive'] === 'Yes') {
           res.redirect('/version-1/children/father-nationality')
         }
         else {
@@ -1667,7 +1667,7 @@ router.post('/version-1/applicants/second-applicant-upload', function(req, res) 
       href: '#other-parent'
       })
     }
-    else if (req.body['other-parent-exists'] === 'unsure' && req.body['reason-not-sure'] === '') {
+    else if (req.body['other-parent-exists'] === 'unsure' && req.body['other-parent-reason-not-sure'] === '') {
       // console.log("father no reason")
       errors.push({
       text: 'Enter more detail',
