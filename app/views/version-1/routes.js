@@ -1932,7 +1932,7 @@ router.post('/version-1/applicants/second-applicant-upload', function(req, res) 
 
     if (req.body['submit-button'] === 'save-and-continue') {
       if (errors.length === 0) {
-        if (req.body['other-adoption-agency'] === 'yes') {
+        if (req.body['other-adoption-agency'] === 'Yes') {
           res.redirect('/version-1/children/applicant-adoption-agency-details-2')
         }
         else {
@@ -2042,7 +2042,7 @@ router.post('/version-1/applicants/second-applicant-upload', function(req, res) 
 
     if (req.body['submit-button'] === 'save-and-continue') {
       if (errors.length === 0) {
-        if (req.body['solicitor-helping'] === 'yes') {
+        if (req.body['solicitor-helping'] === 'Yes') {
           res.redirect('/version-1/children/solicitor-details')
         }
         else {
