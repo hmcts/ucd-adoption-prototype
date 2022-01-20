@@ -810,6 +810,377 @@ Apply to adopt a child
           {% endif %}
         </dl>
 
+        <!-- **************** Adoption agency or local authority details **************** -->
+        <h2 class="govuk-heading-m">Adoption agency or local authority details</h2>
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Name
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {% if data['applicant-agency-name'] %}
+                {{data['applicant-agency-name']}} 
+              {% else %}
+                Royal Borough of Greenwich
+              {% endif %}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="../children/applicant-adoption-agency-details.html">
+                Change
+                <span class="govuk-visually-hidden"> adoption agency or local authority name</span>
+              </a>
+            </dd>
+          </div>      
+        
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Phone number
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {% if data['applicant-phone-number'] %}
+                {{data['applicant-phone-number']}} 
+              {% else %}
+                02015528988
+              {% endif %}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="../children/applicant-adoption-agency-details.html">
+                Change
+                <span class="govuk-visually-hidden"> adoption agency or local authority phone number</span>
+              </a>
+            </dd>
+          </div>      
+        
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Name of your contact
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {% if data['applicant-contact'] %}
+                {{data['applicant-contact']}} 
+              {% else %}
+                Mary Francis
+              {% endif %}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="../children/applicant-adoption-agency-details.html">
+                Change
+                <span class="govuk-visually-hidden"> name of your contact</span>
+              </a>
+            </dd>
+          </div>      
+        
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Email address of your contact
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {% if data['applicant-email'] %}
+                {{data['applicant-email']}} 
+              {% else %}
+                mary.francis@greenwich.gov.uk
+              {% endif %}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="../children/applicant-adoption-agency-details.html">
+                Change
+                <span class="govuk-visually-hidden"> email address of your contact</span>
+              </a>
+            </dd>
+          </div>      
+        
+        </dl>
+
+        <!-- **************** Second adoption agency or local authority details **************** -->
+        <h2 class="govuk-heading-m">Additional adoption agency or local authority details</h2>
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Was there another adoption agency or local authority involved in placing the child?
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {%if data['other-adoption-agency'] %}
+                {{data['other-adoption-agency']}} 
+              {% else %}
+                Yes
+              {% endif %}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="../children/applicant-other-adoption-agency.html">
+                Change
+                <span class="govuk-visually-hidden"> whether another adoption agency or local authority was involved in placing the child?</span>
+              </a>
+            </dd>
+          </div>
+
+          {% if data['other-adoption-agency'] === 'Yes' or data['other-adoption-agency'] === undefined %}
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Name
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {% if data['applicant-agency-name-2'] %}
+                {{data['applicant-agency-name-2']}} 
+              {% else %}
+                Royal Borough of Newham
+              {% endif %}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="../children/applicant-adoption-agency-details-2.html">
+                Change
+                <span class="govuk-visually-hidden"> adoption agency or local authority name</span>
+              </a>
+            </dd>
+          </div>      
+        
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Phone number
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {% if data['applicant-phone-number-2'] %}
+                {{data['applicant-phone-number-2']}} 
+              {% else %}
+                02098676523
+              {% endif %}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="../children/applicant-adoption-agency-details-2.html">
+                Change
+                <span class="govuk-visually-hidden"> adoption agency or local authority phone number</span>
+              </a>
+            </dd>
+          </div>      
+        
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Name of your contact
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {% if data['applicant-contact-2'] %}
+                {{data['applicant-contact']}} 
+              {% else %}
+                Phil Jones
+              {% endif %}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="../children/applicant-adoption-agency-details.html">
+                Change
+                <span class="govuk-visually-hidden"> name of your contact</span>
+              </a>
+            </dd>
+          </div>      
+        
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Email address of your contact
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {% if data['applicant-email'] %}
+                {{data['applicant-email']}} 
+              {% else %}
+                phil.jones@newham.gov.uk
+              {% endif %}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="../children/applicant-adoption-agency-details.html">
+                Change
+                <span class="govuk-visually-hidden"> email address of your contact</span>
+              </a>
+            </dd>
+          </div>      
+          {% endif %}
+        
+        </dl>
+
+         <!-- **************** Child's social worker details **************** -->
+         <h2 class="govuk-heading-m">Child's social worker details</h2>
+         <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+ 
+           <div class="govuk-summary-list__row">
+             <dt class="govuk-summary-list__key">
+               Name
+             </dt>
+             <dd class="govuk-summary-list__value">
+               {% if data['child-social-worker-name'] %}
+                 {{data['child-social-worker-name']}} 
+               {% else %}
+                 Agnes James
+               {% endif %}
+             </dd>
+             <dd class="govuk-summary-list__actions">
+               <a href="../children/child-social-worker-details.html">
+                 Change
+                 <span class="govuk-visually-hidden"> child's social worker's name</span>
+               </a>
+             </dd>
+           </div>      
+         
+           <div class="govuk-summary-list__row">
+             <dt class="govuk-summary-list__key">
+               Phone number
+             </dt>
+             <dd class="govuk-summary-list__value">
+               {% if data['child-social-worker-phone-number'] %}
+                 {{data['child-social-worker-phone-number']}} 
+               {% else %}
+                 02015123966
+               {% endif %}
+             </dd>
+             <dd class="govuk-summary-list__actions">
+               <a href="../children/child-social-worker-details.html">
+                 Change
+                 <span class="govuk-visually-hidden"> child's social worker's phone number</span>
+               </a>
+             </dd>
+           </div>      
+         
+           <div class="govuk-summary-list__row">
+             <dt class="govuk-summary-list__key">
+               Email address
+             </dt>
+             <dd class="govuk-summary-list__value">
+               {% if data['child-social-worker-email'] %}
+                 {{data['child-social-worker-email']}} 
+               {% else %}
+                 agnesjames@gmail.com
+               {% endif %}
+             </dd>
+             <dd class="govuk-summary-list__actions">
+               <a href="../children/child-social-worker-details.html">
+                 Change
+                 <span class="govuk-visually-hidden"> social worker's email address</span>
+               </a>
+             </dd>
+           </div>      
+         
+           <div class="govuk-summary-list__row">
+             <dt class="govuk-summary-list__key">
+               Team email address
+             </dt>
+             <dd class="govuk-summary-list__value">
+               {% if data['child-social-worker-team-email'] %}
+                 {{data['child-social-worker-team-email']}} 
+               {% else %}
+                 info@robertsjames.co.uk
+               {% endif %}
+             </dd>
+             <dd class="govuk-summary-list__actions">
+               <a href="../children/child-social-worker-details.html">
+                 Change
+                 <span class="govuk-visually-hidden"> team email address</span>
+               </a>
+             </dd>
+           </div>      
+         
+         </dl>
+
+        <!-- **************** Solicitor details **************** -->
+        <h2 class="govuk-heading-m">Solicitor details</h2>
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Is a solicitor helping you with this application?
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {%if data['solicitor-helping'] %}
+                {{data['solicitor-helping']}} 
+              {% else %}
+                Yes
+              {% endif %}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="../children/solicitor-helping.html">
+                Change
+                <span class="govuk-visually-hidden"> whether a solicitor is helping with the application</span>
+              </a>
+            </dd>
+          </div>
+
+          {% if data['solicitor-helping'] === 'Yes' or data['solicitor-helping'] === undefined %}
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Name of firm
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {% if data['solicitor-company-name'] %}
+                {{data['solicitor-company-name']}} 
+              {% else %}
+                Smith & Jones
+              {% endif %}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="../children/solicitor-details.html">
+                Change
+                <span class="govuk-visually-hidden"> solicitor's firm name</span>
+              </a>
+            </dd>
+          </div>      
+        
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Name
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {% if data['solicitor-name'] %}
+                {{data['solicitor-name']}} 
+              {% else %}
+                Marianne Smith
+              {% endif %}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="../children/solicitor-details.html">
+                Change
+                <span class="govuk-visually-hidden"> solicitor's name</span>
+              </a>
+            </dd>
+          </div>      
+        
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Phone number
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {% if data['solicitor-phone-number'] %}
+                {{data['solicitor-phone-number']}} 
+              {% else %}
+                07986543567
+              {% endif %}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="../children/solicitor-details.html">
+                Change
+                <span class="govuk-visually-hidden"> solicitor phone number</span>
+              </a>
+            </dd>
+          </div>      
+        
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Email address of your contact
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {% if data['solicitor-email'] %}
+                {{data['solicitor-email']}} 
+              {% else %}
+                marianne@smithjones.co.uk
+              {% endif %}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="../children/solicitor-details.html">
+                Change
+                <span class="govuk-visually-hidden"> email address of your solicitor</span>
+              </a>
+            </dd>
+          </div>      
+          {% endif %}
+        
+        </dl>
 
     
         <h2 class="govuk-heading-m">Now send your application</h2>
