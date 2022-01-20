@@ -499,7 +499,7 @@ Apply to adopt a child
           </div>      
 
           <!-- If birth mother is alive -->
-          {%if data['mother-alive'] === 'Yes' %}
+          {%if data['mother-alive'] === 'Yes' or data['mother-alive'] === undefined %}
 
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
@@ -557,7 +557,7 @@ Apply to adopt a child
             </dd>
           </div>
 
-          {% if data['mother-have-address'] === 'Yes' %}
+          {% if data['mother-have-address'] === 'Yes' or data['mother-have-address'] === undefined %}
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
               Address
@@ -601,7 +601,7 @@ Apply to adopt a child
             </dd>
           </div>      
 
-          {% if data['father-in-certificate'] === 'Yes' %}
+          {% if data['father-in-certificate'] === 'Yes' or data['father-in-certificate'] === undefined %}
 
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
@@ -646,7 +646,7 @@ Apply to adopt a child
           </div>      
 
           <!-- If birth father is alive -->
-          {%if data['father-alive'] === 'Yes' %}
+          {%if data['father-alive'] === 'Yes' or data['father-alive'] === undefined %}
 
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
@@ -704,7 +704,7 @@ Apply to adopt a child
             </dd>
           </div>
 
-          {% if data['father-have-address'] === 'Yes' %}
+          {% if data['father-have-address'] === 'Yes' or data['father-have-address'] === undefined %}
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
               Address
@@ -748,7 +748,7 @@ Apply to adopt a child
             </dd>
           </div>      
 
-          {% if data['other-parent-exists'] === 'Yes' %}
+          {% if data['other-parent-exists'] === 'Yes' or data['other-parent-exists'] === undefined %}
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
               Full name
@@ -790,7 +790,7 @@ Apply to adopt a child
             </dd>
           </div>
 
-          {% if data['other-parent-have-address'] === 'Yes' %}
+          {% if data['other-parent-have-address'] === 'Yes' or data['other-parent-have-address'] === undefined %}
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
               Address
