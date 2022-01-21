@@ -563,6 +563,20 @@ module.exports = (router) => {
         })
       }
     }
+    if (req.body['submit-button'] === 'add') {
+      if (req.body['second-applicant-previous-first-names'].length === 0  && req.session.data.secondApplicantNameCount >= 1) {
+        errors.push({
+          text: 'Enter your first names',
+          href: '#second-applicant-no-additional-first-names'
+        })
+      }
+      if (req.body['second-applicant-previous-last-names'].length === 0 && req.session.data.secondApplicantNameCount >= 1) {
+        errors.push({
+          text: 'Enter your last names',
+          href: '#second-applicant-no-additional-last-names'
+        })
+      }
+    }
 
     count = req.session.data.secondApplicantNameCount
     if (req.body['submit-button'] === 'add') {
