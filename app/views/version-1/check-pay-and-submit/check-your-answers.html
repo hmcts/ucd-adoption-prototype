@@ -213,7 +213,6 @@ Apply to adopt a child
         
 
         <!-- **************** Second applicant personal details **************** -->
-        <!-- <h2 class="govuk-heading-m">{{data ['secondApplicant']}}'s personal details</h2> -->
         <h2 class="govuk-heading-m">{{data ['secondApplicant']}}'s details</h2>
         <dl class="govuk-summary-list govuk-!-margin-bottom-9">
 
@@ -1086,108 +1085,224 @@ Apply to adopt a child
  
         {% for id in data['childOrderId'] %}
 
-        {%if id === 0 %}
-        <h3 class="govuk-heading-s">Placement order</h3>
-                  
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-            Type of order
-          </dt>
-          <dd class="govuk-summary-list__value">
-            {% if data['childOrderType'][id] %}
-              {{data['childOrderType'][id]}} 
-            {% else %}
-              Placement order
-            {% endif %}
-          </dd>
-          <dd class="govuk-summary-list__actions">
-          </dd>
-        </div>      
+          {% if id === 0 %}
+          <h3 class="govuk-heading-s">Placement order</h3>
+                    
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Type of order
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {% if data['childOrderType'][id] %}
+                {{data['childOrderType'][id]}} 
+              {% else %}
+                Placement order
+              {% endif %}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+            </dd>
+          </div>      
 
-        <div class="govuk-summary-list__row">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Order case or serial number
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {% if data['childOrderNumber'][id] %}
+                {{data['childOrderNumber'][id]}} 
+              {% else %}
+                AC17238376
+              {% endif %}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="../children/orders-placement-case-number.html">
+                Change
+                <span class="govuk-visually-hidden"> placement order case or serial number</span>
+              </a>
+            </dd>
+          </div>      
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Court
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {% if data['childOrderCourt'][id] %}
+                {{data['childOrderCourt'][id]}} 
+              {% else %}
+                Derby County Court
+              {% endif %}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="../children/orders-placement-court.html">
+                Change
+                <span class="govuk-visually-hidden"> court</span>
+              </a>
+            </dd>
+          </div>      
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Date
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {% if data['childOrderDay'][id] and data['childOrderMonth'][id] and data['childOrderYear'][id] %}
+                {{ data['childOrderDay'][id] }} {{ data['monthName'][data['childOrderMonth'][id]] }} {{ data['childOrderYear'][id] }}
+              {% else %}
+                23 June 2020
+              {% endif %}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="../children/orders-placement-date.html">
+                Change
+                <span class="govuk-visually-hidden"> date</span>
+              </a>
+            </dd>
+          </div>      
+
+          {% else %}
+          <h3 class="govuk-heading-s">Court order</h3>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Type of order
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {% if data['childOrderType'][id] %}
+                {{data['childOrderType'][id]}} 
+              {% endif %}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="../children/orders-order-type.html">
+                Change
+                <span class="govuk-visually-hidden"> order type</span>
+              </a>
+            </dd>
+          </div>      
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Order case or serial number
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {% if data['childOrderNumber'][id] %}
+                {{data['childOrderNumber'][id]}} 
+              {% endif %}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="../children/orders-order-case-number.html">
+                Change
+                <span class="govuk-visually-hidden">  order case or serial number</span>
+              </a>
+            </dd>
+          </div>   
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Court
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {% if data['childOrderCourt'][id] %}
+                {{data['childOrderCourt'][id]}} 
+              {% endif %}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="../children/orders-order-court.html">
+                Change
+                <span class="govuk-visually-hidden"> court</span>
+              </a>
+            </dd>
+          </div>      
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Date
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {% if data['childOrderDay'][id] and data['childOrderMonth'][id] and data['childOrderYear'][id] %}
+                {{ data['childOrderDay'][id] }} {{ data['monthName'][data['childOrderMonth'][id]] }} {{ data['childOrderYear'][id] }}
+              {% else %}
+                23 June 2020
+              {% endif %}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="../children/orders-order-date.html">
+                Change
+                <span class="govuk-visually-hidden"> date</span>
+              </a>
+            </dd>
+          </div>      
+          
+          {% endif %}  
+        {% endfor %}
+        </dl>
+
+         <!-- **************** Sibling court orders **************** -->
+         {% if data['siblingOrderId'].length > 0 %}
+         <h2 class="govuk-heading-m">Sibling court orders</h2>
+         <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+ 
+          <h3 class="govuk-heading-s">Siblings with court orders</h3>
+          {% for i in data['uniqueSiblingId'] %}
+  
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Sibling name
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {% if data['uniqueSiblingFirstNames'][i] %}
+                {{ data['uniqueSiblingFirstNames'][i] }} {{ data['uniqueSiblingLastNames'][i] }} 
+              {% endif %}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="../children/sibling-name.html">
+                Change
+                <span class="govuk-visually-hidden"> sibling or half-sibling name</span>
+              </a>
+            </dd>
+          </div>     
+          {% endfor %} 
+  
+          {% for id in data['siblingOrderId'] %}
+          <h3 class="govuk-heading-s govuk-!-margin-top-8">Court order</h3>
+  
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Sibling name
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {% if data['siblingFirstNames'][id] %}
+                {{ data['siblingFirstNames'][id] }} {{ data['siblingLastNames'][id] }} 
+              {% endif %}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+            </dd>
+          </div>      
+  
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Type of order
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {% if data['siblingOrderType'][id] %}
+                {{data['siblingOrderType'][id]}} 
+              {% endif %}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="../children/orders-order-type.html">
+                Change
+                <span class="govuk-visually-hidden"> order type</span>
+              </a>
+            </dd>
+          </div>      
+  
+            <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
             Order case or serial number
           </dt>
           <dd class="govuk-summary-list__value">
-            {% if data['childOrderNumber'][id] %}
-              {{data['childOrderNumber'][id]}} 
-            {% else %}
-              AC17238376
-            {% endif %}
-          </dd>
-          <dd class="govuk-summary-list__actions">
-            <a href="../children/orders-placement-case-number.html">
-              Change
-              <span class="govuk-visually-hidden"> placement order case or serial number</span>
-            </a>
-          </dd>
-        </div>      
-
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-            Court
-          </dt>
-          <dd class="govuk-summary-list__value">
-            {% if data['childOrderCourt'][id] %}
-              {{data['childOrderCourt'][id]}} 
-            {% else %}
-              Derby County Court
-            {% endif %}
-          </dd>
-          <dd class="govuk-summary-list__actions">
-            <a href="../children/orders-placement-court.html">
-              Change
-              <span class="govuk-visually-hidden"> court</span>
-            </a>
-          </dd>
-        </div>      
-
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-            Date
-          </dt>
-          <dd class="govuk-summary-list__value">
-            {% if data['childOrderDay'][id] and data['childOrderMonth'][id] and data['childOrderYear'][id] %}
-              {{ data['childOrderDay'][id] }} {{ data['monthName'][data['childOrderMonth'][id]] }} {{ data['childOrderYear'][id] }}
-            {% else %}
-              23 June 2020
-            {% endif %}
-          </dd>
-          <dd class="govuk-summary-list__actions">
-            <a href="../children/orders-placement-date.html">
-              Change
-              <span class="govuk-visually-hidden"> date</span>
-            </a>
-          </dd>
-        </div>      
-
-        {% else %}
-        <h3 class="govuk-heading-s govuk-!-margin-top-8">Court order</h3>
-
-        <div class="govuk-summary-list__row  govuk-!-margin-top-8">
-          <dt class="govuk-summary-list__key">
-            Type of order
-          </dt>
-          <dd class="govuk-summary-list__value">
-            {% if data['childOrderType'][id] %}
-              {{data['childOrderType'][id]}} 
-            {% endif %}
-          </dd>
-          <dd class="govuk-summary-list__actions">
-            <a href="../children/orders-order-type.html">
-              Change
-              <span class="govuk-visually-hidden"> order type</span>
-            </a>
-          </dd>
-        </div>      
-
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-            Order case or serial number
-          </dt>
-          <dd class="govuk-summary-list__value">
-            {% if data['childOrderNumber'][id] %}
-              {{data['childOrderNumber'][id]}} 
+            {% if data['siblingOrderNumber'][id] %}
+              {{data['siblingOrderNumber'][id]}} 
             {% endif %}
           </dd>
           <dd class="govuk-summary-list__actions">
@@ -1203,8 +1318,8 @@ Apply to adopt a child
             Court
           </dt>
           <dd class="govuk-summary-list__value">
-            {% if data['childOrderCourt'][id] %}
-              {{data['childOrderCourt'][id]}} 
+            {% if data['siblingOrderCourt'][id] %}
+              {{data['siblingOrderCourt'][id]}} 
             {% endif %}
           </dd>
           <dd class="govuk-summary-list__actions">
@@ -1220,8 +1335,8 @@ Apply to adopt a child
             Date
           </dt>
           <dd class="govuk-summary-list__value">
-            {% if data['childOrderDay'][id] and data['childOrderMonth'][id] and data['childOrderYear'][id] %}
-              {{ data['childOrderDay'][id] }} {{ data['monthName'][data['childOrderMonth'][id]] }} {{ data['childOrderYear'][id] }}
+            {% if data['siblingOrderDay'][id] and data['siblingOrderMonth'][id] and data['siblingOrderYear'][id] %}
+              {{ data['siblingOrderDay'][id] }} {{ data['monthName'][data['siblingOrderMonth'][id]] }} {{ data['siblingOrderYear'][id] }}
             {% else %}
               23 June 2020
             {% endif %}
@@ -1233,116 +1348,34 @@ Apply to adopt a child
             </a>
           </dd>
         </div>      
-        
-        {% endif %}  
+
         {% endfor %}
-         </dl>
+        </dl>
+        {% endif %}
 
-
-
-        <!-- **************** Solicitor details **************** -->
-        <!-- <h2 class="govuk-heading-m">Solicitor details</h2>
+        <!-- **************** Choose your family court **************** -->
+        <h2 class="govuk-heading-m">Family court details</h2>
         <dl class="govuk-summary-list govuk-!-margin-bottom-9">
 
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
-              Is a solicitor helping you with this application?
+              Family court name
             </dt>
             <dd class="govuk-summary-list__value">
-              {%if data['solicitor-helping'] %}
-                {{data['solicitor-helping']}} 
+              {%if data['court-name'] %}
+                {{ data['court-name'] }}
               {% else %}
-                Yes
+                Bromley Family Court
               {% endif %}
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a href="../children/solicitor-helping.html">
+              <a href="../children/family-court-finder.html">
                 Change
-                <span class="govuk-visually-hidden"> whether a solicitor is helping with the application</span>
+                <span class="govuk-visually-hidden"> family court name</span>
               </a>
             </dd>
           </div>
-
-          {% if data['solicitor-helping'] === 'Yes' or data['solicitor-helping'] === undefined %}
-
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              Name of firm
-            </dt>
-            <dd class="govuk-summary-list__value">
-              {% if data['solicitor-company-name'] %}
-                {{data['solicitor-company-name']}} 
-              {% else %}
-                Smith & Jones
-              {% endif %}
-            </dd>
-            <dd class="govuk-summary-list__actions">
-              <a href="../children/solicitor-details.html">
-                Change
-                <span class="govuk-visually-hidden"> solicitor's firm name</span>
-              </a>
-            </dd>
-          </div>      
-        
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              Name
-            </dt>
-            <dd class="govuk-summary-list__value">
-              {% if data['solicitor-name'] %}
-                {{data['solicitor-name']}} 
-              {% else %}
-                Marianne Smith
-              {% endif %}
-            </dd>
-            <dd class="govuk-summary-list__actions">
-              <a href="../children/solicitor-details.html">
-                Change
-                <span class="govuk-visually-hidden"> solicitor's name</span>
-              </a>
-            </dd>
-          </div>      
-        
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              Phone number
-            </dt>
-            <dd class="govuk-summary-list__value">
-              {% if data['solicitor-phone-number'] %}
-                {{data['solicitor-phone-number']}} 
-              {% else %}
-                07986543567
-              {% endif %}
-            </dd>
-            <dd class="govuk-summary-list__actions">
-              <a href="../children/solicitor-details.html">
-                Change
-                <span class="govuk-visually-hidden"> solicitor phone number</span>
-              </a>
-            </dd>
-          </div>      
-        
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              Email address of your contact
-            </dt>
-            <dd class="govuk-summary-list__value">
-              {% if data['solicitor-email'] %}
-                {{data['solicitor-email']}} 
-              {% else %}
-                marianne@smithjones.co.uk
-              {% endif %}
-            </dd>
-            <dd class="govuk-summary-list__actions">
-              <a href="../children/solicitor-details.html">
-                Change
-                <span class="govuk-visually-hidden"> email address of your solicitor</span>
-              </a>
-            </dd>
-          </div>      
-          {% endif %}
-        
-        </dl> -->
+        </dl>
 
     
         <h2 class="govuk-heading-m">Now send your application</h2>
