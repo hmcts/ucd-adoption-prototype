@@ -14,8 +14,7 @@ Sibing details
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      {% set existsError = '' %}
-      {% set notSureError = '' %}
+      {% set noAnswerError = '' %}
   
       {% if errors | length > 0 %}
       {{ govukErrorSummary({
@@ -23,11 +22,8 @@ Sibing details
         errorList: errors
       }) }}
       {% for error in errors %}
-        {% if error.href == '#sibling' %}
-          {% set existsError = error.text %}
-        {% endif %}
-        {% if error.href == '#sibling-no-reason' %}
-            {% set notSureError = error.text %}
+        {% if error.href == '#remove-court-order' %}
+          {% set noAnswerError = error.text %}
         {% endif %}
         {% endfor %}
       {% endif %}
@@ -35,7 +31,7 @@ Sibing details
 
       <form action="/version-1/children/sibling-remove-court-order" method="post" class="form">
         
-        <div class="govuk-form-group {% if (existsError != '')%} govuk-form-group--error {% endif %}">
+        <div class="govuk-form-group {% if (noAnswerError != '')%} govuk-form-group--error {% endif %}">
         <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
           <span class="govuk-caption-l">{{ data['sibling'] }}</span>
           <h1 class="govuk-fieldset__heading">
@@ -46,9 +42,9 @@ Sibing details
           Ask the adoption agency or social worker if you're not sure.
         </div> -->
 
-        {% if (existsError != '')%}
+        {% if (noAnswerError != '')%}
           <span class="govuk-error-message govuk-form">
-            <span class="govuk-visually-hidden">Error:</span> {{ existsError }}
+            <span class="govuk-visually-hidden">Error:</span> {{ noAnswerError }}
           </span>
         {% endif %}
 

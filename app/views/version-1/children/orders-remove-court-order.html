@@ -1,7 +1,7 @@
 {% extends "layout-signed-in.html" %}
 
 {% block pageTitle %}
-Apply to adopt a child
+Sibing details
 {% endblock %}
 
 {% block beforeContent %}
@@ -14,7 +14,7 @@ Apply to adopt a child
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      {% set solicitorHelpingError = '' %}
+      {% set noAnswerError = '' %}
   
       {% if errors | length > 0 %}
       {{ govukErrorSummary({
@@ -22,26 +22,26 @@ Apply to adopt a child
         errorList: errors
       }) }}
       {% for error in errors %}
-        {% if error.href == '#solicitor-helping' %}
-          {% set solicitorHelpingError = error.text %}
+        {% if error.href == '#no-answer' %}
+          {% set noAnswerError = error.text %}
         {% endif %}
-      {% endfor %}
+        {% endfor %}
       {% endif %}
 
 
-      <form action="/version-1/children/solicitor-helping" method="post" class="form">
+      <form action="/version-1/children/orders-remove-court-order" method="post" class="form">
         
-        <div class="govuk-form-group {% if (solicitorHelpingError != '')%} govuk-form-group--error {% endif %}">
+        <div class="govuk-form-group {% if (noAnswerError != '')%} govuk-form-group--error {% endif %}">
         <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
-          <span class="govuk-caption-l">{{ data['solicitor'] }}</span>
+          <span class="govuk-caption-l">{{ data['child'] }}</span>
           <h1 class="govuk-fieldset__heading">
-            Is a solicitor helping you with this application?
+            Are you sure you want to remove this {{ data['childOrderType'][data['id']]}}?
           </h1>
         </legend>
 
-        {% if (solicitorHelpingError != '')%}
+        {% if (noAnswerError != '')%}
           <span class="govuk-error-message govuk-form">
-            <span class="govuk-visually-hidden">Error:</span> {{ solicitorHelpingError }}
+            <span class="govuk-visually-hidden">Error:</span> {{ noAnswerError }}
           </span>
         {% endif %}
 
@@ -50,27 +50,27 @@ Apply to adopt a child
 
             <div class="govuk-radios govuk-radios--conditional" data-module="govuk-radios">
               <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="yes" name="solicitor-helping" type="radio" value="Yes" {% if (data['solicitor-helping'] === "Yes") %} checked {% endif %}>
+                <input class="govuk-radios__input" id="yes" name="child-remove-court-order" type="radio" value="yes">
                 <label class="govuk-label govuk-radios__label" for="yes">
                   Yes
                 </label>
               </div>
 
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="no" name="solicitor-helping" type="radio" value="No" {% if (data['solicitor-helping'] === "No") %} checked {% endif %}>
-                <label class="govuk-label govuk-radios__label" for="no">
-                  No
-                </label>
-              </div>
+              <div class="govuk-radios govuk-radios--conditional" data-module="govuk-radios">
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="no" name="child-remove-court-order" type="radio" value="no">
+                  <label class="govuk-label govuk-radios__label" for="no">
+                    No
+                  </label>
+                </div>
   
             </div>
+            <input type="hidden" name="child-order-id" value="{{ data['id'] }}">
           </fieldset>
         </div>
-        </div>
-      
-
-        <!-- Buttons -->
-          {% include "../../includes/buttons.html" %}
+      </div>
+      <!-- Buttons -->
+        {% include "../../includes/buttons.html" %}
 
 
       </form>   

@@ -202,6 +202,7 @@ module.exports = (router) => {
 
       if (req.body['submit-button'] === 'save-and-continue') {
         if (errors.length === 0) {
+          req.session.data.firstApplicantPersonalDetailsStatus = 'in progress'
           res.redirect('/version-1/applicants/first-applicant-other-names')
         }
         else {
@@ -234,6 +235,20 @@ module.exports = (router) => {
           errors.push({
             text: 'Enter your last names',
             href: '#first-applicant-no-last-names'
+          })
+        }
+      }
+      if (req.body['submit-button'] === 'add') {
+        if (req.body['first-applicant-previous-first-names'].length === 0  && req.session.data.firstApplicantNameCount >= 1) {
+          errors.push({
+            text: 'Enter your first names',
+            href: '#first-applicant-no-additional-first-names'
+          })
+        }
+        if (req.body['first-applicant-previous-last-names'].length === 0 && req.session.data.firstApplicantNameCount >= 1) {
+          errors.push({
+            text: 'Enter your last names',
+            href: '#first-applicant-no-additional-last-names'
           })
         }
       }
@@ -347,6 +362,7 @@ module.exports = (router) => {
 
     if (req.body['submit-button'] === 'save-and-continue') {
       if (errors.length === 0) {
+        req.session.data.firstApplicantPersonalDetailsStatus = 'completed'
         res.redirect('/version-1/task-list')
       }
       else {
@@ -373,6 +389,7 @@ module.exports = (router) => {
     }
     if (req.body['submit-button'] === 'save-and-continue') {
       if (errors.length === 0) {
+        req.session.data.firstApplicantContactDetailsStatus = 'in progress'
         res.redirect('/version-1/applicants/first-applicant-find-address')
       }
       else {
@@ -410,19 +427,19 @@ module.exports = (router) => {
 
   router.post('/version-1/applicants/first-applicant-enter-address-manually', function(req, res) {
     var errors = []
-    if (req.body['address-line-1'] === '') {
+    if (req.body['first-applicant-address-line-1'] === '') {
       errors.push({
       text: 'Enter the first line of the address',
       href: '#first-line'
       })
     }
-    if (req.body['address-town'] === '') {
+    if (req.body['first-applicant-address-town'] === '') {
       errors.push({
       text: 'Enter the town or city',
       href: '#town'
       })
     }
-    if (req.body['address-postcode'] === '') {
+    if (req.body['first-applicant-address-postcode'] === '') {
       errors.push({
       text: 'Enter the postcode',
       href: '#postcode'
@@ -431,6 +448,7 @@ module.exports = (router) => {
 
     if (req.body['submit-button'] === 'save-and-continue') {
       if (errors.length === 0) {
+        req.session.data.firstApplicantContactDetailsStatus = 'in progress'
         res.redirect('/version-1/applicants/first-applicant-contact')
       }
       else {
@@ -476,6 +494,7 @@ module.exports = (router) => {
 
     if (req.body['submit-button'] === 'save-and-continue') {
       if (errors.length === 0) {
+        req.session.data.firstApplicantContactDetailsStatus = 'completed'
         res.redirect('/version-1/task-list')
       }
       else {
@@ -486,34 +505,6 @@ module.exports = (router) => {
       res.redirect('/version-1/task-list')
     }
   })
-
-
-
-
-  // ********************** First applicant upload **********************
-  router.post('/version-1/applicants/first-applicant-upload', function(req, res) {
-    var errors = []
-    if (req.body['first-applicant-upload'] === '') {
-      errors.push({
-      text: 'Error message',
-      href: '#first-applicant-upload'
-      })
-    }
-
-    if (req.body['submit-button'] === 'save-and-continue') {
-      if (errors.length === 0) {
-        req.session.data.upload = 1
-        res.redirect('/version-1/task-list')
-      }
-      else {
-        res.render('.//version-1/applicants/first-applicant-upload', { errors: errors })
-      }
-    }
-    else {
-      res.redirect('/version-1/task-list')
-    }
-  })
-
 
 
 
@@ -536,6 +527,7 @@ module.exports = (router) => {
 
     if (req.body['submit-button'] === 'save-and-continue') {
       if (errors.length === 0) {
+        req.session.data.secondApplicantPersonalDetailsStatus = 'in progress'
         res.redirect('/version-1/applicants/second-applicant-other-names')
       }
       else {
@@ -568,6 +560,20 @@ module.exports = (router) => {
         errors.push({
           text: 'Enter your last names',
           href: '#second-applicant-no-last-names'
+        })
+      }
+    }
+    if (req.body['submit-button'] === 'add') {
+      if (req.body['second-applicant-previous-first-names'].length === 0  && req.session.data.secondApplicantNameCount >= 1) {
+        errors.push({
+          text: 'Enter your first names',
+          href: '#second-applicant-no-additional-first-names'
+        })
+      }
+      if (req.body['second-applicant-previous-last-names'].length === 0 && req.session.data.secondApplicantNameCount >= 1) {
+        errors.push({
+          text: 'Enter your last names',
+          href: '#second-applicant-no-additional-last-names'
         })
       }
     }
@@ -682,6 +688,7 @@ module.exports = (router) => {
 
     if (req.body['submit-button'] === 'save-and-continue') {
       if (errors.length === 0) {
+        req.session.data.secondApplicantPersonalDetailsStatus = 'completed'
         res.redirect('/version-1/task-list')
       }
       else {
@@ -710,8 +717,7 @@ router.post('/version-1/applicants/second-applicant-same-address', function(req,
   if (errors.length === 0) {
    if (req.body['submit-button'] === 'save-and-continue') {
       if (req.body['same-address'] === "Yes") {
-        // console.log("Test: ",req.body['same-address'])
-        req.session.data.secondApplicantAddress = 1
+        req.session.data.secondApplicantContactDetailsStatus = 'in progress'
         res.redirect('/version-1/applicants/second-applicant-contact')
       }
       else {
@@ -739,6 +745,7 @@ router.post('/version-1/applicants/second-applicant-address', function(req, res)
   }
   if (req.body['submit-button'] === 'save-and-continue') {
     if (errors.length === 0) {
+      req.session.data.secondApplicantContactDetailsStatus = 'in progress'
       res.redirect('/version-1/applicants/second-applicant-find-address')
     }
     else {
@@ -776,19 +783,19 @@ router.post('/version-1/applicants/second-applicant-find-address', function(req,
 
 router.post('/version-1/applicants/second-applicant-enter-address-manually', function(req, res) {
   var errors = []
-  if (req.body['address-line-1'] === '') {
+  if (req.body['second-applicant-address-line-1'] === '') {
     errors.push({
     text: 'Enter the first line of the address',
     href: '#first-line'
     })
   }
-  if (req.body['address-town'] === '') {
+  if (req.body['second-applicant-address-town'] === '') {
     errors.push({
     text: 'Enter the town or city',
     href: '#town'
     })
   }
-  if (req.body['address-postcode'] === '') {
+  if (req.body['second-applicant-address-postcode'] === '') {
     errors.push({
     text: 'Enter the postcode',
     href: '#postcode'
@@ -797,6 +804,7 @@ router.post('/version-1/applicants/second-applicant-enter-address-manually', fun
 
   if (req.body['submit-button'] === 'save-and-continue') {
     if (errors.length === 0) {
+      req.session.data.secondApplicantContactDetailsStatus = 'in progress'
       res.redirect('/version-1/applicants/second-applicant-contact')
     }
     else {
@@ -843,6 +851,7 @@ router.post('/version-1/applicants/second-applicant-contact', function(req, res)
     // req.session.data.secondApplicantContactCheckbox = req.body['second-applicant-contact-options']
   if (req.body['submit-button'] === 'save-and-continue') {
     if (errors.length === 0) {
+      req.session.data.secondApplicantContactDetailsStatus = 'completed'
       res.redirect('/version-1/task-list')
     }
     else {
@@ -908,6 +917,7 @@ router.post('/version-1/applicants/second-applicant-upload', function(req, res) 
 
     if (req.body['submit-button'] === 'save-and-continue') {
       if (errors.length === 0) {
+        req.session.data.childDetailsStatus = 'in progress'
         res.redirect('/version-1/children/child-date-birth')
       }
       else {
@@ -994,7 +1004,7 @@ router.post('/version-1/applicants/second-applicant-upload', function(req, res) 
     count = req.session.data.childNationalityCount
     if (req.body['submit-button'] === 'save-and-continue') {
       if (errors.length === 0) {
-        req.session.data.birthCertificateCompleted = 1
+        req.session.data.childDetailsStatus = 'completed'
         req.session.data.childNationalities[count] = req.body['child-different-country']
         res.redirect('/version-1/task-list')
       }
@@ -1038,6 +1048,7 @@ router.post('/version-1/applicants/second-applicant-upload', function(req, res) 
 
     if (req.body['submit-button'] === 'save-and-continue') {
       if (errors.length === 0) {
+        req.session.data.adoptionCertificateStatus = 'completed'
         res.redirect('/version-1/task-list')
       }
       else {
@@ -1045,7 +1056,13 @@ router.post('/version-1/applicants/second-applicant-upload', function(req, res) 
       }
     }
     else {
-      res.redirect('/version-1/task-list')
+      if (req.body['certificate-first-names'] === '' && req.body['certificate-last-names'] === '') {
+        res.redirect('/version-1/task-list')
+      }
+      else {
+        req.session.data.adoptionCertificateStatus = 'in progress'
+        res.redirect('/version-1/task-list')
+      }
     }
   })
 
@@ -1072,6 +1089,7 @@ router.post('/version-1/applicants/second-applicant-upload', function(req, res) 
 
     if (req.body['submit-button'] === 'save-and-continue') {
       if (errors.length === 0) {
+        req.session.data.motherStatus = 'in progress'
         res.redirect('/version-1/children/mother-alive')
       }
       else {
@@ -1093,7 +1111,7 @@ router.post('/version-1/applicants/second-applicant-upload', function(req, res) 
       href: '#mother-alive'
       })
     }
-    else if (req.body['mother-alive'] === 'unsure' && req.body['reason-not-sure'] === '') {
+    else if (req.body['mother-alive'] === 'Not sure' && req.body['mother-reason-not-sure'] === '') {
       // console.log("Mother no reason")
       errors.push({
       text: 'Enter more detail',
@@ -1103,11 +1121,11 @@ router.post('/version-1/applicants/second-applicant-upload', function(req, res) 
 
     if (req.body['submit-button'] === 'save-and-continue') {
       if (errors.length === 0) {
-        if (req.body['mother-alive'] === 'yes') {
+        if (req.body['mother-alive'] === 'Yes') {
           res.redirect('/version-1/children/mother-nationality')
         }
         else {
-          req.session.data.birthMotherComplete = 1
+          req.session.data.motherStatus = 'completed'
           res.redirect('/version-1/task-list')
         }
       }
@@ -1202,7 +1220,7 @@ router.post('/version-1/applicants/second-applicant-upload', function(req, res) 
       href: '#mother-have-address'
       })
     }
-    else if (req.body['mother-have-address'] === 'no' && req.body['reason-mother'] === '') {
+    else if (req.body['mother-have-address'] === 'No' && req.body['reason-mother'] === '') {
       errors.push({
       text: 'Provide a reason',
       href: '#reason-mother'
@@ -1210,8 +1228,8 @@ router.post('/version-1/applicants/second-applicant-upload', function(req, res) 
     }
     if (req.body['submit-button'] === 'save-and-continue') {
       if (errors.length === 0) {
-        if (req.body['mother-have-address'] === 'no') {
-          req.session.data.birthMotherComplete = 1
+        if (req.body['mother-have-address'] === 'No') {
+          req.session.data.motherStatus = 'completed'
           res.redirect('/version-1/task-list')
         }
         else {
@@ -1262,7 +1280,7 @@ router.post('/version-1/applicants/second-applicant-upload', function(req, res) 
 
     if (req.body['submit-button'] === 'save-and-continue') {
       if (errors.length === 0) {
-        req.session.data.motherAddress = 1
+        req.session.data.motherStatus = 'completed'
         res.redirect('/version-1/task-list')
       }
       else {
@@ -1298,7 +1316,7 @@ router.post('/version-1/applicants/second-applicant-upload', function(req, res) 
 
     if (req.body['submit-button'] === 'save-and-continue') {
       if (errors.length === 0) {
-        req.session.data.motherAddress = 1
+        req.session.data.motherStatus = 'completed'
         res.redirect('/version-1/task-list')
       }
       else {
@@ -1328,7 +1346,7 @@ router.post('/version-1/applicants/second-applicant-upload', function(req, res) 
 
     if (req.body['submit-button'] === 'save-and-continue') {
       if (errors.length === 0) {
-        req.session.data.motherAddress = 1
+        req.session.data.motherStatus = 'completed'
         res.redirect('/version-1/task-list')
       }
       else {
@@ -1358,8 +1376,8 @@ router.post('/version-1/applicants/second-applicant-upload', function(req, res) 
 
     if (req.body['submit-button'] === 'save-and-continue') {
       if (errors.length === 0) {
-        if (req.body['father-in-certificate'] == 'no') {
-          req.session.data.fatherAddress = 1
+        if (req.body['father-in-certificate'] == 'No') {
+          req.session.data.fatherStatus = 'completed'
           res.redirect('/version-1/children/other-parent-exists')
         }
         else {
@@ -1393,6 +1411,7 @@ router.post('/version-1/applicants/second-applicant-upload', function(req, res) 
 
     if (req.body['submit-button'] === 'save-and-continue') {
       if (errors.length === 0) {
+        req.session.data.fatherStatus = 'in progress'
         res.redirect('/version-1/children/father-alive')
       }
       else {
@@ -1414,7 +1433,7 @@ router.post('/version-1/applicants/second-applicant-upload', function(req, res) 
       href: '#father-alive'
       })
     }
-    else if (req.body['father-alive'] === 'unsure' && req.body['reason-not-sure'] === '') {
+    else if (req.body['father-alive'] === 'Not sure' && req.body['father-reason-not-sure'] === '') {
       // console.log("father no reason")
       errors.push({
       text: 'Enter more details',
@@ -1424,11 +1443,11 @@ router.post('/version-1/applicants/second-applicant-upload', function(req, res) 
 
     if (req.body['submit-button'] === 'save-and-continue') {
       if (errors.length === 0) {
-        if (req.body['father-alive'] === 'yes') {
+        if (req.body['father-alive'] === 'Yes') {
           res.redirect('/version-1/children/father-nationality')
         }
         else {
-          req.session.data.birthfatherComplete = 1
+          req.session.data.fatherStatus = 'completed'
           res.redirect('/version-1/task-list')
         }
       }
@@ -1523,7 +1542,7 @@ router.post('/version-1/applicants/second-applicant-upload', function(req, res) 
       href: '#father-have-address'
       })
     }
-    else if (req.body['father-have-address'] === 'no' && req.body['reason-father'] === '') {
+    else if (req.body['father-have-address'] === 'No' && req.body['reason-father'] === '') {
       errors.push({
       text: 'Provide a reason',
       href: '#reason-father'
@@ -1532,7 +1551,8 @@ router.post('/version-1/applicants/second-applicant-upload', function(req, res) 
 
     if (req.body['submit-button'] === 'save-and-continue') {
       if (errors.length === 0) {
-        if (req.body['father-have-address'] == 'no') {
+        if (req.body['father-have-address'] == 'No') {
+          req.session.data.fatherStatus = 'completed'
           res.redirect('/version-1/task-list')
         }
         else {
@@ -1583,7 +1603,7 @@ router.post('/version-1/applicants/second-applicant-upload', function(req, res) 
 
     if (req.body['submit-button'] === 'save-and-continue') {
       if (errors.length === 0) {
-        req.session.data.fatherAddress = 1
+        req.session.data.fatherStatus = 'completed'
         res.redirect('/version-1/task-list')
       }
       else {
@@ -1598,19 +1618,19 @@ router.post('/version-1/applicants/second-applicant-upload', function(req, res) 
 
   router.post('/version-1/children/father-manual-address', function(req, res) {
     var errors = []
-    if (req.body['address-line-1'] === '') {
+    if (req.body['father-address-line-1'] === '') {
       errors.push({
       text: 'Enter the first line of the address',
       href: '#first-line'
       })
     }
-    if (req.body['address-town'] === '') {
+    if (req.body['father-address-town'] === '') {
       errors.push({
       text: 'Enter the town or city',
       href: '#town'
       })
     }
-    if (req.body['address-postcode'] === '') {
+    if (req.body['father-address-postcode'] === '') {
       errors.push({
       text: 'Enter the postcode',
       href: '#postcode'
@@ -1619,7 +1639,7 @@ router.post('/version-1/applicants/second-applicant-upload', function(req, res) 
 
     if (req.body['submit-button'] === 'save-and-continue') {
       if (errors.length === 0) {
-        req.session.data.fatherAddress = 1
+        req.session.data.fatherStatus = 'completed'
         res.redirect('/version-1/task-list')
       }
       else {
@@ -1633,13 +1653,13 @@ router.post('/version-1/applicants/second-applicant-upload', function(req, res) 
 
   router.post('/version-1/children/father-manual-address-international', function(req, res) {
     var errors = []
-    if (req.body['address-line-1'] === '') {
+    if (req.body['father-address-line-1'] === '') {
       errors.push({
       text: 'Enter the first line of the address',
       href: '#first-line'
       })
     }
-    if (req.body['country'] === '') {
+    if (req.body['father-country'] === '') {
       errors.push({
       text: 'Enter the country',
       href: '#country'
@@ -1649,7 +1669,7 @@ router.post('/version-1/applicants/second-applicant-upload', function(req, res) 
 
     if (req.body['submit-button'] === 'save-and-continue') {
       if (errors.length === 0) {
-        req.session.data.motherAddress = 1
+        req.session.data.fatherStatus = 'completed'
         res.redirect('/version-1/task-list')
       }
       else {
@@ -1675,7 +1695,7 @@ router.post('/version-1/applicants/second-applicant-upload', function(req, res) 
       href: '#other-parent'
       })
     }
-    else if (req.body['other-parent-exists'] === 'unsure' && req.body['reason-not-sure'] === '') {
+    else if (req.body['other-parent-exists'] === 'unsure' && req.body['other-parent-reason-not-sure'] === '') {
       // console.log("father no reason")
       errors.push({
       text: 'Enter more detail',
@@ -1685,11 +1705,11 @@ router.post('/version-1/applicants/second-applicant-upload', function(req, res) 
 
     if (req.body['submit-button'] === 'save-and-continue') {
       if (errors.length === 0) {
-        if (req.body['other-parent-exists'] === 'yes') {
+        if (req.body['other-parent-exists'] === 'Yes') {
           res.redirect('/version-1/children/other-parent-name')
         }
         else {
-          req.session.data.otherParentCompleted = 1
+          req.session.data.otherParentStatus = 'completed'
           res.redirect('/version-1/task-list')
         }
       }
@@ -1720,6 +1740,7 @@ router.post('/version-1/applicants/second-applicant-upload', function(req, res) 
 
     if (req.body['submit-button'] === 'save-and-continue') {
       if (errors.length === 0) {
+        req.session.data.otherParentStatus = 'in progress'
         res.redirect('/version-1/children/other-parent-have-address')
       }
       else {
@@ -1740,7 +1761,7 @@ router.post('/version-1/applicants/second-applicant-upload', function(req, res) 
       href: '#other-parent-have-address'
       })
     }
-    else if (req.body['other-parent-have-address'] === 'no' && req.body['reason-other-parent'] === '') {
+    else if (req.body['other-parent-have-address'] === 'No' && req.body['reason-other-parent'] === '') {
       errors.push({
       text: 'Provide a reason',
       href: '#other-parent-reason'
@@ -1749,8 +1770,8 @@ router.post('/version-1/applicants/second-applicant-upload', function(req, res) 
 
     if (req.body['submit-button'] === 'save-and-continue') {
       if (errors.length === 0) {
-        if (req.body['other-parent-have-address'] == 'no') {
-          req.session.data.otherParentCompleted = 1
+        if (req.body['other-parent-have-address'] == 'No') {
+          req.session.data.otherParentStatus = 'completed'
           res.redirect('/version-1/task-list')
         }
         else {
@@ -1801,7 +1822,7 @@ router.post('/version-1/applicants/second-applicant-upload', function(req, res) 
 
     if (req.body['submit-button'] === 'save-and-continue') {
       if (errors.length === 0) {
-        req.session.data.otherParentCompleted = 1
+        req.session.data.otherParentStatus = 'completed'
         res.redirect('/version-1/task-list')
       }
       else {
@@ -1816,19 +1837,19 @@ router.post('/version-1/applicants/second-applicant-upload', function(req, res) 
 
   router.post('/version-1/children/other-parent-manual-address', function(req, res) {
     var errors = []
-    if (req.body['address-line-1'] === '') {
+    if (req.body['other-parent-address-line-1'] === '') {
       errors.push({
       text: 'Enter the first line of the address',
       href: '#first-line'
       })
     }
-    if (req.body['address-town'] === '') {
+    if (req.body['other-parent-address-town'] === '') {
       errors.push({
       text: 'Enter the town or city',
       href: '#town'
       })
     }
-    if (req.body['address-postcode'] === '') {
+    if (req.body['other-parent-address-postcode'] === '') {
       errors.push({
       text: 'Enter the postcode',
       href: '#postcode'
@@ -1837,7 +1858,7 @@ router.post('/version-1/applicants/second-applicant-upload', function(req, res) 
 
     if (req.body['submit-button'] === 'save-and-continue') {
       if (errors.length === 0) {
-        req.session.data.otherParentCompleted = 1
+        req.session.data.otherParentStatus = 'completed'
         res.redirect('/version-1/task-list')
       }
       else {
@@ -1852,13 +1873,13 @@ router.post('/version-1/applicants/second-applicant-upload', function(req, res) 
 
   router.post('/version-1/children/other-parent-manual-address-international', function(req, res) {
     var errors = []
-    if (req.body['address-line-1'] === '') {
+    if (req.body['other-parent-address-line-1'] === '') {
       errors.push({
       text: 'Enter the first line of the address',
       href: '#first-line'
       })
     }
-    if (req.body['country'] === '') {
+    if (req.body['other-parent-country'] === '') {
       errors.push({
       text: 'Enter the country',
       href: '#country'
@@ -1868,7 +1889,7 @@ router.post('/version-1/applicants/second-applicant-upload', function(req, res) 
 
     if (req.body['submit-button'] === 'save-and-continue') {
       if (errors.length === 0) {
-        req.session.data.motherAddress = 1
+        req.session.data.otherParentStatus = 'completed'
         res.redirect('/version-1/task-list')
       }
       else {
@@ -1914,6 +1935,7 @@ router.post('/version-1/applicants/second-applicant-upload', function(req, res) 
 
     if (req.body['submit-button'] === 'save-and-continue') {
       if (errors.length === 0) {
+        req.session.data.agencyStatus = 'in progress'
         res.redirect('/version-1/children/applicant-other-adoption-agency')
       }
       else {
@@ -1938,7 +1960,7 @@ router.post('/version-1/applicants/second-applicant-upload', function(req, res) 
 
     if (req.body['submit-button'] === 'save-and-continue') {
       if (errors.length === 0) {
-        if (req.body['other-adoption-agency'] === 'yes') {
+        if (req.body['other-adoption-agency'] === 'Yes') {
           res.redirect('/version-1/children/applicant-adoption-agency-details-2')
         }
         else {
@@ -2048,11 +2070,11 @@ router.post('/version-1/applicants/second-applicant-upload', function(req, res) 
 
     if (req.body['submit-button'] === 'save-and-continue') {
       if (errors.length === 0) {
-        if (req.body['solicitor-helping'] === 'yes') {
+        if (req.body['solicitor-helping'] === 'Yes') {
           res.redirect('/version-1/children/solicitor-details')
         }
         else {
-          req.session.data.solicitorCompleted = 1
+          req.session.data.agencyStatus = 'completed'
           res.redirect('/version-1/task-list')
         }
       }
@@ -2095,7 +2117,7 @@ router.post('/version-1/applicants/second-applicant-upload', function(req, res) 
 
     if (req.body['submit-button'] === 'save-and-continue') {
       if (errors.length === 0) {
-        req.session.data.solicitorCompleted = 1
+        req.session.data.agencyStatus = 'completed'
         res.redirect('/version-1/task-list')
       }
       else {
@@ -2125,6 +2147,7 @@ router.post('/version-1/applicants/second-applicant-upload', function(req, res) 
     count = req.session.data.childOrderCount
 
     if (req.body['submit-button'] === 'save-and-continue') {
+      req.session.data.placementStatus = 'in progress'
       if (errors.length === 0) {
         req.session.data.childOrderCount = count
         req.session.data.childOrderType[count] = "Placement order"
@@ -2139,8 +2162,13 @@ router.post('/version-1/applicants/second-applicant-upload', function(req, res) 
       }
     }
     else {
-      req.session.data.childOrderInProgress = "Yes"
-      res.redirect('/version-1/task-list')
+      if (req.body['placement-case-number'] === '') {
+        res.redirect('/version-1/task-list')
+      }
+      else {
+        req.session.data.placementStatus = 'in progress'
+        res.redirect('/version-1/task-list')
+      }
     }
   })
 
@@ -2167,7 +2195,13 @@ router.post('/version-1/applicants/second-applicant-upload', function(req, res) 
       }
     }
     else {
-      res.redirect('/version-1/task-list')
+      if (req.body['placement-court-name'] === '') {
+        res.redirect('/version-1/task-list')
+      }
+      else {
+        req.session.data.placementStatus = 'in progress'
+        res.redirect('/version-1/task-list')
+      }
     }
   })
 
@@ -2185,6 +2219,7 @@ router.post('/version-1/applicants/second-applicant-upload', function(req, res) 
 
     if (req.body['submit-button'] === 'save-and-continue') {
       if (errors.length === 0) {
+        req.session.data.childOrderIncomplete = 0
         req.session.data.childOrderDay[count] = req.body['placement-day']
         req.session.data.childOrderMonth[count] = req.body['placement-month']
         req.session.data.childOrderYear[count] = req.body['placement-year']
@@ -2220,7 +2255,12 @@ router.post('/version-1/applicants/second-applicant-upload', function(req, res) 
           res.redirect('/version-1/children/orders-order-type')
         }
         else {
-          req.session.data.AddToListFinished = 1
+          if (req.session.data.childOrderIncomplete === 0) {
+            req.session.data.placementStatus = 'completed'
+          }
+          else {
+            req.session.data.placementStatus = 'in progress'
+          }
           res.redirect('/version-1/task-list')
         }
       }
@@ -2345,6 +2385,45 @@ router.post('/version-1/applicants/second-applicant-upload', function(req, res) 
   })
 
 
+  router.post('/version-1/children/orders-remove-court-order', function(req, res) {
+    var occ = 0
+    var errors = []
+    if (req.body['child-remove-court-order'] === undefined) {
+      errors.push({
+      text: 'Please answer the question',
+      href: '#no-answer'
+      })
+    }
+
+    id = req.body['child-order-id']
+    console.log("child-order-id: ",id)
+
+    if (errors.length === 0) {
+      for (let index = 0; index < req.session.data.childOrderId.length; index++) {
+        if (req.session.data.childOrderId[index] == id) {
+          console.log("index: ", index)
+          delete req.session.data.childOrderId[index];
+          delete req.session.data.childOrderType[index];
+          delete req.session.data.childOrderNumber[index];
+          delete req.session.data.childOrderCourt[index];
+          delete req.session.data.childOrderDay[index];
+          delete req.session.data.childOrderMonth[index];
+          delete req.session.data.childOrderYear[index];
+          delete req.session.data.childOrderCompleted[index];
+          req.session.data.childOrderCount--
+        }
+      }
+      console.log("child first names orders: ", req.session.data.childFirstNames)
+      console.log("child order count: ", req.session.data.childOrderCount)
+
+      res.redirect('/version-1/children/orders-summary')
+    }
+    else {
+      res.render('.//version-1/children/orders-remove-order-court', { errors: errors })
+    }
+  })
+
+
 
 
   // ********************** Sibling details **********************
@@ -2367,10 +2446,11 @@ router.post('/version-1/applicants/second-applicant-upload', function(req, res) 
     if (req.body['submit-button'] === 'save-and-continue') {
       if (errors.length === 0) {
         if (req.body['sibling-exists'] === 'yes') {
+          req.session.data.siblingStatus = 'in progress'
           res.redirect('/version-1/children/sibling-court-order-exists')
         }
         else {
-          req.session.data.siblingCompleted = 1
+          req.session.data.siblingStatus = 'completed'
           res.redirect('/version-1/task-list')
         }
       }
@@ -2390,7 +2470,7 @@ router.post('/version-1/applicants/second-applicant-upload', function(req, res) 
     if (req.body['sibling-court-order-exists'] === undefined) {
       errors.push({
       text: 'Please answer the question',
-      href: '#ourt-order-checkbox'
+      href: '#court-order-checkbox'
       })
     }
     else if (req.body['sibling-court-order-exists'] === 'unsure' && req.body['reason-not-sure'] === '') {
@@ -2406,7 +2486,7 @@ router.post('/version-1/applicants/second-applicant-upload', function(req, res) 
           res.redirect('/version-1/children/sibling-name')
         }
         else {
-          req.session.data.siblingCompleted = 1
+          req.session.data.siblingStatus = 'completed'
           res.redirect('/version-1/task-list')
         }
       }
@@ -2688,6 +2768,7 @@ router.post('/version-1/applicants/second-applicant-upload', function(req, res) 
 
     if (req.body['submit-button'] === 'save-and-continue') {
       if (errors.length === 0) {
+        req.session.data.siblingOrderIncomplete = 0
         req.session.data.siblingOrderDay[count] = req.body['sibling-day']
         req.session.data.siblingOrderMonth[count] = req.body['sibling-month']
         req.session.data.siblingOrderYear[count] = req.body['sibling-year']
@@ -2745,7 +2826,12 @@ router.post('/version-1/applicants/second-applicant-upload', function(req, res) 
           res.redirect('/version-1/children/sibling-choose-sibling')
         }
         else {
-          req.session.data.siblingOrderCompleted = 1
+          if (req.session.data.siblingOrderIncomplete === 0) {
+            req.session.data.siblingStatus = 'completed'
+          }
+          else {
+            req.session.data.siblingStatus = 'in progress'
+          }
           res.redirect('/version-1/task-list')
         }
       }
@@ -2917,6 +3003,10 @@ router.post('/version-1/applicants/second-applicant-upload', function(req, res) 
     }
   })
 
+
+
+
+  // ********************** Family court finder **********************
   router.post('/version-1/children/family-court-finder', function(req, res) {
     var errors = []
     if (req.body['court-name'] === '') {
@@ -2925,16 +3015,30 @@ router.post('/version-1/applicants/second-applicant-upload', function(req, res) 
       href: '#no-court-name'
       })
     }
-    if (req.body['continue'] === 'save-and-continue') {
+    if (req.body['submit-button'] === 'save-and-continue') {
       if (errors.length === 0) {
+        req.session.data.familyCourtStatus = 'completed'
         res.redirect('/version-1/task-list')
       }
       else {
         res.render('.//version-1/children/family-court-finder', { errors: errors })
       }
     }
+    else {
+      if (req.body['court-name'] === '') {
+        res.redirect('/version-1/task-list')
+      }
+      else {
+        req.session.data.familyCourtStatus = 'in progress'
+        res.redirect('/version-1/task-list')
+      }
+    }
+  })
 
-    })
+
+
+  
+
 // ******************************************** SECTION 4. UPLOADS ********************************************
 // ************************************************************************************************************************************
 
