@@ -1,21 +1,23 @@
-{% extends "layout-ex-ui.html" %}
-
-{% block pageTitle %}
-Apply to adopt a child
+{% block header %}
+  {% include "includes/newheader.html" %}
 {% endblock %}
 
-{% block content %}
-<div class="govuk-width-container">
-  <div class="govuk-grid-row">        
-    <div class="govuk-grid-column-two-thirds">
-      <h1 class="govuk-heading-l">
-        #1234-1827-2765-7647
-      </h1>
-    </div>
-    <div class="govuk-grid-column-one-third">
-        {% include "../../includes/next-steps.html" %}
-    </div>
+
+<html lang="en" class="govuk-template ">
+    <div style=" max-width:1300px; margin: 0 auto;">
+        <div style=" max-width:1300px;  min-width:1300px;  margin: 20px 0px 0px 0px;  ">
+            <main class="govuk-main-wrapper " id="main-content" role="main" style="padding-top: 25px;">
+                <div class="govuk-width-container">
+                    <main class="" id="main-content" role="main">
+                        <div class="govuk-grid-row" style="width:1300px; margin-left: -90px;">
+                            <div class="" style="display: flex; justify-content: space-between; ">
+                                <div>
+                                    <span class="govuk-caption-l" style="padding-top: 0px">1234-5678-9012-3456</span>
+                                        <h1 class="govuk-heading-xl">Smith v Peterson  &nbsp;&nbsp;&nbsp; </h1>
+
+                                            {% include "../../includes/next-steps.html" %}
   </div>
+  {% block content %}
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-full-width">
 
