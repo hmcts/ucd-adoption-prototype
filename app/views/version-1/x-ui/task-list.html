@@ -21,9 +21,9 @@
 
                               <div>
 
-                                  <span class="govuk-caption-l" style="padding-top: 0px">1234-5678-9012-3456</span>
+                                  <!-- <span class="govuk-caption-l" style="padding-top: 0px">1234-5678-9012-3456</span> -->
                                 
-                                  <h1 class="govuk-heading-xl">Smith v Peterson  &nbsp;&nbsp;&nbsp; </h1>
+                                  <h1 class="govuk-heading-xl">1234-5678-0921-2722  &nbsp;&nbsp;&nbsp; </h1>
 
                                   <!--
                                   <span style="margin-bottom:50px; padding-top: 25px;"><a href="#">Print</a></span>
@@ -62,37 +62,37 @@
 
                                   <li class="govuk-tabs__list-item">
                                     <a class="govuk-tabs__tab" href="#2">
-                                      Petition
+                                      Placeholder
                                     </a>
                                   </li>
                                   <li class="govuk-tabs__list-item">
                                     <a class="govuk-tabs__tab" href="#3">
-                                      AOS
+                                      Placeholder
                                     </a>
                                   </li>
                                   <li class="govuk-tabs__list-item">
                                     <a class="govuk-tabs__tab" href="#4">
-                                      Outcome of Decree Nisi
+                                      Placeholder
                                     </a>
                                   </li>
                                   <li class="govuk-tabs__list-item">
                                     <a class="govuk-tabs__tab" href="#5">
-                                      Documents
+                                      Placeholder
                                     </a>
                                   </li>
                                   <li class="govuk-tabs__list-item">
                                     <a class="govuk-tabs__tab" href="#6">
-                                      Marriage Certificate
+                                      Placeholder
                                     </a>
                                   </li>
                                   <li class="govuk-tabs__list-item">
                                     <a class="govuk-tabs__tab" href="#8">
-                                      Hearings
+                                      Placeholder
                                     </a>
                                   </li>
                                   <li class="govuk-tabs__list-item">
                                     <a class="govuk-tabs__tab" href="#9">
-                                      Case file
+                                      Placeholder
                                     </a>
                                   </li>
                                 </ul>
@@ -112,7 +112,7 @@
                                                   <!-- **************************************** 1. Add applicants' details **************************************** -->
                                                   <li>
                                                       <h2 class="app-task-list__section">
-                                                      <span class="app-task-list__section-number">1. </span>Add your details
+                                                      <span class="app-task-list__section-number">1. </span>Applicant's details
                                                       </h2>
                                                       <ul class="app-task-list__items">
                                           
@@ -257,7 +257,7 @@
                                                   <!-- **************************************** 2. Add the child's details **************************************** -->
                                                   <li>
                                                       <h2 class="app-task-list__section">
-                                                      <span class="app-task-list__section-number">2. </span>Add the child's details
+                                                      <span class="app-task-list__section-number">2. </span>Child's details
                                                       </h2>
                                                       <ul class="app-task-list__items">
                                           
@@ -425,6 +425,18 @@
                                           
                                                         <li class="app-task-list__item">
                                                           <span class="app-task-list__task-name">
+                                                            <p><a href="upload/child-documents-upload.html" aria-describedby="eligibility-completed">
+                                                                  Upload Annex A</a></p>
+                                                          </span>
+                                                          {% if data['annexA'] %}
+                                                          <strong class="govuk-tag  app-task-list__tag" id="eligibility-completed">Completed</strong>
+                                                              {% else %}
+                                                              <strong class="govuk-tag govuk-tag--grey app-task-list__tag">not started</strong>
+                                                          {% endif %}                                          
+                                                        </li>
+
+                                                        <li class="app-task-list__item">
+                                                          <span class="app-task-list__task-name">
                                                               <a href="upload/applicants-documents-upload.html" aria-describedby="eligibility-completed">
                                                             <p>Upload applicants' documents</p></a>
                                                           </span>
@@ -437,8 +449,8 @@
                                                           {% else %}
                                                               <strong class="govuk-tag govuk-tag--grey app-task-list__tag">cannot start yet</strong>
                                                           {% endif %}
-                                          
                                                         </li>
+
                                                         <li class="app-task-list__item">
                                                           <span class="app-task-list__task-name">
                                                               <a href="upload/child-documents-upload.html" aria-describedby="eligibility-completed">
@@ -448,8 +460,7 @@
                                                           <strong class="govuk-tag  app-task-list__tag" id="eligibility-completed">Completed</strong>
                                                               {% else %}
                                                               <strong class="govuk-tag govuk-tag--grey app-task-list__tag">cannot start yet</strong>
-                                                          {% endif %}
-                                          
+                                                          {% endif %}                                          
                                                         </li>
                                                       </ul>
                                                     </li>
