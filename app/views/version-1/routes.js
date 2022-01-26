@@ -3239,6 +3239,94 @@ router.post('/version-1/applicants/second-applicant-upload', function(req, res) 
   router.post('/version-1/check-pay-and-submit/process-payment', function(req, res) {
     res.redirect('/version-1/check-pay-and-submit/confirmation')
   })
+
+
+
+
+
+// ******************************************** SW collaboration - X-UI ********************************************
+// ************************************************************************************************************************************
+
+  // ******************************************** Child's details ********************************************
+  router.post('/version-1/x-ui/children/child', function(req, res) {
+
+    if (req.body['submit-button'] === 'continue') {
+      if (req.body['child-first-names'] && req.body['child-last-names'] && req.body['child-birth-day'] && req.body['child-birth-month'] && req.body['child-birth-year'] && req.body['child-sex'] && (req.body['child-british'] || req.body['child-irish'] || req.body['child-other'] || req.body['child-unsure'])) {
+        req.session.data.childDetailsStatus = 'completed'
+      }
+      else {
+        req.session.data.childDetailsStatus = 'in progress'
+      } 
+      res.redirect('/version-1/x-ui/task-list')
+    }
+    else {
+      res.redirect('/version-1/task-list')
+    }
+  })
+
+  router.post('/version-1/x-ui/children/child-with-errors', function(req, res) {
+    var errors = []
+    if (req.body['child-first-names'] === '') {
+      errors.push({
+      text: 'Enter the child\'s first names',
+      href: '#first-names'
+      })
+    }
+    if (req.body['child-last-names'] === '') {
+      errors.push({
+      text: 'Enter the child\'s last names',
+      href: '#last-names'
+      })
+    }
+    if (req.body['child-birth-day'] === '' || req.body['child-birth-month'] === '' || req.body['child-birth-year'] === '') {
+      errors.push({
+      text: 'Developers: please refer to ADOP-203 for different error messages',
+      href: '#child-date-birth'
+      })
+    }
+    if (req.body['child-sex'] === undefined) {
+      errors.push({
+      text: 'Please select an answer',
+      href: '#child-sex'
+      })
+    }
+    if (req.body['child-british'] === undefined && req.body['child-irish'] === undefined && req.body['child-other'] === undefined && req.body['child-unsure'] === undefined) {
+      // console.log("error")
+      errors.push({
+      text: 'Select a nationality or \'Not sure\'',
+      href: '#checkbox-error'
+      })
+    }
+    else if ((req.body['child-british'] !== undefined || req.body['child-irish'] !== undefined || req.body['child-other'] !== undefined) && req.body['child-unsure'] !== undefined) {
+      // console.log("error")
+      errors.push({
+      text: 'Select a nationality or \'Not sure\'',
+      href: '#checkbox-error'
+      })
+    }
+    else if (req.body['child-other'] !== undefined && req.session.data.childNationalityCount === 0) {
+      // console.log("no nationality added error: ", req.session.data.childNationalities)
+      errors.push({
+      text: 'This is not a valid entry',
+      href: '#no-country'
+      })
+    }
+
+    if (req.body['submit-button'] === 'continue') {
+      if (errors.length === 0) {
+        req.session.data.childDetailsStatus = 'completeted'
+        res.redirect('/version-1/x-ui/task-list')
+      }
+      else {
+        res.render('.//version-1/x-ui/children/child', { errors: errors })
+      }
+    }
+    else {
+      res.redirect('/version-1/task-list')
+    }
+  })
+
+
 // ***************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************
 // ************************************* Old functions not in use any more ************************************* //
   // router.post('/version-1/children/mother-why-no-address', function(req, res) {
