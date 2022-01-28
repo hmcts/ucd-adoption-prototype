@@ -38,19 +38,12 @@
 {% endblock %}
 
 {% block header %}
-  {% include "includes/newheader.html" %}
-  {# Set serviceName in config.js. #}
+  {% include "includes/sw-header.html" %}
 {% endblock %}
 
 {% block beforeContent %}
 {% from 'govuk/components/phase-banner/macro.njk' import govukPhaseBanner %}
 
-{{ govukPhaseBanner({
-  tag: {
-    text: "beta"
-  },
-  html: 'This is a new service - your <a href="#" class="govuk-link">feedback</a> will help us to improve it.'
-}) }}
 {% endblock %}
 
 {% set mainClasses = mainClasses | default("govuk-main-wrapper--auto-spacing") %}
