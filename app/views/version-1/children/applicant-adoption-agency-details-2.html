@@ -72,7 +72,7 @@ Apply to adopt a child
               <span class="govuk-visually-hidden">Error:</span> {{ phoneError }}
             </span>
             {% endif %}
-            <input class="govuk-input govuk-input--width-10 {% if (phoneError != '') %} govuk-input--error{% endif %}" id="applicant-phone-number-2" name="applicant-phone-number-2" type="number" autocomplete="address-level2" value="{{ data['applicant-phone-number-2'] }}">
+            <input class="govuk-input govuk-input--width-10 {% if (phoneError != '') %} govuk-input--error{% endif %}" id="applicant-phone-number-2" name="applicant-phone-number-2" type="number" autocomplete="tel" value="{{ data['applicant-phone-number-2'] }}">
           </div>
 
           <div class="govuk-form-group {% if (contactError != '') %} govuk-form-group--error{% endif %}">
