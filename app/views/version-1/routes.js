@@ -2041,7 +2041,8 @@ router.post('/version-1/applicants/second-applicant-upload', function(req, res) 
 
     if (req.body['submit-button'] === 'save-and-continue') {
       if (errors.length === 0) {
-        res.redirect('/version-1/children/solicitor-helping')
+        req.session.data.agencyStatus = 'completed'
+        res.redirect('/version-1/task-list')
       }
       else {
         res.render('.//version-1/children/child-social-worker-details', { errors: errors })
@@ -2662,8 +2663,10 @@ router.post('/version-1/applicants/second-applicant-upload', function(req, res) 
 
     if (req.body['submit-button'] === 'save-and-continue') {
       if (errors.length === 0) {
+        req.session.data.siblingOrderIncomplete = 0
+        req.session.data.siblingOrderCompleted[count] = "Yes"
         req.session.data.siblingOrderNumber[count] = req.body['sibling-order-case-number']
-        res.redirect('/version-1/children/sibling-order-court')
+        res.redirect('/version-1/children/sibling-summary')
       }
       else {
         res.render('.//version-1/children/sibling-order-case-number', { errors: errors })

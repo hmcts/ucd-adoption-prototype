@@ -1,0 +1,118 @@
+{% block header %}
+{% include "includes/sw-header.html" %}
+{% endblock %}
+
+
+<html lang="en" class="govuk-template ">  
+  <div style=" max-width:1300px; margin: 0 auto;">
+      <div style=" max-width:1300px;  min-width:1300px;  margin: 20px 0px 0px 0px;  ">
+          <main class="govuk-main-wrapper " id="main-content" role="main" style="padding-top: 25px;">                      
+              <div class="govuk-width-container">
+                <div class="govuk-grid-row" style="width:1300px; margin-left: -90px;">
+                    <div class="govuk-grid-column-full">
+                    <button class="govuk-button govuk-button--secondary" data-module="govuk-button" name="submit-button" value="hide-filter">
+                        Hide filter
+                      </button>
+                    </div>
+                    <div class="govuk-grid-column-one-third">
+                        <h2 class="govuk-heading-m">Filters</h2>
+                        <label class="govuk-label" for="sort">
+                            Jurisdiction
+                        </label>
+                        <div style="display: flex; align-items:right; padding-top: 0px;">
+                            <select class="govuk-select" id="sort" name="sort">
+                                <option value="published" selected="">Adoption</option>
+                                <option value="published">Submit amended application</option>
+                                <option value="published">Link respondent</option>
+                                <option value="published">Add Note</option>
+                                <option value="published">Upload document</option>
+                                <option value="updated">Stop representing a client</option>
+                                <option value="updated">Create a case flag</option>
+                                <option value="updated">Manage case flags</option>
+                                <option value="updated">Print</option>
+                            </select>                    
+                        </div>                    
+    
+                          <label class="govuk-label govuk-!-margin-top-6" for="sort">
+                            Case type
+                          </label>
+                          <div style="display: flex; align-items:right; padding-top: 0px;">
+                            <select class="govuk-select" id="sort" name="sort">
+                                <option value="published" selected="">C100</option>
+                                <option value="published">Submit amended application</option>
+                                <option value="published">Link respondent</option>
+                                <option value="published">Add Note</option>
+                                <option value="published">Upload document</option>
+                                <option value="updated">Stop representing a client</option>
+                                <option value="updated">Create a case flag</option>
+                                <option value="updated">Manage case flags</option>
+                                <option value="updated">Print</option>
+                            </select>                    
+                          </div>    
+                                          
+                        <label class="govuk-label govuk-!-margin-top-6" for="sort">
+                            State
+                        </label>
+                        <div style="display: flex; align-items:right; padding-top: 0px;">
+                            <select class="govuk-select" id="sort" name="sort">
+                                <option value="published" selected="">--Select a value--</option>
+                                <option value="published">Submit amended application</option>
+                                <option value="published">Link respondent</option>
+                                <option value="published">Add Note</option>
+                                <option value="published">Upload document</option>
+                                <option value="updated">Stop representing a client</option>
+                                <option value="updated">Create a case flag</option>
+                                <option value="updated">Manage case flags</option>
+                                <option value="updated">Print</option>
+                            </select>                    
+                        </div>                    
+    
+                          <label class="govuk-label govuk-!-margin-top-6" for="sort">
+                            Payment type
+                          </label>
+                          <div style="display: flex; align-items:right; padding-top: 0px;">
+                            <select class="govuk-select" id="sort" name="sort">
+                                <option value="published" selected="">--Select a value--</option>
+                                <option value="published">Submit amended application</option>
+                                <option value="published">Link respondent</option>
+                                <option value="published">Add Note</option>
+                                <option value="published">Upload document</option>
+                                <option value="updated">Stop representing a client</option>
+                                <option value="updated">Create a case flag</option>
+                                <option value="updated">Manage case flags</option>
+                                <option value="updated">Print</option>
+                            </select>                    
+                          </div>    
+                                          
+                        <label class="govuk-label govuk-!-margin-top-6" for="sort">
+                            Flags
+                        </label>
+                        <div style="display: flex; align-items:right; padding-top: 0px;">
+                            <select class="govuk-select" id="sort" name="sort">
+                                <option value="published" selected="">-- Select a value --</option>
+                                <option value="published">Submit amended application</option>
+                                <option value="published">Link respondent</option>
+                                <option value="published">Add Note</option>
+                                <option value="published">Upload document</option>
+                                <option value="updated">Stop representing a client</option>
+                                <option value="updated">Create a case flag</option>
+                                <option value="updated">Manage case flags</option>
+                                <option value="updated">Print</option>
+                            </select>                    
+                        </div>                    
+    
+                                          
+                    </div>
+                    <div class="govuk-grid-column-two-thirds">
+                        <h2 class="govuk-heading-m">Your cases</h2>
+                    </div>
+               </div>
+              </div>
+          </main>
+      </div>
+  </div>
+</html>
+
+{% block footer %}
+{% include "includes/newfooter.html" %}
+{% endblock %}
