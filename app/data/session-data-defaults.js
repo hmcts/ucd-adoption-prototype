@@ -84,7 +84,9 @@ module.exports = {
   "uniqueSiblingLastNames": [],
   "numberOfSiblings": 0,
 
-  "firstApplicant": "Primary applicant",
+  "applicationSection": "Application details",
+  "oneApplicant": "Applicant",
+  "firstApplicant": "First applicant",
   "secondApplicant": "Second applicant",
   "child": "The child's details",
   "mother": "Birth mother's details",
@@ -96,6 +98,8 @@ module.exports = {
   "sibling": "Sibling details",
   "court": "Court details",
   "checkpaysubmit": "Review your application, pay and send",
+  "paySubmit": "Pay and submit your application",
+  "reviewApplication": "Review your application",
 
   "monthName": [
     "",

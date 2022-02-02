@@ -35,11 +35,16 @@ Apply to adopt a child
 
           <div class="govuk-form-group {% if (marriedError != '')%} govuk-form-group--error {% endif %}">
             <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
-            <span class="govuk-caption-l">Check you're eligible to adopt</span>
+            <span class="govuk-caption-l">Eligibility to apply to adopt</span>
             <h1 class="govuk-fieldset__heading">
-              Has the child ever been married or in a civil partnership?
+              Is the child married or in a civil partnership?
             </h1>
           </legend>
+
+          <div id="sign-in-hint" class="govuk-hint">
+            This includes any past marriages or civil partnerships. In the UK a child can get married at 16 with parental permission. In other countries this age may be lower. A child who is married or in a civil partnership cannot be adopted.
+          </div>
+          
   
           {% if marriedError != '' %}
             <span class="govuk-error-message govuk-form">
@@ -60,6 +65,7 @@ Apply to adopt a child
                   <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-contact">
                     <div class="govuk-form-group">
                       <p>You can only apply to adopt a child if they've not been married or in a civil partnership.</p>         
+                      <p><a href="https://www.gov.uk/child-adoption">More about adoption</a></p>
                     </div>                               
                   </div>
 
