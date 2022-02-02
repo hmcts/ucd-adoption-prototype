@@ -71,7 +71,7 @@ Task list
             </ul>
         </li>
 
-        <!-- **************************************** 2. Add application' details **************************************** -->
+        <!-- **************************************** 2. Add applicant's details **************************************** -->
         <li>
             <h2 class="app-task-list__section">
             <span class="app-task-list__section-number">2. </span>Add applicant's details
@@ -80,7 +80,7 @@ Task list
 
                 <!-- Two applicants -->
                 {% if data['numberApplicants'] != 1 %}
-                <p class="govuk-!-font-weight-bold govuk-!-margin-top-7 govuk-!-margin-bottom-2">{{ data['firstApplicantProposal'] }}</p>
+                <p class="govuk-!-font-weight-bold govuk-!-margin-top-7 govuk-!-margin-bottom-2">{{ data['firstApplicant'] }}</p>
                 <!-- First applicant - personal details -->
                 <li class="app-task-list__item">
                     <span class="app-task-list__task-name">
