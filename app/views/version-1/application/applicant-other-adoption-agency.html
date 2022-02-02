@@ -29,11 +29,11 @@ Apply to adopt a child
       {% endif %}
 
 
-      <form action="/version-1/children/applicant-other-adoption-agency" method="post" class="form">
+      <form action="/version-1/application/applicant-other-adoption-agency" method="post" class="form">
         
         <div class="govuk-form-group {% if (otherError != '')%} govuk-form-group--error {% endif %}">
         <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
-          <span class="govuk-caption-l">{{ data['socialworker'] }}</span>
+          <span class="govuk-caption-l">{{ data['applicationSection'] }}</span>
           <h1 class="govuk-fieldset__heading">
             Was there another adoption agency or local authority involved in placing the child?
           </h1>
@@ -50,14 +50,14 @@ Apply to adopt a child
 
             <div class="govuk-radios govuk-radios--conditional" data-module="govuk-radios">
               <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="yes" name="other-adoption-agency" type="radio" value="Yes" {% if (data['other-adoption-agency'] === "Yes") %} checked {% endif %}>
+                <input class="govuk-radios__input" id="yes" name="other-adoption-agency" type="radio" value="yes" {% if (data['other-adoption-agency'] === "yes") %} checked {% endif %}>
                 <label class="govuk-label govuk-radios__label" for="yes">
                   Yes
                 </label>
               </div>
 
               <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="no" name="other-adoption-agency" type="radio" value="No" {% if (data['other-adoption-agency'] === "No") %} checked {% endif %}>
+                <input class="govuk-radios__input" id="no" name="other-adoption-agency" type="radio" value="no" {% if (data['other-adoption-agency'] === "no") %} checked {% endif %}>
                 <label class="govuk-label govuk-radios__label" for="no">
                   No
                 </label>

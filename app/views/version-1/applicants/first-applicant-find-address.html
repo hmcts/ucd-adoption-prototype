@@ -27,12 +27,12 @@ Apply to adopt a child
       {% endfor %}
       {% endif %}
       
-      <span class="govuk-caption-l">{{ data['firstApplicant'] }}</span>
+      <span class="govuk-caption-l">{% if data['numberApplicants'] !== '1' %}{{ data['firstApplicant'] }}{% else %} {{ data['oneApplicant'] }}{% endif %}</span>
       <h1 class="govuk-heading-l  govuk-!-margin-bottom-2">
         What's your home address?
       </h1>
       <div id="nationality-hint" class="govuk-hint">
-        We'll send all court papers to this address.
+        We'll send all court papers to this address unless you advise us that you are happy to be served court orders by email.
       </div>
 
       <form action="/version-1/applicants/first-applicant-find-address" method="post" class="form">
