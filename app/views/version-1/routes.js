@@ -65,7 +65,7 @@ module.exports = (router) => {
 
     if (errors.length === 0) {
       if (req.body['under-21'] === "Yes") {
-        res.redirect('/version-1/eligibility/lived-uk')
+        res.redirect('/version-1/eligibility/domicile')
       }
       else {
         res.redirect('/version-1/eligibility/cannot-apply-under-21')
@@ -73,6 +73,29 @@ module.exports = (router) => {
     }
     else {
         res.render('.//version-1/eligibility/under-21', { errors: errors })
+    }
+  })
+
+
+  router.post('/version-1/eligibility/domicile', function(req, res) {
+    var errors = []
+    if (req.body['domicile'] === undefined) {
+      errors.push({
+      text: 'Please answer the question',
+      href: '#domicile'
+      })
+    }
+
+    if (errors.length === 0) {
+      if (req.body['domicile'] === "Yes") {
+        res.redirect('/version-1/eligibility/lived-uk')
+      }
+      else {
+        res.redirect('/version-1/eligibility/cannot-apply-domicile')
+      }
+    }
+    else {
+        res.render('.//version-1/eligibility/domicile', { errors: errors })
     }
   })
 
@@ -88,7 +111,7 @@ module.exports = (router) => {
 
     if (errors.length === 0) {
       if (req.body['lived-uk'] === "Yes") {
-        res.redirect('/version-1/eligibility/do-you-need-help-with-fees')
+        res.redirect('/version-1/registration/start1')
       }
       else {
         res.redirect('/version-1/eligibility/cannot-apply-lived-uk')
@@ -127,17 +150,24 @@ module.exports = (router) => {
 
 
 
-// ******************************************** SECTION 1. APPLICANTS ********************************************
+// ******************************************** SECTION 1. APPLICATION ********************************************
 // ************************************************************************************************************************************
 
-  // ********************** Applicants  **********************
-  router.post('/version-1/applicants/number-of-applicants', function(req, res) {
+  // ********************** Number of applicants **********************
+  router.post('/version-1/application/number-of-applicants', function(req, res) {
     var errors = []
     if (req.body['number-of-applicants'] === undefined) {
       errors.push({
       text: 'Select an option which best describes who is applying',
       href: '#number-of-applicants'
       })
+    }
+    else if (req.body['number-of-applicants'] === "other" && req.body['other-relationship-description'].length == 0 ) {
+      errors.push({
+        text: 'Provide details of your relationship with the other applicant',
+        href: '#other-explanation'
+        })
+
     }
 
     req.session.data.numberApplicants = req.body['number-of-applicants']
@@ -147,7 +177,7 @@ module.exports = (router) => {
         res.redirect('/version-1/task-list')
       }
       else {
-        res.render('.//version-1/applicants/number-of-applicants', { errors: errors })
+        res.render('.//version-1/application/number-of-applicants', { errors: errors })
       }
     }
     else {
@@ -156,7 +186,9 @@ module.exports = (router) => {
     console.log("Applicants: ", req.session.data.numberApplicants)
   })
 
-  router.post('/version-1/applicants/date-child-moved-in', function(req, res) {
+
+  // ********************** Date child moved in **********************
+  router.post('/version-1/application/date-child-moved-in', function(req, res) {
     var errors = []
     if (req.body['day-moved-in'] === '' || req.body['month-moved-in'] === '' || req.body['year-moved-in'] === '') {
       errors.push({
@@ -170,7 +202,7 @@ module.exports = (router) => {
           res.redirect('/version-1/task-list')
         }
         else {
-          res.render('.//version-1/applicants/date-child-moved-in', { errors: errors })
+          res.render('.//version-1/application/date-child-moved-in', { errors: errors })
         }
       }
       else {
@@ -179,111 +211,303 @@ module.exports = (router) => {
   })
 
 
+  // ********************** Adoption agency or local authority **********************
+  router.post('/version-1/application/applicant-adoption-agency-details', function(req, res) {
+    var errors = []
+    if (req.body['applicant-agency-name'] === '') {
+      errors.push({
+      text: 'Enter a name',
+      href: '#name'
+      })
+    }
+    if (req.body['applicant-phone-number'] === '') {
+      errors.push({
+      text: 'Enter a UK telephone number',
+      href: '#phone'
+      })
+    }
+    if (req.body['applicant-contact'] === '') {
+      errors.push({
+      text: 'Enter a name',
+      href: '#contact'
+      })
+    }
+    if (req.body['applicant-email'] === '') {
+      errors.push({
+      text: 'Devs: "Enter an email address" [if left blank] or "Enter an email address in the correct format, like name@example.com" [if in the wrong format] ',
+      href: '#email'
+      })
+    }
 
-
-  // ********************** First applicant personal details **********************
-
-
-
-    router.post('/version-1/applicants/first-applicant-name', function(req, res) {
-      var errors = []
-      if (req.body['first-applicant-names'] === '') {
-        errors.push({
-        text: 'Enter your first names',
-        href: '#first-names'
-        })
+    if (req.body['submit-button'] === 'save-and-continue') {
+      if (errors.length === 0) {
+        req.session.data.agencyStatus = 'in progress'
+        res.redirect('/version-1/application/applicant-other-adoption-agency')
       }
-      if (req.body['first-applicant-last-names'] === '') {
-        errors.push({
-        text: 'Enter your last names',
-        href: '#last-names'
-        })
+      else {
+        res.render('.//version-1/application/applicant-adoption-agency-details', { errors: errors })
       }
+    }
+    else {
+      res.redirect('/version-1/task-list')
+    }
+  })
 
-      if (req.body['submit-button'] === 'save-and-continue') {
-        if (errors.length === 0) {
-          req.session.data.firstApplicantPersonalDetailsStatus = 'in progress'
-          res.redirect('/version-1/applicants/first-applicant-other-names')
+
+  router.post('/version-1/application/applicant-other-adoption-agency', function(req, res) {
+    // console.log("Mother alive: ", req.body['other-adoption-agency'])
+    var errors = []
+    if (req.body['other-adoption-agency'] === undefined) {
+      errors.push({
+      text: 'Please answer the question',
+      href: '#other-adoption-agency'
+      })
+    }
+
+    if (req.body['submit-button'] === 'save-and-continue') {
+      if (errors.length === 0) {
+        if (req.body['other-adoption-agency'] === 'yes') {
+          res.redirect('/version-1/application/applicant-adoption-agency-details-2')
         }
         else {
-          res.render('.//version-1/applicants/first-applicant-name', { errors: errors })
+          res.redirect('/version-1/application/child-social-worker-details')
         }
       }
       else {
+        res.render('.//version-1/application/applicant-other-adoption-agency', { errors: errors })
+      }
+    }
+    else {
+        res.redirect('/version-1/task-list')
+    }
+  })
+
+
+  router.post('/version-1/application/applicant-adoption-agency-details-2', function(req, res) {
+    var errors = []
+    if (req.body['applicant-agency-name-2'] === '') {
+      errors.push({
+      text: 'Enter a name',
+      href: '#name'
+      })
+    }
+    if (req.body['applicant-phone-number-2'] === '') {
+      errors.push({
+      text: 'Enter a UK telephone number',
+      href: '#phone'
+      })
+    }
+    if (req.body['applicant-contact-2'] === '') {
+      errors.push({
+      text: 'Enter a name',
+      href: '#contact'
+      })
+    }
+    if (req.body['applicant-email-2'] === '') {
+      errors.push({
+      text: 'Devs: "Enter an email address" [if left blank] or "Enter an email address in the correct format, like name@example.com" [if in the wrong format] ',
+      href: '#email'
+      })
+    }
+
+    if (req.body['submit-button'] === 'save-and-continue') {
+      if (errors.length === 0) {
+        res.redirect('/version-1/application/child-social-worker-details')
+      }
+      else {
+        res.render('.//version-1/application/applicant-adoption-agency-details-2', { errors: errors })
+      }
+    }
+    else {
+      res.redirect('/version-1/task-list')
+    }
+  })
+
+
+  router.post('/version-1/application/child-social-worker-details', function(req, res) {
+    var errors = []
+    if (req.body['child-social-worker-name'] === '') {
+      errors.push({
+      text: 'Enter a name',
+      href: '#name'
+      })
+    }
+    if (req.body['child-social-worker-phone-number'] === '') {
+      errors.push({
+      text: 'Enter a UK telephone number',
+      href: '#phone'
+      })
+    }
+    if (req.body['child-social-worker-email'] === '') {
+      errors.push({
+      text: 'Devs: "Enter an email address" [if left blank] or "Enter an email address in the correct format, like name@example.com" [if in the wrong format] ',
+      href: '#email'
+      })
+    }
+
+    if (req.body['submit-button'] === 'save-and-continue') {
+      if (errors.length === 0) {
+        req.session.data.agencyStatus = 'completed'
         res.redirect('/version-1/task-list')
       }
-    })
+      else {
+        res.render('.//version-1/application/child-social-worker-details', { errors: errors })
+      }
+    }
+    else {
+      res.redirect('/version-1/task-list')
+    }
+  })
 
 
-    router.post('/version-1/applicants/first-applicant-other-names', function(req, res) {
-      var errors = []
+  // ********************** Family court finder **********************
+  router.post('/version-1/children/family-court-finder', function(req, res) {
+    console.log(req.body['placementCourtName'])
+    var errors = []
+    if (req.body['same-family-court'] === undefined) {
+      errors.push({
+        text: "Please answer the question",
+        href: '#no-radio'
+        })  
+    }
+    else if (req.body['familyCourtName'] === '' && req.body['same-family-court'] === 'No') {
+      errors.push({
+      text: "Enter the name of the court",
+      href: '#no-court-name'
+      })
+    }
 
-      if (req.body['first-applicant-other-names'] === undefined) {
+    if (req.body['submit-button'] === 'save-and-continue') {
+      if (errors.length === 0) {
+        if (req.body['same-family-court'] === 'Yes') {
+          req.session.data.familyCourtName = req.body['placementCourtName']
+        }
+        req.session.data.familyCourtStatus = 'completed'
+        res.redirect('/version-1/task-list')
+      }
+      else {
+        res.render('.//version-1/children/family-court-finder', { errors: errors })
+      }
+    }
+    else {
+      if (req.body['court-name'] === '') {
+        res.redirect('/version-1/task-list')
+      }
+      else {
+        req.session.data.familyCourtStatus = 'in progress'
+        res.redirect('/version-1/task-list')
+      }
+    }
+  })
+
+
+
+
+
+
+// ******************************************** SECTION 2. APPLICANTS ********************************************
+// ************************************************************************************************************************************
+
+  // ********************** First applicant personal details **********************
+  router.post('/version-1/applicants/first-applicant-name', function(req, res) {
+    var errors = []
+    if (req.body['first-applicant-names'] === '') {
+      errors.push({
+      text: 'Enter your first names',
+      href: '#first-names'
+      })
+    }
+    if (req.body['first-applicant-last-names'] === '') {
+      errors.push({
+      text: 'Enter your last names',
+      href: '#last-names'
+      })
+    }
+
+    if (req.body['submit-button'] === 'save-and-continue') {
+      if (errors.length === 0) {
+        req.session.data.firstApplicantPersonalDetailsStatus = 'in progress'
+        res.redirect('/version-1/applicants/first-applicant-other-names')
+      }
+      else {
+        res.render('.//version-1/applicants/first-applicant-name', { errors: errors })
+      }
+    }
+    else {
+      res.redirect('/version-1/task-list')
+    }
+  })
+
+
+  router.post('/version-1/applicants/first-applicant-other-names', function(req, res) {
+    var errors = []
+
+    if (req.body['first-applicant-other-names'] === undefined) {
+      errors.push({
+      text: 'Please answer the question',
+      href: '#first-applicant-other-names'
+      })
+    }
+    else if (req.body['first-applicant-other-names'] === "Yes") {
+      if (req.body['first-applicant-previous-first-names'].length === 0 && req.session.data.firstApplicantNameCount < 1) {
         errors.push({
-        text: 'Please answer the question',
-        href: '#first-applicant-other-names'
+          text: 'Enter your first names',
+          href: '#first-applicant-no-first-names'
         })
       }
-      else if (req.body['first-applicant-other-names'] === "Yes") {
-        if (req.body['first-applicant-previous-first-names'].length === 0 && req.session.data.firstApplicantNameCount < 1) {
-          errors.push({
-            text: 'Enter your first names',
-            href: '#first-applicant-no-first-names'
-          })
-        }
-        if (req.body['first-applicant-previous-last-names'].length === 0  && req.session.data.firstApplicantNameCount < 1) {
-          errors.push({
-            text: 'Enter your last names',
-            href: '#first-applicant-no-last-names'
-          })
-        }
+      if (req.body['first-applicant-previous-last-names'].length === 0  && req.session.data.firstApplicantNameCount < 1) {
+        errors.push({
+          text: 'Enter your last names',
+          href: '#first-applicant-no-last-names'
+        })
       }
-      if (req.body['submit-button'] === 'add') {
-        if (req.body['first-applicant-previous-first-names'].length === 0  && req.session.data.firstApplicantNameCount >= 1) {
-          errors.push({
-            text: 'Enter your first names',
-            href: '#first-applicant-no-additional-first-names'
-          })
-        }
-        if (req.body['first-applicant-previous-last-names'].length === 0 && req.session.data.firstApplicantNameCount >= 1) {
-          errors.push({
-            text: 'Enter your last names',
-            href: '#first-applicant-no-additional-last-names'
-          })
-        }
+    }
+    if (req.body['submit-button'] === 'add') {
+      if (req.body['first-applicant-previous-first-names'].length === 0  && req.session.data.firstApplicantNameCount >= 1) {
+        errors.push({
+          text: 'Enter your first names',
+          href: '#first-applicant-no-additional-first-names'
+        })
       }
+      if (req.body['first-applicant-previous-last-names'].length === 0 && req.session.data.firstApplicantNameCount >= 1) {
+        errors.push({
+          text: 'Enter your last names',
+          href: '#first-applicant-no-additional-last-names'
+        })
+      }
+    }
 
-      count = req.session.data.firstApplicantNameCount
-      if (req.body['submit-button'] === 'add') {
-        if (req.body['first-applicant-previous-first-names'] !== '' && req.body['first-applicant-previous-last-names'] !== '') {
+    count = req.session.data.firstApplicantNameCount
+    if (req.body['submit-button'] === 'add') {
+      if (req.body['first-applicant-previous-first-names'] !== '' && req.body['first-applicant-previous-last-names'] !== '') {
+        req.session.data.firstApplicantPreviousFirstNames[count] = req.body['first-applicant-previous-first-names']
+        req.session.data.firstApplicantPreviousLastNames[count] = req.body['first-applicant-previous-last-names']
+        req.session.data.idFirstApplicant[count] = count
+        req.session.data.firstApplicantNameCount = count + 1
+        res.redirect('/version-1/applicants/first-applicant-other-names')
+      }
+      else {
+        res.render('.//version-1/applicants/first-applicant-other-names', { errors: errors })
+      }
+    }
+    else if (req.body['submit-button'] === 'save-and-continue') {
+      if (errors.length === 0) {
+        if (req.body['first-applicant-previous-first-names'].length !== 0 && req.body['first-applicant-previous-last-names'].length !==0) {
           req.session.data.firstApplicantPreviousFirstNames[count] = req.body['first-applicant-previous-first-names']
           req.session.data.firstApplicantPreviousLastNames[count] = req.body['first-applicant-previous-last-names']
           req.session.data.idFirstApplicant[count] = count
           req.session.data.firstApplicantNameCount = count + 1
-          res.redirect('/version-1/applicants/first-applicant-other-names')
         }
-        else {
-          res.render('.//version-1/applicants/first-applicant-other-names', { errors: errors })
-        }
-      }
-      else if (req.body['submit-button'] === 'save-and-continue') {
-        if (errors.length === 0) {
-          if (req.body['first-applicant-previous-first-names'].length !== 0 && req.body['first-applicant-previous-last-names'].length !==0) {
-            req.session.data.firstApplicantPreviousFirstNames[count] = req.body['first-applicant-previous-first-names']
-            req.session.data.firstApplicantPreviousLastNames[count] = req.body['first-applicant-previous-last-names']
-            req.session.data.idFirstApplicant[count] = count
-            req.session.data.firstApplicantNameCount = count + 1
-          }
-          res.redirect('/version-1/applicants/first-applicant-date-birth')
-        }
-        else {
-          res.render('.//version-1/applicants/first-applicant-other-names', { errors: errors })
-        }
+        res.redirect('/version-1/applicants/first-applicant-date-birth')
       }
       else {
-        res.redirect('/version-1/task-list')
+        res.render('.//version-1/applicants/first-applicant-other-names', { errors: errors })
       }
-    })
+    }
+    else {
+      res.redirect('/version-1/task-list')
+    }
+  })
 
 
   router.post('/version-1/applicants/first-applicant-date-birth', function(req, res) {
@@ -296,7 +520,7 @@ module.exports = (router) => {
     }
       if (req.body['submit-button'] === 'save-and-continue') {
         if (errors.length === 0) {
-          res.redirect('/version-1/applicants/first-applicant-nationality')
+          res.redirect('/version-1/applicants/first-applicant-occupation')
         }
         else {
           res.render('.//version-1/applicants/first-applicant-date-birth', { errors: errors })
@@ -311,7 +535,7 @@ module.exports = (router) => {
   router.post('/version-1/applicants/first-applicant-nationality', function(req, res) {
     var errors = []
 
-    if (req.body['first-applicant-british'] === undefined && req.body['first-applicant-irish'] === undefined &&req.body['first-applicant-other'] === undefined) {
+    if (req.body['first-applicant-british'] === undefined && req.body['first-applicant-irish'] === undefined && req.body['first-applicant-other'] === undefined) {
       // console.log("error")
       errors.push({
       text: 'Select if you are British, Irish or a citizen of a different country',
@@ -463,32 +687,22 @@ module.exports = (router) => {
 
   router.post('/version-1/applicants/first-applicant-contact', function(req, res) {
     var errors = []
-    if (req.body['first-applicant-email-checkbox'] === undefined && req.body['first-applicant-phone'] === undefined) {
+    if (req.body['first-applicant-email-address'] === '') {
       errors.push({
-      text: 'Enter your telephone number or email address',
-      href: '#first-applicant-contact'
-      })
-    }
-    else if (req.body['first-applicant-email-checkbox'] !== undefined && req.body['first-applicant-email-address'] === '' && req.body['first-applicant-phone'] !== undefined && req.body['first-applicant-phone-number'] === '') {
-      errors.push({
-        text: 'Enter an email address in the correct format, like name@example.com',
-        href: '#first-applicant-email'
-        })
-        errors.push({
-          text: 'Enter a UK telephone number',
-          href: '#first-applicant-phone-number'
-          })
-    }
-    else if (req.body['first-applicant-email-checkbox'] !== undefined && req.body['first-applicant-email-address'] === '') {
-      errors.push({
-        text: 'Enter an email address in the correct format, like name@example.com',
+        text: 'Enter your email address',
         href: '#first-applicant-email'
         })
     }
-    else if (req.body['first-applicant-phone'] !== undefined && req.body['first-applicant-phone-number'] === '') {
+    if (req.body['first-applicant-phone-number'] === '') {
       errors.push({
-        text: 'Enter a UK telephone number',
+        text: 'Enter your telephone number',
         href: '#first-applicant-phone-number'
+        })
+    }
+    if (req.body['first-applicant-served-email'] === undefined) {
+      errors.push({
+        text: 'Please answer the question',
+        href: '#first-applicant-consent'
         })
     }
 
@@ -622,7 +836,7 @@ module.exports = (router) => {
     }
       if (req.body['submit-button'] === 'save-and-continue') {
         if (errors.length === 0) {
-          res.redirect('/version-1/applicants/second-applicant-nationality')
+          res.redirect('/version-1/applicants/second-applicant-occupation')
         }
         else {
           res.render('.//version-1/applicants/second-applicant-date-birth', { errors: errors })
@@ -705,198 +919,186 @@ module.exports = (router) => {
 
 
   // ********************** Second applicant contact details **********************
-router.post('/version-1/applicants/second-applicant-same-address', function(req, res) {
-  var errors = []
-  if (req.body['same-address'] === undefined) {
-    errors.push({
-    text: 'Please answer the question',
-    href: '#second-applicant-same-address'
-    })
-  }
+  router.post('/version-1/applicants/second-applicant-same-address', function(req, res) {
+    var errors = []
+    if (req.body['same-address'] === undefined) {
+      errors.push({
+      text: 'Please answer the question',
+      href: '#second-applicant-same-address'
+      })
+    }
 
-  if (errors.length === 0) {
-   if (req.body['submit-button'] === 'save-and-continue') {
-      if (req.body['same-address'] === "Yes") {
+    if (errors.length === 0) {
+    if (req.body['submit-button'] === 'save-and-continue') {
+        if (req.body['same-address'] === "Yes") {
+          req.session.data.secondApplicantContactDetailsStatus = 'in progress'
+          res.redirect('/version-1/applicants/second-applicant-contact')
+        }
+        else {
+          res.redirect('/version-1/applicants/second-applicant-address')
+        }
+      }
+      else {
+        res.redirect('/version-1/task-list')
+      }
+    }
+    else {
+        res.render('.//version-1/applicants/second-applicant-same-address', { errors: errors })
+    }
+
+  })
+
+
+  router.post('/version-1/applicants/second-applicant-address', function(req, res) {
+    var errors = []
+    if (req.body['second-applicant-address'] === "") {
+      errors.push({
+      text: 'Enter a real postcode',
+      href: '#second-applicant-address'
+      })
+    }
+    if (req.body['submit-button'] === 'save-and-continue') {
+      if (errors.length === 0) {
+        req.session.data.secondApplicantContactDetailsStatus = 'in progress'
+        res.redirect('/version-1/applicants/second-applicant-find-address')
+      }
+      else {
+        res.render('.//version-1/applicants/second-applicant-address', { errors: errors })
+      }
+    }
+    else {
+      res.redirect('/version-1/task-list')
+    }
+  })
+
+
+  router.post('/version-1/applicants/second-applicant-find-address', function(req, res) {
+    var errors = []
+    if (req.body['second-applicant-choose-address'] === 'address-found') {
+      errors.push({
+      text: 'Select an address',
+      href: '#second-applicant-find-address'
+      })
+    }
+
+    if (req.body['submit-button'] === 'save-and-continue') {
+      if (errors.length === 0) {
+        res.redirect('/version-1/applicants/second-applicant-contact')
+      }
+      else {
+        res.render('.//version-1/applicants/second-applicant-find-address', { errors: errors })
+      }
+    }
+    else {
+      res.redirect('/version-1/task-list')
+    }
+  })
+
+
+  router.post('/version-1/applicants/second-applicant-enter-address-manually', function(req, res) {
+    var errors = []
+    if (req.body['second-applicant-address-line-1'] === '') {
+      errors.push({
+      text: 'Enter the first line of the address',
+      href: '#first-line'
+      })
+    }
+    if (req.body['second-applicant-address-town'] === '') {
+      errors.push({
+      text: 'Enter the town or city',
+      href: '#town'
+      })
+    }
+    if (req.body['second-applicant-address-postcode'] === '') {
+      errors.push({
+      text: 'Enter the postcode',
+      href: '#postcode'
+      })
+    }
+
+    if (req.body['submit-button'] === 'save-and-continue') {
+      if (errors.length === 0) {
         req.session.data.secondApplicantContactDetailsStatus = 'in progress'
         res.redirect('/version-1/applicants/second-applicant-contact')
       }
       else {
-        res.redirect('/version-1/applicants/second-applicant-address')
+        res.render('.//version-1/applicants/second-applicant-enter-address-manually', { errors: errors })
       }
     }
     else {
       res.redirect('/version-1/task-list')
     }
-  }
-  else {
-      res.render('.//version-1/applicants/second-applicant-same-address', { errors: errors })
-  }
-
-})
+  })
 
 
-router.post('/version-1/applicants/second-applicant-address', function(req, res) {
-  var errors = []
-  if (req.body['second-applicant-address'] === "") {
-    errors.push({
-    text: 'Enter a real postcode',
-    href: '#second-applicant-address'
-    })
-  }
-  if (req.body['submit-button'] === 'save-and-continue') {
-    if (errors.length === 0) {
-      req.session.data.secondApplicantContactDetailsStatus = 'in progress'
-      res.redirect('/version-1/applicants/second-applicant-find-address')
-    }
-    else {
-      res.render('.//version-1/applicants/second-applicant-address', { errors: errors })
-    }
-  }
-  else {
-    res.redirect('/version-1/task-list')
-  }
-})
-
-
-router.post('/version-1/applicants/second-applicant-find-address', function(req, res) {
-  var errors = []
-  if (req.body['second-applicant-choose-address'] === 'address-found') {
-    errors.push({
-    text: 'Select an address',
-    href: '#second-applicant-find-address'
-    })
-  }
-
-  if (req.body['submit-button'] === 'save-and-continue') {
-    if (errors.length === 0) {
-      res.redirect('/version-1/applicants/second-applicant-contact')
-    }
-    else {
-      res.render('.//version-1/applicants/second-applicant-find-address', { errors: errors })
-    }
-  }
-  else {
-    res.redirect('/version-1/task-list')
-  }
-})
-
-
-router.post('/version-1/applicants/second-applicant-enter-address-manually', function(req, res) {
-  var errors = []
-  if (req.body['second-applicant-address-line-1'] === '') {
-    errors.push({
-    text: 'Enter the first line of the address',
-    href: '#first-line'
-    })
-  }
-  if (req.body['second-applicant-address-town'] === '') {
-    errors.push({
-    text: 'Enter the town or city',
-    href: '#town'
-    })
-  }
-  if (req.body['second-applicant-address-postcode'] === '') {
-    errors.push({
-    text: 'Enter the postcode',
-    href: '#postcode'
-    })
-  }
-
-  if (req.body['submit-button'] === 'save-and-continue') {
-    if (errors.length === 0) {
-      req.session.data.secondApplicantContactDetailsStatus = 'in progress'
-      res.redirect('/version-1/applicants/second-applicant-contact')
-    }
-    else {
-      res.render('.//version-1/applicants/second-applicant-enter-address-manually', { errors: errors })
-    }
-  }
-  else {
-    res.redirect('/version-1/task-list')
-  }
-})
-
-
-router.post('/version-1/applicants/second-applicant-contact', function(req, res) {
-  var errors = []
-    if (req.body['second-applicant-email-checkbox'] === undefined && req.body['second-applicant-phone'] === undefined) {
+  router.post('/version-1/applicants/second-applicant-contact', function(req, res) {
+    var errors = []
+    if (req.body['second-applicant-email-address'] === '') {
       errors.push({
-      text: 'Enter your telephone number or email address',
-      href: '#second-applicant-contact'
-      })
-    }
-    else if (req.body['second-applicant-email-checkbox'] !== undefined && req.body['second-applicant-email-address'] === '' && req.body['second-applicant-phone'] !== undefined && req.body['second-applicant-phone-number'] === '') {
-      errors.push({
-        text: 'Enter an email address in the correct format, like name@example.com',
-        href: '#second-applicant-email'
-        })
-        errors.push({
-          text: 'Enter a UK telephone number',
-          href: '#second-applicant-phone-number'
-          })
-    }
-    else if (req.body['second-applicant-email-checkbox'] !== undefined && req.body['second-applicant-email-address'] === '') {
-      errors.push({
-        text: 'Enter an email address in the correct format, like name@example.com',
+        text: 'Enter your email address',
         href: '#second-applicant-email'
         })
     }
-    else if (req.body['second-applicant-phone'] !== undefined && req.body['second-applicant-phone-number'] === '') {
+    if (req.body['second-applicant-phone-number'] === '') {
       errors.push({
-        text: 'Enter a UK telephone number',
+        text: 'Enter your telephone number',
         href: '#second-applicant-phone-number'
         })
     }
+    if (req.body['second-applicant-served-email'] === undefined) {
+      errors.push({
+        text: 'Please answer the question',
+        href: '#second-applicant-consent'
+        })
+    }
 
-    // req.session.data.secondApplicantContactCheckbox = req.body['second-applicant-contact-options']
-  if (req.body['submit-button'] === 'save-and-continue') {
-    if (errors.length === 0) {
-      req.session.data.secondApplicantContactDetailsStatus = 'completed'
-      res.redirect('/version-1/task-list')
+    if (req.body['submit-button'] === 'save-and-continue') {
+      if (errors.length === 0) {
+        req.session.data.secondApplicantContactDetailsStatus = 'completed'
+        res.redirect('/version-1/task-list')
+      }
+      else {
+        res.render('.//version-1/applicants/second-applicant-contact', { errors: errors })
+      }
     }
     else {
-      res.render('.//version-1/applicants/second-applicant-contact', { errors: errors })
-    }
-  }
-  else {
-    res.redirect('/version-1/task-list')
-  }
-})
-
-
-
-
-
-// ********************** Second applicant upload **********************
-router.post('/version-1/applicants/second-applicant-upload', function(req, res) {
-  var errors = []
-  if (req.body['second-applicant-upload'] === '') {
-    errors.push({
-    text: 'Error message',
-    href: '#second-applicant-upload'
-    })
-  }
-
-  if (req.body['submit-button'] === 'save-and-continue') {
-    if (errors.length === 0) {
-      req.session.data.secondupload = 1
       res.redirect('/version-1/task-list')
     }
-    else {
-      res.render('.//version-1/applicants/second-applicant-upload', { errors: errors })
+  })
+
+
+
+
+
+
+  // ********************** Second applicant upload **********************
+  router.post('/version-1/applicants/second-applicant-upload', function(req, res) {
+    var errors = []
+    if (req.body['second-applicant-upload'] === '') {
+      errors.push({
+      text: 'Error message',
+      href: '#second-applicant-upload'
+      })
     }
-  }
-  else {
-    res.redirect('/version-1/task-list')
-  }
-})
+
+    if (req.body['submit-button'] === 'save-and-continue') {
+      if (errors.length === 0) {
+        req.session.data.secondupload = 1
+        res.redirect('/version-1/task-list')
+      }
+      else {
+        res.render('.//version-1/applicants/second-applicant-upload', { errors: errors })
+      }
+    }
+    else {
+      res.redirect('/version-1/task-list')
+    }
+  })
 
 
 
 
-
-
-// ******************************************** SECTION 2. CHILDREN ********************************************
+// ******************************************** SECTION 3. CHILDREN ********************************************
 // ************************************************************************************************************************************
 
 // ******************************************** Child's details ********************************************
@@ -960,6 +1162,12 @@ router.post('/version-1/applicants/second-applicant-upload', function(req, res) 
       text: 'Please select an answer',
       href: '#child-sex'
       })
+    }
+    else if (req.body['child-sex'] === 'Other' && req.body['other-sex'] === '') {
+      errors.push({
+        text: 'Enter what is written on the birth certificate',
+        href: '#other-sex'
+        })  
     }
 
     if (req.body['submit-button'] === 'save-and-continue') {
@@ -1065,9 +1273,6 @@ router.post('/version-1/applicants/second-applicant-upload', function(req, res) 
       }
     }
   })
-
-
-
 
 
 
@@ -1357,9 +1562,6 @@ router.post('/version-1/applicants/second-applicant-upload', function(req, res) 
       res.redirect('/version-1/task-list')
     }
   })
-
-
-
 
 
 
@@ -1905,231 +2107,7 @@ router.post('/version-1/applicants/second-applicant-upload', function(req, res) 
 
 
 
-  // ********************** Adoption agency or local authority **********************
-  router.post('/version-1/children/applicant-adoption-agency-details', function(req, res) {
-    var errors = []
-    if (req.body['applicant-agency-name'] === '') {
-      errors.push({
-      text: 'Enter a name',
-      href: '#name'
-      })
-    }
-    if (req.body['applicant-phone-number'] === '') {
-      errors.push({
-      text: 'Enter a UK telephone number',
-      href: '#phone'
-      })
-    }
-    if (req.body['applicant-contact'] === '') {
-      errors.push({
-      text: 'Enter a name',
-      href: '#contact'
-      })
-    }
-    if (req.body['applicant-email'] === '') {
-      errors.push({
-      text: 'Devs: "Enter an email address" [if left blank] or "Enter an email address in the correct format, like name@example.com" [if in the wrong format] ',
-      href: '#email'
-      })
-    }
-
-    if (req.body['submit-button'] === 'save-and-continue') {
-      if (errors.length === 0) {
-        req.session.data.agencyStatus = 'in progress'
-        res.redirect('/version-1/children/applicant-other-adoption-agency')
-      }
-      else {
-        res.render('.//version-1/children/applicant-adoption-agency-details', { errors: errors })
-      }
-    }
-    else {
-      res.redirect('/version-1/task-list')
-    }
-  })
-
-
-  router.post('/version-1/children/applicant-other-adoption-agency', function(req, res) {
-    // console.log("Mother alive: ", req.body['other-adoption-agency'])
-    var errors = []
-    if (req.body['other-adoption-agency'] === undefined) {
-      errors.push({
-      text: 'Please answer the question',
-      href: '#other-adoption-agency'
-      })
-    }
-
-    if (req.body['submit-button'] === 'save-and-continue') {
-      if (errors.length === 0) {
-        if (req.body['other-adoption-agency'] === 'Yes') {
-          res.redirect('/version-1/children/applicant-adoption-agency-details-2')
-        }
-        else {
-          res.redirect('/version-1/children/child-social-worker-details')
-        }
-      }
-      else {
-        res.render('.//version-1/children/applicant-other-adoption-agency', { errors: errors })
-      }
-    }
-    else {
-        res.redirect('/version-1/task-list')
-    }
-  })
-
-
-  router.post('/version-1/children/applicant-adoption-agency-details-2', function(req, res) {
-    var errors = []
-    if (req.body['applicant-agency-name-2'] === '') {
-      errors.push({
-      text: 'Enter a name',
-      href: '#name'
-      })
-    }
-    if (req.body['applicant-phone-number-2'] === '') {
-      errors.push({
-      text: 'Enter a UK telephone number',
-      href: '#phone'
-      })
-    }
-    if (req.body['applicant-contact-2'] === '') {
-      errors.push({
-      text: 'Enter a name',
-      href: '#contact'
-      })
-    }
-    if (req.body['applicant-email-2'] === '') {
-      errors.push({
-      text: 'Devs: "Enter an email address" [if left blank] or "Enter an email address in the correct format, like name@example.com" [if in the wrong format] ',
-      href: '#email'
-      })
-    }
-
-    if (req.body['submit-button'] === 'save-and-continue') {
-      if (errors.length === 0) {
-        res.redirect('/version-1/children/child-social-worker-details')
-      }
-      else {
-        res.render('.//version-1/children/applicant-adoption-agency-details-2', { errors: errors })
-      }
-    }
-    else {
-      res.redirect('/version-1/task-list')
-    }
-  })
-
-
-  router.post('/version-1/children/child-social-worker-details', function(req, res) {
-    var errors = []
-    if (req.body['child-social-worker-name'] === '') {
-      errors.push({
-      text: 'Enter a name',
-      href: '#name'
-      })
-    }
-    if (req.body['child-social-worker-phone-number'] === '') {
-      errors.push({
-      text: 'Enter a UK telephone number',
-      href: '#phone'
-      })
-    }
-    if (req.body['child-social-worker-email'] === '') {
-      errors.push({
-      text: 'Devs: "Enter an email address" [if left blank] or "Enter an email address in the correct format, like name@example.com" [if in the wrong format] ',
-      href: '#email'
-      })
-    }
-
-    if (req.body['submit-button'] === 'save-and-continue') {
-      if (errors.length === 0) {
-        res.redirect('/version-1/children/solicitor-helping')
-      }
-      else {
-        res.render('.//version-1/children/child-social-worker-details', { errors: errors })
-      }
-    }
-    else {
-      res.redirect('/version-1/task-list')
-    }
-  })
-
-
-
-
-
-
  // ********************** Solicitor details **********************
-  router.post('/version-1/children/solicitor-helping', function(req, res) {
-    // console.log("Mother alive: ", req.body['solicitor-helping'])
-    var errors = []
-    if (req.body['solicitor-helping'] === undefined) {
-      errors.push({
-      text: 'Please answer the question',
-      href: '#solicitor-helping'
-      })
-    }
-
-    if (req.body['submit-button'] === 'save-and-continue') {
-      if (errors.length === 0) {
-        if (req.body['solicitor-helping'] === 'Yes') {
-          res.redirect('/version-1/children/solicitor-details')
-        }
-        else {
-          req.session.data.agencyStatus = 'completed'
-          res.redirect('/version-1/task-list')
-        }
-      }
-      else {
-        res.render('.//version-1/children/solicitor-helping', { errors: errors })
-      }
-    }
-    else {
-        res.redirect('/version-1/task-list')
-    }
-  })
-
-
-  router.post('/version-1/children/solicitor-details', function(req, res) {
-    var errors = []
-    if (req.body['solicitor-company-name'] === '') {
-      errors.push({
-      text: 'Enter a practice or company name',
-      href: '#name'
-      })
-    }
-    if (req.body['solicitor-name'] === '') {
-      errors.push({
-      text: 'Enter the solicitor\'s name',
-      href: '#solicitorName'
-      })
-    }
-    if (req.body['solicitor-phone-number'] === '') {
-      errors.push({
-      text: 'Enter a UK telephone number',
-      href: '#phone'
-      })
-    }
-    if (req.body['solicitor-email'] === '') {
-      errors.push({
-      text: 'Enter an email address',
-      href: '#email'
-      })
-    }
-
-    if (req.body['submit-button'] === 'save-and-continue') {
-      if (errors.length === 0) {
-        req.session.data.agencyStatus = 'completed'
-        res.redirect('/version-1/task-list')
-      }
-      else {
-        res.render('.//version-1/children/solicitor-details', { errors: errors })
-      }
-    }
-    else {
-      res.redirect('/version-1/task-list')
-    }
-  })
-
-
 
 
 
@@ -3006,37 +2984,6 @@ router.post('/version-1/applicants/second-applicant-upload', function(req, res) 
 
 
 
-  // ********************** Family court finder **********************
-  router.post('/version-1/children/family-court-finder', function(req, res) {
-    var errors = []
-    if (req.body['court-name'] === '') {
-      errors.push({
-      text: "Enter the name of the court",
-      href: '#no-court-name'
-      })
-    }
-    if (req.body['submit-button'] === 'save-and-continue') {
-      if (errors.length === 0) {
-        req.session.data.familyCourtStatus = 'completed'
-        res.redirect('/version-1/task-list')
-      }
-      else {
-        res.render('.//version-1/children/family-court-finder', { errors: errors })
-      }
-    }
-    else {
-      if (req.body['court-name'] === '') {
-        res.redirect('/version-1/task-list')
-      }
-      else {
-        req.session.data.familyCourtStatus = 'in progress'
-        res.redirect('/version-1/task-list')
-      }
-    }
-  })
-
-
-
   
 
 // ******************************************** SECTION 4. UPLOADS ********************************************
@@ -3093,7 +3040,13 @@ router.post('/version-1/applicants/second-applicant-upload', function(req, res) 
 //**************************************** Check, Pay and Submit ************************************************************
 
   router.post('/version-1/check-pay-and-submit/check-your-answers', function(req, res) {
-    res.redirect('/version-1/check-pay-and-submit/declaration')
+    req.session.data.reviewStatus = 'in progress'
+    if (req.body['submit-button'] === 'save-and-continue') {
+      res.redirect('/version-1/check-pay-and-submit/declaration')
+    }
+    else {
+      res.redirect('/version-1/task-list')
+    }    
   })
 
 
@@ -3144,7 +3097,8 @@ router.post('/version-1/applicants/second-applicant-upload', function(req, res) 
 
     if (req.body['submit-button'] === 'save-and-continue') {
       if (errors.length === 0) {
-        res.redirect('/version-1/check-pay-and-submit/need-help-with-fees-ref')
+        req.session.data.reviewStatus = 'completed'
+        res.redirect('/version-1/task-list')
       }
       else {
         res.render('.//version-1/check-pay-and-submit/declaration', { errors: errors })
@@ -3187,8 +3141,6 @@ router.post('/version-1/applicants/second-applicant-upload', function(req, res) 
         res.render('.//version-1/check-pay-and-submit/need-help-with-fees-ref', { errors: errors })
     }
   })
-
-
 
 
 
@@ -3241,6 +3193,80 @@ router.post('/version-1/applicants/second-applicant-upload', function(req, res) 
   })
 // ***************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************
 // ************************************* Old functions not in use any more ************************************* //
+
+  // router.post('/version-1/children/solicitor-helping', function(req, res) {
+  //   // console.log("Mother alive: ", req.body['solicitor-helping'])
+  //   var errors = []
+  //   if (req.body['solicitor-helping'] === undefined) {
+  //     errors.push({
+  //     text: 'Please answer the question',
+  //     href: '#solicitor-helping'
+  //     })
+  //   }
+
+  //   if (req.body['submit-button'] === 'save-and-continue') {
+  //     if (errors.length === 0) {
+  //       if (req.body['solicitor-helping'] === 'yes') {
+  //         res.redirect('/version-1/children/solicitor-details')
+  //       }
+  //       else {
+  //         req.session.data.agencyStatus = 'completed'
+  //         res.redirect('/version-1/task-list')
+  //       }
+  //     }
+  //     else {
+  //       res.render('.//version-1/children/solicitor-helping', { errors: errors })
+  //     }
+  //   }
+  //   else {
+  //       res.redirect('/version-1/task-list')
+  //   }
+  // })
+
+
+  // router.post('/version-1/children/solicitor-details', function(req, res) {
+  //   var errors = []
+  //   if (req.body['solicitor-company-name'] === '') {
+  //     errors.push({
+  //     text: 'Enter a practice or company name',
+  //     href: '#name'
+  //     })
+  //   }
+  //   if (req.body['solicitor-name'] === '') {
+  //     errors.push({
+  //     text: 'Enter the solicitor\'s name',
+  //     href: '#solicitorName'
+  //     })
+  //   }
+  //   if (req.body['solicitor-phone-number'] === '') {
+  //     errors.push({
+  //     text: 'Enter a UK telephone number',
+  //     href: '#phone'
+  //     })
+  //   }
+  //   if (req.body['solicitor-email'] === '') {
+  //     errors.push({
+  //     text: 'Enter an email address',
+  //     href: '#email'
+  //     })
+  //   }
+
+  //   if (req.body['submit-button'] === 'save-and-continue') {
+  //     if (errors.length === 0) {
+  //       req.session.data.agencyStatus = 'completed'
+  //       res.redirect('/version-1/task-list')
+  //     }
+  //     else {
+  //       res.render('.//version-1/children/solicitor-details', { errors: errors })
+  //     }
+  //   }
+  //   else {
+  //     res.redirect('/version-1/task-list')
+  //   }
+  // })
+
+
+
   // router.post('/version-1/children/mother-why-no-address', function(req, res) {
   //   var errors = []
   //   if (req.body['mother-why-no-address'] === '') {

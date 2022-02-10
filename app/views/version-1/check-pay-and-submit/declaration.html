@@ -44,7 +44,7 @@ Apply to adopt a child
       <form action="/version-1/check-pay-and-submit/declaration" method="post" class="form">
 
         <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
-            <span class="govuk-caption-l">{{ data['checkpaysubmit'] }}</span>
+            <span class="govuk-caption-l">{{ data['reviewApplication'] }}</span>
         <h1 class="govuk-fieldset__heading">
           Statement of truth
         </h1>
@@ -98,7 +98,7 @@ Apply to adopt a child
             <div class="govuk-checkboxes__item">
               <input class="govuk-checkboxes__input {% if (statementTruthError != '') %} govuk-input--error{% endif %}" id="app-1" name="statement-truth" type="checkbox" value="statement-truth" {% if (data['statement-truth'] != undefined) %} checked {% endif %}>
             <label class="govuk-label govuk-checkboxes__label" for="app-1">
-              The primary applicant believes that the facts stated in this form and any additional documents are true.
+              The first applicant believes that the facts stated in this form and any additional documents are true.
             </label>
           </div>
           </div>

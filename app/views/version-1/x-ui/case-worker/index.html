@@ -1,0 +1,184 @@
+{% block header %}
+{% include "includes/sw-header.html" %}
+{% endblock %}
+
+
+<html lang="en" class="govuk-template ">  
+  <div style=" max-width:1300px; margin: 0 auto;">
+      <div style=" max-width:1300px;  min-width:1300px;  margin: 20px 0px 0px 0px;  ">
+          <main class="govuk-main-wrapper " id="main-content" role="main" style="padding-top: 25px;">                      
+              <div class="govuk-width-container">
+                <div class="govuk-grid-row" style="width:1300px; margin-left: -90px;">
+                    <div class="" style="display: flex; justify-content: space-between; ">
+                        <div>
+                          <h1 class="govuk-heading-xl">#1234-5678-0921-2722  &nbsp;&nbsp;&nbsp; </h1>
+                            <!-- <span class="govuk-caption-l" style="padding-top: 0px">1234-5678-9012-3456</span>
+                            <span style="margin-bottom:50px; padding-top: 25px;"><a href="#">Print</a></span>
+                            <button class="govuk-button govuk-button--secondary" data-module="govuk-button">
+                                Print
+                            </button> -->                           
+                        </div>
+                        {% include "../../../includes/next-steps-case-worker.html" %}
+                    </div>
+
+                    <div class="govuk-tabs" data-module="govuk-tabs">
+
+                      <h2 class="govuk-tabs__title">
+                        Contents
+                      </h2>
+
+                      <!-- ****************************** START OF TABS ****************************** -->
+                      <ul class="govuk-tabs__list">
+                        <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
+                          <a class="govuk-tabs__tab" href="index.html">
+                            Summary
+                          </a>
+                        </li>
+                        
+                        <li class="govuk-tabs__list-item">
+                            <a class="govuk-tabs__tab" href="case-worker-prospective-parents.html">
+                                Prospective parents
+                            </a>
+                        </li>
+  
+                        <li class="govuk-tabs__list-item">
+                            <a class="govuk-tabs__tab" href="case-worker-birth-parents.html">
+                              Birth parents
+                            </a>
+                          </li>
+  
+                        <li class="govuk-tabs__list-item">
+                            <a class="govuk-tabs__tab" href="case-worker-other-parties.html">
+                              Other parties
+                            </a>
+                          </li>
+  
+                        <li class="govuk-tabs__list-item">
+                            <a class="govuk-tabs__tab" href="#3">
+                                Case documents
+                            </a>
+                        </li>
+                        
+                        <li class="govuk-tabs__list-item">
+                            <a class="govuk-tabs__tab" href="#5">
+                              Notes
+                            </a>
+                          </li>
+
+                        <li class="govuk-tabs__list-item">
+                          <a class="govuk-tabs__tab" href="case-worker-history.html">
+                            History
+                          </a>
+                        </li>
+
+                      </ul>
+
+                      <!-- ****************************** END OF TABS ****************************** -->
+
+                      <div class="govuk-tabs__panel" id="1">
+
+                        <h2 class="govuk-heading-m govuk-!-margin-top-7">Case status</h2>
+                        <dl class="govuk-summary-list govuk-!-margin-bottom-9">                          
+                            <div class="govuk-summary-list__row">
+                                <dt class="govuk-summary-list__key">
+                                    Status
+                                </dt>
+                                <dd class="govuk-summary-list__value">
+                                    <a href="">Refund requested</a>
+                                </dd>
+                            </div>
+                            <div class="govuk-summary-list__row">
+                                <dt class="govuk-summary-list__key">
+                                    Messages
+                                </dt>
+                                <dd class="govuk-summary-list__value">
+                                    You have <a href="">3 outstanding messages</a>
+                                </dd>
+                            </div>
+                        </dl>
+
+                        <h2 class="govuk-heading-m govuk-!-margin-top-7">Case details</h2>
+                        <dl class="govuk-summary-list govuk-!-margin-bottom-9">                          
+                            <div class="govuk-summary-list__row">
+                                <dt class="govuk-summary-list__key">
+                                    Type of adoption
+                                </dt>
+                                <dd class="govuk-summary-list__value">
+                                    Placement
+                                </dd>
+                            </div>
+                            <div class="govuk-summary-list__row">
+                                <dt class="govuk-summary-list__key">
+                                    Date submitted to HMCTS
+                                </dt>
+                                <dd class="govuk-summary-list__value">
+                                    23 February 2022
+                                </dd>
+                            </div>
+                            <div class="govuk-summary-list__row">
+                                <dt class="govuk-summary-list__key">
+                                    Date child moved in
+                                </dt>
+                                <dd class="govuk-summary-list__value">
+                                    12 July 2021
+                                </dd>
+                            </div>
+                            <div class="govuk-summary-list__row">
+                                <dt class="govuk-summary-list__key">
+                                    Payment method
+                                </dt>
+                                <dd class="govuk-summary-list__value">
+                                    Help with Fees &ndash; JDUA-7JSHS-JSU65
+                                </dd>
+                            </div>
+                            <div class="govuk-summary-list__row">
+                                <dt class="govuk-summary-list__key">
+                                    Placement order details
+                                </dt>
+                                <dd class="govuk-summary-list__value">
+                                    <p>Brighton County Court</p>
+                                    <p>13 August 2021</p>
+                                    <p>ANC13637883</p>
+                                </dd>
+                            </div>
+                            <div class="govuk-summary-list__row">
+                                <dt class="govuk-summary-list__key">
+                                    Other court orders
+                                </dt>
+                                <dd class="govuk-summary-list__value">
+                                    <p>JTR12346252</p>
+                                    <p>BCC77162555</p>
+                                </dd>
+                            </div>
+                            <div class="govuk-summary-list__row">
+                                <dt class="govuk-summary-list__key">
+                                    Prospective parents social worker
+                                </dt>
+                                <dd class="govuk-summary-list__value">
+                                    <p>Mary Jones</p>
+                                    <p>mary.jones@jonesadoptions.co.uk</p>
+                                    <p>02098756535</p>
+                                    <p>Jones Adoptions</p>
+                                </dd>
+                            </div>
+                            <div class="govuk-summary-list__row">
+                                <dt class="govuk-summary-list__key">
+                                    Payment method
+                                </dt>
+                                <dd class="govuk-summary-list__value">
+                                    Help with Fees JDUA-7JSHS-JSU65
+                                </dd>
+                            </div>
+                        </dl>
+                      </div>
+                    </div>
+                </div>
+              </div>
+          </main>
+      </div>
+  </div>
+</html>
+
+{% block footer %}
+{% include "includes/newfooter.html" %}
+{% endblock %}
