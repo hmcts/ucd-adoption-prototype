@@ -3,10 +3,10 @@
 {% endblock %}
 
 
-<html lang="en" class="govuk-template ">  
+<html lang="en" class="govuk-template ">
   <div style=" max-width:1300px; margin: 0 auto;">
       <div style=" max-width:1300px;  min-width:1300px;  margin: 20px 0px 0px 0px;  ">
-          <main class="govuk-main-wrapper " id="main-content" role="main" style="padding-top: 25px;">                      
+          <main class="govuk-main-wrapper " id="main-content" role="main" style="padding-top: 25px;">
               <div class="govuk-width-container">
                 <div class="govuk-grid-row" style="width:1300px; margin-left: -90px;">
                     <div class="" style="display: flex; justify-content: space-between; ">
@@ -16,7 +16,7 @@
                             <span style="margin-bottom:50px; padding-top: 25px;"><a href="#">Print</a></span>
                             <button class="govuk-button govuk-button--secondary" data-module="govuk-button">
                                 Print
-                            </button> -->                           
+                            </button> -->
                         </div>
                         {% include "../../../includes/next-steps-case-worker.html" %}
                     </div>
@@ -34,31 +34,31 @@
                             Summary
                           </a>
                         </li>
-                        
+
                         <li class="govuk-tabs__list-item">
                             <a class="govuk-tabs__tab" href="case-worker-prospective-parents.html">
                                 Prospective parents
                             </a>
                         </li>
-  
+
                         <li class="govuk-tabs__list-item">
                             <a class="govuk-tabs__tab" href="case-worker-birth-parents.html">
                               Birth parents
                             </a>
                           </li>
-  
+
                         <li class="govuk-tabs__list-item">
                             <a class="govuk-tabs__tab" href="case-worker-other-parties.html">
                               Other parties
                             </a>
                           </li>
-  
-                        <li class="govuk-tabs__list-item">
+
+                        <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
                             <a class="govuk-tabs__tab" href="case-worker-documents.html">
                                 Case documents
                             </a>
                         </li>
-                        
+
                         <li class="govuk-tabs__list-item">
                             <a class="govuk-tabs__tab" href="case-worker-notes.html">
                               Notes
@@ -71,19 +71,81 @@
                           </a>
                         </li>
 
-                        <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
-                            <a class="govuk-tabs__tab" href="case-worker-payments.html">
-                                Payments history
-                            </a>
+                        <li class="govuk-tabs__list-item">
+                          <a class="govuk-tabs__tab" href="case-worker-payments.html">
+                              Payments history
+                          </a>
                         </li>
-    
-                    </ul>
+  
+                      </ul>
 
                       <!-- ****************************** END OF TABS ****************************** -->
 
                       <div class="govuk-tabs__panel" id="1">
+                        <h2 class="govuk-heading-l">Case documents</h2>
 
-                        <h1 class="govuk-heading-xl govuk-!-margin-top-7 ">Common component</h1>
+
+                        <dt class="complex-panel">
+                          Hearing documents 1
+                        </dt>
+
+                        <dl class="govuk-summary-list">
+                          <div class="govuk-summary-list__row">
+                            <dt class="govuk-summary-list__value">
+                              Document
+                            </dt>
+                            <dd class="govuk-summary-list__value">
+                              <a href="">hearingdetails.pdf</a>
+                            </dd>
+                            <dd class="govuk-summary-list__value">
+                              &nbsp;
+                            </dd>
+                          </div>
+
+                          <div class="govuk-summary-list__row">
+                            <dt class="govuk-summary-list__value">
+                              Date uploaded
+                            </dt>
+                            <dd class="govuk-summary-list__value">
+                              13 June 2021
+                            </dd>
+                            <dd class="govuk-summary-list__value">
+                              &nbsp;
+                            </dd>
+                          </div>
+                        </dl>
+
+                        <dt class="complex-panel">
+                          Hearing documents 2
+                        </dt>
+
+                        <dl class="govuk-summary-list">
+                          <div class="govuk-summary-list__row">
+                            <dt class="govuk-summary-list__value">
+                              Document
+                            </dt>
+                            <dd class="govuk-summary-list__value">
+                              <a href="">document4.pdf</a>
+                            </dd>
+                            <dd class="govuk-summary-list__value">
+                              &nbsp;
+                            </dd>
+                          </div>
+
+                          <div class="govuk-summary-list__row">
+                            <dt class="govuk-summary-list__value">
+                              Date uploaded
+                            </dt>
+                            <dd class="govuk-summary-list__value">
+                              8 February 2022
+                            </dd>
+                            <dd class="govuk-summary-list__value">
+                              &nbsp;
+                            </dd>
+                          </div>
+                        </dl>
+
+
                       </div>
                     </div>
                 </div>
