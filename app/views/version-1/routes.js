@@ -3111,88 +3111,105 @@ module.exports = (router) => {
 
 
 
-  router.post('/version-1/check-pay-and-submit/need-help-with-fees-ref', function(req, res) {
-    var errors = []
-    if (req.body['help-with-fees-ref'] === undefined) {
-      errors.push({
-      text: "Select an option",
-      href: '#help-with-fees-ref'
-      })
-    }
-    else if (req.body['help-with-fees-ref'] === "yes" && req.body['ref'].length === 0) {
-      errors.push({
-        text: 'Enter your reference number',
-        href: '#no-number'
-      })
-    }
 
-    if (errors.length === 0) {
-      if (req.body['help-with-fees-ref'] === "yes") {
-        res.redirect('/version-1/check-pay-and-submit/help-with-fees-send-app')
-      }
-      else if (req.body['help-with-fees-ref'] === "no") {
-        res.redirect('/version-1/check-pay-and-submit/get-hwf-reference')
-      }
-      else {
-        res.redirect('https://products.payments.service.gov.uk/pay/02133e4814ea416cb7a1e540b49a8545')
-      }
+// ******************************************** X-UI Case worker ********************************************
+// ************************************************************************************************************************************
+
+
+//**************************************** Check, Pay and Submit ************************************************************
+  router.post('/version-1/includes/next-steps-case-worker', function(req, res) {
+    if (req.body['next-steps'] === 'notes') {
+      res.redirect('/version-1/x-ui/case-worker/case-worker-notes')
     }
     else {
-        res.render('.//version-1/check-pay-and-submit/need-help-with-fees-ref', { errors: errors })
+      res.redirect('/version-1/x-ui/case-worker/')
     }
   })
 
 
 
-  router.post('/version-1/check-pay-and-submit/get-hwf-reference', function(req, res) {
-    var errors = []
-    if (req.body['ref'] === '') {
-      errors.push({
-      text: "Enter your reference number",
-      href: '#no-help-ref'
-      })
-    }
-    if (req.body['continue'] === 'save-and-continue') {
-      if (errors.length === 0) {
-        res.redirect('/version-1/check-pay-and-submit/help-with-fees-send-app')
-      }
-      else {
-        res.render('.//version-1/check-pay-and-submit/get-hwf-reference', { errors: errors })
-      }
-    }
-
-    })
-
-
-
-
-  router.post('/version-1/check-pay-and-submit/help-with-fees-send-app', function(req, res) {
-    var errors = []
-    if (req.body['ref'] === '') {
-      errors.push({
-      text: "Enter you reference number",
-      href: '#no-ref'
-      })
-    }
-    if (req.body['submit-button'] === 'save-and-continue') {
-      if (errors.length === 0) {
-        res.redirect('/version-1/check-pay-and-submit/confirmation')
-      }
-      else {
-        res.render('.//version-1/check-pay-and-submit/help-with-fees-send-app', { errors: errors })
-      }
-    }
-    else {
-      res.redirect('/version-1/task-list')
-    }
-    })
-
-
-  router.post('/version-1/check-pay-and-submit/process-payment', function(req, res) {
-    res.redirect('/version-1/check-pay-and-submit/confirmation')
-  })
-// ***************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************
+  // ***************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************
 // ************************************* Old functions not in use any more ************************************* //
+
+  // router.post('/version-1/check-pay-and-submit/need-help-with-fees-ref', function(req, res) {
+  //   var errors = []
+  //   if (req.body['help-with-fees-ref'] === undefined) {
+  //     errors.push({
+  //     text: "Select an option",
+  //     href: '#help-with-fees-ref'
+  //     })
+  //   }
+  //   else if (req.body['help-with-fees-ref'] === "yes" && req.body['ref'].length === 0) {
+  //     errors.push({
+  //       text: 'Enter your reference number',
+  //       href: '#no-number'
+  //     })
+  //   }
+
+  //   if (errors.length === 0) {
+  //     if (req.body['help-with-fees-ref'] === "yes") {
+  //       res.redirect('/version-1/check-pay-and-submit/help-with-fees-send-app')
+  //     }
+  //     else if (req.body['help-with-fees-ref'] === "no") {
+  //       res.redirect('/version-1/check-pay-and-submit/get-hwf-reference')
+  //     }
+  //     else {
+  //       res.redirect('https://products.payments.service.gov.uk/pay/02133e4814ea416cb7a1e540b49a8545')
+  //     }
+  //   }
+  //   else {
+  //       res.render('.//version-1/check-pay-and-submit/need-help-with-fees-ref', { errors: errors })
+  //   }
+  // })
+
+
+
+  // router.post('/version-1/check-pay-and-submit/get-hwf-reference', function(req, res) {
+  //   var errors = []
+  //   if (req.body['ref'] === '') {
+  //     errors.push({
+  //     text: "Enter your reference number",
+  //     href: '#no-help-ref'
+  //     })
+  //   }
+  //   if (req.body['continue'] === 'save-and-continue') {
+  //     if (errors.length === 0) {
+  //       res.redirect('/version-1/check-pay-and-submit/help-with-fees-send-app')
+  //     }
+  //     else {
+  //       res.render('.//version-1/check-pay-and-submit/get-hwf-reference', { errors: errors })
+  //     }
+  //   }
+
+  //   })
+
+
+  // router.post('/version-1/check-pay-and-submit/help-with-fees-send-app', function(req, res) {
+  //   var errors = []
+  //   if (req.body['ref'] === '') {
+  //     errors.push({
+  //     text: "Enter you reference number",
+  //     href: '#no-ref'
+  //     })
+  //   }
+  //   if (req.body['submit-button'] === 'save-and-continue') {
+  //     if (errors.length === 0) {
+  //       res.redirect('/version-1/check-pay-and-submit/confirmation')
+  //     }
+  //     else {
+  //       res.render('.//version-1/check-pay-and-submit/help-with-fees-send-app', { errors: errors })
+  //     }
+  //   }
+  //   else {
+  //     res.redirect('/version-1/task-list')
+  //   }
+  //   })
+
+
+  // router.post('/version-1/check-pay-and-submit/process-payment', function(req, res) {
+  //   res.redirect('/version-1/check-pay-and-submit/confirmation')
+  // })
+
 
   // router.post('/version-1/children/solicitor-helping', function(req, res) {
   //   // console.log("Mother alive: ", req.body['solicitor-helping'])
