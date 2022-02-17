@@ -2641,7 +2641,8 @@ module.exports = (router) => {
     if (req.body['submit-button'] === 'save-and-continue') {
       if (errors.length === 0) {
         req.session.data.siblingOrderNumber[count] = req.body['sibling-order-case-number']
-        res.redirect('/version-1/children/sibling-order-court')
+        req.session.data.siblingOrderCompleted[count] = "Yes"
+        res.redirect('/version-1/children/sibling-summary')
       }
       else {
         res.render('.//version-1/children/sibling-order-case-number', { errors: errors })
