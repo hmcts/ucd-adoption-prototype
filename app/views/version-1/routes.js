@@ -3140,6 +3140,9 @@ router.post('/version-1/x-ui/case-worker/case-worker-upload', function(req, res)
   if (req.body['submit-button'] === 'continue') {
     res.redirect('/version-1/x-ui/case-worker/case-worker-documents')
   }
+  else if (req.body['add-new-button'] === 'add-new-button-top' || req.body['add-new-button'] === 'add-new-button-bottom' || req.body['remove-button'] === 'remove') {
+    res.redirect('/version-1/x-ui/case-worker/case-worker-upload')
+  }
   else {
     res.redirect('/version-1/x-ui/case-worker/case-worker-manage-documents')
   }
