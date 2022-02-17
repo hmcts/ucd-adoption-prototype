@@ -9,10 +9,31 @@
           <main class="govuk-main-wrapper " id="main-content" role="main" style="padding-top: 25px;">                      
               <div class="govuk-width-container">
                 <div class="govuk-grid-row" style="width:1300px; margin-left: -90px;">
-                  <h1 class="govuk-heading-l">Manage documents</h1>
-                  <h2 class="govuk-heading-m">#1234-5678-0921-2722  &nbsp;&nbsp;&nbsp; </h2>
-                  <img src="upload.png" alt="test">
+                  <h1 class="govuk-heading-xl">Manage documents</h1>
+                  <h2 class="govuk-heading-l">#1234-5678-0921-2722  &nbsp;&nbsp;&nbsp; </h2>
 
+                  <form action="/version-1/x-ui/case-worker/case-worker-upload" method="post" class="form">
+                  <div class="govuk-form-group">
+                    <div class="govuk-inset-text">
+                      <h3 class="govuk-heading-m">Case documents</h3>
+                      <div class="govuk-grid-row">
+                        <div class="govuk-grid-column-two-thirds">
+                          <button class="govuk-button" data-module="govuk-button" name="add-new-button">
+                            Add new
+                          </button>
+                        </div>
+                        <div class="govuk-grid-column-one-third">
+                          <button class="govuk-button govuk-button--secondary" data-module="govuk-button" name="remove-button">
+                            Remove
+                          </button>          
+                        </div>
+                      </div>
+
+                    </div>                 
+                  </div>
+                  <!-- Buttons -->
+                  {% include "../../../includes/buttons-xui.html" %}
+                  </form>
                 </div>
               </div>
           </main>
