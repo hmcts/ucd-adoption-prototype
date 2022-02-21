@@ -379,18 +379,22 @@ Task list
 
               <li class="app-task-list__item">
                 <span class="app-task-list__task-name">
-                    <a href="check-pay-and-submit/check-your-answers.html" aria-describedby="eligibility-completed" class="not-underlined">
-                        Review your application
+                    <a href="check-pay-and-submit/check-your-answers.html" aria-describedby="eligibility-completed" {% if data['submitStatus'] !== 'in progress' %} class="not-underlined" {% endif %}>
+                        Review, pay and submit your application
                     </a>
                 </span>
-                {% if data['reviewStatus'] === 'completed' %}
+                {% if data['submitStatus'] === 'completed' %}
                     <strong class="govuk-tag  app-task-list__tag" id="eligibility-completed">Completed</strong>
+                {% elseif data['submitStatus'] === 'in progress' %}
+                    <strong class="govuk-tag govuk-tag--blue app-task-list__tag">in progress</strong>
+                {% elseif data['submitStatus'] === 'not started' %}
+                    <strong class="govuk-tag govuk-tag--grey app-task-list__tag">not started</strong>
                 {% else %}
                     <strong class="govuk-tag govuk-tag--grey app-task-list__tag">cannot start yet</strong>
                 {% endif %}
               </li>
             
-              <li class="app-task-list__item">
+              <!-- <li class="app-task-list__item">
                 <span class="app-task-list__task-name">
                     <a href="https://products.payments.service.gov.uk/pay/02133e4814ea416cb7a1e540b49a8545" aria-describedby="eligibility-completed" class="not-underlined">
                         Pay and submit your application
@@ -401,7 +405,7 @@ Task list
                 {% else %}
                     <strong class="govuk-tag govuk-tag--grey app-task-list__tag">cannot start yet</strong>
                 {% endif %}
-              </li>
+              </li> -->
             
             </ul>
           </li>
