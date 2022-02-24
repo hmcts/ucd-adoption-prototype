@@ -1366,12 +1366,53 @@ Apply to adopt a child
         </dl>
 
         <!-- **************** Sibling court orders **************** -->
-        {% if data['siblingOrderId'].length > 0 %}
         <h2 class="govuk-heading-m">Sibling court orders</h2>
         <dl class="govuk-summary-list govuk-!-margin-bottom-9">
 
-        <h3 class="govuk-heading-s">Siblings with court orders</h3>
+        <!-- <h3 class="govuk-heading-s">Siblings with court orders</h3> -->
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Child siblings or half siblings
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {% if data['sibling-exists'] %} 
+              {{ data['sibling-exists']}}
+            {% else %} 
+              Yes
+            {% endif %}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a href="../children/sibling-exists.html">
+              Change
+              <span class="govuk-visually-hidden"> date</span>
+            </a>
+          </dd>
+        </div>      
+
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Sibling court orders
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {% if data['sibling-court-order-exists'] %} 
+              {{ data['sibling-court-order-exists']}}
+            {% else %} 
+              Yes
+            {% endif %}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a href="../children/sibling-court-order-exists.html">
+              Change
+              <span class="govuk-visually-hidden"> date</span>
+            </a>
+          </dd>
+        </div>    
         
+
+        {% if data['siblingOrderId'].length > 0 %}
+      
         {% for i in data['uniqueSiblingId'] %}
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
@@ -1441,51 +1482,11 @@ Apply to adopt a child
           </dd>
         </div>   
 
-        <!-- <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-            Court
-          </dt>
-          <dd class="govuk-summary-list__value">
-            {% if data['siblingOrderCourt'][id] %}
-              {{data['siblingOrderCourt'][id]}} 
-            {% endif %}
-          </dd>
-          <dd class="govuk-summary-list__actions">
-            <a href="../children/orders-order-court.html">
-              Change
-              <span class="govuk-visually-hidden"> court</span>
-            </a>
-          </dd>
-        </div>      
-
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-            Date
-          </dt>
-          <dd class="govuk-summary-list__value">
-            {% if data['siblingOrderDay'][id] and data['siblingOrderMonth'][id] and data['siblingOrderYear'][id] %}
-              {{ data['siblingOrderDay'][id] }} {{ data['monthName'][data['siblingOrderMonth'][id]] }} {{ data['siblingOrderYear'][id] }}
-            {% else %}
-              23 June 2020
-            {% endif %}
-          </dd>
-          <dd class="govuk-summary-list__actions">
-            <a href="../children/orders-order-date.html">
-              Change
-              <span class="govuk-visually-hidden"> date</span>
-            </a>
-          </dd>
-        </div>       -->
-
       {% endfor %}
         </dl>
 
         <!-- If there isn't a court case for siblings, just to show how it would display -->
         {% else %}
-        <h2 class="govuk-heading-m">Sibling court orders</h2>
-        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
-
-        <h3 class="govuk-heading-s">Siblings with court orders</h3>
         
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
@@ -1681,27 +1682,10 @@ Apply to adopt a child
         <h2 class="govuk-heading-m">Uploaded documents</h2>
         <dl class="govuk-summary-list govuk-!-margin-bottom-9">
 
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              Applicant's documents
-            </dt>
-            <dd class="govuk-summary-list__value">
-              passportjane.pdf
-              <br>passport2343.pdf
-              <br>drivinglicence1.jpg
-              <br>visaJane.pdf
-            </dd>
-            <dd class="govuk-summary-list__actions">
-              <a href="../upload/applicants-documents-upload.html">
-                Change
-                <span class="govuk-visually-hidden"> uploaded applicant's documents</span>
-              </a>
-            </dd>
-          </div>
 
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
-              Child's documents
+              Uploaded documents
             </dt>
             <dd class="govuk-summary-list__value">
               deathcertificatemother.pdf
@@ -1711,6 +1695,21 @@ Apply to adopt a child
               <a href="../upload/child-documents-upload.html">
                 Change
                 <span class="govuk-visually-hidden"> uploaded child's documents</span>
+              </a>
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Documents not uploaded
+            </dt>
+            <dd class="govuk-summary-list__value">
+              Death certificate
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="../upload/child-documents-upload.html">
+                Change
+                <span class="govuk-visually-hidden"> documents not uploaded</span>
               </a>
             </dd>
           </div>
