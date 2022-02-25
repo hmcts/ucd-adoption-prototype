@@ -3117,38 +3117,65 @@ module.exports = (router) => {
 // ************************************************************************************************************************************
 
 
-//**************************************** Check, Pay and Submit ************************************************************
-router.post('/version-1/includes/next-steps-case-worker', function(req, res) {
-  if (req.body['next-steps'] === 'notes') {
-    res.redirect('/version-1/x-ui/case-worker/case-worker-notes')
-  }
-  else {
-    res.redirect('/version-1/x-ui/case-worker/')
-  }
-})
+  //**************************************** Check, Pay and Submit ************************************************************
+  router.post('/version-1/includes/next-steps-case-worker', function(req, res) {
+    if (req.body['next-steps'] === 'notes') {
+      res.redirect('/version-1/x-ui/case-worker/case-worker-notes')
+    }
+    else {
+      res.redirect('/version-1/x-ui/case-worker/')
+    }
+  })
 
 
-router.post('/version-1/x-ui/case-worker/case-worker-manage-documents', function(req, res) {
-  if (req.body['submit-button'] === 'continue') {
-    res.redirect('/version-1/x-ui/case-worker/case-worker-upload')
-  }
-  else {
-    res.redirect('/version-1/x-ui/case-worker/case-worker-documents')
-  }
-})
+  router.post('/version-1/x-ui/case-worker/case-worker-manage-documents', function(req, res) {
+    if (req.body['submit-button'] === 'continue') {
+      res.redirect('/version-1/x-ui/case-worker/case-worker-upload')
+    }
+    else {
+      res.redirect('/version-1/x-ui/case-worker/case-worker-documents')
+    }
+  })
 
-router.post('/version-1/x-ui/case-worker/case-worker-upload', function(req, res) {
-  if (req.body['submit-button'] === 'continue') {
-    res.redirect('/version-1/x-ui/case-worker/case-worker-documents')
-  }
-  else if (req.body['add-new-button'] === 'add-new-button-top' || req.body['add-new-button'] === 'add-new-button-bottom' || req.body['remove-button'] === 'remove') {
-    res.redirect('/version-1/x-ui/case-worker/case-worker-upload')
-  }
-  else {
-    res.redirect('/version-1/x-ui/case-worker/case-worker-manage-documents')
-  }
-})
+  router.post('/version-1/x-ui/case-worker/case-worker-upload', function(req, res) {
+    if (req.body['submit-button'] === 'continue') {
+      res.redirect('/version-1/x-ui/case-worker/case-worker-documents')
+    }
+    else if (req.body['add-new-button'] === 'add-new-button-top' || req.body['add-new-button'] === 'add-new-button-bottom' || req.body['remove-button'] === 'remove') {
+      res.redirect('/version-1/x-ui/case-worker/case-worker-upload')
+    }
+    else {
+      res.redirect('/version-1/x-ui/case-worker/case-worker-manage-documents')
+    }
+  })
 
+
+  router.post('/version-1/x-ui/case-worker/case-worker-message-radios', function(req, res) {
+    if (req.body['submit-button'] === 'continue') {
+      res.redirect('/version-1/x-ui/case-worker/case-worker-send-message')
+    }
+    else {
+      res.redirect('/version-1/x-ui/case-worker/case-worker-messages')
+    }
+  })
+
+  router.post('/version-1/x-ui/case-worker/case-worker-send-message', function(req, res) {
+    if (req.body['submit-button'] === 'continue') {
+      res.redirect('/version-1/x-ui/case-worker/case-worker-message-sent')
+    }
+    else {
+      res.redirect('/version-1/x-ui/case-worker/case-worker-message-radios')
+    }
+  })
+
+  router.post('/version-1/x-ui/case-worker/case-worker-message-sent', function(req, res) {
+    if (req.body['submit-button'] === 'continue') {
+      res.redirect('/version-1/x-ui/case-worker/case-worker-messages')
+    }
+    else {
+      res.redirect('/version-1/x-ui/case-worker/case-worker-send-message')
+    }
+  })
 
 
   // ***************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************
