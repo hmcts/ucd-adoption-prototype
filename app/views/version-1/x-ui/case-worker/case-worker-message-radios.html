@@ -21,14 +21,14 @@
                       </label>
 
                         <div class="govuk-radios__item">
-                          <input class="govuk-radios__input" id="annex-a-message" name="document-type" type="radio" value="Request Annex A">
+                          <input class="govuk-radios__input" id="annex-a-message" name="document-type" type="radio" value="Request Annex A" {% if data['document-type'] == "Request Annex A" %} checked {% endif %}>
                           <label class="govuk-label govuk-radios__label" for="annex-a-message">
                             Request Annex A
                           </label>
                         </div>
           
                         <div class="govuk-radios__item">
-                          <input class="govuk-radios__input" id="more-information-request" name="document-type" type="radio" value="More information request">
+                          <input class="govuk-radios__input" id="more-information-request" name="document-type" type="radio" value="More information request" {% if data['document-type'] == "More information request" %} checked {% endif %}>
                           <label class="govuk-label govuk-radios__label" for="more-information-request">
                             More information request
                           </label>
