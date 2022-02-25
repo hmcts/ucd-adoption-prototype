@@ -57,7 +57,146 @@
 
 {% if useAutoStoreData %}
   {% block footer %}
-    {{ govukFooter({
+
+
+{{ govukFooter({
+  navigation: [
+    {
+      title: "Coronavirus (COVID-19)",
+      width: "two-thirds",
+      columns: 2,
+        items: [
+        {
+        href: "https://www.gov.uk/coronavirus",
+        text: "Coronavirus (COVID-19): guidance and support"
+      }
+    ]
+  },
+  {
+    title: "Brexit",
+    width: "one-third",
+      items: [
+      {
+      href: "https://www.gov.uk/brexit",
+      text: "Check what you need to do"
+    }
+
+      ]
+    },
+    {
+      title: "Services and information",
+      width: "two-thirds",
+      columns: 2,
+      items: [
+        {
+          href: "https://www.gov.uk/browse/benefits",
+          text: "Benefits"
+        },
+        {
+          href: "https://www.gov.uk/browse/births-deaths-marriages",
+          text: "Births, deaths, marriages and care"
+        },
+        {
+          href: "https://www.gov.uk/browse/business",
+          text: "Business and self-employed"
+        },
+        {
+          href: "https://www.gov.uk/browse/childcare-parenting",
+          text: "Childcare and parenting"
+        },
+        {
+          href: "https://www.gov.uk/browse/citizenship",
+          text: "Citizenship and living in the UK"
+        },
+        {
+          href: "https://www.gov.uk/browse/justice",
+          text: "Crime, justice and the law"
+        },
+        {
+          href: "https://www.gov.uk/browse/disabilities",
+          text: "Disabled people"
+        },
+        {
+          href: "https://www.gov.uk/browse/driving",
+          text: "Driving and transport"
+        },
+        {
+          href: "https://www.gov.uk/browse/education",
+          text: "Education and learning"
+        },
+        {
+          href: "https://www.gov.uk/browse/employing-people",
+          text: "Employing people"
+        },
+        {
+          href: "https://www.gov.uk/browse/environment-countryside",
+          text: "Environment and countryside"
+        },
+        {
+          href: "https://www.gov.uk/browse/housing-local-services",
+          text: "Housing and local services"
+        },
+        {
+          href: "https://www.gov.uk/browse/tax",
+          text: "Money and tax"
+        },
+        {
+          href: "https://www.gov.uk/browse/abroad",
+          text: "Passports, travel and living abroad"
+        },
+        {
+          href: "https://www.gov.uk/browse/visas-immigration",
+          text: "Visas and immigration"
+        },
+        {
+          href: "https://www.gov.uk/browse/working",
+          text: "Working, jobs and pensions"
+        }
+      ]
+    },
+    {
+      title: "Departments and policy",
+      width: "one-third",
+      items: [
+        {
+          href: "https://www.gov.uk/government/how-government-works",
+          text: "How government works"
+        },
+        {
+          href: "https://www.gov.uk/government/organisations",
+          text: "Departments"
+        },
+        {
+          href: "https://www.gov.uk/world",
+          text: "Worldwide"
+        },
+        {
+          href: "https://www.gov.uk/search/services",
+          text: "Services"
+        },
+        {
+          href: "https://www.gov.uk/search/guidance-and-regulation",
+          text: "Guidance and regulation"
+        },
+        {
+          href: "https://www.gov.uk/search/news-and-communications",
+          text: "News and communications"
+        },
+        {
+          href: "https://www.gov.uk/search/research-and-statistics",
+          text: "Research and statistics"
+        },
+        {
+          href: "https://www.gov.uk/search/policy-papers-and-consultations",
+          text: "Policy papers and consultations"
+        },
+        {
+          href: "https://www.gov.uk/search/transparency-and-freedom-of-information-releases",
+          text: "Transparency and freedom of information releases"
+        }
+      ]
+    }
+  ],
       meta: {
         items: [
           {
@@ -67,9 +206,41 @@
           {
             href: "/prototype-admin/clear-data",
             text: "Clear data"
-          }
-          ],
-          text: "4000056655665556"
+          },
+          {
+            href:"https://www.gov.uk/help",
+            text: "Help"
+            },
+            {
+              href:"https://www.gov.uk/help/privacy-notice",
+              text: "Privacy"
+              },
+              {
+                href:"https://www.gov.uk/help/cookies",
+                text: "Cookies"
+                },
+                {
+                  href:"https://www.gov.uk/help/accessibility-statement",
+                  text: "Accessibility statement"
+                  },
+                  {
+                    href:"https://www.gov.uk/contact",
+                    text: "Contact"
+                    },
+                    {
+                      href:"https://www.gov.uk/help/terms-conditions",
+                      text: "Terms and conditions"
+                      },
+                      {
+                        href:"https://www.gov.uk/cymraeg",
+                        text: "Rhestr o Wasanaethau Cymraeg"
+                        },
+                      {
+                        href:"https://www.gov.uk/government/organisations/government-digital-service",
+                        text: "Government Digital Service"
+                        }
+        ],
+        text: ""
       }
     }) }}
   {% endblock %}
