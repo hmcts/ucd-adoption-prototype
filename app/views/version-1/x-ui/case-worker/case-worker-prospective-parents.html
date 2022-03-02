@@ -18,8 +18,24 @@
                                 Print
                             </button> -->                           
                         </div>
-                        {% include "../../../includes/next-steps-case-worker.html" %}
-                    </div>
+                        <form action="/version-1/x-ui/case-worker/index" method="post" class="form">
+                          <div style="display: flex; align-items:right; padding-top: 0px;">
+                              <p class="govuk-!-margin-top-2">Next step &nbsp;</p>
+                      
+                              <select class="govuk-select" id="sort" name="next-steps">
+                                  <option value="select-action" selected="">Select action</option>
+                                  <option value="manage-documents">Manage documents</option>
+                                  <option value="send-a-message">Send message</option>
+                                  <option value="case-issue">Case issue</option>
+                                  <option value="notes">Add a case note</option>
+                              </select>
+                      
+                              <div>
+                                  <button class="govuk-button govuk-!-margin-left-1" data-module="govuk-button" name="go-button">Go</button>
+                              </div>
+                          </div>
+                      </form>
+                  </div>
 
                     <div class="govuk-tabs" data-module="govuk-tabs">
 
