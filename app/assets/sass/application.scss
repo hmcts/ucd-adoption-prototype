@@ -562,3 +562,96 @@ h2.govuk-heading-s {
 }
 
 
+
+
+// Citizen dashboard
+.hmcts-progress-bar__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  text-align: justify;
+  vertical-align: top;
+}
+
+.hmcts-progress-bar__list::before {
+  border-top: 4px solid lightgrey;
+  content: "";
+  left: 0;
+  position: absolute;
+  top: 13px;
+  width: 100%;
+}
+
+.hmcts-progress-bar__list-item {
+  display: inline-block;
+  max-width: 20%;
+  position: relative;
+  text-align: center;
+  vertical-align: top;
+}
+
+.hmcts-progress-bar__list-item:first-child::before,
+.hmcts-progress-bar__list-item:last-child::before {
+  border-top: 6px solid #ffffff;
+  content: "";
+  position: absolute;
+  top: 13px;
+  width: 50%;
+}
+
+.hmcts-progress-bar__list-item:first-child::before {
+  left: 0;
+}
+
+.hmcts-progress-bar__icon {
+  position: relative;
+  background-color: #ffffff;
+  border: 3px solid lightgrey;
+  border-radius: 50%;
+  box-sizing: border-box;
+  display: block;
+  height: 32px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 32px;
+}
+
+.hmcts-progress-bar__icon .govuk-appeal-summary_check {
+  left: 1px;
+}
+
+.complete {
+  background-color: #267abf;
+  border: 3px solid #267abf;
+}
+
+.hmcts-progress-bar__label {
+  font-size: 14px;
+  line-height: 1.14286;
+  display: block;
+  margin-top: 10px;
+  position: relative;
+  word-wrap: break-word;
+}
+
+.hmcts-progress-bar__list::after {
+  content: "";
+  display: inline-block;
+  width: 100%;
+}
+
+.govuk-appeal-steps {
+  margin-bottom: 10%;
+  padding-right: 8%;
+}
+
+.govuk-appeal-steps__message {
+  margin-top: 10px;
+  padding: 6px 50px 30px 33px;
+  background-color: rgba(132, 232, 164, 0.1);
+}
+
+.govuk-appeal-steps__message p:nth-of-type(2) {
+  margin-bottom: 5%;
+}
