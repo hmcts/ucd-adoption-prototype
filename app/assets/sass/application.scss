@@ -762,6 +762,52 @@ a {
 }
 
 
+ /* ========================= COMPONENT 2 ===============================  */
+
+ .govuk-appeal-summary {
+  display: flex;
+  flex-direction: row;
+}
+
+.govuk-appeal-summary_check-wrapper {
+    display: inline-block;
+    background-color: royalblue;
+    border-radius: 20px;
+    width: 27px;
+    height: 26px;
+    margin-right: 30px;
+}
+
+.govuk-appeal-summary_check {
+    position: relative;
+    top: 3px;
+    left: 9px;
+    display: inline-block;
+    transform: rotate(45deg);
+    height: 12px;
+    width: 5px;
+    border-bottom: 4px solid white;
+    border-right: 4px solid white;
+}
+
+.govuk-appeal-summary-details_link {
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+}
+
+.govuk-appeal-summary-details_link a {
+    margin-top: 8px;
+}
+
+@media only screen and (max-width: 768px) {
+    .govuk-appeal-summary_check-wrapper {
+        width: 37px;
+    }
+}
+
+/* ========================= ============== ===============================  */
+
 /* ========================= COMPONENT 3 ===============================  */
 
 .govuk-appeal-steps__notification {
