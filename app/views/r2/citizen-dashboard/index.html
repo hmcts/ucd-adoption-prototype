@@ -1,0 +1,115 @@
+{% extends "layout-signed-in.html" %}
+
+{% block pageTitle %}
+Adoption dashboard
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-width-container">
+  <div class="govuk-grid-row">
+
+    <div class="govuk-grid--column-full">
+      <h1 class="govuk-heading-xl govuk-!-margin-bottom-1">Jane Austen</h1>
+      <h2 class="govuk-heading-m govuk-!-margin-top-0">1235-1223-1223-0099</h2>
+    </div>
+
+  </div>
+
+  <div class="govuk-grid-row">
+
+    <div class="govuk-grid-column-two-thirds">
+
+      <!-- Progress bar -->
+      <div class="hmcts-progress-bar">
+        <ol class="hmcts-progress-bar__list">
+        
+            <li class="hmcts-progress-bar__list-item" aria-current="step">
+                <span class="hmcts-progress-bar__icon complete">
+                    <div class="govuk-appeal-summary_check"></div>
+                </span>
+                <span class="hmcts-progress-bar__label">Application submitted</span>
+            </li>
+                      
+            <li class="hmcts-progress-bar__list-item">
+              <span class="hmcts-progress-bar__icon"></span>
+              <span class="hmcts-progress-bar__label">Lorem ipsum</span>
+            </li>
+              
+            <li class="hmcts-progress-bar__list-item">
+                <span class="hmcts-progress-bar__icon"></span>
+                <span class="hmcts-progress-bar__label">Lorem ipsum</span>
+            </li>
+            
+            <li class="hmcts-progress-bar__list-item">
+                <span class="hmcts-progress-bar__icon"></span>
+                <span class="hmcts-progress-bar__label">Decision</span>
+            </li>
+        
+          </ol>
+      </div>
+
+      <!-- Do this next -->
+      <div class="govuk-appeal-steps" data-nosnippet role="region" aria-label="govuk-appeal-steps">
+        <div class="govuk-appeal-steps__text">
+            <h2><strong>Do this next</strong></h2>
+        </div>
+        <div class="govuk-appeal-steps__notification">
+            <div class="rectangle-box"></div>
+            <div class="govuk-appeal-steps__notification-text">Your answers have ben saved</div>
+        </div>
+        <div class="govuk-appeal-steps__message">
+            <p class="govuk-appeal-steps-body">You need to finish telling us about your appeal.</p>
+            <p class="govuk-appeal-steps-body">You will need to have your Home Office decision letter with you to answer some of the questions.</p>
+
+            <div class="govuk-button-group">
+                <button value="accept" type="button" class="govuk-button"  data-module="govuk-appeal-steps-button">
+                    Continue
+                </button>
+            </div>
+        </div>
+      </div>
+
+    </div>
+    
+    <div class="govuk-grid-column-one-third">
+      <div class="govuk-appeal-wrapper">
+        <div class="govuk-appeal-options">
+            <h3 class="govuk-appeal-options_title"><strong>I want to...</strong></h3>
+            <div class="govuk-appeal-options_links">
+              <a href="#">View your application</a>
+              <a href="#">View your documents</a>
+              <a href="#">View hearings</a>
+            </div>
+        </div>
+
+        <div class="govuk-appeal-contact">
+            <div class="govuk-appeal-contact_title">
+                <h3><strong>Contact us for help</strong></h3>
+            </div>
+            <div class="govuk-appeal-contact_text">
+                Ask a question or get help in your language.
+            </div>
+            <div class="govuk-appeal-contact-info">
+                <div class="govuk-appeal-contact-info_tel">
+                    Telephone:
+                    <br>
+                    03001231711
+                </div>
+                <div class="govuk-appeal-contact-info_email">
+                    Email:
+                    <a href="#">customer.service@justice.gov.uk</a>
+                </div>
+                <div class="govuk-appeal-contact-info_timings">Monday to Friday, 8:30am to 5pm
+                    <a href="#">Find out about call charges</a>
+                    <span>(opens in a new window)</span>
+                </div>
+            </div>
+        </div>
+      </div>      
+    </div>
+    
+  </div>
+</div>
+
+{% endblock %}
