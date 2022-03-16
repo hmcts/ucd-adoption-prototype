@@ -5,6 +5,41 @@ Adoption dashboard
 {% endblock %}
 
 {% block content %}
+<style>
+/* ========================= COMPONENT 1 ===============================  */
+
+    .govuk-appeal-wrapper {
+        border-top: 8px solid #2a6dbf;
+//        width: 65vw;
+        padding: 8px;
+        line-height: 1.25;
+    }
+
+    .govuk-appeal-options ,
+    .govuk-appeal-contact {
+        padding-bottom: 30px;
+        border-bottom: 2px solid darkgrey;
+        position: relative;
+        left: -7px;
+    }
+
+    .govuk-appeal-wrapper,
+    .govuk-appeal-options,
+    .govuk-appeal-options_links,
+    .govuk-appeal-contact-info_email,
+    .govuk-appeal-contact-info_timings {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .govuk-appeal-contact_text, .govuk-appeal-contact-info_tel {
+        margin: 19px 0;
+    }
+
+    .govuk-appeal-contact-info_email {
+        margin-bottom: 10px;
+    }
+    </style>
 
 <div class="govuk-width-container">
   <div class="govuk-grid-row">
@@ -77,9 +112,10 @@ Adoption dashboard
         <div class="govuk-appeal-options">
             <h3 class="govuk-appeal-options_title"><strong>I want to...</strong></h3>
             <div class="govuk-appeal-options_links">
-              <a href="#">View your application</a>
+              <a href="view-application.html">View your application</a>
               <a href="#">View your documents</a>
               <a href="#">View hearings</a>
+              <a href="#">View previous applications</a>
             </div>
         </div>
 
