@@ -1254,6 +1254,8 @@ module.exports = (router) => {
       })
     }
 
+    console.log("Error names: ", errors.length)
+
     if (req.body['submit-button'] === 'save-and-continue') {
       if (errors.length === 0) {
         req.session.data.adoptionCertificateStatus = 'completed'
