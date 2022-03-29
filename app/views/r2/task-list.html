@@ -39,6 +39,21 @@ Task list
                     {% endif %}
                 </li>
 
+                <!-- Number of children -->
+                <li class="app-task-list__item">
+                    <span class="app-task-list__task-name">
+                    <a href="application/number-of-children.html">
+                        Number of children you're applying to adopt
+                    </a>
+                    </span>
+
+                    {% if (data['number-of-children']) %}
+                        <strong class="govuk-tag app-task-list__tag" id="eligibility-completed">completed</strong>
+                    {% else %}
+                        <strong class="govuk-tag govuk-tag--grey app-task-list__tag">not started</strong>
+                    {% endif %}
+                </li>
+
                 <!-- Date child moved in with you -->
                 <li class="app-task-list__item">
                     <span class="app-task-list__task-name">

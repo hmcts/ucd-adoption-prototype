@@ -187,6 +187,40 @@ module.exports = (router) => {
   })
 
 
+  // ********************** Number of children **********************
+  router.post('/r2/application/number-of-children', function(req, res) {
+    var errors = []
+    if (req.body['number-of-children'] === undefined) {
+      errors.push({
+      text: 'Select number of children you are applying to adopt',
+      href: '#number-of-children'
+      })
+    }
+    else if (req.body['number-of-children'] === "3" && req.body['exact-number-children'].length == 0 ) {
+      errors.push({
+        text: 'Provide the exact number of children you are applying to adopt',
+        href: '#other-explanation'
+        })
+
+    }
+
+    req.session.data.numberApplicants = req.body['number-of-children']
+
+    if (req.body['submit-button'] === 'save-and-continue') {
+      if (errors.length === 0) {
+        res.redirect('/r2/task-list')
+      }
+      else {
+        res.render('.//r2/application/number-of-children', { errors: errors })
+      }
+    }
+    else {
+        res.redirect('/r2/task-list')
+    }
+    console.log("Applicants: ", req.session.data.numberApplicants)
+  })
+
+
   // ********************** Date child moved in **********************
   router.post('/r2/application/date-child-moved-in', function(req, res) {
     var errors = []
