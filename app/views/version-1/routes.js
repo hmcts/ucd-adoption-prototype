@@ -3188,7 +3188,7 @@ module.exports = (router) => {
       res.redirect('/version-1/x-ui/case-worker/case-worker-manage-documents')
     }
     else if (req.body['next-steps'] === 'notes') {
-      res.redirect('/version-1/x-ui/case-worker/case-worker-notes')
+      res.redirect('/version-1/x-ui/case-worker/case-worker-add-note')
     }
     else if (req.body['next-steps'] === 'send-a-message') {
       res.redirect('/version-1/x-ui/case-worker/case-worker-message-radios')
