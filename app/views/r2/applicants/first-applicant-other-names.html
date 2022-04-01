@@ -21,7 +21,7 @@ Apply to adopt a child
         {% set noLastNamesError = '' %}
         {% set noAddedFirstNamesError = '' %}
         {% set noAddedLastNamesError = '' %}
-    
+
         {% if errors | length > 0 %}
           {{ govukErrorSummary({
             titleText: "There is a problem",
@@ -49,7 +49,7 @@ Apply to adopt a child
             {% endif %}
           {% endfor %}
         {% endif %}
-        
+
 
         <form action="/r2/applicants/first-applicant-other-names" method="post" class="form">
 
@@ -64,16 +64,16 @@ Apply to adopt a child
           <div id="sign-in-hint" class="govuk-hint">
             For example, your name before marriage.
           </div>
-  
+
           {% if noRadioSelectedError != '' %}
             <span class="govuk-error-message govuk-form">
               <span class="govuk-visually-hidden">Error:</span> {{ noRadioSelectedError }}
             </span>
           {% endif %}
-  
+
           <div class="govuk-form-group">
             <fieldset class="govuk-fieldset" role="group" aria-describedby="first-applicant-other-names">
-  
+
               <div class="govuk-radios govuk-radios--conditional" data-module="govuk-radios">
                 <div class="govuk-radios govuk-radios--conditional" data-module="govuk-radios">
                   <div class="govuk-radios__item">
@@ -82,14 +82,14 @@ Apply to adopt a child
                       Yes
                     </label>
                   </div>
-                  
+
                   <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-contact">
-                    
+
                     {% if (data['firstApplicantNameCount'] > 0) %}
 
                     {% for id in data['idFirstApplicant']|reverse %}
-                    
-                      <dl class="govuk-summary-list govuk-!-margin-bottom-4 ">                    
+
+                      <dl class="govuk-summary-list govuk-!-margin-bottom-4 ">
                         <div class="govuk-summary-list__row">
                           <dt class="govuk-summary-list__key">
                             {{data['firstApplicantPreviousFirstNames'][id]}} {{data['firstApplicantPreviousLastNames'][id]}}
@@ -102,7 +102,7 @@ Apply to adopt a child
                         </div>
                       </dl>
                       {% endfor %}
-                    
+
                       <details class="govuk-details" data-module="govuk-details" {% if noAddedFirstNamesError != '' or noAddedLastNamesError != '' %}open{% endif %}>
                         <summary class="govuk-details__summary">
                           <span class="govuk-details__summary-text">
@@ -110,9 +110,9 @@ Apply to adopt a child
                           </span>
                         </summary>
                         <div class="govuk-details__text">
-                        
+
                         {% endif %}
-  
+
                         <p>List each previous name separately and select 'Add'.</p>
                         <div class="govuk-form-group">
                           <label class="govuk-label" for="other">
@@ -130,7 +130,7 @@ Apply to adopt a child
                             {% endif %}
                            <input class="govuk-input govuk-!-width-two-thirds {% if noFirstNamesError != '' or noAddedFirstNamesError != ''  %} govuk-input--error {% endif %}" id="first-applicant-previous-first-names" name="first-applicant-previous-first-names" type="text" autocomplete="given-name">
                         </div>
-                        
+
                         <div class="govuk-form-group">
                           <label class="govuk-label" for="other">
                             Add your previous last names
@@ -150,8 +150,8 @@ Apply to adopt a child
 
                         <button class="govuk-button govuk-button--secondary govuk-!-margin-top-5" data-module="govuk-button" name="submit-button" value="add">Add</button>
                       </details>
-  
-                  </div>                               
+
+                  </div>
                 </div>
 
                 <div class="govuk-radios__item">
@@ -161,7 +161,7 @@ Apply to adopt a child
                   </label>
                 </div>
                 </div>
-  
+
             </fieldset>
           </div>
           </div>
@@ -170,6 +170,7 @@ Apply to adopt a child
 
 
         </form>
+          {% include "../../includes/contactforhelp.html" %}
       </div>
     </div>
   </main>
