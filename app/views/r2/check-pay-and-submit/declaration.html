@@ -17,7 +17,7 @@ Apply to adopt a child
       {% set yourNameError = '' %}
       {% set statementTruthError = '' %}
       {% set authorisedError = '' %}
-      {% set secondApplicantError = '' %}   
+      {% set secondApplicantError = '' %}
 
       {% if errors | length > 0 %}
       {{ govukErrorSummary({
@@ -82,7 +82,7 @@ Apply to adopt a child
             </span>
           {% endif %}
           <input class="govuk-input govuk-!-width-three-quarters {% if (yourNameError != '') %} govuk-input--error{% endif %}" id="name" name="your-full-name1" type="text" value="{{data['your-full-name1']}}">
-        
+
 
 
         <!-- 2 applicants -->
@@ -116,7 +116,7 @@ Apply to adopt a child
             I am authorised by the second applicant to sign this statement.
           </label>
         </div>
-  
+
 
         <div class="govuk-form-group {% if (yourNameError != '') %} govuk-form-group--error{% endif %}">
           <label class="govuk-label govuk-!-margin-top-6" for="width-20">
@@ -143,7 +143,7 @@ Apply to adopt a child
           {% endif %}
           <input class="govuk-input govuk-!-width-three-quarters {% if (secondApplicantError != '') %} govuk-input--error{% endif %}" id="second-applicant-full-name" name="partner-full-name" type="text" value="{{data['partner-full-name']}}">
         </div>
-       
+
         {% endif %}
 
 
@@ -159,6 +159,7 @@ Apply to adopt a child
           </button>
         </div>
     </form>
+      {% include "../../includes/contactforhelp.html" %}
     </div>
   </div>
 </div>
