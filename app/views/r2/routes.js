@@ -3164,7 +3164,12 @@ module.exports = (router) => {
 
   router.post('/r2/x-ui/case-worker/case-worker-manage-documents', function(req, res) {
     if (req.body['submit-button'] === 'continue') {
-      res.redirect('/r2/x-ui/case-worker/case-worker-upload')
+      if (req.body['document-type'] === 'statements') {
+        res.redirect('/r2/x-ui/case-worker/case-worker-statements-select-respondent')
+      }
+      else {
+        res.redirect('/r2/x-ui/case-worker/case-worker-upload')
+      }
     }
     else {
       res.redirect('/r2/x-ui/case-worker/case-worker-documents')
