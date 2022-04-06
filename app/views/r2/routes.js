@@ -3163,8 +3163,9 @@ module.exports = (router) => {
 
 
   router.post('/r2/x-ui/case-worker/case-worker-manage-documents', function(req, res) {
+    console.log(req.body['document-type'])
     if (req.body['submit-button'] === 'continue') {
-      if (req.body['document-type'] === 'statements') {
+      if (req.body['document-type'] === 'Statements') {
         res.redirect('/r2/x-ui/case-worker/case-worker-statements-select-respondent')
       }
       else {
