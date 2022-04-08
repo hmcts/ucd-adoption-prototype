@@ -1385,7 +1385,6 @@ module.exports = (router) => {
 // ************************************************************************************************************************************
 
 
-  //**************************************** Check, Pay and Submit ************************************************************
   router.post('/r2/includes/next-steps-case-worker', function(req, res) {
     if (req.body['next-steps'] === 'notes') {
       res.redirect('/r2/x-ui/case-worker/case-worker-notes')
@@ -1485,7 +1484,8 @@ module.exports = (router) => {
       res.redirect('/r2/x-ui/case-worker/case-worker-manage-documents')
     }
     else if (req.body['next-steps'] === 'notes') {
-      res.redirect('/r2/x-ui/case-worker/case-worker-notes')
+      req.session.data.newNote = 'yes'
+      res.redirect('/r2/x-ui/case-worker/case-worker-add-note')
     }
     else if (req.body['next-steps'] === 'send-a-message') {
       res.redirect('/r2/x-ui/case-worker/case-worker-message-radios')

@@ -3121,7 +3121,6 @@ module.exports = (router) => {
 // ************************************************************************************************************************************
 
 
-  //**************************************** Check, Pay and Submit ************************************************************
   router.post('/version-1/includes/next-steps-case-worker', function(req, res) {
     if (req.body['next-steps'] === 'notes') {
       res.redirect('/version-1/x-ui/case-worker/case-worker-notes')
