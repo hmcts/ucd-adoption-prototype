@@ -1397,7 +1397,6 @@ module.exports = (router) => {
 
 
   router.post('/r2/x-ui/case-worker/case-worker-manage-documents', function(req, res) {
-    console.log(req.body['document-type'])
     if (req.body['submit-button'] === 'continue') {
       if (req.body['document-type'] === 'Statements') {
         res.redirect('/r2/x-ui/case-worker/case-worker-statements-select-respondent')
@@ -1410,6 +1409,32 @@ module.exports = (router) => {
       res.redirect('/r2/x-ui/case-worker/case-worker-documents')
     }
   })
+
+
+  router.post('/r2/x-ui/case-worker/case-worker-statements-select-respondent', function(req, res) {
+    if (req.body['submit-button'] === 'continue') {
+      res.redirect('/r2/x-ui/case-worker/case-worker-intention-oppose')
+    }
+    else {
+      res.redirect('/r2/x-ui/case-worker/case-worker-manage-documents')
+    }
+  })
+
+
+  router.post('/r2/x-ui/case-worker/case-worker-intention-oppose', function(req, res) {
+    if (req.body['submit-button'] === 'continue') {
+      if (req.body['intend-oppose'] === 'no') {
+        res.redirect('/r2/x-ui/case-worker/case-worker-upload')
+      }
+      else {
+        res.redirect('/r2/x-ui/case-worker/case-worker-documents')
+      }
+    }
+    else {
+      res.redirect('/r2/x-ui/case-worker/case-worker-statements-select-respondent')
+    }
+  })
+
 
   router.post('/r2/x-ui/case-worker/case-worker-upload', function(req, res) {
     if (req.body['submit-button'] === 'continue') {
