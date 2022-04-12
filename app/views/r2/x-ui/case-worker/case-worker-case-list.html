@@ -94,7 +94,38 @@
                                 </label>
                                 <input class="govuk-input" id="ccd-case-number" name="ccd-case-number" type="text">
                             </div>                        
+                            <div class="govuk-form-group">
+                                <label class="govuk-label" for="ccd-case-number">
+                                    Date submitted
+                                </label>
+                                <div class="govuk-date-input" id="dob">
+                                    <div class="govuk-date-input__item">
+                                      <div class="govuk-form-group">
+                                        <label class="govuk-label govuk-date-input__label" for="day">
+                                          Day
+                                        </label>
+                                        <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="day" name="child-birth-day" type="text" pattern="[0-9]*" inputmode="numeric" value=""></div>
+                                    </div>
+                                    <div class="govuk-date-input__item">
+                                      <div class="govuk-form-group">
+                                        <label class="govuk-label govuk-date-input__label" for="month">
+                                          Month
+                                        </label>
+                                        <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="month" name="child-birth-month" type="text" pattern="[0-9]*" inputmode="numeric" value=""></div>
+                                    </div>
+                                    <div class="govuk-date-input__item">
+                                      <div class="govuk-form-group">
+                                        <label class="govuk-label govuk-date-input__label" for="year">
+                                          Year
+                                        </label>
+                                        <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="year" name="child-birth-year" type="text" pattern="[0-9]*" inputmode="numeric" value=""></div>
+                                    </div>
+                                </div>                        
+                            </div>
+
+                            {% include "../../../includes/filter-buttons.html" %}    
                         </div>
+
                         <div class="govuk-grid-column-two-thirds">
                       
                             <h2 class="govuk-heading-m">Case list</h2>              
