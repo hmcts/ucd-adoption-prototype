@@ -40,6 +40,13 @@
                         </div>
           
                         <div class="govuk-radios__item">
+                          <input class="govuk-radios__input" id="child social worker" name="respondent-role" type="radio" value="child social worker">
+                          <label class="govuk-label govuk-radios__label" for="child social worker">
+                            Child's social worker: Agnes James
+                          </label>
+                        </div>
+          
+                        <div class="govuk-radios__item">
                           <input class="govuk-radios__input" id="lorem-ipsum" name="respondent-role" type="radio" value="lorem ipsum">
                           <label class="govuk-label govuk-radios__label" for="lorem-ipsum">
                             Lorem ipsum: Dolor Sit Amet
@@ -48,6 +55,7 @@
           
                       </div>                  
                 </div>
+                <input type="hidden" name="document-type" value="{{data['document-type']}}">
                 <!-- Buttons -->
                 {% include "../../../includes/buttons-xui.html" %}
                   </form>

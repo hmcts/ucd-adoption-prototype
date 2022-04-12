@@ -115,7 +115,9 @@ module.exports = {
     "October",
     "November",
     "December"
-]
+],
+
+"newNote": "no"
 
 
 ,}
