@@ -1385,7 +1385,6 @@ module.exports = (router) => {
 // ************************************************************************************************************************************
 
 
-  //**************************************** Check, Pay and Submit ************************************************************
   router.post('/r2/includes/next-steps-case-worker', function(req, res) {
     if (req.body['next-steps'] === 'notes') {
       res.redirect('/r2/x-ui/case-worker/case-worker-notes')
@@ -1397,7 +1396,6 @@ module.exports = (router) => {
 
 
   router.post('/r2/x-ui/case-worker/case-worker-manage-documents', function(req, res) {
-    console.log(req.body['document-type'])
     if (req.body['submit-button'] === 'continue') {
       if (req.body['document-type'] === 'Statements') {
         res.redirect('/r2/x-ui/case-worker/case-worker-statements-select-respondent')
@@ -1410,6 +1408,38 @@ module.exports = (router) => {
       res.redirect('/r2/x-ui/case-worker/case-worker-documents')
     }
   })
+
+
+  router.post('/r2/x-ui/case-worker/case-worker-statements-select-respondent', function(req, res) {
+    if (req.body['submit-button'] === 'continue') {
+      if (req.body['respondent-role'] === 'birth mother' || req.body['respondent-role'] === 'birth father' || req.body['respondent-role'] === 'person with parental responsibility') {
+        res.redirect('/r2/x-ui/case-worker/case-worker-intention-oppose')
+      }
+      else {
+        res.redirect('/r2/x-ui/case-worker/case-worker-upload')
+      }
+    }
+    else {
+      res.redirect('/r2/x-ui/case-worker/case-worker-manage-documents')
+    }
+  })
+
+
+  router.post('/r2/x-ui/case-worker/case-worker-intention-oppose', function(req, res) {
+    if (req.body['submit-button'] === 'continue') {
+      if (req.body['intend-oppose'] === 'no') {
+        req.session.data.intentionOppose = 'no'
+      }
+      else {
+        req.session.data.intentionOppose = 'yes'
+      }
+      res.redirect('/r2/x-ui/case-worker/case-worker-upload')
+    }
+    else {
+      res.redirect('/r2/x-ui/case-worker/case-worker-statements-select-respondent')
+    }
+  })
+
 
   router.post('/r2/x-ui/case-worker/case-worker-upload', function(req, res) {
     if (req.body['submit-button'] === 'continue') {
@@ -1460,7 +1490,8 @@ module.exports = (router) => {
       res.redirect('/r2/x-ui/case-worker/case-worker-manage-documents')
     }
     else if (req.body['next-steps'] === 'notes') {
-      res.redirect('/r2/x-ui/case-worker/case-worker-notes')
+      req.session.data.newNote = 'yes'
+      res.redirect('/r2/x-ui/case-worker/case-worker-add-note')
     }
     else if (req.body['next-steps'] === 'send-a-message') {
       res.redirect('/r2/x-ui/case-worker/case-worker-message-radios')
