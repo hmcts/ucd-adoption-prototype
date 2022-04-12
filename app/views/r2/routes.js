@@ -246,7 +246,7 @@ module.exports = (router) => {
 
 
   // ********************** Adoption agency or local authority **********************
-  router.post('/r2/application/applicant-adoption-agency-details', function(req, res) {
+  router.post('/r2/application/local-authority-details', function(req, res) {
     var errors = []
     if (req.body['applicant-agency-name'] === '') {
       errors.push({
@@ -266,12 +266,7 @@ module.exports = (router) => {
       href: '#contact'
       })
     }
-    if (req.body['applicant-email'] === '') {
-      errors.push({
-      text: 'Devs: "Enter an email address" [if left blank] or "Enter an email address in the correct format, like name@example.com" [if in the wrong format] ',
-      href: '#email'
-      })
-    }
+
 
     if (req.body['submit-button'] === 'save-and-continue') {
       if (errors.length === 0) {
@@ -279,7 +274,7 @@ module.exports = (router) => {
         res.redirect('/r2/application/applicant-other-adoption-agency')
       }
       else {
-        res.render('.//r2/application/applicant-adoption-agency-details', { errors: errors })
+        res.render('.//r2/application/local-authority-details', { errors: errors })
       }
     }
     else {
@@ -337,12 +332,7 @@ module.exports = (router) => {
       href: '#contact'
       })
     }
-    if (req.body['applicant-email-2'] === '') {
-      errors.push({
-      text: 'Devs: "Enter an email address" [if left blank] or "Enter an email address in the correct format, like name@example.com" [if in the wrong format] ',
-      href: '#email'
-      })
-    }
+    
 
     if (req.body['submit-button'] === 'save-and-continue') {
       if (errors.length === 0) {
@@ -364,6 +354,12 @@ module.exports = (router) => {
       errors.push({
       text: 'Enter a name',
       href: '#name'
+      })
+    }
+    if (req.body['child-social-worker-la-name'] === '') {
+      errors.push({
+      text: 'Enter a name',
+      href: '#laname'
       })
     }
     if (req.body['child-social-worker-phone-number'] === '') {

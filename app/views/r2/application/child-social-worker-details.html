@@ -15,6 +15,7 @@ Apply to adopt a child
     <div class="govuk-grid-column-two-thirds">
 
       {% set nameError = '' %}
+      {% set lanameError = '' %}
       {% set phoneError = '' %}
       {% set emailError = '' %}
 
@@ -26,6 +27,9 @@ Apply to adopt a child
         {% for error in errors %}
           {% if error.href == '#name' %}
             {% set nameError = error.text %}
+          {% endif %}
+          {% if error.href == '#laname' %}
+            {% set lanameError = error.text %}
           {% endif %}
           {% if error.href == '#phone' %}
             {% set phoneError = error.text %}
@@ -45,7 +49,19 @@ Apply to adopt a child
             </h1>
           </legend>
           <div id="case-hint" class="govuk-hint">
-            You can get these details from your adoption agency or local authority.
+            You can get these details from your local authority or adoption agency.
+          </div>
+
+          <div class="govuk-form-group {% if (lanameError != '') %} govuk-form-group--error{% endif %}">
+            <label class="govuk-label" for="name">
+              Name of the social worker's local authority
+            </label>
+            {% if lanameError != '' %}
+            <span id="contact-error" class="govuk-error-message">
+              <span class="govuk-visually-hidden">Error:</span> {{ nameError }}
+            </span>
+            {% endif %}
+            <input class="govuk-input govuk-!-width-two-thirds {% if (lanameError != '') %} govuk-input--error{% endif %}" id="child-social-worker-la-name" name="child-social-worker-la-name" type="text" value="{{ data['child-social-worker-la-name'] }}">
           </div>
 
           <div class="govuk-form-group {% if (nameError != '') %} govuk-form-group--error{% endif %}">
@@ -97,6 +113,7 @@ Apply to adopt a child
         <!-- Buttons -->
         {% include "../../includes/buttons.html" %}
         </form>
+         {% include "../../includes/contactforhelp.html" %}
       </div>
     </div>
   </main>

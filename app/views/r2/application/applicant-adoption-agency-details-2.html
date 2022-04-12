@@ -45,13 +45,13 @@ Apply to adopt a child
           <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
             <span class="govuk-caption-l">{{ data['applicationSection'] }}</span>
             <h1 class="govuk-fieldset__heading">
-              Adoption agency or local authority details
+            Adoption agency details
             </h1>
           </legend>
 
           <div class="govuk-form-group {% if (nameError != '') %} govuk-form-group--error{% endif %}">
             <label class="govuk-label" for="name">
-              Name of adoption agency or local authority
+              Name of adoption agency
             </label>
             {% if nameError != '' %}
             <span id="contact-error" class="govuk-error-message">
@@ -61,7 +61,37 @@ Apply to adopt a child
 
             <input class="govuk-input govuk-!-width-two-thirds {% if (nameError != '') %} govuk-input--error{% endif %}" id="applicant-agency-name-2" name="applicant-agency-name-2" type="text" value="{{ data['applicant-agency-name-2'] }}">
           </div>
+          <fieldset class="govuk-fieldset">
 
+            <div class="govuk-form-group">
+              <label class="govuk-label" for="address-line-1">
+                Address line 1
+              </label>
+              <input class="govuk-input" id="address-line-1" name="address-line-1" type="text" autocomplete="address-line1">
+            </div>
+
+            <div class="govuk-form-group">
+              <label class="govuk-label" for="address-line-2">
+                Address line 2 (optional)
+              </label>
+              <input class="govuk-input" id="address-line-2" name="address-line-2" type="text" autocomplete="address-line2">
+            </div>
+
+            <div class="govuk-form-group">
+              <label class="govuk-label" for="address-town">
+                Town or city
+              </label>
+              <input class="govuk-input govuk-!-width-two-thirds" id="address-town" name="address-town" type="text" autocomplete="address-level2">
+            </div>
+
+            <div class="govuk-form-group">
+              <label class="govuk-label" for="address-postcode">
+                Postcode
+              </label>
+              <input class="govuk-input govuk-input--width-10" id="address-postcode" name="address-postcode" type="text" autocomplete="postal-code">
+            </div>
+
+          </fieldset>
 
           <div class="govuk-form-group {% if (phoneError != '') %} govuk-form-group--error{% endif %}">
             <label class="govuk-label" for="phone-number">
@@ -89,7 +119,7 @@ Apply to adopt a child
 
           <div class="govuk-form-group {% if (emailError != '') %} govuk-form-group--error{% endif %}">
             <label class="govuk-label" for="contact">
-              Email address of your contact
+              Email address (optional)
             </label>
             {% if emailError != '' %}
             <span id="contact-error" class="govuk-error-message">
@@ -105,6 +135,7 @@ Apply to adopt a child
         <!-- Buttons -->
         {% include "../../includes/buttons.html" %}
         </form>
+         {% include "../../includes/contactforhelp.html" %}
       </div>
     </div>
   </main>
