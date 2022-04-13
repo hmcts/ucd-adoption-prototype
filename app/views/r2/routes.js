@@ -1408,13 +1408,13 @@ module.exports = (router) => {
 
   router.post('/r2/x-ui/case-worker/case-worker-statements-select-respondent', function(req, res) {
     if (req.body['submit-button'] === 'continue') {
-      if (req.body['respondent-role'] === 'birth mother' || req.body['respondent-role'] === 'birth father' || req.body['respondent-role'] === 'person with parental responsibility') {
-        res.redirect('/r2/x-ui/case-worker/case-worker-intention-oppose')
-      }
-      else {
-        res.redirect('/r2/x-ui/case-worker/case-worker-upload')
-      }
+      // if (req.body['respondent-role'] === 'birth mother' || req.body['respondent-role'] === 'birth father' || req.body['respondent-role'] === 'person with parental responsibility') {
+      //   res.redirect('/r2/x-ui/case-worker/case-worker-intention-oppose')
+      // }
+      // else {
+      res.redirect('/r2/x-ui/case-worker/case-worker-upload')
     }
+    // }
     else {
       res.redirect('/r2/x-ui/case-worker/case-worker-manage-documents')
     }
