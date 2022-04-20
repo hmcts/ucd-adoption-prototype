@@ -49,7 +49,7 @@ Apply to adopt a child
             </h1>
           </legend>
           <div id="lahint" class="govuk-hint">
-            This is the local authority who placed the child in your care. They will be named on the placement order.
+            We need the details of the local authority that placed the child with you. These should be on the placement order.
           </div>
           <div class="govuk-form-group {% if (nameError != '') %} govuk-form-group--error{% endif %}">
             <label class="govuk-label" for="name">
@@ -65,23 +65,13 @@ Apply to adopt a child
             <input class="govuk-input govuk-!-width-two-thirds {% if (nameError != '') %} govuk-input--error{% endif %}" id="applicant-agency-name" name="applicant-agency-name" type="text" value="{{ data['applicant-agency-name'] }}">
           </div>
 
-
-          <div class="govuk-form-group {% if (phoneError != '') %} govuk-form-group--error{% endif %}">
-            <label class="govuk-label" for="phone-number">
-              Phone number
-            </label>
-            {% if phoneError != '' %}
-            <span id="contact-error" class="govuk-error-message">
-              <span class="govuk-visually-hidden">Error:</span> {{ phoneError }}
-            </span>
-            {% endif %}
-            <input class="govuk-input govuk-input--width-10 {% if (phoneError != '') %} govuk-input--error{% endif %}" id="applicant-phone-number" name="applicant-phone-number" type="number" autocomplete="tel" value="{{ data['applicant-phone-number'] }}">
-          </div>
-
           <div class="govuk-form-group {% if (contactError != '') %} govuk-form-group--error{% endif %}">
             <label class="govuk-label" for="contact">
-              Name of your contact (this is the person who is dealing with your case)
+              Name of your contact
             </label>
+            <div id="lahint" class="govuk-hint">
+            This is usually your social worker. If you do not yet have a social worker, then this is the name of the person you have the most contact with in the local authority.
+            </div>
             {% if contactError != '' %}
             <span id="contact-error" class="govuk-error-message">
               <span class="govuk-visually-hidden">Error:</span> {{ contactError }}
@@ -90,9 +80,26 @@ Apply to adopt a child
             <input class="govuk-input govuk-!-width-two-thirds {% if (contactError != '') %} govuk-input--error{% endif %}" id="applicant-contact" name="applicant-contact" type="text" value="{{ data['applicant-contact'] }}">
           </div>
 
+          <div class="govuk-form-group {% if (phoneError != '') %} govuk-form-group--error{% endif %}">
+            <label class="govuk-label" for="phone-number">
+              Phone number
+            </label>
+            <div id="lahint" class="govuk-hint">
+            This should be the number of your contact.
+            </div>
+            {% if phoneError != '' %}
+            <span id="contact-error" class="govuk-error-message">
+              <span class="govuk-visually-hidden">Error:</span> {{ phoneError }}
+            </span>
+            {% endif %}
+            <input class="govuk-input govuk-input--width-10 {% if (phoneError != '') %} govuk-input--error{% endif %}" id="applicant-phone-number" name="applicant-phone-number" type="number" autocomplete="tel" value="{{ data['applicant-phone-number'] }}">
+          </div>
+
+
+
           <div class="govuk-form-group {% if (emailError != '') %} govuk-form-group--error{% endif %}">
             <label class="govuk-label" for="contact">
-              Email address (optional)
+              Email address of your contact
             </label>
             {% if emailError != '' %}
             <span id="contact-error" class="govuk-error-message">
