@@ -266,8 +266,12 @@ module.exports = (router) => {
       href: '#contact'
       })
     }
-
-
+    if (req.body['applicant-email'] === '') {
+      errors.push({
+      text: 'Enter an email address',
+      href: '#email'
+      })
+    }
     if (req.body['submit-button'] === 'save-and-continue') {
       if (errors.length === 0) {
         req.session.data.agencyStatus = 'in progress'
@@ -332,7 +336,31 @@ module.exports = (router) => {
       href: '#contact'
       })
     }
-    
+    if (req.body['agency-details-address-line-1'] === '') {
+      errors.push({
+      text: 'Enter the first line of the address',
+      href: '#first-line'
+      })
+    }
+    if (req.body['agency-details-address-town'] === '') {
+      errors.push({
+      text: 'Enter the town or city',
+      href: '#town'
+      })
+    }
+    if (req.body['agency-details-address-postcode'] === '') {
+      errors.push({
+      text: 'Enter the postcode',
+      href: '#postcode'
+      })
+    }
+    if (req.body['applicant-email-2'] === '') {
+      errors.push({
+      text: 'Enter an email address',
+      href: '#email'
+      })
+    }
+
 
     if (req.body['submit-button'] === 'save-and-continue') {
       if (errors.length === 0) {
