@@ -9,7 +9,7 @@
           <main class="govuk-main-wrapper " id="main-content" role="main" style="padding-top: 25px;">                      
               <div class="govuk-width-container">
                 <div class="govuk-grid-row" style="width:1300px; margin-left: -90px;">
-                  <h1 class="govuk-heading-xl">Manage documents</h1>
+                  <h1 class="govuk-heading-xl">Upload documents</h1>
                   <h2 class="govuk-heading-l">#1234-5678-0921-2722  &nbsp;&nbsp;&nbsp; </h2>
 
                   <form action="/r2/x-ui/case-worker/case-worker-upload" method="post" class="form">
@@ -24,6 +24,9 @@
                       <input class="govuk-input" id="event-name" name="document-name" type="text">
                       
                       <p class="govuk-!-margin-top-5 govuk-!-margin-bottom-1">Document</p>
+                      <div id="event-name-hint" class="govuk-hint">
+                        The selected file must be smaller than 1GB
+                      </div>
                       <!-- <p><a href="">document1.pdf</a></p> -->
                       <input class="govuk-file-upload" id="file-upload-1" name="file-upload-1" type="file">
                       
