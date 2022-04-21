@@ -1,5 +1,5 @@
 {% block header %}
-{% include "includes/sw-header.html" %}
+{% include "includes/xui-header.html" %}
 {% endblock %}
 
 
@@ -18,6 +18,9 @@
                       <h3 class="govuk-heading-m">{{ data['document-type'] }}</h3>
                       
                       <p class="govuk-!-margin-bottom-1">Document name</p>
+                      <div id="event-name-hint" class="govuk-hint">
+                        Make sure the name identifies what the document is, for example, child birth certificate.
+                      </div>
                       <input class="govuk-input" id="event-name" name="document-name" type="text">
                       
                       <p class="govuk-!-margin-top-5 govuk-!-margin-bottom-1">Document</p>

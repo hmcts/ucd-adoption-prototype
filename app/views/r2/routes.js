@@ -1408,13 +1408,13 @@ module.exports = (router) => {
 
   router.post('/r2/x-ui/case-worker/case-worker-statements-select-respondent', function(req, res) {
     if (req.body['submit-button'] === 'continue') {
-      if (req.body['respondent-role'] === 'birth mother' || req.body['respondent-role'] === 'birth father' || req.body['respondent-role'] === 'person with parental responsibility') {
-        res.redirect('/r2/x-ui/case-worker/case-worker-intention-oppose')
-      }
-      else {
-        res.redirect('/r2/x-ui/case-worker/case-worker-upload')
-      }
+      // if (req.body['respondent-role'] === 'birth mother' || req.body['respondent-role'] === 'birth father' || req.body['respondent-role'] === 'person with parental responsibility') {
+      //   res.redirect('/r2/x-ui/case-worker/case-worker-intention-oppose')
+      // }
+      // else {
+      res.redirect('/r2/x-ui/case-worker/case-worker-upload')
     }
+    // }
     else {
       res.redirect('/r2/x-ui/case-worker/case-worker-manage-documents')
     }
@@ -1452,10 +1452,20 @@ module.exports = (router) => {
 
   router.post('/r2/x-ui/case-worker/case-worker-message-radios', function(req, res) {
     if (req.body['submit-button'] === 'continue') {
-      res.redirect('/r2/x-ui/case-worker/case-worker-send-message')
+      res.redirect('/r2/x-ui/case-worker/case-worker-messages-select-person')
     }
     else {
       res.redirect('/r2/x-ui/case-worker/case-worker-messages')
+    }
+  })
+
+
+  router.post('/r2/x-ui/case-worker/case-worker-messages-select-person', function(req, res) {
+    if (req.body['submit-button'] === 'continue') {
+      res.redirect('/r2/x-ui/case-worker/case-worker-send-message')
+    }
+    else {
+      res.redirect('/r2/x-ui/case-worker/case-worker-message-radios')
     }
   })
 
@@ -1465,7 +1475,7 @@ module.exports = (router) => {
       res.redirect('/r2/x-ui/case-worker/case-worker-message-sent')
     }
     else {
-      res.redirect('/r2/x-ui/case-worker/case-worker-message-radios')
+      res.redirect('/r2/x-ui/case-worker/case-worker-messages-select-person')
     }
   })
 
