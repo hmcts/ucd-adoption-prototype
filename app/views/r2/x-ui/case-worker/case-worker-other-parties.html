@@ -21,7 +21,7 @@
                         <form action="/r2/x-ui/case-worker/index" method="post" class="form">
                           <div style="display: flex; align-items:right; padding-top: 0px;">
                               <p class="govuk-!-margin-top-2">Next step &nbsp;</p>
-                      
+
                               <select class="govuk-select" id="sort" name="next-steps">
                                   <option value="select-action" selected="">Select action</option>
                                   <option value="manage-documents">Upload documents</option>
@@ -29,7 +29,7 @@
                                   <option value="case-issue">Case issue</option>
                                   <option value="notes">Add a case note</option>
                               </select>
-                      
+
                               <div>
                                   <button class="govuk-button govuk-!-margin-left-1" data-module="govuk-button" name="go-button">Go</button>
                               </div>
@@ -50,31 +50,31 @@
                             Summary
                           </a>
                         </li>
-                        
+
                         <li class="govuk-tabs__list-item">
                             <a class="govuk-tabs__tab" href="case-worker-prospective-parents.html">
                                 Applicants
                             </a>
                         </li>
-    
+
                         <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
                             <a class="govuk-tabs__tab" href="case-worker-other-parties.html">
                               Other parties
                             </a>
                           </li>
-  
+
                           <li class="govuk-tabs__list-item">
                             <a class="govuk-tabs__tab" href="case-worker-documents.html">
                                 Documents
                             </a>
                         </li>
-                        
+
                         <li class="govuk-tabs__list-item">
                             <a class="govuk-tabs__tab" href="case-worker-messages.html">
                                 Messages
                             </a>
                         </li>
-                        
+
                         <li class="govuk-tabs__list-item">
                             <a class="govuk-tabs__tab" href="case-worker-notes.html">
                                   Notes
@@ -104,7 +104,7 @@
                                 Orders
                             </a>
                         </li> -->
-        
+
                     </ul>
 
                     <!-- ****************************** END OF TABS ****************************** -->
@@ -451,7 +451,7 @@
                       </dl>
 
                        <dt class="complex-panel govuk-!-margin-top-7">
-                         Local Authority
+                         Adoption Agency or Local Authority
                        </dt>
                        <dl class="govuk-summary-list">
                          <div class="govuk-summary-list__row">
@@ -465,7 +465,17 @@
                              &nbsp;
                            </dd>
                          </div>
-
+                         <div class="govuk-summary-list__row">
+                           <dt class="govuk-summary-list__value">
+                             Name of contact
+                           </dt>
+                           <dd class="govuk-summary-list__value">
+                             Mary Francis
+                           </dd>
+                           <dd class="govuk-summary-list__value">
+                             &nbsp;
+                           </dd>
+                         </div>
                          <div class="govuk-summary-list__row">
                            <dt class="govuk-summary-list__value">
                              Phone number
@@ -478,17 +488,7 @@
                            </dd>
                          </div>
 
-                         <div class="govuk-summary-list__row">
-                           <dt class="govuk-summary-list__value">
-                             Name of contact
-                           </dt>
-                           <dd class="govuk-summary-list__value">
-                             Mary Francis
-                           </dd>
-                           <dd class="govuk-summary-list__value">
-                             &nbsp;
-                           </dd>
-                         </div>
+
                          <div class="govuk-summary-list__row">
                            <dt class="govuk-summary-list__value">
                              Email address of contact
@@ -503,7 +503,7 @@
 
                       </dl>
                       <dt class="complex-panel govuk-!-margin-top-7">
-                        Other Local Authority
+                        Other Adoption Agency or Local Authority
                       </dt>
                       <dl class="govuk-summary-list">
                         <div class="govuk-summary-list__row">
@@ -517,19 +517,6 @@
                             &nbsp;
                           </dd>
                         </div>
-
-                        <div class="govuk-summary-list__row">
-                          <dt class="govuk-summary-list__value">
-                            Phone number
-                          </dt>
-                          <dd class="govuk-summary-list__value">
-                            02098676523
-                          </dd>
-                          <dd class="govuk-summary-list__value">
-                            &nbsp;
-                          </dd>
-                        </div>
-
                         <div class="govuk-summary-list__row">
                           <dt class="govuk-summary-list__value">
                             Name of contact
@@ -541,6 +528,51 @@
                             &nbsp;
                           </dd>
                         </div>
+                        <div class="govuk-summary-list__row">
+                          <dt class="govuk-summary-list__value">
+                            Phone number
+                          </dt>
+                          <dd class="govuk-summary-list__value">
+                            02098676523
+                          </dd>
+                          <dd class="govuk-summary-list__value">
+                            &nbsp;
+                          </dd>
+                        </div>
+                        <div class="govuk-summary-list__row">
+                          <dt class="govuk-summary-list__value">
+                            Address
+                          </dt>
+                          <dd class="govuk-summary-list__value">
+                            4 Hull Street
+                          </dd>
+                          <dd class="govuk-summary-list__value">
+                            &nbsp;
+                          </dd>
+                        </div>
+                        <div class="govuk-summary-list__row">
+                          <dt class="govuk-summary-list__value">
+                            Town or City
+                          </dt>
+                          <dd class="govuk-summary-list__value">
+                            Newham
+                          </dd>
+                          <dd class="govuk-summary-list__value">
+                            &nbsp;
+                          </dd>
+                        </div>
+                        <div class="govuk-summary-list__row">
+                          <dt class="govuk-summary-list__value">
+                            Postcode
+                          </dt>
+                          <dd class="govuk-summary-list__value">
+                            NW6 8JH
+                          </dd>
+                          <dd class="govuk-summary-list__value">
+                          &nbsp;
+                          </dd>
+                        </div>
+
                         <div class="govuk-summary-list__row">
                           <dt class="govuk-summary-list__value">
                             Email address of contact
@@ -595,10 +627,10 @@
                        </div>
                        <div class="govuk-summary-list__row">
                          <dt class="govuk-summary-list__value">
-                           Team email address
+                           Child's Local Authority
                          </dt>
                          <dd class="govuk-summary-list__value">
-                           info@robertsjames.co.uk
+                           Ipsem
                          </dd>
                          <dd class="govuk-summary-list__value">
                            &nbsp;
