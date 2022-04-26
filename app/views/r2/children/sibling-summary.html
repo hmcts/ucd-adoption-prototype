@@ -42,9 +42,9 @@ Apply to adopt a child
         {% for id in data['siblingOrderId'] %}
                   
         <div class="govuk-summary-list__row">
-          <dd class="govuk-summary-list__value">
+          <dt class="govuk-summary-list__value">
             {{ data['siblingRelationship'][id]}}
-          </dd>
+          </dt>
           <dd class="govuk-summary-list__actions">
             {{ data['siblingOrderType'][id]}}
           </dd>
