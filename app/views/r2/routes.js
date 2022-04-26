@@ -1558,11 +1558,13 @@ module.exports = (router) => {
       })
     }
 
-
     if (req.body['submit-button'] === 'save-and-continue') {
       if (errors.length === 0) {
         req.session.data.siblingOrderNumber[count] = req.body['sibling-order-case-number']
         req.session.data.siblingOrderCompleted[count] = "Yes"
+        console.log("Relationship: ", req.session.data.siblingRelationship[count])
+        console.log("Type: ", req.session.data.siblingOrderType[count])
+        console.log("Number: ", req.session.data.siblingOrderNumber[count])
         res.redirect('/r2/children/sibling-summary')
       }
       else {
@@ -1723,7 +1725,7 @@ module.exports = (router) => {
     else if (req.body['submit-button'] === 'save-and-continue') {
       if (errors.length === 0) {
         if (req.body['sibling-add-another'] === 'Yes') {
-          res.redirect('/r2/children/sibling-choose-sibling')
+          res.redirect('/r2/children/sibling-relationship')
         }
         else {
           if (req.session.data.siblingOrderIncomplete === 0) {
