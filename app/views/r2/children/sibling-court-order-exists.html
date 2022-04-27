@@ -57,11 +57,18 @@ Sibing details
 
             <div class="govuk-radios govuk-radios--conditional" data-module="govuk-radios">
               <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="yes" name="sibling-court-order-exists" type="radio" value="yes" {% if (data['sibling-court-order-exists'] === "yes") %} checked {% endif %}>
+                <input class="govuk-radios__input" id="yes" name="sibling-court-order-exists" type="radio" value="yes" data-aria-controls="conditional-contact" {% if (data['sibling-court-order-exists'] === "yes") %} checked {% endif %}>
                 <label class="govuk-label govuk-radios__label" for="yes">
                   Yes
                 </label>
               </div>
+              <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-contact">
+                <div class="govuk-form-group">
+                  <label class="govuk-label" for="contact-by-email">
+                    You will be asked to provide each sibling court order individually.
+                  </label>
+                </div>
+              </div>              
 
               <div class="govuk-radios govuk-radios--conditional" data-module="govuk-radios">
                 <div class="govuk-radios__item">
@@ -73,7 +80,7 @@ Sibing details
   
                 <div class="govuk-radios govuk-radios--conditional " data-module="govuk-radios">
                 <div class="govuk-radios__item">
-                  <input class="govuk-radios__input" id="unsure" name="sibling-court-order-exists" type="radio" value="unsure" data-aria-controls="conditional-contact" {% if (data['sibling-court-order-exists'] === "unsure") %} checked {% endif %}>
+                  <input class="govuk-radios__input" id="unsure" name="sibling-court-order-exists" type="radio" value="unsure" {% if (data['sibling-court-order-exists'] === "unsure") %} checked {% endif %}>
                   <label class="govuk-label govuk-radios__label" for="unsure">
                     Not sure
                   </label>

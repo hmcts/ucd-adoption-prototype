@@ -1418,7 +1418,7 @@ module.exports = (router) => {
 
 
   router.post('/r2/children/sibling-court-order-exists', function(req, res) {
-    // console.log("father alive: ", req.body['sibling-court-order-exists'])
+    console.log("sibling: ", req.body['sibling-court-order-exists'])
     var errors = []
     if (req.body['sibling-court-order-exists'] === undefined) {
       errors.push({
@@ -2207,6 +2207,137 @@ module.exports = (router) => {
     }
     else if (req.body['next-steps'] === 'send-a-message') {
       res.redirect('/r2/x-ui/case-worker/case-worker-message-radios')
+    }
+  })
+
+
+
+
+
+// ******************************************** X-UI Judge ********************************************
+// ************************************************************************************************************************************
+
+
+  router.post('/r2/includes/next-steps-judge', function(req, res) {
+    if (req.body['next-steps'] === 'notes') {
+      res.redirect('/r2/x-ui/judge/judge-notes')
+    }
+    else {
+      res.redirect('/r2/x-ui/judge/')
+    }
+  })
+
+
+  router.post('/r2/x-ui/judge/judge-manage-documents', function(req, res) {
+    if (req.body['submit-button'] === 'continue') {
+      if (req.body['document-type'] === 'Statements') {
+        res.redirect('/r2/x-ui/judge/judge-statements-select-respondent')
+      }
+      else {
+        res.redirect('/r2/x-ui/judge/judge-upload')
+      }
+    }
+    else {
+      res.redirect('/r2/x-ui/judge/judge-documents')
+    }
+  })
+
+
+  router.post('/r2/x-ui/judge/judge-statements-select-respondent', function(req, res) {
+    if (req.body['submit-button'] === 'continue') {
+      // if (req.body['respondent-role'] === 'birth mother' || req.body['respondent-role'] === 'birth father' || req.body['respondent-role'] === 'person with parental responsibility') {
+      //   res.redirect('/r2/x-ui/judge/judge-intention-oppose')
+      // }
+      // else {
+      res.redirect('/r2/x-ui/judge/judge-upload')
+    }
+    // }
+    else {
+      res.redirect('/r2/x-ui/judge/judge-manage-documents')
+    }
+  })
+
+
+  router.post('/r2/x-ui/judge/judge-intention-oppose', function(req, res) {
+    if (req.body['submit-button'] === 'continue') {
+      if (req.body['intend-oppose'] === 'no') {
+        req.session.data.intentionOppose = 'no'
+      }
+      else {
+        req.session.data.intentionOppose = 'yes'
+      }
+      res.redirect('/r2/x-ui/judge/judge-upload')
+    }
+    else {
+      res.redirect('/r2/x-ui/judge/judge-statements-select-respondent')
+    }
+  })
+
+
+  router.post('/r2/x-ui/judge/judge-upload', function(req, res) {
+    if (req.body['submit-button'] === 'continue') {
+      res.redirect('/r2/x-ui/judge/judge-documents')
+    }
+    else if (req.body['add-new-button'] === 'add-new-button-top' || req.body['add-new-button'] === 'add-new-button-bottom' || req.body['remove-button'] === 'remove') {
+      res.redirect('/r2/x-ui/judge/judge-upload')
+    }
+    else {
+      res.redirect('/r2/x-ui/judge/judge-manage-documents')
+    }
+  })
+
+
+  router.post('/r2/x-ui/judge/judge-message-radios', function(req, res) {
+    if (req.body['submit-button'] === 'continue') {
+      res.redirect('/r2/x-ui/judge/judge-messages-select-person')
+    }
+    else {
+      res.redirect('/r2/x-ui/judge/judge-messages')
+    }
+  })
+
+
+  router.post('/r2/x-ui/judge/judge-messages-select-person', function(req, res) {
+    if (req.body['submit-button'] === 'continue') {
+      res.redirect('/r2/x-ui/judge/judge-send-message')
+    }
+    else {
+      res.redirect('/r2/x-ui/judge/judge-message-radios')
+    }
+  })
+
+
+  router.post('/r2/x-ui/judge/judge-send-message', function(req, res) {
+    if (req.body['submit-button'] === 'continue') {
+      res.redirect('/r2/x-ui/judge/judge-message-sent')
+    }
+    else {
+      res.redirect('/r2/x-ui/judge/judge-messages-select-person')
+    }
+  })
+
+
+  router.post('/r2/x-ui/judge/judge-message-sent', function(req, res) {
+    if (req.body['submit-button'] === 'continue') {
+      res.redirect('/r2/x-ui/judge/judge-messages')
+    }
+    else {
+      res.redirect('/r2/x-ui/judge/judge-send-message')
+    }
+  })
+
+
+  router.post('/r2/x-ui/judge/index', function(req, res) {
+    console.log(req.body['next-steps'])
+    if (req.body['next-steps'] === 'manage-documents') {
+      res.redirect('/r2/x-ui/judge/judge-manage-documents')
+    }
+    else if (req.body['next-steps'] === 'notes') {
+      req.session.data.newNote = 'yes'
+      res.redirect('/r2/x-ui/judge/judge-add-note')
+    }
+    else if (req.body['next-steps'] === 'send-a-message') {
+      res.redirect('/r2/x-ui/judge/judge-message-radios')
     }
   })
 
