@@ -246,7 +246,7 @@ module.exports = (router) => {
 
 
   // ********************** Adoption agency or local authority **********************
-  router.post('/r2/application/applicant-adoption-agency-details', function(req, res) {
+  router.post('/r2/application/local-authority-details', function(req, res) {
     var errors = []
     if (req.body['applicant-agency-name'] === '') {
       errors.push({
@@ -268,18 +268,17 @@ module.exports = (router) => {
     }
     if (req.body['applicant-email'] === '') {
       errors.push({
-      text: 'Devs: "Enter an email address" [if left blank] or "Enter an email address in the correct format, like name@example.com" [if in the wrong format] ',
+      text: 'Enter an email address',
       href: '#email'
       })
     }
-
     if (req.body['submit-button'] === 'save-and-continue') {
       if (errors.length === 0) {
         req.session.data.agencyStatus = 'in progress'
         res.redirect('/r2/application/applicant-other-adoption-agency')
       }
       else {
-        res.render('.//r2/application/applicant-adoption-agency-details', { errors: errors })
+        res.render('.//r2/application/local-authority-details', { errors: errors })
       }
     }
     else {
@@ -337,12 +336,31 @@ module.exports = (router) => {
       href: '#contact'
       })
     }
+    if (req.body['agency-details-address-line-1'] === '') {
+      errors.push({
+      text: 'Enter the first line of the address',
+      href: '#first-line'
+      })
+    }
+    if (req.body['agency-details-address-town'] === '') {
+      errors.push({
+      text: 'Enter the town or city',
+      href: '#town'
+      })
+    }
+    if (req.body['agency-details-address-postcode'] === '') {
+      errors.push({
+      text: 'Enter the postcode',
+      href: '#postcode'
+      })
+    }
     if (req.body['applicant-email-2'] === '') {
       errors.push({
-      text: 'Devs: "Enter an email address" [if left blank] or "Enter an email address in the correct format, like name@example.com" [if in the wrong format] ',
+      text: 'Enter an email address',
       href: '#email'
       })
     }
+
 
     if (req.body['submit-button'] === 'save-and-continue') {
       if (errors.length === 0) {
@@ -364,6 +382,12 @@ module.exports = (router) => {
       errors.push({
       text: 'Enter a name',
       href: '#name'
+      })
+    }
+    if (req.body['child-social-worker-la-name'] === '') {
+      errors.push({
+      text: 'Enter a name',
+      href: '#laname'
       })
     }
     if (req.body['child-social-worker-phone-number'] === '') {
@@ -392,6 +416,152 @@ module.exports = (router) => {
       res.redirect('/r2/task-list')
     }
   })
+  // router.post('/r2/application/applicant-adoption-agency-details', function(req, res) {
+  //   var errors = []
+  //   if (req.body['applicant-agency-name'] === '') {
+  //     errors.push({
+  //     text: 'Enter a name',
+  //     href: '#name'
+  //     })
+  //   }
+  //   if (req.body['applicant-phone-number'] === '') {
+  //     errors.push({
+  //     text: 'Enter a UK telephone number',
+  //     href: '#phone'
+  //     })
+  //   }
+  //   if (req.body['applicant-contact'] === '') {
+  //     errors.push({
+  //     text: 'Enter a name',
+  //     href: '#contact'
+  //     })
+  //   }
+  //   if (req.body['applicant-email'] === '') {
+  //     errors.push({
+  //     text: 'Devs: "Enter an email address" [if left blank] or "Enter an email address in the correct format, like name@example.com" [if in the wrong format] ',
+  //     href: '#email'
+  //     })
+  //   }
+
+  //   if (req.body['submit-button'] === 'save-and-continue') {
+  //     if (errors.length === 0) {
+  //       req.session.data.agencyStatus = 'in progress'
+  //       res.redirect('/r2/application/applicant-other-adoption-agency')
+  //     }
+  //     else {
+  //       res.render('.//r2/application/applicant-adoption-agency-details', { errors: errors })
+  //     }
+  //   }
+  //   else {
+  //     res.redirect('/r2/task-list')
+  //   }
+  // })
+
+
+  // router.post('/r2/application/applicant-other-adoption-agency', function(req, res) {
+  //   // console.log("Mother alive: ", req.body['other-adoption-agency'])
+  //   var errors = []
+  //   if (req.body['other-adoption-agency'] === undefined) {
+  //     errors.push({
+  //     text: 'Please answer the question',
+  //     href: '#other-adoption-agency'
+  //     })
+  //   }
+
+  //   if (req.body['submit-button'] === 'save-and-continue') {
+  //     if (errors.length === 0) {
+  //       if (req.body['other-adoption-agency'] === 'yes') {
+  //         res.redirect('/r2/application/applicant-adoption-agency-details-2')
+  //       }
+  //       else {
+  //         res.redirect('/r2/application/child-social-worker-details')
+  //       }
+  //     }
+  //     else {
+  //       res.render('.//r2/application/applicant-other-adoption-agency', { errors: errors })
+  //     }
+  //   }
+  //   else {
+  //       res.redirect('/r2/task-list')
+  //   }
+  // })
+
+
+  // router.post('/r2/application/applicant-adoption-agency-details-2', function(req, res) {
+  //   var errors = []
+  //   if (req.body['applicant-agency-name-2'] === '') {
+  //     errors.push({
+  //     text: 'Enter a name',
+  //     href: '#name'
+  //     })
+  //   }
+  //   if (req.body['applicant-phone-number-2'] === '') {
+  //     errors.push({
+  //     text: 'Enter a UK telephone number',
+  //     href: '#phone'
+  //     })
+  //   }
+  //   if (req.body['applicant-contact-2'] === '') {
+  //     errors.push({
+  //     text: 'Enter a name',
+  //     href: '#contact'
+  //     })
+  //   }
+  //   if (req.body['applicant-email-2'] === '') {
+  //     errors.push({
+  //     text: 'Devs: "Enter an email address" [if left blank] or "Enter an email address in the correct format, like name@example.com" [if in the wrong format] ',
+  //     href: '#email'
+  //     })
+  //   }
+
+  //   if (req.body['submit-button'] === 'save-and-continue') {
+  //     if (errors.length === 0) {
+  //       res.redirect('/r2/application/child-social-worker-details')
+  //     }
+  //     else {
+  //       res.render('.//r2/application/applicant-adoption-agency-details-2', { errors: errors })
+  //     }
+  //   }
+  //   else {
+  //     res.redirect('/r2/task-list')
+  //   }
+  // })
+
+
+  // router.post('/r2/application/child-social-worker-details', function(req, res) {
+  //   var errors = []
+  //   if (req.body['child-social-worker-name'] === '') {
+  //     errors.push({
+  //     text: 'Enter a name',
+  //     href: '#name'
+  //     })
+  //   }
+  //   if (req.body['child-social-worker-phone-number'] === '') {
+  //     errors.push({
+  //     text: 'Enter a UK telephone number',
+  //     href: '#phone'
+  //     })
+  //   }
+  //   if (req.body['child-social-worker-email'] === '') {
+  //     errors.push({
+  //     text: 'Devs: "Enter an email address" [if left blank] or "Enter an email address in the correct format, like name@example.com" [if in the wrong format] ',
+  //     href: '#email'
+  //     })
+  //   }
+
+  //   if (req.body['submit-button'] === 'save-and-continue') {
+  //     if (errors.length === 0) {
+  //       req.session.data.agencyStatus = 'completed'
+  //       res.redirect('/r2/task-list')
+  //     }
+  //     else {
+  //       res.render('.//r2/application/child-social-worker-details', { errors: errors })
+  //     }
+  //   }
+  //   else {
+  //     res.redirect('/r2/task-list')
+  //   }
+  // })
 
 
   // ********************** Family court finder **********************
@@ -1209,6 +1379,538 @@ module.exports = (router) => {
 
 
 
+  // ********************** Sibling details **********************
+  router.post('/r2/children/sibling-exists', function(req, res) {
+    // console.log("father alive: ", req.body['sibling-exists'])
+    var errors = []
+    if (req.body['sibling-exists'] === undefined) {
+      errors.push({
+      text: 'Please answer the question',
+      href: '#sibling'
+      })
+    }
+    else if (req.body['sibling-exists'] === 'unsure' && req.body['reason-not-sure'] === '') {
+      errors.push({
+      text: 'Enter more detail',
+      href: '#sibling-no-reason'
+      })
+    }
+
+    if (req.body['submit-button'] === 'save-and-continue') {
+      if (errors.length === 0) {
+        if (req.body['sibling-exists'] === 'yes') {
+          req.session.data.siblingStatus = 'in progress'
+          res.redirect('/r2/children/sibling-court-order-exists')
+        }
+        else {
+          req.session.data.siblingStatus = 'completed'
+          res.redirect('/r2/task-list')
+        }
+      }
+      else {
+        res.render('.//r2/children/sibling-exists', { errors: errors })
+      }
+    }
+    else {
+        res.redirect('/r2/task-list')
+    }
+  })
+
+
+  router.post('/r2/children/sibling-court-order-exists', function(req, res) {
+    console.log("sibling: ", req.body['sibling-court-order-exists'])
+    var errors = []
+    if (req.body['sibling-court-order-exists'] === undefined) {
+      errors.push({
+      text: 'Please answer the question',
+      href: '#court-order-checkbox'
+      })
+    }
+    else if (req.body['sibling-court-order-exists'] === 'unsure' && req.body['reason-not-sure'] === '') {
+      errors.push({
+      text: 'Enter more detail',
+      href: '#sibling-court-order-no-reason'
+      })
+    }
+
+    if (req.body['submit-button'] === 'save-and-continue') {
+      if (errors.length === 0) {
+        if (req.body['sibling-court-order-exists'] === 'yes') {
+          res.redirect('/r2/children/sibling-relationship')
+        }
+        else {
+          req.session.data.siblingStatus = 'completed'
+          res.redirect('/r2/task-list')
+        }
+      }
+      else {
+        res.render('.//r2/children/sibling-court-order-exists', { errors: errors })
+      }
+    }
+    else {
+        res.redirect('/r2/task-list')
+    }
+  })
+
+
+  router.post('/r2/children/sibling-relationship', function(req, res) {
+    var errors = []
+    if (req.body['sibling-relationship'] === '') {
+      errors.push({
+      text: 'Enter the relationship',
+      href: '#relationship'
+      })
+    }
+    
+    count = req.session.data.siblingOrderCount
+
+    if (req.body['submit-button'] === 'save-and-continue') {
+      if (errors.length === 0) {
+        req.session.data.siblingOrderId[count] = count
+        req.session.data.siblingRelationship[count] = req.body['sibling-relationship']
+        req.session.data.siblingOrderCount++
+        res.redirect('/r2/children/sibling-order-type')
+      }
+      else {
+        res.render('.//r2/children/sibling-name', { errors: errors })
+      }
+    }
+    else {
+      res.redirect('/r2/task-list')
+    }
+  })
+
+
+  router.post('/r2/children/sibling-change-relationship', function(req, res) {
+    var errors = []
+    if (req.body['sibling-relationship'] === '') {
+      errors.push({
+      text: 'Enter the relationship',
+      href: '#relationship'
+      })
+    }
+    
+    count = req.session.data.siblingOrderCount
+    
+    if (errors.length === 0) {
+      req.session.data.uniqueSiblingFirstNames[sib] = req.body['sibling-relationship']
+      res.redirect('/r2/children/sibling-summary')
+    }
+    else {
+      res.render('.//r2/children/sibling-change-relationship', { errors: errors })
+    }
+  })
+
+
+  router.post('/r2/children/sibling-order-type', function(req, res) {
+    var errors = []
+    if (req.body['sibling-order-type'] === '') {
+      errors.push({
+      text: 'Enter the type of order',
+      href: '#order-type'
+      })
+    }
+
+    if (req.body['submit-button'] === 'save-and-continue') {
+      if (errors.length === 0) {
+        req.session.data.siblingOrderType[count] = req.body['sibling-order-type']
+        req.session.data.siblingOrderCompleted[count] = "No"
+        res.redirect('/r2/children/sibling-order-case-number')
+      }
+      else {
+        res.render('.//r2/children/sibling-order-type', { errors: errors })
+      }
+    }
+    else {
+      res.redirect('/r2/task-list')
+    }
+  })
+
+
+  router.post('/r2/children/sibling-change-order-type', function(req, res) {
+    var errors = []
+    if (req.body['sibling-new-order-type'] === '') {
+      errors.push({
+      text: 'Please answer the question',
+      href: '#order-type'
+      })
+    }
+    console.log(req.session.data.siblingOrderType[req.body['sibling-id']])
+    console.log(req.body['sibling-new-order-type'])
+
+    if (errors.length === 0) {
+      req.session.data.siblingOrderType[req.body['sibling-id']] = req.body['sibling-new-order-type']
+      res.redirect('/r2/children/sibling-check-your-answers')
+    }
+    else {
+      res.render('.//r2/children/sibling-change-order-type', { errors: errors })
+    }
+  })
+
+
+
+  router.post('/r2/children/sibling-order-case-number', function(req, res) {
+    var errors = []
+    if (req.body['sibling-order-case-number'] === '') {
+      errors.push({
+      text: 'Please answer the question',
+      href: '#case-number'
+      })
+    }
+
+    if (req.body['submit-button'] === 'save-and-continue') {
+      if (errors.length === 0) {
+        req.session.data.siblingOrderNumber[count] = req.body['sibling-order-case-number']
+        req.session.data.siblingOrderCompleted[count] = "Yes"
+        console.log("Relationship: ", req.session.data.siblingRelationship[count])
+        console.log("Type: ", req.session.data.siblingOrderType[count])
+        console.log("Number: ", req.session.data.siblingOrderNumber[count])
+        res.redirect('/r2/children/sibling-summary')
+      }
+      else {
+        res.render('.//r2/children/sibling-order-case-number', { errors: errors })
+      }
+    }
+    else {
+      res.redirect('/r2/task-list')
+    }
+  })
+
+
+  router.post('/r2/children/sibling-change-order-case-number', function(req, res) {
+    var errors = []
+    if (req.body['sibling-new-case-number'] === '') {
+      errors.push({
+      text: 'Please answer the question',
+      href: '#case-number'
+      })
+    }
+    console.log(req.session.data.siblingOrderType[req.body['sibling-id']])
+    console.log(req.body['sibling-new-case-number'])
+
+    if (errors.length === 0) {
+      req.session.data.siblingOrderNumber[req.body['sibling-id']] = req.body['sibling-new-case-number']
+      res.redirect('/r2/children/sibling-check-your-answers')
+    }
+    else {
+      res.render('.//r2/children/sibling-change-case-number', { errors: errors })
+    }
+  })
+
+
+  router.post('/r2/children/sibling-order-court', function(req, res) {
+    var errors = []
+    if (req.body['sibling-order-court-name'] === '') {
+      errors.push({
+      text: 'Please answer the question',
+      href: '#order-court-name'
+      })
+    }
+
+    arrayLength = req.session.data.siblingOrderId.length
+    if (arrayLength == 1) {
+      count = 0
+    }
+    else {
+      count = req.session.data.siblingOrderId.length - 1
+    }
+
+    if (req.body['submit-button'] === 'save-and-continue') {
+      if (errors.length === 0) {
+        req.session.data.siblingOrderCourt[count] = req.body['sibling-order-court-name']
+        res.redirect('/r2/children/sibling-order-date')
+      }
+      else {
+        res.render('.//r2/children/sibling-order-court', { errors: errors })
+      }
+    }
+    else {
+      res.redirect('/r2/task-list')
+    }
+  })
+
+
+  router.post('/r2/children/sibling-change-order-court', function(req, res) {
+    var errors = []
+    if (req.body['sibling-new-court-name'] === '') {
+      errors.push({
+      text: 'Please answer the question',
+      href: '#order-court-name'
+      })
+    }
+    console.log(req.session.data.siblingOrderType[req.body['sibling-id']])
+    console.log(req.body['sibling-new-court-name'])
+
+    if (errors.length === 0) {
+      req.session.data.siblingOrderCourt[req.body['sibling-id']] = req.body['sibling-new-court-name']
+      res.redirect('/r2/children/sibling-check-your-answers')
+    }
+    else {
+      res.render('.//r2/children/sibling-change-court', { errors: errors })
+    }
+  })
+
+
+  router.post('/r2/children/sibling-order-date', function(req, res) {
+    var errors = []
+    if (req.body['sibling-day'] === '' || req.body['sibling-month'] === '' || req.body['sibling-year'] === '') {
+      errors.push({
+      text: 'Developers: please refer to ADOP-281 for different error messages',
+      href: '#order-date'
+      })
+    }
+
+    arrayLength = req.session.data.siblingOrderId.length
+    if (arrayLength == 1) {
+      count = 0
+    }
+    else {
+      count = req.session.data.siblingOrderId.length - 1
+    }
+
+    if (req.body['submit-button'] === 'save-and-continue') {
+      if (errors.length === 0) {
+        req.session.data.siblingOrderIncomplete = 0
+        req.session.data.siblingOrderDay[count] = req.body['sibling-day']
+        req.session.data.siblingOrderMonth[count] = req.body['sibling-month']
+        req.session.data.siblingOrderYear[count] = req.body['sibling-year']
+        req.session.data.siblingOrderCompleted[count] = "Yes"
+        res.redirect('/r2/children/sibling-summary')
+//        req.session.data.siblingOrderCount = req.session.data.siblingOrderCount + 1
+
+      }
+      else {
+        res.render('.//r2/children/sibling-order-date', { errors: errors })
+      }
+    }
+    else {
+      res.redirect('/r2/task-list')
+    }
+  })
+
+
+  router.post('/r2/children/sibling-change-order-date', function(req, res) {
+    var errors = []
+    if (req.body['sibling-day'] === '' || req.body['sibling-month'] === '' || req.body['sibling-year'] === '') {
+      errors.push({
+      text: 'Developers: please refer to ADOP-281 for different error messages',
+      href: '#order-date'
+      })
+    }
+
+    if (errors.length === 0) {
+      req.session.data.siblingOrderDay[req.body['sibling-id']] = req.body['sibling-day']
+      req.session.data.siblingOrderMonth[req.body['sibling-id']] = req.body['sibling-month']
+      req.session.data.siblingOrderYear[req.body['sibling-id']] = req.body['sibling-year']
+      res.redirect('/r2/children/sibling-check-your-answers')
+    }
+    else {
+      res.render('.//r2/children/sibling-change-order-date', { errors: errors })
+    }
+  })
+
+
+  router.post('/r2/children/sibling-summary', function(req, res) {
+    var errors = []
+    if (req.body['sibling-add-another'] === undefined) {
+      errors.push({
+      text: 'Please select an answer',
+      href: '#sibling-add-another'
+      })
+    }
+
+    if (req.body['submit-button'] === 'continue') {
+      res.redirect('/r2/children/sibling-summary')
+    }
+    else if (req.body['submit-button'] === 'save-and-continue') {
+      if (errors.length === 0) {
+        if (req.body['sibling-add-another'] === 'Yes') {
+          res.redirect('/r2/children/sibling-relationship')
+        }
+        else {
+          if (req.session.data.siblingOrderIncomplete === 0) {
+            req.session.data.siblingStatus = 'completed'
+          }
+          else {
+            req.session.data.siblingStatus = 'in progress'
+          }
+          res.redirect('/r2/task-list')
+        }
+      }
+      else {
+        res.render('.//r2/children/sibling-summary', { errors: errors })
+      }
+    }
+    else {
+        res.redirect('/r2/task-list')
+    }
+  })
+
+
+
+  router.post('/r2/children/sibling-choose-sibling', function(req, res) {
+    var errors = []
+    if (req.body['what-sibling'] === undefined) {
+      errors.push({
+      text: 'Please answer the question',
+      href: '#what-sibling'
+      })
+    }
+    else if (req.body['what-sibling'] === 'add-new-sibling') {
+      if (req.body['add-sibling-first-names'] === '') {
+        errors.push({
+        text: 'Enter their first names',
+        href: '#first-names'
+        })
+      }
+      if (req.body['add-sibling-last-names'] === '') {
+        errors.push({
+        text: 'Enter their last names',
+        href: '#last-names'
+        })
+      }
+    }
+
+    count = req.session.data.siblingOrderId.length
+    sib = req.session.data.numberOfSiblings
+    id = req.body['what-sibling']
+
+    if (req.body['submit-button'] === 'save-and-continue') {
+      if (errors.length === 0) {
+        if (req.body['what-sibling'] === 'add-new-sibling') {
+          console.log("new sibling")
+          req.session.data.uniqueSiblingId[sib] = sib
+          req.session.data.uniqueSiblingFirstNames[sib] = req.body['add-sibling-first-names']
+          req.session.data.uniqueSiblingLastNames[sib] = req.body['add-sibling-last-names']
+          req.session.data.siblingFirstNames[count] = req.body['add-sibling-first-names']
+          req.session.data.siblingLastNames[count] = req.body['add-sibling-last-names']
+          req.session.data.numberOfSiblings = req.session.data.numberOfSiblings + 1
+        }
+        else {
+          console.log("existing sibling")
+          req.session.data.siblingFirstNames[count] = req.session.data.uniqueSiblingFirstNames[id]
+          req.session.data.siblingLastNames[count] = req.session.data.uniqueSiblingLastNames[id]
+        }
+        req.session.data.siblingOrderCompleted[count] = "No"
+        req.session.data.siblingOrderId[count] = count
+        res.redirect('/r2/children/sibling-order-type')
+      }
+      else {
+        res.render('.//r2/children/sibling-choose-sibling', { errors: errors })
+      }
+    }
+    else {
+      res.redirect('/r2/task-list')
+    }
+    console.log("Sibling array: ", req.session.data.uniqueSiblingFirstNames)
+    console.log("siblingFirstNames array: ", req.session.data.siblingFirstNames)
+    console.log("uniqueSiblingID array: ", req.session.data.uniqueSiblingId)
+    console.log("siblingOrderId array: ", req.session.data.siblingOrderId)
+    console.log("Number of siblings: ", req.session.data.numberOfSiblings)
+    console.log("siblingFirstNames[id]: ", req.session.data.siblingFirstNames[id])
+    console.log("count: ", count)
+    console.log("id: ", id)
+  })
+
+
+
+  router.post('/r2/children/sibling-remove-court-order', function(req, res) {
+    var occ = 0
+    var errors = []
+    if (req.body['remove-court-order'] === undefined) {
+      errors.push({
+      text: 'Please answer the question',
+      href: '#remove-court-order'
+      })
+    }
+
+    id = req.body['order-id']
+    fn = req.session.data.siblingFirstNames[id]
+    ln = req.session.data.siblingLastNames[id]
+    console.log("order-id: ",id)
+    console.log("count: ",req.session.data.siblingOrderCount)
+
+    if (errors.length === 0) {
+      for (let index = 0; index < req.session.data.siblingOrderId.length; index++) {
+        if (req.session.data.siblingOrderId[index] == id) {
+          console.log("index: ", index)
+          // req.session.data.siblingOrderId.splice(index, 1);
+          // req.session.data.siblingFirstNames.splice(index, 1);
+          // req.session.data.siblingLastNames.splice(index, 1);
+          // req.session.data.siblingOrderType.splice(index, 1);
+          // req.session.data.siblingOrderNumber.splice(index, 1);
+          // req.session.data.siblingOrderCourt.splice(index, 1);
+          // req.session.data.siblingOrderDay.splice(index, 1);
+          // req.session.data.siblingOrderMonth.splice(index, 1);
+          // req.session.data.siblingOrderYear.splice(index, 1);
+          // req.session.data.siblingOrderCompleted.splice(index, 1);
+          delete req.session.data.siblingOrderId[index];
+          delete req.session.data.siblingFirstNames[index];
+          delete req.session.data.siblingLastNames[index];
+          delete req.session.data.siblingOrderType[index];
+          delete req.session.data.siblingOrderNumber[index];
+          delete req.session.data.siblingOrderCourt[index];
+          delete req.session.data.siblingOrderDay[index];
+          delete req.session.data.siblingOrderMonth[index];
+          delete req.session.data.siblingOrderYear[index];
+          delete req.session.data.siblingOrderCompleted[index];
+          req.session.data.siblingOrderCount--
+        }
+      }
+      console.log("sibling first names orders: ", req.session.data.siblingFirstNames)
+      console.log("sibling unique first names: ", req.session.data.uniqueSiblingFirstNames)
+      console.log("sibling order count: ", req.session.data.siblingOrderCount)
+      console.log("sibling first names: ", fn)
+      for (let index2 = 0; index2 < req.session.data.uniqueSiblingId.length; index2++) {
+        console.log(req.session.data.uniqueSiblingFirstNames[index2])
+        if (fn == req.session.data.uniqueSiblingFirstNames[index2] && ln == req.session.data.uniqueSiblingLastNames[index2]) {
+          occ++
+          console.log("Occurrence inside: ", occ)
+        }
+      }
+      console.log("Occurrence: ", occ)
+      if (occ == 0) {
+        for (let index3 = 0; index3 < req.session.data.uniqueSiblingId.length; index3++) {
+          console.log("sibling first names orders index3: ", req.session.data.uniqueSiblingFirstNames[index3])
+          console.log("sibling last names orders index3: ", req.session.data.uniqueSiblingLastNames[index3])
+          if (fn == req.session.data.uniqueSiblingFirstNames[index3] && ln == req.session.data.uniqueSiblingLastNames[index3]) {
+            console.log("In for: ", fn)
+            console.log("In for: ", ln)
+            delete req.session.data.uniqueSiblingId[index3]
+            delete req.session.data.uniqueSiblingFirstNames[index3]
+            delete req.session.data.uniqueSiblingLastNames[index3]
+            // req.session.data.uniqueSiblingId.splice(index3, 1)
+            // req.session.data.uniqueSiblingFirstNames.splice(index3, 1)
+            // req.session.data.uniqueSiblingLastNames.splice(index3, 1)
+          }
+        }
+      }
+      console.log("sibling unique first names: ", req.session.data.uniqueSiblingFirstNames)
+
+      // console.log(req.session.data.siblingOrderId)
+      // console.log(req.session.data.siblingFirstNames)
+      // console.log(req.session.data.siblingLastNames)
+      // console.log(req.session.data.siblingOrderType)
+      // console.log(req.session.data.siblingOrderNumber)
+      // console.log(req.session.data.siblingOrderCourt)
+      if (req.session.data.siblingOrderCount > 0) {
+        res.redirect('/r2/children/sibling-summary')
+      }
+      else {
+        res.redirect('/r2/children/sibling-court-order-exists')
+      }
+    }
+    else {
+      res.render('.//r2/children/sibling-remove-order-court', { errors: errors })
+    }
+  })
+
+
+
+
+
+
+
 
 
 
@@ -1385,7 +2087,6 @@ module.exports = (router) => {
 // ************************************************************************************************************************************
 
 
-  //**************************************** Check, Pay and Submit ************************************************************
   router.post('/r2/includes/next-steps-case-worker', function(req, res) {
     if (req.body['next-steps'] === 'notes') {
       res.redirect('/r2/x-ui/case-worker/case-worker-notes')
@@ -1413,8 +2114,13 @@ module.exports = (router) => {
 
   router.post('/r2/x-ui/case-worker/case-worker-statements-select-respondent', function(req, res) {
     if (req.body['submit-button'] === 'continue') {
-      res.redirect('/r2/x-ui/case-worker/case-worker-intention-oppose')
+      // if (req.body['respondent-role'] === 'birth mother' || req.body['respondent-role'] === 'birth father' || req.body['respondent-role'] === 'person with parental responsibility') {
+      //   res.redirect('/r2/x-ui/case-worker/case-worker-intention-oppose')
+      // }
+      // else {
+      res.redirect('/r2/x-ui/case-worker/case-worker-upload')
     }
+    // }
     else {
       res.redirect('/r2/x-ui/case-worker/case-worker-manage-documents')
     }
@@ -1424,11 +2130,12 @@ module.exports = (router) => {
   router.post('/r2/x-ui/case-worker/case-worker-intention-oppose', function(req, res) {
     if (req.body['submit-button'] === 'continue') {
       if (req.body['intend-oppose'] === 'no') {
-        res.redirect('/r2/x-ui/case-worker/case-worker-upload')
+        req.session.data.intentionOppose = 'no'
       }
       else {
-        res.redirect('/r2/x-ui/case-worker/case-worker-documents')
+        req.session.data.intentionOppose = 'yes'
       }
+      res.redirect('/r2/x-ui/case-worker/case-worker-upload')
     }
     else {
       res.redirect('/r2/x-ui/case-worker/case-worker-statements-select-respondent')
@@ -1451,10 +2158,20 @@ module.exports = (router) => {
 
   router.post('/r2/x-ui/case-worker/case-worker-message-radios', function(req, res) {
     if (req.body['submit-button'] === 'continue') {
-      res.redirect('/r2/x-ui/case-worker/case-worker-send-message')
+      res.redirect('/r2/x-ui/case-worker/case-worker-messages-select-person')
     }
     else {
       res.redirect('/r2/x-ui/case-worker/case-worker-messages')
+    }
+  })
+
+
+  router.post('/r2/x-ui/case-worker/case-worker-messages-select-person', function(req, res) {
+    if (req.body['submit-button'] === 'continue') {
+      res.redirect('/r2/x-ui/case-worker/case-worker-send-message')
+    }
+    else {
+      res.redirect('/r2/x-ui/case-worker/case-worker-message-radios')
     }
   })
 
@@ -1464,7 +2181,7 @@ module.exports = (router) => {
       res.redirect('/r2/x-ui/case-worker/case-worker-message-sent')
     }
     else {
-      res.redirect('/r2/x-ui/case-worker/case-worker-message-radios')
+      res.redirect('/r2/x-ui/case-worker/case-worker-messages-select-person')
     }
   })
 
@@ -1485,10 +2202,142 @@ module.exports = (router) => {
       res.redirect('/r2/x-ui/case-worker/case-worker-manage-documents')
     }
     else if (req.body['next-steps'] === 'notes') {
-      res.redirect('/r2/x-ui/case-worker/case-worker-notes')
+      req.session.data.newNote = 'yes'
+      res.redirect('/r2/x-ui/case-worker/case-worker-add-note')
     }
     else if (req.body['next-steps'] === 'send-a-message') {
       res.redirect('/r2/x-ui/case-worker/case-worker-message-radios')
+    }
+  })
+
+
+
+
+
+// ******************************************** X-UI Judge ********************************************
+// ************************************************************************************************************************************
+
+
+  router.post('/r2/includes/next-steps-judge', function(req, res) {
+    if (req.body['next-steps'] === 'notes') {
+      res.redirect('/r2/x-ui/judge/judge-notes')
+    }
+    else {
+      res.redirect('/r2/x-ui/judge/')
+    }
+  })
+
+
+  router.post('/r2/x-ui/judge/judge-manage-documents', function(req, res) {
+    if (req.body['submit-button'] === 'continue') {
+      if (req.body['document-type'] === 'Statements') {
+        res.redirect('/r2/x-ui/judge/judge-statements-select-respondent')
+      }
+      else {
+        res.redirect('/r2/x-ui/judge/judge-upload')
+      }
+    }
+    else {
+      res.redirect('/r2/x-ui/judge/judge-documents')
+    }
+  })
+
+
+  router.post('/r2/x-ui/judge/judge-statements-select-respondent', function(req, res) {
+    if (req.body['submit-button'] === 'continue') {
+      // if (req.body['respondent-role'] === 'birth mother' || req.body['respondent-role'] === 'birth father' || req.body['respondent-role'] === 'person with parental responsibility') {
+      //   res.redirect('/r2/x-ui/judge/judge-intention-oppose')
+      // }
+      // else {
+      res.redirect('/r2/x-ui/judge/judge-upload')
+    }
+    // }
+    else {
+      res.redirect('/r2/x-ui/judge/judge-manage-documents')
+    }
+  })
+
+
+  router.post('/r2/x-ui/judge/judge-intention-oppose', function(req, res) {
+    if (req.body['submit-button'] === 'continue') {
+      if (req.body['intend-oppose'] === 'no') {
+        req.session.data.intentionOppose = 'no'
+      }
+      else {
+        req.session.data.intentionOppose = 'yes'
+      }
+      res.redirect('/r2/x-ui/judge/judge-upload')
+    }
+    else {
+      res.redirect('/r2/x-ui/judge/judge-statements-select-respondent')
+    }
+  })
+
+
+  router.post('/r2/x-ui/judge/judge-upload', function(req, res) {
+    if (req.body['submit-button'] === 'continue') {
+      res.redirect('/r2/x-ui/judge/judge-documents')
+    }
+    else if (req.body['add-new-button'] === 'add-new-button-top' || req.body['add-new-button'] === 'add-new-button-bottom' || req.body['remove-button'] === 'remove') {
+      res.redirect('/r2/x-ui/judge/judge-upload')
+    }
+    else {
+      res.redirect('/r2/x-ui/judge/judge-manage-documents')
+    }
+  })
+
+
+  router.post('/r2/x-ui/judge/judge-message-radios', function(req, res) {
+    if (req.body['submit-button'] === 'continue') {
+      res.redirect('/r2/x-ui/judge/judge-messages-select-person')
+    }
+    else {
+      res.redirect('/r2/x-ui/judge/judge-messages')
+    }
+  })
+
+
+  router.post('/r2/x-ui/judge/judge-messages-select-person', function(req, res) {
+    if (req.body['submit-button'] === 'continue') {
+      res.redirect('/r2/x-ui/judge/judge-send-message')
+    }
+    else {
+      res.redirect('/r2/x-ui/judge/judge-message-radios')
+    }
+  })
+
+
+  router.post('/r2/x-ui/judge/judge-send-message', function(req, res) {
+    if (req.body['submit-button'] === 'continue') {
+      res.redirect('/r2/x-ui/judge/judge-message-sent')
+    }
+    else {
+      res.redirect('/r2/x-ui/judge/judge-messages-select-person')
+    }
+  })
+
+
+  router.post('/r2/x-ui/judge/judge-message-sent', function(req, res) {
+    if (req.body['submit-button'] === 'continue') {
+      res.redirect('/r2/x-ui/judge/judge-messages')
+    }
+    else {
+      res.redirect('/r2/x-ui/judge/judge-send-message')
+    }
+  })
+
+
+  router.post('/r2/x-ui/judge/index', function(req, res) {
+    console.log(req.body['next-steps'])
+    if (req.body['next-steps'] === 'manage-documents') {
+      res.redirect('/r2/x-ui/judge/judge-manage-documents')
+    }
+    else if (req.body['next-steps'] === 'notes') {
+      req.session.data.newNote = 'yes'
+      res.redirect('/r2/x-ui/judge/judge-add-note')
+    }
+    else if (req.body['next-steps'] === 'send-a-message') {
+      res.redirect('/r2/x-ui/judge/judge-message-radios')
     }
   })
 
