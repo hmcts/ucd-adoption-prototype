@@ -1,0 +1,77 @@
+{% extends "layout-signed-in.html" %}
+
+{% block pageTitle %}
+Apply to adopt a child
+{% endblock %}
+
+{% block beforeContent %}
+<a class="govuk-back-link" href="javascript:history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-width-container">
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      {% set languageError = '' %}
+
+      {% if errors | length > 0 %}
+      {{ govukErrorSummary({
+        titleText: "There is a problem",
+        errorList: errors
+      }) }}
+      {% for error in errors %}
+        {% if error.href == '#second-applicant-language-error' %}
+          {% set languageError = error.text %}
+        {% endif %}
+      {% endfor %}
+      {% endif %}
+
+
+      <form action="/r2/applicants/second-applicant-language-selector" method="post" class="form">
+        <div class="govuk-form-group {% if (languageError != '')%} govuk-form-group--error {% endif %}">
+
+          <fieldset class="govuk-fieldset" aria-describedby="second-applicant-language-selector-hint second-applicant-language-selector-error">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                  <span class="govuk-caption-l">{% if data['numberApplicants'] !== '1' %}{{ data['firstApplicant'] }}{% else %} {{ data['oneApplicant'] }}{% endif %}</span>
+              <h1 class="govuk-fieldset__heading">
+                What language do you want to receive emails and documents in?
+              </h1>
+            </legend>
+
+            {% if (languageError != '')%}
+              <span class="govuk-error-message govuk-form">
+                <span class="govuk-visually-hidden">Error:</span> {{ languageError }}
+              </span>
+            {% endif %}
+
+            <div class="govuk-radios" data-module="govuk-radios">
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="English" name="second-applicant-language-selector" type="radio" value="English" {% if (data['second-applicant-language-selector'] === "English") %} checked {% endif %}>
+                <label class="govuk-label govuk-radios__label" for="second-applicant-language-selector">
+                  English
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="Welsh" name="second-applicant-language-selector" type="radio" value="Welsh" {% if (data['second-applicant-language-selector'] === "Welsh") %} checked {% endif %}>
+                <label class="govuk-label govuk-radios__label" for="second-applicant-language-selector">
+                  Welsh
+                </label>
+              </div>
+            </div>
+
+          </fieldset>
+        </div>
+
+          <!-- Buttons -->
+          {% include "../../includes/buttons.html" %}
+
+        </form>
+  {% include "../../includes/contactforhelp.html" %}
+      </div>
+    </div>
+  </main>
+</div>
+
+{% endblock %}

@@ -912,11 +912,33 @@ module.exports = (router) => {
 
     if (req.body['submit-button'] === 'save-and-continue') {
       if (errors.length === 0) {
+        res.redirect('/r2/applicants/first-applicant-language-selector')
+      }
+      else {
+        res.render('.//r2/applicants/first-applicant-contact', { errors: errors })
+      }
+    }
+    else {
+      res.redirect('/r2/task-list')
+    }
+  })
+
+  router.post('/r2/applicants/first-applicant-language-selector', function(req, res) {
+    var errors = []
+    if (req.body['first-applicant-language-selector'] === undefined) {
+      errors.push({
+      text: 'Please answer the question',
+      href: '#first-applicant-language-error'
+      })
+    }
+
+    if (req.body['submit-button'] === 'save-and-continue') {
+      if (errors.length === 0) {
         req.session.data.firstApplicantContactDetailsStatus = 'completed'
         res.redirect('/r2/task-list')
       }
       else {
-        res.render('.//r2/applicants/first-applicant-contact', { errors: errors })
+        res.render('.//r2/applicants/first-applicant-language-selector', { errors: errors })
       }
     }
     else {
@@ -1258,11 +1280,34 @@ module.exports = (router) => {
 
     if (req.body['submit-button'] === 'save-and-continue') {
       if (errors.length === 0) {
+        res.redirect('/r2/applicants/second-applicant-language-selector')
+      }
+      else {
+        res.render('.//r2/applicants/second-applicant-contact', { errors: errors })
+      }
+    }
+    else {
+      res.redirect('/r2/task-list')
+    }
+  })
+
+  
+  router.post('/r2/applicants/second-applicant-language-selector', function(req, res) {
+    var errors = []
+    if (req.body['second-applicant-language-selector'] === undefined) {
+      errors.push({
+      text: 'Please answer the question',
+      href: '#second-applicant-language-error'
+      })
+    }
+
+    if (req.body['submit-button'] === 'save-and-continue') {
+      if (errors.length === 0) {
         req.session.data.secondApplicantContactDetailsStatus = 'completed'
         res.redirect('/r2/task-list')
       }
       else {
-        res.render('.//r2/applicants/second-applicant-contact', { errors: errors })
+        res.render('.//r2/applicants/second-applicant-language-selector', { errors: errors })
       }
     }
     else {
