@@ -1481,6 +1481,7 @@ module.exports = (router) => {
     if (req.body['submit-button'] === 'save-and-continue') {
       if (errors.length === 0) {
         if (req.body['sibling-court-order-exists'] === 'yes') {
+          req.session.data.siblingStatus = 'in progress'
           res.redirect('/r2/children/sibling-relationship')
         }
         else {
