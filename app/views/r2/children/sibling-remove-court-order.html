@@ -35,12 +35,9 @@ Sibing details
         <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
           <span class="govuk-caption-l">{{ data['sibling'] }}</span>
           <h1 class="govuk-fieldset__heading">
-            Are you sure you want to remove this {{ data['siblingOrderType'][data['id']]}} for {{ data['siblingFirstNames'][data['id']]}} {{ data['siblingLastNames'][data['id']]}}?
+            Are you sure you want to remove this {{ data['siblingOrderType'][data['id']] }} for {{ data['siblingRelationship'][data['id']] }}?
           </h1>
         </legend>
-        <!-- <div id="nationality-hint" class="govuk-hint">
-          Ask the adoption agency or social worker if you're not sure.
-        </div> -->
 
         {% if (noAnswerError != '')%}
           <span class="govuk-error-message govuk-form">

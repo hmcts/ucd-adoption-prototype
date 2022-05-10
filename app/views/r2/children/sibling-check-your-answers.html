@@ -55,6 +55,21 @@ Apply to adopt a child
 
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
+            Relationship
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['siblingRelationship'][data['id']]}}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a href="sibling-relationship.html?id={{data['siblingOrderId'][data['id']]}}">
+              Change
+              <span class="govuk-visually-hidden"> placement order</span>
+            </a>
+          </dd>
+        </div>
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
             Type of order
           </dt>
           <dd class="govuk-summary-list__value">
