@@ -35,7 +35,11 @@ Sibing details
         <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
           <span class="govuk-caption-l">{{ data['sibling'] }}</span>
           <h1 class="govuk-fieldset__heading">
-            Are you sure you want to remove this {{ data['siblingOrderType'][data['id']] }} for {{ data['siblingRelationship'][data['id']] }}?
+            {% if data['siblingRelationship'][data['id']] and data['siblingOrderType'][data['id']] %}
+              Are you sure you want to remove this {{ data['siblingOrderType'][data['id']].toLowerCase() }} for the child's {{ data['siblingRelationship'][data['id']].toLowerCase() }}?
+            {% else %}
+              Are you sure you want to remove this placement order for the child's half brother?
+            {% endif %}
           </h1>
         </legend>
 

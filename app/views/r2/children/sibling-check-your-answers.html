@@ -32,7 +32,11 @@ Apply to adopt a child
       <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
         <span class="govuk-caption-l">{{ data['sibling'] }}</span>
         <h1 class="govuk-fieldset__heading">
-          {{ data['siblingOrderType'][data['id']]}} for {{ data['siblingFirstNames'][data['id']]}} {{ data['siblingLastNames'][data['id']]}}
+          {% if data['siblingRelationship'][data['id']] %}
+            {{ data['siblingOrderType'][data['id']]}} for the child's {{ data['siblingRelationship'][data['id']].toLowerCase() }}
+          {% else %}
+            Care order for the child's half brother
+          {% endif %}
         </h1>
       </legend>
 
