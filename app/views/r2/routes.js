@@ -1550,12 +1550,20 @@ module.exports = (router) => {
 
   router.post('/r2/children/sibling-order-type', function(req, res) {
     var errors = []
-    if (req.body['sibling-order-type'] === '') {
+    if (req.body['sibling-order-type'] === undefined) {
       errors.push({
-      text: 'Enter the type of order',
+      text: 'Please select an answer',
       href: '#order-type'
       })
     }
+
+    if (req.body['sibling-order-type'] === "other" && req.body['sibling-other-order'] === "") {
+      errors.push({
+      text: 'Please select an answer',
+      href: '#other-order'
+      })
+    }
+
 
     if (req.body['submit-button'] === 'save-and-continue') {
       if (errors.length === 0) {
