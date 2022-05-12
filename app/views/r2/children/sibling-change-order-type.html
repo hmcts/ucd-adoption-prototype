@@ -15,6 +15,7 @@ Sibling name
     <div class="govuk-grid-column-two-thirds">
 
       {% set typeError = '' %}
+      {% set noOtherError = '' %}
 
       {% if errors | length > 0 %}
       {{ govukErrorSummary({
@@ -24,6 +25,9 @@ Sibling name
       {% for error in errors %}
         {% if error.href == '#order-type' %}
           {% set typeError = error.text %}
+        {% endif %}
+        {% if error.href == '#other-order' %}
+          {% set noOtherError = error.text %}
         {% endif %}
       {% endfor %}
       {% endif %}
@@ -38,20 +42,71 @@ Sibling name
             What type of order is it?
           </h1>
           </legend>
-          <!-- <div id="case-hint" class="govuk-hint">
-            This is on the top right of the order. Ask the adoption agency or social worker if you're not sure.
-          </div> -->
+          <div class="govuk-radios" data-module="govuk-radios">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="Adoption" name="sibling-new-order-type" type="radio" value="Adoption order">
+              <label class="govuk-label govuk-radios__label" for="Adoption">
+                Adoption order
+              </label>
+            </div>
 
-          {% if (typeError != '')%}
-          <span id="number-error" class="govuk-error-message">
-            <span class="govuk-visually-hidden">Error:</span> {{ typeError }}
-          </span>
-          {% endif%}
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="Care" name="sibling-new-order-type" type="radio" value="Care order">
+              <label class="govuk-label govuk-radios__label" for="Care">
+                Care order
+              </label>
+            </div>
 
-          <input class="govuk-input  {% if (typeError != '')%} govuk-input--error {% endif%}" id="sibling-new-order-type" name="sibling-new-order-type" type="text" spellcheck="false" value="{{ data['siblingOrderType'][data['id']] }}">
-        </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="Contact" name="sibling-new-order-type" type="radio" value="Contact order">
+              <label class="govuk-label govuk-radios__label" for="Contact">
+                Contact order
+              </label>
+            </div>
 
-        <input type="hidden" name="sibling-id" value="{{ data['id'] }}">
+            <div class="govuk-radios__item"> 
+              <input class="govuk-radios__input" id="Freeing" name="sibling-new-order-type" type="radio" value="Freeing order">
+              <label class="govuk-label govuk-radios__label" for="Freeing">
+                Freeing order
+              </label>
+            </div>
+
+            <div class="govuk-radios__item"> 
+              <input class="govuk-radios__input" id="Placement" name="sibling-new-order-type" type="radio" value="Placement order">
+              <label class="govuk-label govuk-radios__label" for="Placement">
+                Placement order
+              </label>
+            </div>
+
+            <div class="govuk-radios__item"> 
+              <input class="govuk-radios__input" id="Supervision" name="sibling-new-order-type" type="radio" value="Supervision order">
+              <label class="govuk-label govuk-radios__label" for="Supervision">
+                Supervision order
+              </label>
+            </div>
+
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="other" name="sibling-new-order-type" type="radio" value="other" data-aria-controls="conditional-sibling-new-order-type-3">
+              <label class="govuk-label govuk-radios__label" for="other">
+                Other
+              </label>
+            </div>
+            <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-sibling-new-order-type-3">
+              <div class="govuk-form-group">
+                <label class="govuk-label" for="sibling-new-order-type-by-text">
+                  Add a different type of order
+                </label>
+                {% if (noOtherError != '')%}
+                <span class="govuk-error-message govuk-form">
+                  <span class="govuk-visually-hidden">Error:</span> {{ noOtherError }}
+                </span>
+                {% endif %}
+                <input class="govuk-input govuk-!-width-two-thirds{% if (noOtherError != '') %} govuk-input--error{% endif %}" id="sibling-new-other-order" name="sibling-new-other-order" type="text">
+              </div>          
+            </div>
+          </div>
+          <input type="hidden" name="sibling-id" value="{{ data['id'] }}">
+
 
         <button type="submit" class="govuk-button" data-module="govuk-button" name="submit-button" value="continue">
           Continue

@@ -1583,14 +1583,19 @@ module.exports = (router) => {
 
   router.post('/r2/children/sibling-change-order-type', function(req, res) {
     var errors = []
-    if (req.body['sibling-new-order-type'] === '') {
+    if (req.body['sibling-new-order-type'] === undefined) {
       errors.push({
-      text: 'Please answer the question',
+      text: 'Please select an answer',
       href: '#order-type'
       })
     }
-    console.log(req.session.data.siblingOrderType[req.body['sibling-id']])
-    console.log(req.body['sibling-new-order-type'])
+
+    if (req.body['sibling-new-order-type'] === "other" && req.body['sibling-new-other-order'] === "") {
+      errors.push({
+      text: 'Please select an answer',
+      href: '#other-order'
+      })
+    }
 
     if (errors.length === 0) {
       req.session.data.siblingOrderType[req.body['sibling-id']] = req.body['sibling-new-order-type']
