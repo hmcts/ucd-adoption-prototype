@@ -146,6 +146,17 @@ module.exports = (router) => {
   })
 
 
+// ******************************************** SAVE AS DRAFT ********************************************
+// ************************************************************************************************************************************
+router.post('/r2/save-as-draft', function(req, res) {
+  if (req.body['submit-button'] === 'continue') {
+      res.redirect('/r2/task-list')
+  }
+  else {
+    res.redirect('/r2/registration/start1')
+  }
+})
+
 
 
 
@@ -181,7 +192,7 @@ module.exports = (router) => {
       }
     }
     else {
-        res.redirect('/r2/task-list')
+        res.redirect('/r2/save-as-draft')
     }
     console.log("Applicants: ", req.session.data.numberApplicants)
   })
@@ -215,7 +226,7 @@ module.exports = (router) => {
       }
     }
     else {
-        res.redirect('/r2/task-list')
+        res.redirect('/r2/save-as-draft')
     }
     console.log("Applicants: ", req.session.data.numberApplicants)
   })
@@ -240,7 +251,7 @@ module.exports = (router) => {
         }
       }
       else {
-        res.redirect('/r2/task-list')
+        res.redirect('/r2/save-as-draft')
       }
   })
 
@@ -272,9 +283,11 @@ module.exports = (router) => {
       href: '#email'
       })
     }
+
+    req.session.data.agencyStatus = 'in progress'
+    
     if (req.body['submit-button'] === 'save-and-continue') {
       if (errors.length === 0) {
-        req.session.data.agencyStatus = 'in progress'
         res.redirect('/r2/application/applicant-other-adoption-agency')
       }
       else {
@@ -282,7 +295,7 @@ module.exports = (router) => {
       }
     }
     else {
-      res.redirect('/r2/task-list')
+      res.redirect('/r2/save-as-draft')
     }
   })
 
@@ -303,7 +316,8 @@ module.exports = (router) => {
           res.redirect('/r2/application/applicant-adoption-agency-details-2')
         }
         else {
-          res.redirect('/r2/application/child-social-worker-details')
+          req.session.data.agencyStatus = 'completed'
+          res.redirect('/r2/task-list')
         }
       }
       else {
@@ -311,7 +325,7 @@ module.exports = (router) => {
       }
     }
     else {
-        res.redirect('/r2/task-list')
+        res.redirect('/r2/save-as-draft')
     }
   })
 
@@ -364,14 +378,15 @@ module.exports = (router) => {
 
     if (req.body['submit-button'] === 'save-and-continue') {
       if (errors.length === 0) {
-        res.redirect('/r2/application/child-social-worker-details')
+        req.session.data.agencyStatus = 'completed'
+        res.redirect('/r2/task-list')
       }
       else {
         res.render('.//r2/application/applicant-adoption-agency-details-2', { errors: errors })
       }
     }
     else {
-      res.redirect('/r2/task-list')
+      res.redirect('/r2/save-as-draft')
     }
   })
 
@@ -403,17 +418,18 @@ module.exports = (router) => {
       })
     }
 
+    req.session.data.agencyStatus = 'in progress'
+  
     if (req.body['submit-button'] === 'save-and-continue') {
       if (errors.length === 0) {
-        req.session.data.agencyStatus = 'completed'
-        res.redirect('/r2/task-list')
+        res.redirect('/r2/application/local-authority-details')
       }
       else {
         res.render('.//r2/application/child-social-worker-details', { errors: errors })
       }
     }
     else {
-      res.redirect('/r2/task-list')
+      res.redirect('/r2/save-as-draft')
     }
   })
   // router.post('/r2/application/applicant-adoption-agency-details', function(req, res) {
@@ -599,7 +615,7 @@ module.exports = (router) => {
       }
       else {
         req.session.data.familyCourtStatus = 'in progress'
-        res.redirect('/r2/task-list')
+        res.redirect('/r2/save-as-draft')
       }
     }
   })
@@ -638,7 +654,7 @@ module.exports = (router) => {
       }
     }
     else {
-      res.redirect('/r2/task-list')
+      res.redirect('/r2/save-as-draft')
     }
   })
 
@@ -709,7 +725,7 @@ module.exports = (router) => {
       }
     }
     else {
-      res.redirect('/r2/task-list')
+      res.redirect('/r2/save-as-draft')
     }
   })
 
@@ -731,7 +747,7 @@ module.exports = (router) => {
         }
       }
       else {
-        res.redirect('/r2/task-list')
+        res.redirect('/r2/save-as-draft')
       }
   })
 
@@ -765,7 +781,7 @@ module.exports = (router) => {
       }
     }
     else if (req.body['submit-button'] === 'save-as-draft') {
-      res.redirect('/r2/task-list')
+      res.redirect('/r2/save-as-draft')
     }
     else if (req.body['submit-button'] === 'add' && req.body['first-applicant-different-country'] !== '') {
       req.session.data.firstApplicantNationalities[count] = req.body['first-applicant-different-country']
@@ -798,7 +814,7 @@ module.exports = (router) => {
       }
     }
     else {
-      res.redirect('/r2/task-list')
+      res.redirect('/r2/save-as-draft')
     }
   })
 
@@ -825,7 +841,7 @@ module.exports = (router) => {
       }
     }
     else {
-      res.redirect('/r2/task-list')
+      res.redirect('/r2/save-as-draft')
     }
   })
 
@@ -848,7 +864,7 @@ module.exports = (router) => {
       }
     }
     else {
-      res.redirect('/r2/task-list')
+      res.redirect('/r2/save-as-draft')
     }
   })
 
@@ -884,7 +900,7 @@ module.exports = (router) => {
       }
     }
     else {
-      res.redirect('/r2/task-list')
+      res.redirect('/r2/save-as-draft')
     }
   })
 
@@ -919,7 +935,7 @@ module.exports = (router) => {
       }
     }
     else {
-      res.redirect('/r2/task-list')
+      res.redirect('/r2/save-as-draft')
     }
   })
 
@@ -942,7 +958,7 @@ module.exports = (router) => {
       }
     }
     else {
-      res.redirect('/r2/task-list')
+      res.redirect('/r2/save-as-draft')
     }
   })
 
@@ -975,7 +991,7 @@ module.exports = (router) => {
       }
     }
     else {
-      res.redirect('/r2/task-list')
+      res.redirect('/r2/save-as-draft')
     }
   })
 
@@ -1046,7 +1062,7 @@ module.exports = (router) => {
       }
     }
     else {
-      res.redirect('/r2/task-list')
+      res.redirect('/r2/save-as-draft')
     }
   })
 
@@ -1069,7 +1085,7 @@ module.exports = (router) => {
         }
       }
       else {
-        res.redirect('/r2/task-list')
+        res.redirect('/r2/save-as-draft')
       }
   })
 
@@ -1103,7 +1119,7 @@ module.exports = (router) => {
       }
     }
     else if (req.body['submit-button'] === 'save-as-draft') {
-      res.redirect('/r2/task-list')
+      res.redirect('/r2/save-as-draft')
     }
     else if (req.body['submit-button'] === 'add' && req.body['second-applicant-different-country'] !== '') {
       req.session.data.secondApplicantNationalities[count] = req.body['second-applicant-different-country']
@@ -1136,7 +1152,7 @@ module.exports = (router) => {
       }
     }
     else {
-      res.redirect('/r2/task-list')
+      res.redirect('/r2/save-as-draft')
     }
   })
 
@@ -1165,7 +1181,7 @@ module.exports = (router) => {
         }
       }
       else {
-        res.redirect('/r2/task-list')
+        res.redirect('/r2/save-as-draft')
       }
     }
     else {
@@ -1193,7 +1209,7 @@ module.exports = (router) => {
       }
     }
     else {
-      res.redirect('/r2/task-list')
+      res.redirect('/r2/save-as-draft')
     }
   })
 
@@ -1216,7 +1232,7 @@ module.exports = (router) => {
       }
     }
     else {
-      res.redirect('/r2/task-list')
+      res.redirect('/r2/save-as-draft')
     }
   })
 
@@ -1252,7 +1268,7 @@ module.exports = (router) => {
       }
     }
     else {
-      res.redirect('/r2/task-list')
+      res.redirect('/r2/save-as-draft')
     }
   })
 
@@ -1287,7 +1303,7 @@ module.exports = (router) => {
       }
     }
     else {
-      res.redirect('/r2/task-list')
+      res.redirect('/r2/save-as-draft')
     }
   })
 
@@ -1311,7 +1327,7 @@ module.exports = (router) => {
       }
     }
     else {
-      res.redirect('/r2/task-list')
+      res.redirect('/r2/save-as-draft')
     }
   })
 
@@ -1340,7 +1356,7 @@ module.exports = (router) => {
       }
     }
     else {
-      res.redirect('/r2/task-list')
+      res.redirect('/r2/save-as-draft')
     }
   })
 
@@ -1376,7 +1392,7 @@ module.exports = (router) => {
       }
     }
     else {
-      res.redirect('/r2/task-list')
+      res.redirect('/r2/save-as-draft')
     }
   })
 
@@ -1408,11 +1424,11 @@ module.exports = (router) => {
     }
     else {
       if (req.body['certificate-first-names'] === '' && req.body['certificate-last-names'] === '') {
-        res.redirect('/r2/task-list')
+        res.redirect('/r2/save-as-draft')
       }
       else {
         req.session.data.adoptionCertificateStatus = 'in progress'
-        res.redirect('/r2/task-list')
+        res.redirect('/r2/save-as-draft')
       }
     }
   })
@@ -1457,7 +1473,7 @@ module.exports = (router) => {
       }
     }
     else {
-        res.redirect('/r2/task-list')
+        res.redirect('/r2/save-as-draft')
     }
   })
 
@@ -1494,7 +1510,7 @@ module.exports = (router) => {
       }
     }
     else {
-        res.redirect('/r2/task-list')
+        res.redirect('/r2/save-as-draft')
     }
   })
 
@@ -1522,7 +1538,7 @@ module.exports = (router) => {
       }
     }
     else {
-      res.redirect('/r2/task-list')
+      res.redirect('/r2/save-as-draft')
     }
   })
 
@@ -1576,7 +1592,7 @@ module.exports = (router) => {
       }
     }
     else {
-      res.redirect('/r2/task-list')
+      res.redirect('/r2/save-as-draft')
     }
   })
 
@@ -1631,7 +1647,7 @@ module.exports = (router) => {
       }
     }
     else {
-      res.redirect('/r2/task-list')
+      res.redirect('/r2/save-as-draft')
     }
   })
 
@@ -1684,7 +1700,7 @@ module.exports = (router) => {
       }
     }
     else {
-      res.redirect('/r2/task-list')
+      res.redirect('/r2/save-as-draft')
     }
   })
 
@@ -1743,7 +1759,7 @@ module.exports = (router) => {
       }
     }
     else {
-      res.redirect('/r2/task-list')
+      res.redirect('/r2/save-as-draft')
     }
   })
 
@@ -1801,7 +1817,7 @@ module.exports = (router) => {
       }
     }
     else {
-        res.redirect('/r2/task-list')
+        res.redirect('/r2/save-as-draft')
     }
   })
 
@@ -1859,7 +1875,7 @@ module.exports = (router) => {
       }
     }
     else {
-      res.redirect('/r2/task-list')
+      res.redirect('/r2/save-as-draft')
     }
     console.log("Sibling array: ", req.session.data.uniqueSiblingFirstNames)
     console.log("siblingFirstNames array: ", req.session.data.siblingFirstNames)
@@ -2008,7 +2024,7 @@ module.exports = (router) => {
       }
       else {
         req.session.data.placementStatus = 'in progress'
-        res.redirect('/r2/task-list')
+        res.redirect('/r2/save-as-draft')
       }
     }
   })
@@ -2035,7 +2051,7 @@ module.exports = (router) => {
       res.redirect('/r2/task-list')
     }
     else {
-      res.redirect('/r2/task-list')
+      res.redirect('/r2/save-as-draft')
     }
   })
 
@@ -2055,7 +2071,7 @@ module.exports = (router) => {
       res.redirect('/r2/task-list')
     }
     else {
-      res.redirect('/r2/task-list')
+      res.redirect('/r2/save-as-draft')
     }
   })
 
@@ -2075,7 +2091,7 @@ module.exports = (router) => {
       res.redirect('/r2/check-pay-and-submit/declaration')
     }
     else {
-      res.redirect('/r2/task-list')
+      res.redirect('/r2/save-as-draft')
     }
   })
 
@@ -2135,7 +2151,7 @@ module.exports = (router) => {
       }
     }
     else {
-      res.redirect('/r2/task-list')
+      res.redirect('/r2/save-as-draft')
     }
   })
 
