@@ -22,7 +22,7 @@ Apply to adopt a child
         errorList: errors
       }) }}
       {% for error in errors %}
-        {% if error.href == '#sibling-sibling-add-another' %}
+        {% if error.href == '#sibling-add-another' %}
           {% set summaryError = error.text %}
         {% endif %}
       {% endfor %}
