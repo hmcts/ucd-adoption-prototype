@@ -2197,7 +2197,111 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
 // ******************************************** SECTION 3. CHILDREN ********************************************
 // ************************************************************************************************************************************
 
-  
+   // ********************** Child's details **********************
+  router.post('/r2/la-portal/child-date-birth', function(req, res) {
+    // console.log("Day: ", req.body['day'])
+    var errors = []
+    if (req.body['child-birth-day'] === '' || req.body['child-birth-month'] === '' || req.body['child-birth-year'] === '') {
+      errors.push({
+      text: 'Developers: please refer to ADOP-203 for different error messages',
+      href: '#child-date-birth'
+      })
+    }
+      if (req.body['submit-button'] === 'save-and-continue') {
+        if (errors.length === 0) {
+          res.redirect('/r2/la-portal/child-sex')
+        }
+        else {
+          res.render('./r2/la-portal/child-date-birth', { errors: errors })
+        }
+      }
+      else {
+        res.redirect('/r2/la-portal/task-list')
+      }
+  })
+
+    
+  router.post('/r2/la-portal/child-sex', function(req, res) {
+    var errors = []
+    if (req.body['child-sex'] === undefined) {
+      errors.push({
+      text: 'Please select an answer',
+      href: '#child-sex'
+      })
+    }
+    else if (req.body['child-sex'] === 'Other' && req.body['other-sex'] === '') {
+      errors.push({
+        text: 'Enter what is written on the birth certificate',
+        href: '#other-sex'
+        })
+    }
+
+    if (req.body['submit-button'] === 'save-and-continue') {
+      if (errors.length === 0) {
+        res.redirect('/r2/la-portal/child-nationality')
+      }
+      else {
+        res.render('./r2/la-portal/child-sex', { errors: errors })
+      }
+    }
+    else {
+      res.redirect('/r2/la-portal/task-list')
+    }
+  })
+
+
+  router.post('/r2/la-portal/child-nationality', function(req, res) {
+    var errors = []
+
+    if (req.body['child-british'] === undefined && req.body['child-irish'] === undefined && req.body['child-other'] === undefined && req.body['child-unsure'] === undefined) {
+      // console.log("error")
+      errors.push({
+      text: 'Select a nationality or \'Not sure\'',
+      href: '#checkbox-error'
+      })
+    }
+    else if ((req.body['child-british'] !== undefined || req.body['child-irish'] !== undefined || req.body['child-other'] !== undefined) && req.body['child-unsure'] !== undefined) {
+      // console.log("error")
+      errors.push({
+      text: 'Select a nationality or \'Not sure\'',
+      href: '#checkbox-error'
+      })
+    }
+    else if (req.body['child-other'] !== undefined && req.session.data.childNationalityCount === 0) {
+      // console.log("no nationality added error: ", req.session.data.childNationalities)
+      errors.push({
+      text: 'This is not a valid entry',
+      href: '#no-country'
+      })
+    }
+
+    count = req.session.data.childNationalityCount
+    if (req.body['submit-button'] === 'save-and-continue') {
+      if (errors.length === 0) {
+        req.session.data.childDetailsStatus = 'completed'
+        req.session.data.childNationalities[count] = req.body['child-different-country']
+        res.redirect('/r2/la-portal/task-list')
+      }
+      else {
+        res.render('./r2/la-portal/child-nationality', { errors: errors })
+      }
+    }
+    else if (req.body['submit-button'] === 'save-as-draft') {
+      res.redirect('/r2/la-portal/task-list')
+    }
+    else if (req.body['submit-button'] === 'add' && req.body['child-different-country'] !== '') {
+      req.session.data.childNationalities[count] = req.body['child-different-country']
+      req.session.data.childNationalityId[count] = count
+      req.session.data.childNationalityCount = count + 1
+      res.redirect('/r2/la-portal/child-nationality')
+    }
+    else {
+      res.render('./r2/la-portal/child-nationality', { errors: errors })
+    }
+  })
+
+
+
    // ********************** Birth mother's details **********************
    router.post('/r2/la-portal/mother-name', function(req, res) {
     var errors = []
@@ -3024,12 +3128,6 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
       res.redirect('/r2/la-portal/task-list')
     }
   })
-
-
-
-
-
- // ********************** Solicitor details **********************
 
 
 
