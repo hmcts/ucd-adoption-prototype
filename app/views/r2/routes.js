@@ -158,6 +158,16 @@ router.post('/r2/save-as-draft', function(req, res) {
 })
 
 
+router.post('/r2/la-portal/save-as-draft', function(req, res) {
+  if (req.body['submit-button'] === 'continue') {
+      res.redirect('/r2/la-portal/task-list')
+  }
+  else {
+    res.redirect('/r2/registration/start1')
+  }
+})
+
+
 
 
 
@@ -254,6 +264,74 @@ router.post('/r2/save-as-draft', function(req, res) {
         res.redirect('/r2/save-as-draft')
       }
   })
+
+
+  // ******************************************** Child's details ********************************************
+  router.post('/r2/children/child-name', function(req, res) {
+    var errors = []
+    if (req.body['child-first-names'] === '') {
+      errors.push({
+      text: 'Enter the child\'s first names',
+      href: '#first-names'
+      })
+    }
+    if (req.body['child-last-names'] === '') {
+      errors.push({
+      text: 'Enter the child\'s last names',
+      href: '#last-names'
+      })
+    }
+
+    if (req.body['submit-button'] === 'save-and-continue') {
+      if (errors.length === 0) {
+        req.session.data.childDetailsStatus = 'in progress'
+        res.redirect('/r2/children/child-post-adoption-name')
+      }
+      else {
+        res.render('.//r2/children/child-name', { errors: errors })
+      }
+    }
+    else {
+      res.redirect('/r2/save-as-draft')
+    }
+  })
+
+
+  router.post('/r2/children/child-post-adoption-name', function(req, res) {
+    var errors = []
+    if (req.body['certificate-first-names'] === '') {
+      errors.push({
+      text: 'Enter their first names',
+      href: '#first-names'
+      })
+    }
+    if (req.body['certificate-last-names'] === '') {
+      errors.push({
+      text: 'Enter their last names',
+      href: '#last-names'
+      })
+    }
+
+    if (req.body['submit-button'] === 'save-and-continue') {
+      if (errors.length === 0) {
+        req.session.data.adoptionCertificateStatus = 'completed'
+        res.redirect('/r2/task-list')
+      }
+      else {
+        res.render('.//r2/children/child-post-adoption-name', { errors: errors })
+      }
+    }
+    else {
+      if (req.body['certificate-first-names'] === '' && req.body['certificate-last-names'] === '') {
+        res.redirect('/r2/save-as-draft')
+      }
+      else {
+        req.session.data.adoptionCertificateStatus = 'in progress'
+        res.redirect('/r2/save-as-draft')
+      }
+    }
+  })
+
 
 
   // ********************** Adoption agency or local authority **********************
@@ -432,155 +510,43 @@ router.post('/r2/save-as-draft', function(req, res) {
       res.redirect('/r2/save-as-draft')
     }
   })
-  // router.post('/r2/application/applicant-adoption-agency-details', function(req, res) {
-  //   var errors = []
-  //   if (req.body['applicant-agency-name'] === '') {
-  //     errors.push({
-  //     text: 'Enter a name',
-  //     href: '#name'
-  //     })
-  //   }
-  //   if (req.body['applicant-phone-number'] === '') {
-  //     errors.push({
-  //     text: 'Enter a UK telephone number',
-  //     href: '#phone'
-  //     })
-  //   }
-  //   if (req.body['applicant-contact'] === '') {
-  //     errors.push({
-  //     text: 'Enter a name',
-  //     href: '#contact'
-  //     })
-  //   }
-  //   if (req.body['applicant-email'] === '') {
-  //     errors.push({
-  //     text: 'Devs: "Enter an email address" [if left blank] or "Enter an email address in the correct format, like name@example.com" [if in the wrong format] ',
-  //     href: '#email'
-  //     })
-  //   }
-
-  //   if (req.body['submit-button'] === 'save-and-continue') {
-  //     if (errors.length === 0) {
-  //       req.session.data.agencyStatus = 'in progress'
-  //       res.redirect('/r2/application/applicant-other-adoption-agency')
-  //     }
-  //     else {
-  //       res.render('.//r2/application/applicant-adoption-agency-details', { errors: errors })
-  //     }
-  //   }
-  //   else {
-  //     res.redirect('/r2/task-list')
-  //   }
-  // })
-
-
-  // router.post('/r2/application/applicant-other-adoption-agency', function(req, res) {
-  //   // console.log("Mother alive: ", req.body['other-adoption-agency'])
-  //   var errors = []
-  //   if (req.body['other-adoption-agency'] === undefined) {
-  //     errors.push({
-  //     text: 'Please answer the question',
-  //     href: '#other-adoption-agency'
-  //     })
-  //   }
-
-  //   if (req.body['submit-button'] === 'save-and-continue') {
-  //     if (errors.length === 0) {
-  //       if (req.body['other-adoption-agency'] === 'yes') {
-  //         res.redirect('/r2/application/applicant-adoption-agency-details-2')
-  //       }
-  //       else {
-  //         res.redirect('/r2/application/child-social-worker-details')
-  //       }
-  //     }
-  //     else {
-  //       res.render('.//r2/application/applicant-other-adoption-agency', { errors: errors })
-  //     }
-  //   }
-  //   else {
-  //       res.redirect('/r2/task-list')
-  //   }
-  // })
-
-
-  // router.post('/r2/application/applicant-adoption-agency-details-2', function(req, res) {
-  //   var errors = []
-  //   if (req.body['applicant-agency-name-2'] === '') {
-  //     errors.push({
-  //     text: 'Enter a name',
-  //     href: '#name'
-  //     })
-  //   }
-  //   if (req.body['applicant-phone-number-2'] === '') {
-  //     errors.push({
-  //     text: 'Enter a UK telephone number',
-  //     href: '#phone'
-  //     })
-  //   }
-  //   if (req.body['applicant-contact-2'] === '') {
-  //     errors.push({
-  //     text: 'Enter a name',
-  //     href: '#contact'
-  //     })
-  //   }
-  //   if (req.body['applicant-email-2'] === '') {
-  //     errors.push({
-  //     text: 'Devs: "Enter an email address" [if left blank] or "Enter an email address in the correct format, like name@example.com" [if in the wrong format] ',
-  //     href: '#email'
-  //     })
-  //   }
-
-  //   if (req.body['submit-button'] === 'save-and-continue') {
-  //     if (errors.length === 0) {
-  //       res.redirect('/r2/application/child-social-worker-details')
-  //     }
-  //     else {
-  //       res.render('.//r2/application/applicant-adoption-agency-details-2', { errors: errors })
-  //     }
-  //   }
-  //   else {
-  //     res.redirect('/r2/task-list')
-  //   }
-  // })
-
-
-  // router.post('/r2/application/child-social-worker-details', function(req, res) {
-  //   var errors = []
-  //   if (req.body['child-social-worker-name'] === '') {
-  //     errors.push({
-  //     text: 'Enter a name',
-  //     href: '#name'
-  //     })
-  //   }
-  //   if (req.body['child-social-worker-phone-number'] === '') {
-  //     errors.push({
-  //     text: 'Enter a UK telephone number',
-  //     href: '#phone'
-  //     })
-  //   }
-  //   if (req.body['child-social-worker-email'] === '') {
-  //     errors.push({
-  //     text: 'Devs: "Enter an email address" [if left blank] or "Enter an email address in the correct format, like name@example.com" [if in the wrong format] ',
-  //     href: '#email'
-  //     })
-  //   }
-
-  //   if (req.body['submit-button'] === 'save-and-continue') {
-  //     if (errors.length === 0) {
-  //       req.session.data.agencyStatus = 'completed'
-  //       res.redirect('/r2/task-list')
-  //     }
-  //     else {
-  //       res.render('.//r2/application/child-social-worker-details', { errors: errors })
-  //     }
-  //   }
-  //   else {
-  //     res.redirect('/r2/task-list')
-  //   }
-  // })
-
 
   // ********************** Family court finder **********************
+router.post('/r2/children/orders-placement-court', function(req, res) {
+  var errors = []
+  if (req.body['placement-court-name'] === '') {
+    errors.push({
+    text: 'Enter the name of the court',
+    href: '#court-name'
+    })
+  }
+
+  count = req.session.data.childOrderCount
+
+  if (req.body['submit-button'] === 'save-and-continue') {
+    if (errors.length === 0) {
+      req.session.data.childOrderCourt[count] = req.body['placement-court-name']
+      req.session.data.childOrderCompleted[count] = "No"
+      res.redirect('/r2/children/family-court-finder')
+    }
+    else {
+      res.render('.//r2/children/orders-placement-court', { errors: errors })
+    }
+  }
+  else {
+    if (req.body['placement-court-name'] === '') {
+      res.redirect('/r2/task-list')
+    }
+    else {
+      req.session.data.placementStatus = 'in progress'
+      res.redirect('/r2/save-as-draft')
+    }
+  }
+})
+
+
+
+
   router.post('/r2/children/family-court-finder', function(req, res) {
     console.log(req.body['placementCourtName'])
     var errors = []
@@ -621,6 +587,529 @@ router.post('/r2/save-as-draft', function(req, res) {
   })
 
 
+
+
+    // ********************** Sibling details **********************
+    router.post('/r2/children/sibling-exists', function(req, res) {
+      // console.log("father alive: ", req.body['sibling-exists'])
+      var errors = []
+      if (req.body['sibling-exists'] === undefined) {
+        errors.push({
+        text: 'Please answer the question',
+        href: '#sibling'
+        })
+      }
+      else if (req.body['sibling-exists'] === 'unsure' && req.body['reason-not-sure'] === '') {
+        errors.push({
+        text: 'Enter more detail',
+        href: '#sibling-no-reason'
+        })
+      }
+  
+      if (req.body['submit-button'] === 'save-and-continue') {
+        if (errors.length === 0) {
+          if (req.body['sibling-exists'] === 'yes') {
+            req.session.data.siblingStatus = 'in progress'
+            res.redirect('/r2/children/sibling-court-order-exists')
+          }
+          else {
+            req.session.data.siblingStatus = 'completed'
+            res.redirect('/r2/task-list')
+          }
+        }
+        else {
+          res.render('.//r2/children/sibling-exists', { errors: errors })
+        }
+      }
+      else {
+          res.redirect('/r2/save-as-draft')
+      }
+    })
+  
+  
+    router.post('/r2/children/sibling-court-order-exists', function(req, res) {
+      console.log("sibling: ", req.body['sibling-court-order-exists'])
+      var errors = []
+      if (req.body['sibling-court-order-exists'] === undefined) {
+        errors.push({
+        text: 'Please answer the question',
+        href: '#court-order-checkbox'
+        })
+      }
+      else if (req.body['sibling-court-order-exists'] === 'unsure' && req.body['reason-not-sure'] === '') {
+        errors.push({
+        text: 'Enter more detail',
+        href: '#sibling-court-order-no-reason'
+        })
+      }
+  
+      if (req.body['submit-button'] === 'save-and-continue') {
+        if (errors.length === 0) {
+          if (req.body['sibling-court-order-exists'] === 'yes') {
+            req.session.data.siblingStatus = 'in progress'
+            res.redirect('/r2/children/sibling-relationship')
+          }
+          else {
+            req.session.data.siblingStatus = 'completed'
+            res.redirect('/r2/task-list')
+          }
+        }
+        else {
+          res.render('.//r2/children/sibling-court-order-exists', { errors: errors })
+        }
+      }
+      else {
+          res.redirect('/r2/save-as-draft')
+      }
+    })
+  
+  
+    router.post('/r2/children/sibling-relationship', function(req, res) {
+      var errors = []
+      if (req.body['sibling-relationship'] === '') {
+        errors.push({
+        text: 'Enter the relationship',
+        href: '#relationship'
+        })
+      }
+      
+      count = req.session.data.siblingOrderCount
+  
+      if (req.body['submit-button'] === 'save-and-continue') {
+        if (errors.length === 0) {
+          req.session.data.siblingOrderId[count] = count
+          req.session.data.siblingRelationship[count] = req.body['sibling-relationship']
+          req.session.data.siblingOrderCount++
+          res.redirect('/r2/children/sibling-order-type')
+        }
+        else {
+          res.render('.//r2/children/sibling-name', { errors: errors })
+        }
+      }
+      else {
+        res.redirect('/r2/save-as-draft')
+      }
+    })
+  
+  
+    router.post('/r2/children/sibling-change-relationship', function(req, res) {
+      var errors = []
+      if (req.body['sibling-relationship'] === '') {
+        errors.push({
+        text: 'Enter the relationship',
+        href: '#relationship'
+        })
+      }
+      
+      count = req.session.data.siblingOrderCount
+      
+      if (errors.length === 0) {
+        req.session.data.uniqueSiblingFirstNames[sib] = req.body['sibling-relationship']
+        res.redirect('/r2/children/sibling-summary')
+      }
+      else {
+        res.render('.//r2/children/sibling-change-relationship', { errors: errors })
+      }
+    })
+  
+  
+    router.post('/r2/children/sibling-order-type', function(req, res) {
+      var errors = []
+      if (req.body['sibling-order-type'] === undefined) {
+        errors.push({
+        text: 'Please select an answer',
+        href: '#order-type'
+        })
+      }
+  
+      if (req.body['sibling-order-type'] === "other" && req.body['sibling-other-order'] === "") {
+        errors.push({
+        text: 'Please select an answer',
+        href: '#other-order'
+        })
+      }
+  
+  
+      if (req.body['submit-button'] === 'save-and-continue') {
+        if (errors.length === 0) {
+          req.session.data.siblingOrderType[count] = req.body['sibling-order-type']
+          req.session.data.siblingOrderCompleted[count] = "No"
+          res.redirect('/r2/children/sibling-order-case-number')
+        }
+        else {
+          res.render('.//r2/children/sibling-order-type', { errors: errors })
+        }
+      }
+      else {
+        res.redirect('/r2/save-as-draft')
+      }
+    })
+  
+  
+    router.post('/r2/children/sibling-change-order-type', function(req, res) {
+      var errors = []
+      if (req.body['sibling-new-order-type'] === undefined) {
+        errors.push({
+        text: 'Please select an answer',
+        href: '#order-type'
+        })
+      }
+  
+      if (req.body['sibling-new-order-type'] === "other" && req.body['sibling-new-other-order'] === "") {
+        errors.push({
+        text: 'Please select an answer',
+        href: '#other-order'
+        })
+      }
+  
+      if (errors.length === 0) {
+        req.session.data.siblingOrderType[req.body['sibling-id']] = req.body['sibling-new-order-type']
+        res.redirect('/r2/children/sibling-check-your-answers')
+      }
+      else {
+        res.render('.//r2/children/sibling-change-order-type', { errors: errors })
+      }
+    })
+  
+  
+  
+    router.post('/r2/children/sibling-order-case-number', function(req, res) {
+      var errors = []
+      if (req.body['sibling-order-case-number'] === '') {
+        errors.push({
+        text: 'Please answer the question',
+        href: '#case-number'
+        })
+      }
+  
+      if (req.body['submit-button'] === 'save-and-continue') {
+        if (errors.length === 0) {
+          req.session.data.siblingOrderNumber[count] = req.body['sibling-order-case-number']
+          req.session.data.siblingOrderCompleted[count] = "Yes"
+          console.log("Relationship: ", req.session.data.siblingRelationship[count])
+          console.log("Type: ", req.session.data.siblingOrderType[count])
+          console.log("Number: ", req.session.data.siblingOrderNumber[count])
+          res.redirect('/r2/children/sibling-summary')
+        }
+        else {
+          res.render('.//r2/children/sibling-order-case-number', { errors: errors })
+        }
+      }
+      else {
+        res.redirect('/r2/save-as-draft')
+      }
+    })
+  
+  
+    router.post('/r2/children/sibling-change-order-case-number', function(req, res) {
+      var errors = []
+      if (req.body['sibling-new-case-number'] === '') {
+        errors.push({
+        text: 'Please answer the question',
+        href: '#case-number'
+        })
+      }
+      console.log(req.session.data.siblingOrderType[req.body['sibling-id']])
+      console.log(req.body['sibling-new-case-number'])
+  
+      if (errors.length === 0) {
+        req.session.data.siblingOrderNumber[req.body['sibling-id']] = req.body['sibling-new-case-number']
+        res.redirect('/r2/children/sibling-check-your-answers')
+      }
+      else {
+        res.render('.//r2/children/sibling-change-case-number', { errors: errors })
+      }
+    })
+  
+  
+    router.post('/r2/children/sibling-order-court', function(req, res) {
+      var errors = []
+      if (req.body['sibling-order-court-name'] === '') {
+        errors.push({
+        text: 'Please answer the question',
+        href: '#order-court-name'
+        })
+      }
+  
+      arrayLength = req.session.data.siblingOrderId.length
+      if (arrayLength == 1) {
+        count = 0
+      }
+      else {
+        count = req.session.data.siblingOrderId.length - 1
+      }
+  
+      if (req.body['submit-button'] === 'save-and-continue') {
+        if (errors.length === 0) {
+          req.session.data.siblingOrderCourt[count] = req.body['sibling-order-court-name']
+          res.redirect('/r2/children/sibling-order-date')
+        }
+        else {
+          res.render('.//r2/children/sibling-order-court', { errors: errors })
+        }
+      }
+      else {
+        res.redirect('/r2/save-as-draft')
+      }
+    })
+  
+  
+    router.post('/r2/children/sibling-change-order-court', function(req, res) {
+      var errors = []
+      if (req.body['sibling-new-court-name'] === '') {
+        errors.push({
+        text: 'Please answer the question',
+        href: '#order-court-name'
+        })
+      }
+      console.log(req.session.data.siblingOrderType[req.body['sibling-id']])
+      console.log(req.body['sibling-new-court-name'])
+  
+      if (errors.length === 0) {
+        req.session.data.siblingOrderCourt[req.body['sibling-id']] = req.body['sibling-new-court-name']
+        res.redirect('/r2/children/sibling-check-your-answers')
+      }
+      else {
+        res.render('.//r2/children/sibling-change-court', { errors: errors })
+      }
+    })
+  
+  
+    router.post('/r2/children/sibling-order-date', function(req, res) {
+      var errors = []
+      if (req.body['sibling-day'] === '' || req.body['sibling-month'] === '' || req.body['sibling-year'] === '') {
+        errors.push({
+        text: 'Developers: please refer to ADOP-281 for different error messages',
+        href: '#order-date'
+        })
+      }
+  
+      arrayLength = req.session.data.siblingOrderId.length
+      if (arrayLength == 1) {
+        count = 0
+      }
+      else {
+        count = req.session.data.siblingOrderId.length - 1
+      }
+  
+      if (req.body['submit-button'] === 'save-and-continue') {
+        if (errors.length === 0) {
+          req.session.data.siblingOrderIncomplete = 0
+          req.session.data.siblingOrderDay[count] = req.body['sibling-day']
+          req.session.data.siblingOrderMonth[count] = req.body['sibling-month']
+          req.session.data.siblingOrderYear[count] = req.body['sibling-year']
+          req.session.data.siblingOrderCompleted[count] = "Yes"
+          res.redirect('/r2/children/sibling-summary')
+  //        req.session.data.siblingOrderCount = req.session.data.siblingOrderCount + 1
+  
+        }
+        else {
+          res.render('.//r2/children/sibling-order-date', { errors: errors })
+        }
+      }
+      else {
+        res.redirect('/r2/save-as-draft')
+      }
+    })
+  
+  
+    router.post('/r2/children/sibling-change-order-date', function(req, res) {
+      var errors = []
+      if (req.body['sibling-day'] === '' || req.body['sibling-month'] === '' || req.body['sibling-year'] === '') {
+        errors.push({
+        text: 'Developers: please refer to ADOP-281 for different error messages',
+        href: '#order-date'
+        })
+      }
+  
+      if (errors.length === 0) {
+        req.session.data.siblingOrderDay[req.body['sibling-id']] = req.body['sibling-day']
+        req.session.data.siblingOrderMonth[req.body['sibling-id']] = req.body['sibling-month']
+        req.session.data.siblingOrderYear[req.body['sibling-id']] = req.body['sibling-year']
+        res.redirect('/r2/children/sibling-check-your-answers')
+      }
+      else {
+        res.render('.//r2/children/sibling-change-order-date', { errors: errors })
+      }
+    })
+  
+  
+    router.post('/r2/children/sibling-summary', function(req, res) {
+      var errors = []
+      if (req.body['sibling-add-another'] === undefined) {
+        errors.push({
+        text: 'Please select an answer',
+        href: '#sibling-add-another'
+        })
+      }
+  
+      if (req.body['submit-button'] === 'continue') {
+        res.redirect('/r2/children/sibling-summary')
+      }
+      else if (req.body['submit-button'] === 'save-and-continue') {
+        if (errors.length === 0) {
+          if (req.body['sibling-add-another'] === 'Yes') {
+            res.redirect('/r2/children/sibling-relationship')
+          }
+          else {
+            if (req.session.data.siblingOrderIncomplete === 0) {
+              req.session.data.siblingStatus = 'completed'
+            }
+            else {
+              req.session.data.siblingStatus = 'in progress'
+            }
+            res.redirect('/r2/task-list')
+          }
+        }
+        else {
+          res.render('.//r2/children/sibling-summary', { errors: errors })
+        }
+      }
+      else {
+          res.redirect('/r2/save-as-draft')
+      }
+    })
+  
+  
+  
+    router.post('/r2/children/sibling-choose-sibling', function(req, res) {
+      var errors = []
+      if (req.body['what-sibling'] === undefined) {
+        errors.push({
+        text: 'Please answer the question',
+        href: '#what-sibling'
+        })
+      }
+      else if (req.body['what-sibling'] === 'add-new-sibling') {
+        if (req.body['add-sibling-first-names'] === '') {
+          errors.push({
+          text: 'Enter their first names',
+          href: '#first-names'
+          })
+        }
+        if (req.body['add-sibling-last-names'] === '') {
+          errors.push({
+          text: 'Enter their last names',
+          href: '#last-names'
+          })
+        }
+      }
+  
+      count = req.session.data.siblingOrderId.length
+      sib = req.session.data.numberOfSiblings
+      id = req.body['what-sibling']
+  
+      if (req.body['submit-button'] === 'save-and-continue') {
+        if (errors.length === 0) {
+          if (req.body['what-sibling'] === 'add-new-sibling') {
+            console.log("new sibling")
+            req.session.data.uniqueSiblingId[sib] = sib
+            req.session.data.uniqueSiblingFirstNames[sib] = req.body['add-sibling-first-names']
+            req.session.data.uniqueSiblingLastNames[sib] = req.body['add-sibling-last-names']
+            req.session.data.siblingFirstNames[count] = req.body['add-sibling-first-names']
+            req.session.data.siblingLastNames[count] = req.body['add-sibling-last-names']
+            req.session.data.numberOfSiblings = req.session.data.numberOfSiblings + 1
+          }
+          else {
+            console.log("existing sibling")
+            req.session.data.siblingFirstNames[count] = req.session.data.uniqueSiblingFirstNames[id]
+            req.session.data.siblingLastNames[count] = req.session.data.uniqueSiblingLastNames[id]
+          }
+          req.session.data.siblingOrderCompleted[count] = "No"
+          req.session.data.siblingOrderId[count] = count
+          res.redirect('/r2/children/sibling-order-type')
+        }
+        else {
+          res.render('.//r2/children/sibling-choose-sibling', { errors: errors })
+        }
+      }
+      else {
+        res.redirect('/r2/save-as-draft')
+      }
+      console.log("Sibling array: ", req.session.data.uniqueSiblingFirstNames)
+      console.log("siblingFirstNames array: ", req.session.data.siblingFirstNames)
+      console.log("uniqueSiblingID array: ", req.session.data.uniqueSiblingId)
+      console.log("siblingOrderId array: ", req.session.data.siblingOrderId)
+      console.log("Number of siblings: ", req.session.data.numberOfSiblings)
+      console.log("siblingFirstNames[id]: ", req.session.data.siblingFirstNames[id])
+      console.log("count: ", count)
+      console.log("id: ", id)
+    })
+  
+  
+  
+    router.post('/r2/children/sibling-remove-court-order', function(req, res) {
+      var occ = 0
+      var errors = []
+      if (req.body['remove-court-order'] === undefined) {
+        errors.push({
+        text: 'Please answer the question',
+        href: '#remove-court-order'
+        })
+      }
+  
+      id = req.body['order-id']
+      fn = req.session.data.siblingFirstNames[id]
+      ln = req.session.data.siblingLastNames[id]
+      console.log("order-id: ",id)
+      console.log("count: ",req.session.data.siblingOrderCount)
+  
+      if (errors.length === 0) {
+        for (let index = 0; index < req.session.data.siblingOrderId.length; index++) {
+          if (req.session.data.siblingOrderId[index] == id) {
+            console.log("index: ", index)
+            delete req.session.data.siblingOrderId[index];
+            delete req.session.data.siblingFirstNames[index];
+            delete req.session.data.siblingLastNames[index];
+            delete req.session.data.siblingOrderType[index];
+            delete req.session.data.siblingOrderNumber[index];
+            delete req.session.data.siblingOrderCourt[index];
+            delete req.session.data.siblingOrderDay[index];
+            delete req.session.data.siblingOrderMonth[index];
+            delete req.session.data.siblingOrderYear[index];
+            delete req.session.data.siblingOrderCompleted[index];
+            req.session.data.siblingOrderCount--
+          }
+        }
+        console.log("sibling first names orders: ", req.session.data.siblingFirstNames)
+        console.log("sibling unique first names: ", req.session.data.uniqueSiblingFirstNames)
+        console.log("sibling order count: ", req.session.data.siblingOrderCount)
+        console.log("sibling first names: ", fn)
+        for (let index2 = 0; index2 < req.session.data.uniqueSiblingId.length; index2++) {
+          console.log(req.session.data.uniqueSiblingFirstNames[index2])
+          if (fn == req.session.data.uniqueSiblingFirstNames[index2] && ln == req.session.data.uniqueSiblingLastNames[index2]) {
+            occ++
+            console.log("Occurrence inside: ", occ)
+          }
+        }
+        console.log("Occurrence: ", occ)
+        if (occ == 0) {
+          for (let index3 = 0; index3 < req.session.data.uniqueSiblingId.length; index3++) {
+            console.log("sibling first names orders index3: ", req.session.data.uniqueSiblingFirstNames[index3])
+            console.log("sibling last names orders index3: ", req.session.data.uniqueSiblingLastNames[index3])
+            if (fn == req.session.data.uniqueSiblingFirstNames[index3] && ln == req.session.data.uniqueSiblingLastNames[index3]) {
+              console.log("In for: ", fn)
+              console.log("In for: ", ln)
+              delete req.session.data.uniqueSiblingId[index3]
+              delete req.session.data.uniqueSiblingFirstNames[index3]
+              delete req.session.data.uniqueSiblingLastNames[index3]
+            }
+          }
+        }
+  
+        if (req.session.data.siblingOrderCount > 0) {
+          res.redirect('/r2/children/sibling-summary')
+        }
+        else {
+          res.redirect('/r2/children/sibling-court-order-exists')
+        }
+      }
+      else {
+        res.render('.//r2/children/sibling-remove-order-court', { errors: errors })
+      }
+    })
+  
+  
 
 
 
@@ -1361,725 +1850,7 @@ router.post('/r2/save-as-draft', function(req, res) {
   })
 
 
-
-
-// ******************************************** SECTION 3. CHILDREN ********************************************
-// ************************************************************************************************************************************
-
-// ******************************************** Child's details ********************************************
-  router.post('/r2/children/child-name', function(req, res) {
-    var errors = []
-    if (req.body['child-first-names'] === '') {
-      errors.push({
-      text: 'Enter the child\'s first names',
-      href: '#first-names'
-      })
-    }
-    if (req.body['child-last-names'] === '') {
-      errors.push({
-      text: 'Enter the child\'s last names',
-      href: '#last-names'
-      })
-    }
-
-    if (req.body['submit-button'] === 'save-and-continue') {
-      if (errors.length === 0) {
-        req.session.data.childDetailsStatus = 'in progress'
-        res.redirect('/r2/children/child-post-adoption-name')
-      }
-      else {
-        res.render('.//r2/children/child-name', { errors: errors })
-      }
-    }
-    else {
-      res.redirect('/r2/save-as-draft')
-    }
-  })
-
-
-
-  router.post('/r2/children/child-post-adoption-name', function(req, res) {
-    var errors = []
-    if (req.body['certificate-first-names'] === '') {
-      errors.push({
-      text: 'Enter their first names',
-      href: '#first-names'
-      })
-    }
-    if (req.body['certificate-last-names'] === '') {
-      errors.push({
-      text: 'Enter their last names',
-      href: '#last-names'
-      })
-    }
-
-    if (req.body['submit-button'] === 'save-and-continue') {
-      if (errors.length === 0) {
-        req.session.data.adoptionCertificateStatus = 'completed'
-        res.redirect('/r2/task-list')
-      }
-      else {
-        res.render('.//r2/children/child-post-adoption-name', { errors: errors })
-      }
-    }
-    else {
-      if (req.body['certificate-first-names'] === '' && req.body['certificate-last-names'] === '') {
-        res.redirect('/r2/save-as-draft')
-      }
-      else {
-        req.session.data.adoptionCertificateStatus = 'in progress'
-        res.redirect('/r2/save-as-draft')
-      }
-    }
-  })
-
-
-
-
-
-
-
-
-  // ********************** Sibling details **********************
-  router.post('/r2/children/sibling-exists', function(req, res) {
-    // console.log("father alive: ", req.body['sibling-exists'])
-    var errors = []
-    if (req.body['sibling-exists'] === undefined) {
-      errors.push({
-      text: 'Please answer the question',
-      href: '#sibling'
-      })
-    }
-    else if (req.body['sibling-exists'] === 'unsure' && req.body['reason-not-sure'] === '') {
-      errors.push({
-      text: 'Enter more detail',
-      href: '#sibling-no-reason'
-      })
-    }
-
-    if (req.body['submit-button'] === 'save-and-continue') {
-      if (errors.length === 0) {
-        if (req.body['sibling-exists'] === 'yes') {
-          req.session.data.siblingStatus = 'in progress'
-          res.redirect('/r2/children/sibling-court-order-exists')
-        }
-        else {
-          req.session.data.siblingStatus = 'completed'
-          res.redirect('/r2/task-list')
-        }
-      }
-      else {
-        res.render('.//r2/children/sibling-exists', { errors: errors })
-      }
-    }
-    else {
-        res.redirect('/r2/save-as-draft')
-    }
-  })
-
-
-  router.post('/r2/children/sibling-court-order-exists', function(req, res) {
-    console.log("sibling: ", req.body['sibling-court-order-exists'])
-    var errors = []
-    if (req.body['sibling-court-order-exists'] === undefined) {
-      errors.push({
-      text: 'Please answer the question',
-      href: '#court-order-checkbox'
-      })
-    }
-    else if (req.body['sibling-court-order-exists'] === 'unsure' && req.body['reason-not-sure'] === '') {
-      errors.push({
-      text: 'Enter more detail',
-      href: '#sibling-court-order-no-reason'
-      })
-    }
-
-    if (req.body['submit-button'] === 'save-and-continue') {
-      if (errors.length === 0) {
-        if (req.body['sibling-court-order-exists'] === 'yes') {
-          req.session.data.siblingStatus = 'in progress'
-          res.redirect('/r2/children/sibling-relationship')
-        }
-        else {
-          req.session.data.siblingStatus = 'completed'
-          res.redirect('/r2/task-list')
-        }
-      }
-      else {
-        res.render('.//r2/children/sibling-court-order-exists', { errors: errors })
-      }
-    }
-    else {
-        res.redirect('/r2/save-as-draft')
-    }
-  })
-
-
-  router.post('/r2/children/sibling-relationship', function(req, res) {
-    var errors = []
-    if (req.body['sibling-relationship'] === '') {
-      errors.push({
-      text: 'Enter the relationship',
-      href: '#relationship'
-      })
-    }
-    
-    count = req.session.data.siblingOrderCount
-
-    if (req.body['submit-button'] === 'save-and-continue') {
-      if (errors.length === 0) {
-        req.session.data.siblingOrderId[count] = count
-        req.session.data.siblingRelationship[count] = req.body['sibling-relationship']
-        req.session.data.siblingOrderCount++
-        res.redirect('/r2/children/sibling-order-type')
-      }
-      else {
-        res.render('.//r2/children/sibling-name', { errors: errors })
-      }
-    }
-    else {
-      res.redirect('/r2/save-as-draft')
-    }
-  })
-
-
-  router.post('/r2/children/sibling-change-relationship', function(req, res) {
-    var errors = []
-    if (req.body['sibling-relationship'] === '') {
-      errors.push({
-      text: 'Enter the relationship',
-      href: '#relationship'
-      })
-    }
-    
-    count = req.session.data.siblingOrderCount
-    
-    if (errors.length === 0) {
-      req.session.data.uniqueSiblingFirstNames[sib] = req.body['sibling-relationship']
-      res.redirect('/r2/children/sibling-summary')
-    }
-    else {
-      res.render('.//r2/children/sibling-change-relationship', { errors: errors })
-    }
-  })
-
-
-  router.post('/r2/children/sibling-order-type', function(req, res) {
-    var errors = []
-    if (req.body['sibling-order-type'] === undefined) {
-      errors.push({
-      text: 'Please select an answer',
-      href: '#order-type'
-      })
-    }
-
-    if (req.body['sibling-order-type'] === "other" && req.body['sibling-other-order'] === "") {
-      errors.push({
-      text: 'Please select an answer',
-      href: '#other-order'
-      })
-    }
-
-
-    if (req.body['submit-button'] === 'save-and-continue') {
-      if (errors.length === 0) {
-        req.session.data.siblingOrderType[count] = req.body['sibling-order-type']
-        req.session.data.siblingOrderCompleted[count] = "No"
-        res.redirect('/r2/children/sibling-order-case-number')
-      }
-      else {
-        res.render('.//r2/children/sibling-order-type', { errors: errors })
-      }
-    }
-    else {
-      res.redirect('/r2/save-as-draft')
-    }
-  })
-
-
-  router.post('/r2/children/sibling-change-order-type', function(req, res) {
-    var errors = []
-    if (req.body['sibling-new-order-type'] === undefined) {
-      errors.push({
-      text: 'Please select an answer',
-      href: '#order-type'
-      })
-    }
-
-    if (req.body['sibling-new-order-type'] === "other" && req.body['sibling-new-other-order'] === "") {
-      errors.push({
-      text: 'Please select an answer',
-      href: '#other-order'
-      })
-    }
-
-    if (errors.length === 0) {
-      req.session.data.siblingOrderType[req.body['sibling-id']] = req.body['sibling-new-order-type']
-      res.redirect('/r2/children/sibling-check-your-answers')
-    }
-    else {
-      res.render('.//r2/children/sibling-change-order-type', { errors: errors })
-    }
-  })
-
-
-
-  router.post('/r2/children/sibling-order-case-number', function(req, res) {
-    var errors = []
-    if (req.body['sibling-order-case-number'] === '') {
-      errors.push({
-      text: 'Please answer the question',
-      href: '#case-number'
-      })
-    }
-
-    if (req.body['submit-button'] === 'save-and-continue') {
-      if (errors.length === 0) {
-        req.session.data.siblingOrderNumber[count] = req.body['sibling-order-case-number']
-        req.session.data.siblingOrderCompleted[count] = "Yes"
-        console.log("Relationship: ", req.session.data.siblingRelationship[count])
-        console.log("Type: ", req.session.data.siblingOrderType[count])
-        console.log("Number: ", req.session.data.siblingOrderNumber[count])
-        res.redirect('/r2/children/sibling-summary')
-      }
-      else {
-        res.render('.//r2/children/sibling-order-case-number', { errors: errors })
-      }
-    }
-    else {
-      res.redirect('/r2/save-as-draft')
-    }
-  })
-
-
-  router.post('/r2/children/sibling-change-order-case-number', function(req, res) {
-    var errors = []
-    if (req.body['sibling-new-case-number'] === '') {
-      errors.push({
-      text: 'Please answer the question',
-      href: '#case-number'
-      })
-    }
-    console.log(req.session.data.siblingOrderType[req.body['sibling-id']])
-    console.log(req.body['sibling-new-case-number'])
-
-    if (errors.length === 0) {
-      req.session.data.siblingOrderNumber[req.body['sibling-id']] = req.body['sibling-new-case-number']
-      res.redirect('/r2/children/sibling-check-your-answers')
-    }
-    else {
-      res.render('.//r2/children/sibling-change-case-number', { errors: errors })
-    }
-  })
-
-
-  router.post('/r2/children/sibling-order-court', function(req, res) {
-    var errors = []
-    if (req.body['sibling-order-court-name'] === '') {
-      errors.push({
-      text: 'Please answer the question',
-      href: '#order-court-name'
-      })
-    }
-
-    arrayLength = req.session.data.siblingOrderId.length
-    if (arrayLength == 1) {
-      count = 0
-    }
-    else {
-      count = req.session.data.siblingOrderId.length - 1
-    }
-
-    if (req.body['submit-button'] === 'save-and-continue') {
-      if (errors.length === 0) {
-        req.session.data.siblingOrderCourt[count] = req.body['sibling-order-court-name']
-        res.redirect('/r2/children/sibling-order-date')
-      }
-      else {
-        res.render('.//r2/children/sibling-order-court', { errors: errors })
-      }
-    }
-    else {
-      res.redirect('/r2/save-as-draft')
-    }
-  })
-
-
-  router.post('/r2/children/sibling-change-order-court', function(req, res) {
-    var errors = []
-    if (req.body['sibling-new-court-name'] === '') {
-      errors.push({
-      text: 'Please answer the question',
-      href: '#order-court-name'
-      })
-    }
-    console.log(req.session.data.siblingOrderType[req.body['sibling-id']])
-    console.log(req.body['sibling-new-court-name'])
-
-    if (errors.length === 0) {
-      req.session.data.siblingOrderCourt[req.body['sibling-id']] = req.body['sibling-new-court-name']
-      res.redirect('/r2/children/sibling-check-your-answers')
-    }
-    else {
-      res.render('.//r2/children/sibling-change-court', { errors: errors })
-    }
-  })
-
-
-  router.post('/r2/children/sibling-order-date', function(req, res) {
-    var errors = []
-    if (req.body['sibling-day'] === '' || req.body['sibling-month'] === '' || req.body['sibling-year'] === '') {
-      errors.push({
-      text: 'Developers: please refer to ADOP-281 for different error messages',
-      href: '#order-date'
-      })
-    }
-
-    arrayLength = req.session.data.siblingOrderId.length
-    if (arrayLength == 1) {
-      count = 0
-    }
-    else {
-      count = req.session.data.siblingOrderId.length - 1
-    }
-
-    if (req.body['submit-button'] === 'save-and-continue') {
-      if (errors.length === 0) {
-        req.session.data.siblingOrderIncomplete = 0
-        req.session.data.siblingOrderDay[count] = req.body['sibling-day']
-        req.session.data.siblingOrderMonth[count] = req.body['sibling-month']
-        req.session.data.siblingOrderYear[count] = req.body['sibling-year']
-        req.session.data.siblingOrderCompleted[count] = "Yes"
-        res.redirect('/r2/children/sibling-summary')
-//        req.session.data.siblingOrderCount = req.session.data.siblingOrderCount + 1
-
-      }
-      else {
-        res.render('.//r2/children/sibling-order-date', { errors: errors })
-      }
-    }
-    else {
-      res.redirect('/r2/save-as-draft')
-    }
-  })
-
-
-  router.post('/r2/children/sibling-change-order-date', function(req, res) {
-    var errors = []
-    if (req.body['sibling-day'] === '' || req.body['sibling-month'] === '' || req.body['sibling-year'] === '') {
-      errors.push({
-      text: 'Developers: please refer to ADOP-281 for different error messages',
-      href: '#order-date'
-      })
-    }
-
-    if (errors.length === 0) {
-      req.session.data.siblingOrderDay[req.body['sibling-id']] = req.body['sibling-day']
-      req.session.data.siblingOrderMonth[req.body['sibling-id']] = req.body['sibling-month']
-      req.session.data.siblingOrderYear[req.body['sibling-id']] = req.body['sibling-year']
-      res.redirect('/r2/children/sibling-check-your-answers')
-    }
-    else {
-      res.render('.//r2/children/sibling-change-order-date', { errors: errors })
-    }
-  })
-
-
-  router.post('/r2/children/sibling-summary', function(req, res) {
-    var errors = []
-    if (req.body['sibling-add-another'] === undefined) {
-      errors.push({
-      text: 'Please select an answer',
-      href: '#sibling-add-another'
-      })
-    }
-
-    if (req.body['submit-button'] === 'continue') {
-      res.redirect('/r2/children/sibling-summary')
-    }
-    else if (req.body['submit-button'] === 'save-and-continue') {
-      if (errors.length === 0) {
-        if (req.body['sibling-add-another'] === 'Yes') {
-          res.redirect('/r2/children/sibling-relationship')
-        }
-        else {
-          if (req.session.data.siblingOrderIncomplete === 0) {
-            req.session.data.siblingStatus = 'completed'
-          }
-          else {
-            req.session.data.siblingStatus = 'in progress'
-          }
-          res.redirect('/r2/task-list')
-        }
-      }
-      else {
-        res.render('.//r2/children/sibling-summary', { errors: errors })
-      }
-    }
-    else {
-        res.redirect('/r2/save-as-draft')
-    }
-  })
-
-
-
-  router.post('/r2/children/sibling-choose-sibling', function(req, res) {
-    var errors = []
-    if (req.body['what-sibling'] === undefined) {
-      errors.push({
-      text: 'Please answer the question',
-      href: '#what-sibling'
-      })
-    }
-    else if (req.body['what-sibling'] === 'add-new-sibling') {
-      if (req.body['add-sibling-first-names'] === '') {
-        errors.push({
-        text: 'Enter their first names',
-        href: '#first-names'
-        })
-      }
-      if (req.body['add-sibling-last-names'] === '') {
-        errors.push({
-        text: 'Enter their last names',
-        href: '#last-names'
-        })
-      }
-    }
-
-    count = req.session.data.siblingOrderId.length
-    sib = req.session.data.numberOfSiblings
-    id = req.body['what-sibling']
-
-    if (req.body['submit-button'] === 'save-and-continue') {
-      if (errors.length === 0) {
-        if (req.body['what-sibling'] === 'add-new-sibling') {
-          console.log("new sibling")
-          req.session.data.uniqueSiblingId[sib] = sib
-          req.session.data.uniqueSiblingFirstNames[sib] = req.body['add-sibling-first-names']
-          req.session.data.uniqueSiblingLastNames[sib] = req.body['add-sibling-last-names']
-          req.session.data.siblingFirstNames[count] = req.body['add-sibling-first-names']
-          req.session.data.siblingLastNames[count] = req.body['add-sibling-last-names']
-          req.session.data.numberOfSiblings = req.session.data.numberOfSiblings + 1
-        }
-        else {
-          console.log("existing sibling")
-          req.session.data.siblingFirstNames[count] = req.session.data.uniqueSiblingFirstNames[id]
-          req.session.data.siblingLastNames[count] = req.session.data.uniqueSiblingLastNames[id]
-        }
-        req.session.data.siblingOrderCompleted[count] = "No"
-        req.session.data.siblingOrderId[count] = count
-        res.redirect('/r2/children/sibling-order-type')
-      }
-      else {
-        res.render('.//r2/children/sibling-choose-sibling', { errors: errors })
-      }
-    }
-    else {
-      res.redirect('/r2/save-as-draft')
-    }
-    console.log("Sibling array: ", req.session.data.uniqueSiblingFirstNames)
-    console.log("siblingFirstNames array: ", req.session.data.siblingFirstNames)
-    console.log("uniqueSiblingID array: ", req.session.data.uniqueSiblingId)
-    console.log("siblingOrderId array: ", req.session.data.siblingOrderId)
-    console.log("Number of siblings: ", req.session.data.numberOfSiblings)
-    console.log("siblingFirstNames[id]: ", req.session.data.siblingFirstNames[id])
-    console.log("count: ", count)
-    console.log("id: ", id)
-  })
-
-
-
-  router.post('/r2/children/sibling-remove-court-order', function(req, res) {
-    var occ = 0
-    var errors = []
-    if (req.body['remove-court-order'] === undefined) {
-      errors.push({
-      text: 'Please answer the question',
-      href: '#remove-court-order'
-      })
-    }
-
-    id = req.body['order-id']
-    fn = req.session.data.siblingFirstNames[id]
-    ln = req.session.data.siblingLastNames[id]
-    console.log("order-id: ",id)
-    console.log("count: ",req.session.data.siblingOrderCount)
-
-    if (errors.length === 0) {
-      for (let index = 0; index < req.session.data.siblingOrderId.length; index++) {
-        if (req.session.data.siblingOrderId[index] == id) {
-          console.log("index: ", index)
-          // req.session.data.siblingOrderId.splice(index, 1);
-          // req.session.data.siblingFirstNames.splice(index, 1);
-          // req.session.data.siblingLastNames.splice(index, 1);
-          // req.session.data.siblingOrderType.splice(index, 1);
-          // req.session.data.siblingOrderNumber.splice(index, 1);
-          // req.session.data.siblingOrderCourt.splice(index, 1);
-          // req.session.data.siblingOrderDay.splice(index, 1);
-          // req.session.data.siblingOrderMonth.splice(index, 1);
-          // req.session.data.siblingOrderYear.splice(index, 1);
-          // req.session.data.siblingOrderCompleted.splice(index, 1);
-          delete req.session.data.siblingOrderId[index];
-          delete req.session.data.siblingFirstNames[index];
-          delete req.session.data.siblingLastNames[index];
-          delete req.session.data.siblingOrderType[index];
-          delete req.session.data.siblingOrderNumber[index];
-          delete req.session.data.siblingOrderCourt[index];
-          delete req.session.data.siblingOrderDay[index];
-          delete req.session.data.siblingOrderMonth[index];
-          delete req.session.data.siblingOrderYear[index];
-          delete req.session.data.siblingOrderCompleted[index];
-          req.session.data.siblingOrderCount--
-        }
-      }
-      console.log("sibling first names orders: ", req.session.data.siblingFirstNames)
-      console.log("sibling unique first names: ", req.session.data.uniqueSiblingFirstNames)
-      console.log("sibling order count: ", req.session.data.siblingOrderCount)
-      console.log("sibling first names: ", fn)
-      for (let index2 = 0; index2 < req.session.data.uniqueSiblingId.length; index2++) {
-        console.log(req.session.data.uniqueSiblingFirstNames[index2])
-        if (fn == req.session.data.uniqueSiblingFirstNames[index2] && ln == req.session.data.uniqueSiblingLastNames[index2]) {
-          occ++
-          console.log("Occurrence inside: ", occ)
-        }
-      }
-      console.log("Occurrence: ", occ)
-      if (occ == 0) {
-        for (let index3 = 0; index3 < req.session.data.uniqueSiblingId.length; index3++) {
-          console.log("sibling first names orders index3: ", req.session.data.uniqueSiblingFirstNames[index3])
-          console.log("sibling last names orders index3: ", req.session.data.uniqueSiblingLastNames[index3])
-          if (fn == req.session.data.uniqueSiblingFirstNames[index3] && ln == req.session.data.uniqueSiblingLastNames[index3]) {
-            console.log("In for: ", fn)
-            console.log("In for: ", ln)
-            delete req.session.data.uniqueSiblingId[index3]
-            delete req.session.data.uniqueSiblingFirstNames[index3]
-            delete req.session.data.uniqueSiblingLastNames[index3]
-            // req.session.data.uniqueSiblingId.splice(index3, 1)
-            // req.session.data.uniqueSiblingFirstNames.splice(index3, 1)
-            // req.session.data.uniqueSiblingLastNames.splice(index3, 1)
-          }
-        }
-      }
-      console.log("sibling unique first names: ", req.session.data.uniqueSiblingFirstNames)
-
-      // console.log(req.session.data.siblingOrderId)
-      // console.log(req.session.data.siblingFirstNames)
-      // console.log(req.session.data.siblingLastNames)
-      // console.log(req.session.data.siblingOrderType)
-      // console.log(req.session.data.siblingOrderNumber)
-      // console.log(req.session.data.siblingOrderCourt)
-      if (req.session.data.siblingOrderCount > 0) {
-        res.redirect('/r2/children/sibling-summary')
-      }
-      else {
-        res.redirect('/r2/children/sibling-court-order-exists')
-      }
-    }
-    else {
-      res.render('.//r2/children/sibling-remove-order-court', { errors: errors })
-    }
-  })
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  // ************************************* Placement and court orders ************************************* //
-
-
-  router.post('/r2/children/orders-placement-court', function(req, res) {
-    var errors = []
-    if (req.body['placement-court-name'] === '') {
-      errors.push({
-      text: 'Enter the name of the court',
-      href: '#court-name'
-      })
-    }
-
-    count = req.session.data.childOrderCount
-
-    if (req.body['submit-button'] === 'save-and-continue') {
-      if (errors.length === 0) {
-        req.session.data.childOrderCourt[count] = req.body['placement-court-name']
-        req.session.data.childOrderCompleted[count] = "No"
-        res.redirect('/r2/children/family-court-finder')
-      }
-      else {
-        res.render('.//r2/children/orders-placement-court', { errors: errors })
-      }
-    }
-    else {
-      if (req.body['placement-court-name'] === '') {
-        res.redirect('/r2/task-list')
-      }
-      else {
-        req.session.data.placementStatus = 'in progress'
-        res.redirect('/r2/save-as-draft')
-      }
-    }
-  })
-
-
-
-
-// ******************************************** SECTION 4. UPLOADS ********************************************
-// ************************************************************************************************************************************
-
-  // ********************** Uploads  **********************
-  router.post('/r2/upload/applicants-documents-upload', function(req, res) {
-    // var errors = []
-    // if (req.body['sibling-new-court-name'] === '') {
-    //   errors.push({
-    //   text: 'Please answer the question',
-    //   href: '#order-court-name'
-    //   })
-    // }
-
-//    if (errors.length === 0) {
-  if (req.body['submit-button'] === 'save-and-continue') {
-      req.session.data.applicantsUpload = 1
-      res.redirect('/r2/task-list')
-    }
-    else {
-      res.redirect('/r2/save-as-draft')
-    }
-  })
-
-
-  router.post('/r2/upload/child-documents-upload', function(req, res) {
-    // var errors = []
-    // if (req.body['sibling-new-court-name'] === '') {
-    //   errors.push({
-    //   text: 'Please answer the question',
-    //   href: '#order-court-name'
-    //   })
-    // }
-
-//    if (errors.length === 0) {
-  if (req.body['submit-button'] === 'save-and-continue') {
-      req.session.data.childUpload = 1
-      res.redirect('/r2/task-list')
-    }
-    else {
-      res.redirect('/r2/save-as-draft')
-    }
-  })
-
-
-
-
-
-// ******************************************** SECTION 5. CHECK, PAY AND SUBMIT ********************************************
+// ******************************************** SECTION 3. CHECK, PAY AND SUBMIT ********************************************
 // ************************************************************************************************************************************
 
 
@@ -2415,6 +2186,1742 @@ router.post('/r2/save-as-draft', function(req, res) {
       res.redirect('/r2/x-ui/judge/judge-message-radios')
     }
   })
+
+
+
+
+
+
+// ******************************************** LA Portal ********************************************
+// ************************************************************************************************************************************
+// ******************************************** SECTION 3. CHILDREN ********************************************
+// ************************************************************************************************************************************
+
+  
+   // ********************** Birth mother's details **********************
+   router.post('/r2/la-portal/mother-name', function(req, res) {
+    var errors = []
+    if (req.body['mother-first-names'] === '') {
+      errors.push({
+      text: 'Enter their first names',
+      href: '#first-names'
+      })
+    }
+    if (req.body['mother-last-names'] === '') {
+      errors.push({
+      text: 'Enter their last names',
+      href: '#last-names'
+      })
+    }
+
+    if (req.body['submit-button'] === 'save-and-continue') {
+      if (errors.length === 0) {
+        req.session.data.motherStatus = 'in progress'
+        res.redirect('/r2/la-portal/mother-alive')
+      }
+      else {
+        res.render('.//r2/la-portal/mother-name', { errors: errors })
+      }
+    }
+    else {
+      res.redirect('/r2/la-portal/task-list')
+    }
+  })
+
+
+  router.post('/r2/la-portal/mother-alive', function(req, res) {
+    // console.log("Mother alive: ", req.body['mother-alive'])
+    var errors = []
+    if (req.body['mother-alive'] === undefined) {
+      errors.push({
+      text: 'Please answer the question',
+      href: '#mother-alive'
+      })
+    }
+    else if (req.body['mother-alive'] === 'Not sure' && req.body['mother-reason-not-sure'] === '') {
+      // console.log("Mother no reason")
+      errors.push({
+      text: 'Enter more detail',
+      href: '#mother-no-reason'
+      })
+    }
+
+    if (req.body['submit-button'] === 'save-and-continue') {
+      if (errors.length === 0) {
+        if (req.body['mother-alive'] === 'Yes') {
+          res.redirect('/r2/la-portal/mother-nationality')
+        }
+        else {
+          req.session.data.motherStatus = 'completed'
+          res.redirect('/r2/la-portal/task-list')
+        }
+      }
+      else {
+        res.render('.//r2/la-portal/mother-alive', { errors: errors })
+      }
+    }
+    else {
+        res.redirect('/r2/la-portal/task-list')
+    }
+  })
+
+
+  router.post('/r2/la-portal/mother-nationality', function(req, res) {
+    var errors = []
+
+    if (req.body['mother-british'] === undefined && req.body['mother-irish'] === undefined && req.body['mother-other'] === undefined && req.body['mother-unsure'] === undefined) {
+      // console.log("error")
+      errors.push({
+      text: 'Select if they are British, Irish, citizen of a different country or not sure',
+      href: '#checkbox-error'
+      })
+    }
+    else if ((req.body['mother-british'] !== undefined || req.body['mother-irish'] !== undefined || req.body['mother-other'] !== undefined) && req.body['mother-unsure'] !== undefined) {
+      // console.log("error")
+      errors.push({
+      text: 'Select a nationality or \'Not sure\'',
+      href: '#checkbox-error'
+      })
+    }
+    else if (req.body['mother-other'] !== undefined && req.session.data.motherNationalityCount === 0) {
+      // console.log("no nationality added error: ", req.session.data.motherNationalities)
+      errors.push({
+      text: 'This is not a valid entry',
+      href: '#no-country'
+      })
+    }
+
+    count = req.session.data.motherNationalityCount
+    if (req.body['submit-button'] === 'save-and-continue') {
+      if (errors.length === 0) {
+        req.session.data.motherNationalities[count] = req.body['mother-different-country']
+        res.redirect('/r2/la-portal/mother-occupation')
+      }
+      else {
+        res.render('.//r2/la-portal/mother-nationality', { errors: errors })
+      }
+    }
+    else if (req.body['submit-button'] === 'save-as-draft') {
+      res.redirect('/r2/la-portal/task-list')
+    }
+    else if (req.body['submit-button'] === 'add' && req.body['mother-different-country'] !== '') {
+      req.session.data.motherNationalities[count] = req.body['mother-different-country']
+      req.session.data.motherNationalityId[count] = count
+      req.session.data.motherNationalityCount = count + 1
+      res.redirect('/r2/la-portal/mother-nationality')
+    }
+    else {
+      res.render('.//r2/la-portal/mother-nationality', { errors: errors })
+    }
+  })
+
+
+  router.post('/r2/la-portal/mother-occupation', function(req, res) {
+    var errors = []
+    if (req.body['mother-occupation'] === '') {
+      errors.push({
+      text: 'Enter an occupation',
+      href: '#mother-occupation'
+      })
+    }
+
+    if (req.body['submit-button'] === 'save-and-continue') {
+      if (errors.length === 0) {
+        res.redirect('/r2/la-portal/mother-have-address')
+      }
+      else {
+          res.render('.//r2/la-portal/mother-occupation', { errors: errors })
+      }
+    }
+    else {
+      res.redirect('/r2/la-portal/task-list')
+    }
+  })
+
+
+  router.post('/r2/la-portal/mother-have-address', function(req, res) {
+    var errors = []
+    if (req.body['mother-have-address'] === undefined) {
+      errors.push({
+      text: 'Please answer the question',
+      href: '#mother-have-address'
+      })
+    }
+    else if (req.body['mother-have-address'] === 'No' && req.body['reason-mother'] === '') {
+      errors.push({
+      text: 'Provide a reason',
+      href: '#reason-mother'
+      })
+    }
+    if (req.body['submit-button'] === 'save-and-continue') {
+      if (errors.length === 0) {
+        if (req.body['mother-have-address'] === 'No') {
+          req.session.data.motherStatus = 'completed'
+          res.redirect('/r2/la-portal/task-list')
+        }
+        else {
+          res.redirect('/r2/la-portal/mother-address-postcode')
+        }
+      }
+      else {
+          res.render('.//r2/la-portal/mother-have-address', { errors: errors })
+      }
+    }
+    else {
+      res.redirect('/r2/la-portal/task-list')
+    }
+  })
+
+
+  router.post('/r2/la-portal/mother-address-postcode', function(req, res) {
+    var errors = []
+    if (req.body['mother-postcode'] === "") {
+      errors.push({
+      text: 'Enter a valid postcode',
+      href: '#mother-address-postcode'
+      })
+    }
+    if (req.body['submit-button'] === 'save-and-continue') {
+      if (errors.length === 0) {
+        res.redirect('/r2/la-portal/mother-find-address')
+      }
+      else {
+        res.render('.//r2/la-portal/mother-address-postcode', { errors: errors })
+      }
+    }
+    else {
+      res.redirect('/r2/la-portal/task-list')
+    }
+  })
+
+
+  router.post('/r2/la-portal/mother-find-address', function(req, res) {
+    // console.log(req.body['submit-button'])
+    var errors = []
+    if (req.body['mother-choose-address'] === 'address-found') {
+      errors.push({
+      text: 'Select an address',
+      href: '#mother-find-address'
+      })
+    }
+
+    if (req.body['submit-button'] === 'save-and-continue') {
+      if (errors.length === 0) {
+        req.session.data.motherStatus = 'completed'
+        res.redirect('/r2/la-portal/task-list')
+      }
+      else {
+        res.render('.//r2/la-portal/mother-find-address', { errors: errors })
+      }
+    }
+    else {
+      res.redirect('/r2/la-portal/task-list')
+    }
+  })
+
+
+  router.post('/r2/la-portal/mother-manual-address', function(req, res) {
+    var errors = []
+    if (req.body['address-line-1'] === '') {
+      errors.push({
+      text: 'Enter the first line of the address',
+      href: '#first-line'
+      })
+    }
+    if (req.body['address-town'] === '') {
+      errors.push({
+      text: 'Enter the town or city',
+      href: '#town'
+      })
+    }
+    if (req.body['address-postcode'] === '') {
+      errors.push({
+      text: 'Enter the postcode',
+      href: '#postcode'
+      })
+    }
+
+    if (req.body['submit-button'] === 'save-and-continue') {
+      if (errors.length === 0) {
+        req.session.data.motherStatus = 'completed'
+        res.redirect('/r2/la-portal/task-list')
+      }
+      else {
+        res.render('.//r2/la-portal/mother-manual-address', { errors: errors })
+      }
+    }
+    else {
+      res.redirect('/r2/la-portal/task-list')
+    }
+  })
+
+  router.post('/r2/la-portal/mother-manual-address-international', function(req, res) {
+    var errors = []
+    if (req.body['address-line-1'] === '') {
+      errors.push({
+      text: 'Enter the first line of the address',
+      href: '#first-line'
+      })
+    }
+    if (req.body['country'] === '') {
+      errors.push({
+      text: 'Enter the country',
+      href: '#country'
+      })
+    }
+
+
+    if (req.body['submit-button'] === 'save-and-continue') {
+      if (errors.length === 0) {
+        req.session.data.motherStatus = 'completed'
+        res.redirect('/r2/la-portal/task-list')
+      }
+      else {
+        res.render('.//r2/la-portal/mother-manual-address-international', { errors: errors })
+      }
+    }
+    else {
+      res.redirect('/r2/la-portal/task-list')
+    }
+  })
+
+
+
+
+  // ********************** Birth father's details **********************
+  router.post('/r2/la-portal/father-in-certificate', function(req, res) {
+    var errors = []
+    if (req.body['father-in-certificate'] === undefined) {
+      errors.push({
+      text: 'Please answer the question',
+      href: '#father-in-certificate'
+      })
+    }
+
+    if (req.body['submit-button'] === 'save-and-continue') {
+      if (errors.length === 0) {
+        if (req.body['father-in-certificate'] == 'No') {
+          req.session.data.fatherStatus = 'completed'
+          res.redirect('/r2/la-portal/other-parent-exists')
+        }
+        else {
+          res.redirect('/r2/la-portal/father-name')
+        }
+      }
+      else {
+          res.render('.//r2/la-portal/father-in-certificate', { errors: errors })
+      }
+    }
+    else {
+      res.redirect('/r2/la-portal/task-list')
+    }
+  })
+
+
+  router.post('/r2/la-portal/father-name', function(req, res) {
+    var errors = []
+    if (req.body['father-first-names'] === '') {
+      errors.push({
+      text: 'Enter their first names',
+      href: '#first-names'
+      })
+    }
+    if (req.body['father-last-names'] === '') {
+      errors.push({
+      text: 'Enter their last names',
+      href: '#last-names'
+      })
+    }
+
+    if (req.body['submit-button'] === 'save-and-continue') {
+      if (errors.length === 0) {
+        req.session.data.fatherStatus = 'in progress'
+        res.redirect('/r2/la-portal/father-alive')
+      }
+      else {
+        res.render('.//r2/la-portal/father-name', { errors: errors })
+      }
+    }
+    else {
+      res.redirect('/r2/la-portal/task-list')
+    }
+  })
+
+
+  router.post('/r2/la-portal/father-alive', function(req, res) {
+    // console.log("father alive: ", req.body['father-alive'])
+    var errors = []
+    if (req.body['father-alive'] === undefined) {
+      errors.push({
+      text: 'Please answer the question',
+      href: '#father-alive'
+      })
+    }
+    else if (req.body['father-alive'] === 'Not sure' && req.body['father-reason-not-sure'] === '') {
+      // console.log("father no reason")
+      errors.push({
+      text: 'Enter more details',
+      href: '#father-no-reason'
+      })
+    }
+
+    if (req.body['submit-button'] === 'save-and-continue') {
+      if (errors.length === 0) {
+        if (req.body['father-alive'] === 'Yes') {
+          res.redirect('/r2/la-portal/father-nationality')
+        }
+        else {
+          req.session.data.fatherStatus = 'completed'
+          res.redirect('/r2/la-portal/task-list')
+        }
+      }
+      else {
+        res.render('.//r2/la-portal/father-alive', { errors: errors })
+      }
+    }
+    else {
+        res.redirect('/r2/la-portal/task-list')
+    }
+  })
+
+
+  router.post('/r2/la-portal/father-nationality', function(req, res) {
+    var errors = []
+
+    if (req.body['father-british'] === undefined && req.body['father-irish'] === undefined && req.body['father-other'] === undefined && req.body['father-unsure'] === undefined) {
+      // console.log("error")
+      errors.push({
+      text: 'Select if they are British, Irish, citizen of a different country or not sure',
+      href: '#checkbox-error'
+      })
+    }
+    else if ((req.body['father-british'] !== undefined || req.body['father-irish'] !== undefined || req.body['father-other'] !== undefined) && req.body['father-unsure'] !== undefined) {
+      // console.log("error")
+      errors.push({
+      text: 'Select a nationality or \'Not sure\'',
+      href: '#checkbox-error'
+      })
+    }
+    else if (req.body['father-other'] !== undefined && req.session.data.fatherNationalityCount === 0) {
+      // console.log("no nationality added error: ", req.session.data.fatherNationalities)
+      errors.push({
+      text: 'This is not a valid entry',
+      href: '#no-country'
+      })
+    }
+
+    count = req.session.data.fatherNationalityCount
+    if (req.body['submit-button'] === 'save-and-continue') {
+      if (errors.length === 0) {
+        req.session.data.fatherNationalities[count] = req.body['father-different-country']
+        res.redirect('/r2/la-portal/father-occupation')
+      }
+      else {
+        res.render('.//r2/la-portal/father-nationality', { errors: errors })
+      }
+    }
+    else if (req.body['submit-button'] === 'save-as-draft') {
+      res.redirect('/r2/la-portal/task-list')
+    }
+    else if (req.body['submit-button'] === 'add' && req.body['father-different-country'] !== '') {
+      req.session.data.fatherNationalities[count] = req.body['father-different-country']
+      req.session.data.fatherNationalityId[count] = count
+      req.session.data.fatherNationalityCount = count + 1
+      res.redirect('/r2/la-portal/father-nationality')
+    }
+    else {
+      res.render('.//r2/la-portal/father-nationality', { errors: errors })
+    }
+  })
+
+
+  router.post('/r2/la-portal/father-occupation', function(req, res) {
+    var errors = []
+    if (req.body['father-occupation'] === '') {
+      errors.push({
+      text: 'Enter an occupation',
+      href: '#father-occupation'
+      })
+    }
+
+    if (req.body['submit-button'] === 'save-and-continue') {
+      if (errors.length === 0) {
+        res.redirect('/r2/la-portal/father-have-address')
+      }
+      else {
+          res.render('.//r2/la-portal/father-occupation', { errors: errors })
+      }
+    }
+    else {
+      res.redirect('/r2/la-portal/task-list')
+    }
+  })
+
+
+  router.post('/r2/la-portal/father-have-address', function(req, res) {
+    var errors = []
+    if (req.body['father-have-address'] === undefined) {
+      errors.push({
+      text: 'Please answer the question',
+      href: '#father-have-address'
+      })
+    }
+    else if (req.body['father-have-address'] === 'No' && req.body['reason-father'] === '') {
+      errors.push({
+      text: 'Provide a reason',
+      href: '#reason-father'
+      })
+    }
+
+    if (req.body['submit-button'] === 'save-and-continue') {
+      if (errors.length === 0) {
+        if (req.body['father-have-address'] == 'No') {
+          req.session.data.fatherStatus = 'completed'
+          res.redirect('/r2/la-portal/task-list')
+        }
+        else {
+          res.redirect('/r2/la-portal/father-address-postcode')
+        }
+      }
+      else {
+          res.render('.//r2/la-portal/father-have-address', { errors: errors })
+      }
+    }
+    else {
+      res.redirect('/r2/la-portal/task-list')
+    }
+  })
+
+
+  router.post('/r2/la-portal/father-address-postcode', function(req, res) {
+    var errors = []
+    if (req.body['father-postcode'] === "") {
+      errors.push({
+      text: 'Enter a real postcode',
+      href: '#father-address-postcode'
+      })
+    }
+    if (req.body['submit-button'] === 'save-and-continue') {
+      if (errors.length === 0) {
+        res.redirect('/r2/la-portal/father-find-address')
+      }
+      else {
+        res.render('.//r2/la-portal/father-address-postcode', { errors: errors })
+      }
+    }
+    else {
+      res.redirect('/r2/la-portal/task-list')
+    }
+  })
+
+
+  router.post('/r2/la-portal/father-find-address', function(req, res) {
+    // console.log(req.body['submit-button'])
+    var errors = []
+    if (req.body['father-choose-address'] === 'address-found') {
+      errors.push({
+      text: 'Select an address',
+      href: '#father-find-address'
+      })
+    }
+
+    if (req.body['submit-button'] === 'save-and-continue') {
+      if (errors.length === 0) {
+        req.session.data.fatherStatus = 'completed'
+        res.redirect('/r2/la-portal/task-list')
+      }
+      else {
+        res.render('.//r2/la-portal/father-find-address', { errors: errors })
+      }
+    }
+    else {
+      res.redirect('/r2/la-portal/task-list')
+    }
+  })
+
+
+  router.post('/r2/la-portal/father-manual-address', function(req, res) {
+    var errors = []
+    if (req.body['father-address-line-1'] === '') {
+      errors.push({
+      text: 'Enter the first line of the address',
+      href: '#first-line'
+      })
+    }
+    if (req.body['father-address-town'] === '') {
+      errors.push({
+      text: 'Enter the town or city',
+      href: '#town'
+      })
+    }
+    if (req.body['father-address-postcode'] === '') {
+      errors.push({
+      text: 'Enter the postcode',
+      href: '#postcode'
+      })
+    }
+
+    if (req.body['submit-button'] === 'save-and-continue') {
+      if (errors.length === 0) {
+        req.session.data.fatherStatus = 'completed'
+        res.redirect('/r2/la-portal/task-list')
+      }
+      else {
+        res.render('.//r2/la-portal/father-manual-address', { errors: errors })
+      }
+    }
+    else {
+      res.redirect('/r2/la-portal/task-list')
+    }
+  })
+
+  router.post('/r2/la-portal/father-manual-address-international', function(req, res) {
+    var errors = []
+    if (req.body['father-address-line-1'] === '') {
+      errors.push({
+      text: 'Enter the first line of the address',
+      href: '#first-line'
+      })
+    }
+    if (req.body['father-country'] === '') {
+      errors.push({
+      text: 'Enter the country',
+      href: '#country'
+      })
+    }
+
+
+    if (req.body['submit-button'] === 'save-and-continue') {
+      if (errors.length === 0) {
+        req.session.data.fatherStatus = 'completed'
+        res.redirect('/r2/la-portal/task-list')
+      }
+      else {
+        res.render('.//r2/la-portal/father-manual-address-international', { errors: errors })
+      }
+    }
+    else {
+      res.redirect('/r2/la-portal/task-list')
+    }
+  })
+
+
+
+
+
+  // ********************** Other parent or guardian details **********************
+  router.post('/r2/la-portal/other-parent-exists', function(req, res) {
+    // console.log("father alive: ", req.body['other-parent-exists'])
+    var errors = []
+    if (req.body['other-parent-exists'] === undefined) {
+      errors.push({
+      text: 'Please answer the question',
+      href: '#other-parent'
+      })
+    }
+    else if (req.body['other-parent-exists'] === 'unsure' && req.body['other-parent-reason-not-sure'] === '') {
+      // console.log("father no reason")
+      errors.push({
+      text: 'Enter more detail',
+      href: '#other-parent-no-reason'
+      })
+    }
+
+    if (req.body['submit-button'] === 'save-and-continue') {
+      if (errors.length === 0) {
+        if (req.body['other-parent-exists'] === 'Yes') {
+          res.redirect('/r2/la-portal/other-parent-name')
+        }
+        else {
+          req.session.data.otherParentStatus = 'completed'
+          res.redirect('/r2/la-portal/task-list')
+        }
+      }
+      else {
+        res.render('.//r2/la-portal/other-parent-exists', { errors: errors })
+      }
+    }
+    else {
+        res.redirect('/r2/la-portal/task-list')
+    }
+  })
+
+
+  router.post('/r2/la-portal/other-parent-name', function(req, res) {
+    var errors = []
+    if (req.body['other-parent-first-names'] === '') {
+      errors.push({
+      text: 'Enter their first names',
+      href: '#first-names'
+      })
+    }
+    if (req.body['other-parent-last-names'] === '') {
+      errors.push({
+      text: 'Enter their last names',
+      href: '#last-names'
+      })
+    }
+
+    if (req.body['submit-button'] === 'save-and-continue') {
+      if (errors.length === 0) {
+        req.session.data.otherParentStatus = 'in progress'
+        res.redirect('/r2/la-portal/other-parent-have-address')
+      }
+      else {
+        res.render('.//r2/la-portal/other-parent-name', { errors: errors })
+      }
+    }
+    else {
+      res.redirect('/r2/la-portal/task-list')
+    }
+  })
+
+
+  router.post('/r2/la-portal/other-parent-have-address', function(req, res) {
+    var errors = []
+    if (req.body['other-parent-have-address'] === undefined) {
+      errors.push({
+      text: 'Please answer the question',
+      href: '#other-parent-have-address'
+      })
+    }
+    else if (req.body['other-parent-have-address'] === 'No' && req.body['reason-other-parent'] === '') {
+      errors.push({
+      text: 'Provide a reason',
+      href: '#other-parent-reason'
+      })
+    }
+
+    if (req.body['submit-button'] === 'save-and-continue') {
+      if (errors.length === 0) {
+        if (req.body['other-parent-have-address'] == 'No') {
+          req.session.data.otherParentStatus = 'completed'
+          res.redirect('/r2/la-portal/task-list')
+        }
+        else {
+          res.redirect('/r2/la-portal/other-parent-address-postcode')
+        }
+      }
+      else {
+          res.render('.//r2/la-portal/other-parent-have-address', { errors: errors })
+      }
+    }
+    else {
+      res.redirect('/r2/la-portal/task-list')
+    }
+  })
+
+
+  router.post('/r2/la-portal/other-parent-address-postcode', function(req, res) {
+    var errors = []
+    if (req.body['other-parent-postcode'] === "") {
+      errors.push({
+      text: 'Enter a valid postcode',
+      href: '#other-parent-address-postcode'
+      })
+    }
+    if (req.body['submit-button'] === 'save-and-continue') {
+      if (errors.length === 0) {
+        res.redirect('/r2/la-portal/other-parent-find-address')
+      }
+      else {
+        res.render('.//r2/la-portal/other-parent-address-postcode', { errors: errors })
+      }
+    }
+    else {
+      res.redirect('/r2/la-portal/task-list')
+    }
+  })
+
+
+  router.post('/r2/la-portal/other-parent-find-address', function(req, res) {
+    // console.log(req.body['submit-button'])
+    var errors = []
+    if (req.body['other-parent-choose-address'] === 'address-found') {
+      errors.push({
+      text: 'Select an address',
+      href: '#other-parent-find-address'
+      })
+    }
+
+    if (req.body['submit-button'] === 'save-and-continue') {
+      if (errors.length === 0) {
+        req.session.data.otherParentStatus = 'completed'
+        res.redirect('/r2/la-portal/task-list')
+      }
+      else {
+        res.render('.//r2/la-portal/other-parent-find-address', { errors: errors })
+      }
+    }
+    else {
+      res.redirect('/r2/la-portal/task-list')
+    }
+  })
+
+
+  router.post('/r2/la-portal/other-parent-manual-address', function(req, res) {
+    var errors = []
+    if (req.body['other-parent-address-line-1'] === '') {
+      errors.push({
+      text: 'Enter the first line of the address',
+      href: '#first-line'
+      })
+    }
+    if (req.body['other-parent-address-town'] === '') {
+      errors.push({
+      text: 'Enter the town or city',
+      href: '#town'
+      })
+    }
+    if (req.body['other-parent-address-postcode'] === '') {
+      errors.push({
+      text: 'Enter the postcode',
+      href: '#postcode'
+      })
+    }
+
+    if (req.body['submit-button'] === 'save-and-continue') {
+      if (errors.length === 0) {
+        req.session.data.otherParentStatus = 'completed'
+        res.redirect('/r2/la-portal/task-list')
+      }
+      else {
+        res.render('.//r2/la-portal/other-parent-manual-address', { errors: errors })
+      }
+    }
+    else {
+      res.redirect('/r2/la-portal/task-list')
+    }
+  })
+
+
+  router.post('/r2/la-portal/other-parent-manual-address-international', function(req, res) {
+    var errors = []
+    if (req.body['other-parent-address-line-1'] === '') {
+      errors.push({
+      text: 'Enter the first line of the address',
+      href: '#first-line'
+      })
+    }
+    if (req.body['other-parent-country'] === '') {
+      errors.push({
+      text: 'Enter the country',
+      href: '#country'
+      })
+    }
+
+
+    if (req.body['submit-button'] === 'save-and-continue') {
+      if (errors.length === 0) {
+        req.session.data.otherParentStatus = 'completed'
+        res.redirect('/r2/la-portal/task-list')
+      }
+      else {
+        res.render('.//r2/la-portal/other-parent-manual-address-international', { errors: errors })
+      }
+    }
+    else {
+      res.redirect('/r2/la-portal/task-list')
+    }
+  })
+
+
+
+
+
+ // ********************** Solicitor details **********************
+
+
+
+
+  // ************************************* Placement and court orders ************************************* //
+  router.post('/r2/la-portal/orders-placement-case-number', function(req, res) {
+    var errors = []
+    if (req.body['placement-case-number'] === '') {
+      errors.push({
+      text: 'Enter the serial or case number',
+      href: '#case-number'
+      })
+    }
+
+    count = req.session.data.childOrderCount
+
+    if (req.body['submit-button'] === 'save-and-continue') {
+      req.session.data.placementStatus = 'in progress'
+      if (errors.length === 0) {
+        req.session.data.childOrderCount = count
+        req.session.data.childOrderType[count] = "Placement order"
+        req.session.data.childOrderId[count] = count
+        req.session.data.childOrderNumber[count] = req.body['placement-case-number']
+        req.session.data.childOrderCompleted[count] = "No"
+        req.session.data.childOrderInProgress = "Yes"
+        res.redirect('/r2/la-portal/orders-placement-court')
+      }
+      else {
+        res.render('.//r2/la-portal/orders-placement-case-number', { errors: errors })
+      }
+    }
+    else {
+      if (req.body['placement-case-number'] === '') {
+        res.redirect('/r2/la-portal/task-list')
+      }
+      else {
+        req.session.data.placementStatus = 'in progress'
+        res.redirect('/r2/la-portal/task-list')
+      }
+    }
+  })
+
+
+  router.post('/r2/la-portal/orders-placement-court', function(req, res) {
+    var errors = []
+    if (req.body['placement-court-name'] === '') {
+      errors.push({
+      text: 'Enter the name of the court',
+      href: '#court-name'
+      })
+    }
+
+    count = req.session.data.childOrderCount
+
+    if (req.body['submit-button'] === 'save-and-continue') {
+      if (errors.length === 0) {
+        req.session.data.childOrderCourt[count] = req.body['placement-court-name']
+        req.session.data.childOrderCompleted[count] = "No"
+        res.redirect('/r2/la-portal/orders-placement-date')
+      }
+      else {
+        res.render('.//r2/la-portal/orders-placement-court', { errors: errors })
+      }
+    }
+    else {
+      if (req.body['placement-court-name'] === '') {
+        res.redirect('/r2/la-portal/task-list')
+      }
+      else {
+        req.session.data.placementStatus = 'in progress'
+        res.redirect('/r2/la-portal/task-list')
+      }
+    }
+  })
+
+
+  router.post('/r2/la-portal/orders-placement-date', function(req, res) {
+    var errors = []
+    if (req.body['placement-day'] === '' || req.body['placement-month'] === '' || req.body['placement-year'] === '') {
+      errors.push({
+      text: 'Developers: please refer to ADOP-281 for different error messages',
+      href: '#order-date'
+      })
+    }
+
+    count = req.session.data.childOrderCount
+
+    if (req.body['submit-button'] === 'save-and-continue') {
+      if (errors.length === 0) {
+        req.session.data.childOrderIncomplete = 0
+        req.session.data.childOrderDay[count] = req.body['placement-day']
+        req.session.data.childOrderMonth[count] = req.body['placement-month']
+        req.session.data.childOrderYear[count] = req.body['placement-year']
+        req.session.data.childOrderCompleted[count] = "Yes"
+        res.redirect('/r2/la-portal/orders-summary')
+      }
+      else {
+        res.render('.//r2/la-portal/orders-placement-date', { errors: errors })
+      }
+    }
+    else {
+      res.redirect('/r2/la-portal/task-list')
+    }
+    // console.log("Month: ", req.session.data.childOrderMonth[count])
+  })
+
+
+  router.post('/r2/la-portal/orders-summary', function(req, res) {
+    var errors = []
+    if (req.body['add-another'] === undefined) {
+      errors.push({
+      text: 'Please select an answer',
+      href: '#add-another'
+      })
+    }
+
+    if (req.body['submit-button'] === 'continue') {
+      res.redirect('/r2/la-portal/orders-summary')
+    }
+    else if (req.body['submit-button'] === 'save-and-continue') {
+      if (errors.length === 0) {
+        if (req.body['add-another'] === 'Yes') {
+          res.redirect('/r2/la-portal/orders-order-type')
+        }
+        else {
+          if (req.session.data.childOrderIncomplete === 0) {
+            req.session.data.placementStatus = 'completed'
+          }
+          else {
+            req.session.data.placementStatus = 'in progress'
+          }
+          res.redirect('/r2/la-portal/task-list')
+        }
+      }
+      else {
+        res.render('.//r2/la-portal/orders-summary', { errors: errors })
+      }
+    }
+    else {
+        res.redirect('/r2/la-portal/task-list')
+    }
+  })
+
+
+  router.post('/r2/la-portal/orders-order-type', function(req, res) {
+    var errors = []
+    if (req.body['order-type'] === '') {
+      errors.push({
+      text: 'Enter the type of order',
+      href: '#order-type'
+      })
+    }
+
+    count = req.session.data.childOrderCount + 1
+    req.session.data.childOrderCount = count
+
+    if (req.body['submit-button'] === 'save-and-continue') {
+      if (errors.length === 0) {
+        req.session.data.childOrderCount = count
+        req.session.data.childOrderId[count] = count
+        req.session.data.childOrderType[count] = req.body['order-type']
+        req.session.data.childOrderCompleted[count] = "No"
+        res.redirect('/r2/la-portal/orders-order-case-number')
+      }
+      else {
+        res.render('.//r2/la-portal/orders-order-type', { errors: errors })
+      }
+    }
+    else {
+      res.redirect('/r2/la-portal/task-list')
+    }
+  })
+
+
+  router.post('/r2/la-portal/orders-order-case-number', function(req, res) {
+    var errors = []
+    if (req.body['order-case-number'] === '') {
+      errors.push({
+      text: 'Enter the serial or case number',
+      href: '#case-number'
+      })
+    }
+
+    count = req.session.data.childOrderCount
+
+    if (req.body['submit-button'] === 'save-and-continue') {
+      if (errors.length === 0) {
+        req.session.data.childOrderNumber[count] = req.body['order-case-number']
+        res.redirect('/r2/la-portal/orders-order-court')
+      }
+      else {
+        res.render('.//r2/la-portal/orders-order-case-number', { errors: errors })
+      }
+    }
+    else {
+      res.redirect('/r2/la-portal/task-list')
+    }
+  })
+
+
+  router.post('/r2/la-portal/orders-order-court', function(req, res) {
+    var errors = []
+    if (req.body['order-court-name'] === '') {
+      errors.push({
+      text: 'Enter the name of the court',
+      href: '#order-court-name'
+      })
+    }
+
+    count = req.session.data.childOrderCount
+
+    if (req.body['submit-button'] === 'save-and-continue') {
+      if (errors.length === 0) {
+        req.session.data.childOrderCourt[count] = req.body['order-court-name']
+        res.redirect('/r2/la-portal/orders-order-date')
+      }
+      else {
+        res.render('.//r2/la-portal/orders-order-court', { errors: errors })
+      }
+    }
+    else {
+      res.redirect('/r2/la-portal/task-list')
+    }
+  })
+
+
+  router.post('/r2/la-portal/orders-order-date', function(req, res) {
+    var errors = []
+    if (req.body['order-day'] === '' || req.body['order-month'] === '' || req.body['order-year'] === '') {
+      errors.push({
+      text: 'Developers: please refer to ADOP-281 for different error messages',
+      href: '#order-date'
+      })
+    }
+
+    count = req.session.data.childOrderCount
+
+    if (req.body['submit-button'] === 'save-and-continue') {
+      if (errors.length === 0) {
+        req.session.data.childOrderDay[count] = req.body['order-day']
+        req.session.data.childOrderMonth[count] = req.body['order-month']
+        req.session.data.childOrderYear[count] = req.body['order-year']
+        req.session.data.childOrderCompleted[count] = "Yes"
+        res.redirect('/r2/la-portal/orders-summary')
+      }
+      else {
+        res.render('.//r2/la-portal/orders-order-date', { errors: errors })
+      }
+    }
+    else {
+      res.redirect('/r2/la-portal/task-list')
+    }
+  })
+
+
+  router.post('/r2/la-portal/orders-remove-court-order', function(req, res) {
+    var occ = 0
+    var errors = []
+    if (req.body['child-remove-court-order'] === undefined) {
+      errors.push({
+      text: 'Please answer the question',
+      href: '#no-answer'
+      })
+    }
+
+    id = req.body['child-order-id']
+    console.log("child-order-id: ",id)
+
+    if (errors.length === 0) {
+      for (let index = 0; index < req.session.data.childOrderId.length; index++) {
+        if (req.session.data.childOrderId[index] == id) {
+          console.log("index: ", index)
+          delete req.session.data.childOrderId[index];
+          delete req.session.data.childOrderType[index];
+          delete req.session.data.childOrderNumber[index];
+          delete req.session.data.childOrderCourt[index];
+          delete req.session.data.childOrderDay[index];
+          delete req.session.data.childOrderMonth[index];
+          delete req.session.data.childOrderYear[index];
+          delete req.session.data.childOrderCompleted[index];
+          req.session.data.childOrderCount--
+        }
+      }
+      console.log("child first names orders: ", req.session.data.childFirstNames)
+      console.log("child order count: ", req.session.data.childOrderCount)
+
+      res.redirect('/r2/la-portal/orders-summary')
+    }
+    else {
+      res.render('.//r2/la-portal/orders-remove-order-court', { errors: errors })
+    }
+  })
+
+ 
+
+
+
+
+
+  // ********************** Uploads  **********************
+  router.post('/r2/upload/applicants-documents-upload', function(req, res) {
+    // var errors = []
+    // if (req.body['sibling-new-court-name'] === '') {
+    //   errors.push({
+    //   text: 'Please answer the question',
+    //   href: '#order-court-name'
+    //   })
+    // }
+
+//    if (errors.length === 0) {
+  if (req.body['submit-button'] === 'save-and-continue') {
+      req.session.data.applicantsUpload = 1
+      res.redirect('/r2/task-list')
+    }
+    else {
+      res.redirect('/r2/save-as-draft')
+    }
+  })
+
+
+  router.post('/r2/upload/child-documents-upload', function(req, res) {
+    // var errors = []
+    // if (req.body['sibling-new-court-name'] === '') {
+    //   errors.push({
+    //   text: 'Please answer the question',
+    //   href: '#order-court-name'
+    //   })
+    // }
+
+//    if (errors.length === 0) {
+  if (req.body['submit-button'] === 'save-and-continue') {
+      req.session.data.childUpload = 1
+      res.redirect('/r2/task-list')
+    }
+    else {
+      res.redirect('/r2/save-as-draft')
+    }
+  })
+
+
+
+
+
+
+
+// ********************** Sibling details **********************
+    router.post('/r2/la-portal/sibling-exists', function(req, res) {
+      // console.log("father alive: ", req.body['sibling-exists'])
+      var errors = []
+      if (req.body['sibling-exists'] === undefined) {
+        errors.push({
+        text: 'Please answer the question',
+        href: '#sibling'
+        })
+      }
+      else if (req.body['sibling-exists'] === 'unsure' && req.body['reason-not-sure'] === '') {
+        errors.push({
+        text: 'Enter more detail',
+        href: '#sibling-no-reason'
+        })
+      }
+  
+      if (req.body['submit-button'] === 'save-and-continue') {
+        if (errors.length === 0) {
+          if (req.body['sibling-exists'] === 'yes') {
+            req.session.data.siblingStatus = 'in progress'
+            res.redirect('/r2/la-portal/sibling-court-order-exists')
+          }
+          else {
+            req.session.data.siblingStatus = 'completed'
+            res.redirect('/r2/la-portal/task-list')
+          }
+        }
+        else {
+          res.render('.//r2/la-portal/sibling-exists', { errors: errors })
+        }
+      }
+      else {
+          res.redirect('/r2/la-portal/save-as-draft')
+      }
+    })
+  
+  
+    router.post('/r2/la-portal/sibling-court-order-exists', function(req, res) {
+      console.log("sibling: ", req.body['sibling-court-order-exists'])
+      var errors = []
+      if (req.body['sibling-court-order-exists'] === undefined) {
+        errors.push({
+        text: 'Please answer the question',
+        href: '#court-order-checkbox'
+        })
+      }
+      else if (req.body['sibling-court-order-exists'] === 'unsure' && req.body['reason-not-sure'] === '') {
+        errors.push({
+        text: 'Enter more detail',
+        href: '#sibling-court-order-no-reason'
+        })
+      }
+  
+      if (req.body['submit-button'] === 'save-and-continue') {
+        if (errors.length === 0) {
+          if (req.body['sibling-court-order-exists'] === 'yes') {
+            req.session.data.siblingStatus = 'in progress'
+            res.redirect('/r2/la-portal/sibling-relationship')
+          }
+          else {
+            req.session.data.siblingStatus = 'completed'
+            res.redirect('/r2/la-portal/task-list')
+          }
+        }
+        else {
+          res.render('.//r2/la-portal/sibling-court-order-exists', { errors: errors })
+        }
+      }
+      else {
+          res.redirect('/r2/la-portal/save-as-draft')
+      }
+    })
+  
+  
+    router.post('/r2/la-portal/sibling-relationship', function(req, res) {
+      var errors = []
+      if (req.body['sibling-relationship'] === '') {
+        errors.push({
+        text: 'Enter the relationship',
+        href: '#relationship'
+        })
+      }
+      
+      count = req.session.data.siblingOrderCount
+  
+      if (req.body['submit-button'] === 'save-and-continue') {
+        if (errors.length === 0) {
+          req.session.data.siblingOrderId[count] = count
+          req.session.data.siblingRelationship[count] = req.body['sibling-relationship']
+          req.session.data.siblingOrderCount++
+          res.redirect('/r2/la-portal/sibling-order-type')
+        }
+        else {
+          res.render('.//r2/la-portal/sibling-name', { errors: errors })
+        }
+      }
+      else {
+        res.redirect('/r2/la-portal/save-as-draft')
+      }
+    })
+  
+  
+    router.post('/r2/la-portal/sibling-change-relationship', function(req, res) {
+      var errors = []
+      if (req.body['sibling-relationship'] === '') {
+        errors.push({
+        text: 'Enter the relationship',
+        href: '#relationship'
+        })
+      }
+      
+      count = req.session.data.siblingOrderCount
+      
+      if (errors.length === 0) {
+        req.session.data.uniqueSiblingFirstNames[sib] = req.body['sibling-relationship']
+        res.redirect('/r2/la-portal/sibling-summary')
+      }
+      else {
+        res.render('.//r2/la-portal/sibling-change-relationship', { errors: errors })
+      }
+    })
+  
+  
+    router.post('/r2/la-portal/sibling-order-type', function(req, res) {
+      var errors = []
+      if (req.body['sibling-order-type'] === undefined) {
+        errors.push({
+        text: 'Please select an answer',
+        href: '#order-type'
+        })
+      }
+  
+      if (req.body['sibling-order-type'] === "other" && req.body['sibling-other-order'] === "") {
+        errors.push({
+        text: 'Please select an answer',
+        href: '#other-order'
+        })
+      }
+  
+  
+      if (req.body['submit-button'] === 'save-and-continue') {
+        if (errors.length === 0) {
+          req.session.data.siblingOrderType[count] = req.body['sibling-order-type']
+          req.session.data.siblingOrderCompleted[count] = "No"
+          res.redirect('/r2/la-portal/sibling-order-case-number')
+        }
+        else {
+          res.render('.//r2/la-portal/sibling-order-type', { errors: errors })
+        }
+      }
+      else {
+        res.redirect('/r2/la-portal/save-as-draft')
+      }
+    })
+  
+  
+    router.post('/r2/la-portal/sibling-change-order-type', function(req, res) {
+      var errors = []
+      if (req.body['sibling-new-order-type'] === undefined) {
+        errors.push({
+        text: 'Please select an answer',
+        href: '#order-type'
+        })
+      }
+  
+      if (req.body['sibling-new-order-type'] === "other" && req.body['sibling-new-other-order'] === "") {
+        errors.push({
+        text: 'Please select an answer',
+        href: '#other-order'
+        })
+      }
+  
+      if (errors.length === 0) {
+        req.session.data.siblingOrderType[req.body['sibling-id']] = req.body['sibling-new-order-type']
+        res.redirect('/r2/la-portal/sibling-check-your-answers')
+      }
+      else {
+        res.render('.//r2/la-portal/sibling-change-order-type', { errors: errors })
+      }
+    })
+  
+  
+  
+    router.post('/r2/la-portal/sibling-order-case-number', function(req, res) {
+      var errors = []
+      if (req.body['sibling-order-case-number'] === '') {
+        errors.push({
+        text: 'Please answer the question',
+        href: '#case-number'
+        })
+      }
+  
+      if (req.body['submit-button'] === 'save-and-continue') {
+        if (errors.length === 0) {
+          req.session.data.siblingOrderNumber[count] = req.body['sibling-order-case-number']
+          req.session.data.siblingOrderCompleted[count] = "Yes"
+          console.log("Relationship: ", req.session.data.siblingRelationship[count])
+          console.log("Type: ", req.session.data.siblingOrderType[count])
+          console.log("Number: ", req.session.data.siblingOrderNumber[count])
+          res.redirect('/r2/la-portal/sibling-summary')
+        }
+        else {
+          res.render('.//r2/la-portal/sibling-order-case-number', { errors: errors })
+        }
+      }
+      else {
+        res.redirect('/r2/la-portal/save-as-draft')
+      }
+    })
+  
+  
+    router.post('/r2/la-portal/sibling-change-order-case-number', function(req, res) {
+      var errors = []
+      if (req.body['sibling-new-case-number'] === '') {
+        errors.push({
+        text: 'Please answer the question',
+        href: '#case-number'
+        })
+      }
+      console.log(req.session.data.siblingOrderType[req.body['sibling-id']])
+      console.log(req.body['sibling-new-case-number'])
+  
+      if (errors.length === 0) {
+        req.session.data.siblingOrderNumber[req.body['sibling-id']] = req.body['sibling-new-case-number']
+        res.redirect('/r2/la-portal/sibling-check-your-answers')
+      }
+      else {
+        res.render('.//r2/la-portal/sibling-change-case-number', { errors: errors })
+      }
+    })
+  
+  
+    router.post('/r2/la-portal/sibling-order-court', function(req, res) {
+      var errors = []
+      if (req.body['sibling-order-court-name'] === '') {
+        errors.push({
+        text: 'Please answer the question',
+        href: '#order-court-name'
+        })
+      }
+  
+      arrayLength = req.session.data.siblingOrderId.length
+      if (arrayLength == 1) {
+        count = 0
+      }
+      else {
+        count = req.session.data.siblingOrderId.length - 1
+      }
+  
+      if (req.body['submit-button'] === 'save-and-continue') {
+        if (errors.length === 0) {
+          req.session.data.siblingOrderCourt[count] = req.body['sibling-order-court-name']
+          res.redirect('/r2/la-portal/sibling-order-date')
+        }
+        else {
+          res.render('.//r2/la-portal/sibling-order-court', { errors: errors })
+        }
+      }
+      else {
+        res.redirect('/r2/la-portal/save-as-draft')
+      }
+    })
+  
+  
+    router.post('/r2/la-portal/sibling-change-order-court', function(req, res) {
+      var errors = []
+      if (req.body['sibling-new-court-name'] === '') {
+        errors.push({
+        text: 'Please answer the question',
+        href: '#order-court-name'
+        })
+      }
+      console.log(req.session.data.siblingOrderType[req.body['sibling-id']])
+      console.log(req.body['sibling-new-court-name'])
+  
+      if (errors.length === 0) {
+        req.session.data.siblingOrderCourt[req.body['sibling-id']] = req.body['sibling-new-court-name']
+        res.redirect('/r2/la-portal/sibling-check-your-answers')
+      }
+      else {
+        res.render('.//r2/la-portal/sibling-change-court', { errors: errors })
+      }
+    })
+  
+  
+    router.post('/r2/la-portal/sibling-order-date', function(req, res) {
+      var errors = []
+      if (req.body['sibling-day'] === '' || req.body['sibling-month'] === '' || req.body['sibling-year'] === '') {
+        errors.push({
+        text: 'Developers: please refer to ADOP-281 for different error messages',
+        href: '#order-date'
+        })
+      }
+  
+      arrayLength = req.session.data.siblingOrderId.length
+      if (arrayLength == 1) {
+        count = 0
+      }
+      else {
+        count = req.session.data.siblingOrderId.length - 1
+      }
+  
+      if (req.body['submit-button'] === 'save-and-continue') {
+        if (errors.length === 0) {
+          req.session.data.siblingOrderIncomplete = 0
+          req.session.data.siblingOrderDay[count] = req.body['sibling-day']
+          req.session.data.siblingOrderMonth[count] = req.body['sibling-month']
+          req.session.data.siblingOrderYear[count] = req.body['sibling-year']
+          req.session.data.siblingOrderCompleted[count] = "Yes"
+          res.redirect('/r2/la-portal/sibling-summary')
+  //        req.session.data.siblingOrderCount = req.session.data.siblingOrderCount + 1
+  
+        }
+        else {
+          res.render('.//r2/la-portal/sibling-order-date', { errors: errors })
+        }
+      }
+      else {
+        res.redirect('/r2/la-portal/save-as-draft')
+      }
+    })
+  
+  
+    router.post('/r2/la-portal/sibling-change-order-date', function(req, res) {
+      var errors = []
+      if (req.body['sibling-day'] === '' || req.body['sibling-month'] === '' || req.body['sibling-year'] === '') {
+        errors.push({
+        text: 'Developers: please refer to ADOP-281 for different error messages',
+        href: '#order-date'
+        })
+      }
+  
+      if (errors.length === 0) {
+        req.session.data.siblingOrderDay[req.body['sibling-id']] = req.body['sibling-day']
+        req.session.data.siblingOrderMonth[req.body['sibling-id']] = req.body['sibling-month']
+        req.session.data.siblingOrderYear[req.body['sibling-id']] = req.body['sibling-year']
+        res.redirect('/r2/la-portal/sibling-check-your-answers')
+      }
+      else {
+        res.render('.//r2/la-portal/sibling-change-order-date', { errors: errors })
+      }
+    })
+  
+  
+    router.post('/r2/la-portal/sibling-summary', function(req, res) {
+      var errors = []
+      if (req.body['sibling-add-another'] === undefined) {
+        errors.push({
+        text: 'Please select an answer',
+        href: '#sibling-add-another'
+        })
+      }
+  
+      if (req.body['submit-button'] === 'continue') {
+        res.redirect('/r2/la-portal/sibling-summary')
+      }
+      else if (req.body['submit-button'] === 'save-and-continue') {
+        if (errors.length === 0) {
+          if (req.body['sibling-add-another'] === 'Yes') {
+            res.redirect('/r2/la-portal/sibling-relationship')
+          }
+          else {
+            if (req.session.data.siblingOrderIncomplete === 0) {
+              req.session.data.siblingStatus = 'completed'
+            }
+            else {
+              req.session.data.siblingStatus = 'in progress'
+            }
+            res.redirect('/r2/la-portal/task-list')
+          }
+        }
+        else {
+          res.render('.//r2/la-portal/sibling-summary', { errors: errors })
+        }
+      }
+      else {
+          res.redirect('/r2/la-portal/save-as-draft')
+      }
+    })
+  
+  
+  
+    router.post('/r2/la-portal/sibling-choose-sibling', function(req, res) {
+      var errors = []
+      if (req.body['what-sibling'] === undefined) {
+        errors.push({
+        text: 'Please answer the question',
+        href: '#what-sibling'
+        })
+      }
+      else if (req.body['what-sibling'] === 'add-new-sibling') {
+        if (req.body['add-sibling-first-names'] === '') {
+          errors.push({
+          text: 'Enter their first names',
+          href: '#first-names'
+          })
+        }
+        if (req.body['add-sibling-last-names'] === '') {
+          errors.push({
+          text: 'Enter their last names',
+          href: '#last-names'
+          })
+        }
+      }
+  
+      count = req.session.data.siblingOrderId.length
+      sib = req.session.data.numberOfSiblings
+      id = req.body['what-sibling']
+  
+      if (req.body['submit-button'] === 'save-and-continue') {
+        if (errors.length === 0) {
+          if (req.body['what-sibling'] === 'add-new-sibling') {
+            console.log("new sibling")
+            req.session.data.uniqueSiblingId[sib] = sib
+            req.session.data.uniqueSiblingFirstNames[sib] = req.body['add-sibling-first-names']
+            req.session.data.uniqueSiblingLastNames[sib] = req.body['add-sibling-last-names']
+            req.session.data.siblingFirstNames[count] = req.body['add-sibling-first-names']
+            req.session.data.siblingLastNames[count] = req.body['add-sibling-last-names']
+            req.session.data.numberOfSiblings = req.session.data.numberOfSiblings + 1
+          }
+          else {
+            console.log("existing sibling")
+            req.session.data.siblingFirstNames[count] = req.session.data.uniqueSiblingFirstNames[id]
+            req.session.data.siblingLastNames[count] = req.session.data.uniqueSiblingLastNames[id]
+          }
+          req.session.data.siblingOrderCompleted[count] = "No"
+          req.session.data.siblingOrderId[count] = count
+          res.redirect('/r2/la-portal/sibling-order-type')
+        }
+        else {
+          res.render('.//r2/la-portal/sibling-choose-sibling', { errors: errors })
+        }
+      }
+      else {
+        res.redirect('/r2/la-portal/save-as-draft')
+      }
+      console.log("Sibling array: ", req.session.data.uniqueSiblingFirstNames)
+      console.log("siblingFirstNames array: ", req.session.data.siblingFirstNames)
+      console.log("uniqueSiblingID array: ", req.session.data.uniqueSiblingId)
+      console.log("siblingOrderId array: ", req.session.data.siblingOrderId)
+      console.log("Number of siblings: ", req.session.data.numberOfSiblings)
+      console.log("siblingFirstNames[id]: ", req.session.data.siblingFirstNames[id])
+      console.log("count: ", count)
+      console.log("id: ", id)
+    })
+  
+  
+  
+    router.post('/r2/la-portal/sibling-remove-court-order', function(req, res) {
+      var occ = 0
+      var errors = []
+      if (req.body['remove-court-order'] === undefined) {
+        errors.push({
+        text: 'Please answer the question',
+        href: '#remove-court-order'
+        })
+      }
+  
+      id = req.body['order-id']
+      fn = req.session.data.siblingFirstNames[id]
+      ln = req.session.data.siblingLastNames[id]
+      console.log("order-id: ",id)
+      console.log("count: ",req.session.data.siblingOrderCount)
+  
+      if (errors.length === 0) {
+        for (let index = 0; index < req.session.data.siblingOrderId.length; index++) {
+          if (req.session.data.siblingOrderId[index] == id) {
+            console.log("index: ", index)
+            // req.session.data.siblingOrderId.splice(index, 1);
+            // req.session.data.siblingFirstNames.splice(index, 1);
+            // req.session.data.siblingLastNames.splice(index, 1);
+            // req.session.data.siblingOrderType.splice(index, 1);
+            // req.session.data.siblingOrderNumber.splice(index, 1);
+            // req.session.data.siblingOrderCourt.splice(index, 1);
+            // req.session.data.siblingOrderDay.splice(index, 1);
+            // req.session.data.siblingOrderMonth.splice(index, 1);
+            // req.session.data.siblingOrderYear.splice(index, 1);
+            // req.session.data.siblingOrderCompleted.splice(index, 1);
+            delete req.session.data.siblingOrderId[index];
+            delete req.session.data.siblingFirstNames[index];
+            delete req.session.data.siblingLastNames[index];
+            delete req.session.data.siblingOrderType[index];
+            delete req.session.data.siblingOrderNumber[index];
+            delete req.session.data.siblingOrderCourt[index];
+            delete req.session.data.siblingOrderDay[index];
+            delete req.session.data.siblingOrderMonth[index];
+            delete req.session.data.siblingOrderYear[index];
+            delete req.session.data.siblingOrderCompleted[index];
+            req.session.data.siblingOrderCount--
+          }
+        }
+        console.log("sibling first names orders: ", req.session.data.siblingFirstNames)
+        console.log("sibling unique first names: ", req.session.data.uniqueSiblingFirstNames)
+        console.log("sibling order count: ", req.session.data.siblingOrderCount)
+        console.log("sibling first names: ", fn)
+        for (let index2 = 0; index2 < req.session.data.uniqueSiblingId.length; index2++) {
+          console.log(req.session.data.uniqueSiblingFirstNames[index2])
+          if (fn == req.session.data.uniqueSiblingFirstNames[index2] && ln == req.session.data.uniqueSiblingLastNames[index2]) {
+            occ++
+            console.log("Occurrence inside: ", occ)
+          }
+        }
+        console.log("Occurrence: ", occ)
+        if (occ == 0) {
+          for (let index3 = 0; index3 < req.session.data.uniqueSiblingId.length; index3++) {
+            console.log("sibling first names orders index3: ", req.session.data.uniqueSiblingFirstNames[index3])
+            console.log("sibling last names orders index3: ", req.session.data.uniqueSiblingLastNames[index3])
+            if (fn == req.session.data.uniqueSiblingFirstNames[index3] && ln == req.session.data.uniqueSiblingLastNames[index3]) {
+              console.log("In for: ", fn)
+              console.log("In for: ", ln)
+              delete req.session.data.uniqueSiblingId[index3]
+              delete req.session.data.uniqueSiblingFirstNames[index3]
+              delete req.session.data.uniqueSiblingLastNames[index3]
+              // req.session.data.uniqueSiblingId.splice(index3, 1)
+              // req.session.data.uniqueSiblingFirstNames.splice(index3, 1)
+              // req.session.data.uniqueSiblingLastNames.splice(index3, 1)
+            }
+          }
+        }
+        console.log("sibling unique first names: ", req.session.data.uniqueSiblingFirstNames)
+  
+        // console.log(req.session.data.siblingOrderId)
+        // console.log(req.session.data.siblingFirstNames)
+        // console.log(req.session.data.siblingLastNames)
+        // console.log(req.session.data.siblingOrderType)
+        // console.log(req.session.data.siblingOrderNumber)
+        // console.log(req.session.data.siblingOrderCourt)
+        if (req.session.data.siblingOrderCount > 0) {
+          res.redirect('/r2/la-portal/sibling-summary')
+        }
+        else {
+          res.redirect('/r2/la-portal/sibling-court-order-exists')
+        }
+      }
+      else {
+        res.render('.//r2/la-portal/sibling-remove-order-court', { errors: errors })
+      }
+    })
+  
+  
+  
+  
+  
+  
+  
+  
 
 
   // ***************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************

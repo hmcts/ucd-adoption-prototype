@@ -15,6 +15,7 @@ Sibling - court order type
     <div class="govuk-grid-column-two-thirds">
 
       {% set typeError = '' %}
+      {% set noOtherError = '' %}
 
       {% if errors | length > 0 %}
       {{ govukErrorSummary({
@@ -24,6 +25,9 @@ Sibling - court order type
       {% for error in errors %}
         {% if error.href == '#order-type' %}
           {% set typeError = error.text %}
+        {% endif %}
+        {% if error.href == '#other-order' %}
+          {% set noOtherError = error.text %}
         {% endif %}
       {% endfor %}
       {% endif %}
@@ -51,31 +55,64 @@ Sibling - court order type
           <!-- <input class="govuk-input  {% if (typeError != '')%} govuk-input--error {% endif%}" id="sibling-order-type" name="sibling-order-type" type="text" spellcheck="false"> -->
               <div class="govuk-radios" data-module="govuk-radios">
                 <div class="govuk-radios__item">
-                  <input class="govuk-radios__input" id="care" name="sibling-order-type" type="radio" value="Care order">
-                  <label class="govuk-label govuk-radios__label" for="sibling-order-type">
+                  <input class="govuk-radios__input" id="Adoption" name="sibling-order-type" type="radio" value="Adoption order">
+                  <label class="govuk-label govuk-radios__label" for="Adoption">
+                    Adoption order
+                  </label>
+                </div>
+
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="Care" name="sibling-order-type" type="radio" value="Care order">
+                  <label class="govuk-label govuk-radios__label" for="Care">
                     Care order
                   </label>
                 </div>
 
                 <div class="govuk-radios__item">
-                  <input class="govuk-radios__input" id="sibling-order-type-2" name="sibling-order-type" type="radio" value="phone">
-                  <label class="govuk-label govuk-radios__label" for="sibling-order-type-2">
-                    Phone
+                  <input class="govuk-radios__input" id="Contact" name="sibling-order-type" type="radio" value="Contact order">
+                  <label class="govuk-label govuk-radios__label" for="Contact">
+                    Contact order
+                  </label>
+                </div>
+
+                <div class="govuk-radios__item"> 
+                  <input class="govuk-radios__input" id="Freeing" name="sibling-order-type" type="radio" value="Freeing order">
+                  <label class="govuk-label govuk-radios__label" for="Freeing">
+                    Freeing order
+                  </label>
+                </div>
+
+                <div class="govuk-radios__item"> 
+                  <input class="govuk-radios__input" id="Placement" name="sibling-order-type" type="radio" value="Placement order">
+                  <label class="govuk-label govuk-radios__label" for="Placement">
+                    Placement order
+                  </label>
+                </div>
+
+                <div class="govuk-radios__item"> 
+                  <input class="govuk-radios__input" id="Supervision" name="sibling-order-type" type="radio" value="Supervision order">
+                  <label class="govuk-label govuk-radios__label" for="Supervision">
+                    Supervision order
                   </label>
                 </div>
 
                 <div class="govuk-radios__item">
-                  <input class="govuk-radios__input" id="sibling-order-type-3" name="sibling-order-type" type="radio" value="text" data-aria-controls="conditional-sibling-order-type-3">
-                  <label class="govuk-label govuk-radios__label" for="sibling-order-type-3">
-                    Text message
+                  <input class="govuk-radios__input" id="other" name="sibling-order-type" type="radio" value="other" data-aria-controls="conditional-sibling-order-type-3">
+                  <label class="govuk-label govuk-radios__label" for="other">
+                    Other
                   </label>
                 </div>
                 <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-sibling-order-type-3">
                   <div class="govuk-form-group">
                     <label class="govuk-label" for="sibling-order-type-by-text">
-                      Mobile phone number
+                      Add a different type of order
                     </label>
-                    <input class="govuk-input govuk-!-width-one-third" id="sibling-order-type-by-text" name="sibling-order-type-by-text" type="tel" autocomplete="tel">
+                    {% if (noOtherError != '')%}
+                    <span class="govuk-error-message govuk-form">
+                      <span class="govuk-visually-hidden">Error:</span> {{ noOtherError }}
+                    </span>
+                    {% endif %}
+                    <input class="govuk-input govuk-!-width-two-thirds{% if (noOtherError != '') %} govuk-input--error{% endif %}" id="sibling-other-order" name="sibling-other-order" type="text">
                   </div>          
                 </div>
               </div>
