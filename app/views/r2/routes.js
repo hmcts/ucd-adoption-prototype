@@ -2605,8 +2605,7 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
     if (req.body['submit-button'] === 'save-and-continue') {
       if (errors.length === 0) {
         if (req.body['father-in-certificate'] == 'No') {
-          req.session.data.fatherStatus = 'completed'
-          res.redirect('/r2/la-portal/other-parent-exists')
+          res.redirect('/r2/la-portal/father-identity-known')
         }
         else {
           res.redirect('/r2/la-portal/father-name')
@@ -2614,6 +2613,35 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
       }
       else {
           res.render('.//r2/la-portal/father-in-certificate', { errors: errors })
+      }
+    }
+    else {
+      res.redirect('/r2/la-portal/task-list')
+    }
+  })
+
+
+  router.post('/r2/la-portal/father-identity-known', function(req, res) {
+    var errors = []
+    if (req.body['father-identity-known'] === undefined) {
+      errors.push({
+      text: 'Please answer the question',
+      href: '#father-identity-known'
+      })
+    }
+
+    if (req.body['submit-button'] === 'save-and-continue') {
+      if (errors.length === 0) {
+        if (req.body['father-identity-known'] == 'No') {
+          req.session.data.fatherStatus = 'completed'
+          res.redirect('/r2/la-portal/task-list')
+        }
+        else {
+          res.redirect('/r2/la-portal/father-name')
+        }
+      }
+      else {
+          res.render('.//r2/la-portal/father-identity-known', { errors: errors })
       }
     }
     else {
@@ -3274,10 +3302,17 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
 
   router.post('/r2/la-portal/orders-order-type', function(req, res) {
     var errors = []
-    if (req.body['order-type'] === '') {
+    if (req.body['child-order-type'] === undefined) {
       errors.push({
-      text: 'Enter the type of order',
+      text: 'Please select an answer',
       href: '#order-type'
+      })
+    }
+
+    if (req.body['child-order-type'] === "other" && req.body['child-other-order'] === "") {
+      errors.push({
+      text: 'Please select an answer',
+      href: '#other-order'
       })
     }
 
@@ -3288,7 +3323,7 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
       if (errors.length === 0) {
         req.session.data.childOrderCount = count
         req.session.data.childOrderId[count] = count
-        req.session.data.childOrderType[count] = req.body['order-type']
+        req.session.data.childOrderType[count] = req.body['child-order-type']
         req.session.data.childOrderCompleted[count] = "No"
         res.redirect('/r2/la-portal/orders-order-case-number')
       }
