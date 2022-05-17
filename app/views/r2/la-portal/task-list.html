@@ -12,16 +12,16 @@ Task list
 
   <div class="govuk-grid-column-two-thirds">
     <h1 class="govuk-heading-xl">
-      H1 to be determined by Lisa, could be child's name
+        Jane Austen's details
     </h1>
 
     <ol class="app-task-list">
 
 
         <li>
-            <h2 class="app-task-list__section">
+            <!-- <h2 class="app-task-list__section">
             Jane Austen's details
-            </h2>
+            </h2> -->
             <ul class="app-task-list__items">
 
                 <!-- <p><strong>First child</strong></p><-->
@@ -126,6 +126,20 @@ Task list
                     {% endif %}
                 </li>
 
+                <li class="app-task-list__item">
+                    <span class="app-task-list__task-name">
+                        <a href="child-documents-upload.html">
+                            Upload documents
+                        </a>
+                    </span>
+                    {% if data['childUpload'] %}
+                    <strong class="govuk-tag  app-task-list__tag" id="eligibility-completed">Completed</strong>
+                        {% else %}
+                        <strong class="govuk-tag govuk-tag--grey app-task-list__tag">not started</strong>
+                    {% endif %}
+    
+                  </li>
+    
 
             </ul>
 
@@ -158,6 +172,10 @@ Task list
 
 
             </ol>
+            <button class="govuk-button" data-module="govuk-button">
+                Submit application
+            </button>
+    
 
   </div>
 </div>
