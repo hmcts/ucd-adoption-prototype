@@ -18,6 +18,7 @@ Apply to adopt a child
       {% set lanameError = '' %}
       {% set phoneError = '' %}
       {% set emailError = '' %}
+      {% set emailFormatError = '' %}
 
       {% if errors | length > 0 %}
         {{ govukErrorSummary({
@@ -36,6 +37,9 @@ Apply to adopt a child
           {% endif %}
           {% if error.href == '#email' %}
             {% set emailError = error.text %}
+          {% endif %}
+          {% if error.href == '#emailFormatError' %}
+            {% set emailFormatError = error.text %}
           {% endif %}
         {% endfor %}
       {% endif %}
@@ -77,9 +81,13 @@ Apply to adopt a child
 
           <div class="govuk-form-group {% if (emailError != '') %} govuk-form-group--error{% endif %}">
             <label class="govuk-label" for="contact">
-            Email address
+            Email address (if known)
             </label>
-            {% if emailError != '' %}
+            
+            <div id="lahint" class="govuk-hint">
+              The email address should be an official government email that ends in gov.uk.
+           </div>
+           {% if emailError != '' %}
             <span id="contact-error" class="govuk-error-message">
               <span class="govuk-visually-hidden">Error:</span> {{ emailError }}
             </span>
@@ -100,6 +108,21 @@ Apply to adopt a child
             </span>
             {% endif %}
             <input class="govuk-input govuk-!-width-two-thirds {% if (nameError != '') %} govuk-input--error{% endif %}" id="child-social-worker-name" name="child-social-worker-name" type="text" value="{{ data['child-social-worker-name'] }}">
+          </div>
+
+          <div class="govuk-form-group {% if (emailFormatError != '') %} govuk-form-group--error{% endif %}">
+            <label class="govuk-label" for="contact">
+            Local authority email address 
+            </label> 
+            <div id="lahint" class="govuk-hint">
+              The email address should be an official government email that ends in gov.uk.
+           </div>
+           {% if emailFormatError != '' %}
+            <span id="contact-error" class="govuk-error-message">
+              <span class="govuk-visually-hidden">Error:</span> {{ emailFormatError }}
+            </span>
+            {% endif %}
+            <input class="govuk-input govuk-!-width-two-thirds {% if (emailFormatError != '') %} govuk-input--error{% endif %}" id="child-la-email" name="child-la-email" type="text" value="{{ data['child-la-email'] }}">
           </div>
 
         </fieldset>
