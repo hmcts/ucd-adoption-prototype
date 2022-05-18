@@ -1407,6 +1407,35 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
     }
   })
 
+  router.post('/r2/applicants/first-applicant-change-address', function(req, res) {
+    var errors = []
+    if (req.body['first-applicant-change-address'] === undefined) {
+      errors.push({
+      text: 'Please answer the question',
+      href: '#first-applicant-change-address'
+      })
+    }
+
+    if (errors.length === 0) {
+    if (req.body['submit-button'] === 'save-and-continue') {
+        if (req.body['first-applicant-change-address'] === "Yes") {
+          res.redirect('/r2/applicants/first-applicant-change-address-confirmation')
+        }
+        else {
+          res.redirect('/r2/task-list')
+        }
+      }
+      else {
+        res.redirect('/r2/save-as-draft')
+      }
+    }
+    else {
+        res.render('.//r2/applicants/first-applicant-change-address', { errors: errors })
+    }
+
+  })
+
+
 
   router.post('/r2/applicants/first-applicant-contact', function(req, res) {
     var errors = []
@@ -1773,6 +1802,34 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
     else {
       res.redirect('/r2/save-as-draft')
     }
+  })
+
+  router.post('/r2/applicants/second-applicant-change-address', function(req, res) {
+    var errors = []
+    if (req.body['second-applicant-change-address'] === undefined) {
+      errors.push({
+      text: 'Please answer the question',
+      href: '#second-applicant-change-address'
+      })
+    }
+
+    if (errors.length === 0) {
+    if (req.body['submit-button'] === 'save-and-continue') {
+        if (req.body['second-applicant-change-address'] === "Yes") {
+          res.redirect('/r2/applicants/second-applicant-change-address-confirmation')
+        }
+        else {
+          res.redirect('/r2/task-list')
+        }
+      }
+      else {
+        res.redirect('/r2/save-as-draft')
+      }
+    }
+    else {
+        res.render('.//r2/applicants/second-applicant-change-address', { errors: errors })
+    }
+
   })
 
 
@@ -3657,7 +3714,7 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
   
       if (req.body['sibling-order-type'] === "other" && req.body['sibling-other-order'] === "") {
         errors.push({
-        text: 'Please select an answer',
+        text: 'Enter an order type',
         href: '#other-order'
         })
       }
