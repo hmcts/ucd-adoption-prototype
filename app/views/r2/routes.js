@@ -357,7 +357,14 @@ router.post('/r2/la-portal/save-as-draft', function(req, res) {
     }
     if (req.body['applicant-email'] === '') {
       errors.push({
-      text: 'Enter an email address',
+      text: 'Devs: "The email address should be an official government email that ends in gov.uk." [if it is not on that format]',
+      href: '#emailFormatError'
+      })
+    }
+
+    if (req.body['applicant-la-email'] === '') {
+      errors.push({
+        text: 'Devs: "Enter an email address" [if left blank] or "Enter an email address in the correct format, like name@example.com" [if in the wrong format], "The email address should be an official government email that ends in gov.uk." [if it is not on that format] ',
       href: '#email'
       })
     }
@@ -491,8 +498,15 @@ router.post('/r2/la-portal/save-as-draft', function(req, res) {
     }
     if (req.body['child-social-worker-email'] === '') {
       errors.push({
-      text: 'Devs: "Enter an email address" [if left blank] or "Enter an email address in the correct format, like name@example.com" [if in the wrong format] ',
-      href: '#email'
+        text: 'Devs: "The email address should be an official government email that ends in gov.uk." [if it is not on that format]',
+        href: '#email'
+      })
+    }
+
+    if (req.body['child-la-email'] === '') {
+      errors.push({
+        text: 'Devs: "Enter an email address" [if left blank] or "Enter an email address in the correct format, like name@example.com" [if in the wrong format], "The email address should be an official government email that ends in gov.uk." [if it is not on that format] ',
+        href: '#emailFormatError'
       })
     }
 
@@ -683,7 +697,7 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
           res.redirect('/r2/children/sibling-order-type')
         }
         else {
-          res.render('.//r2/children/sibling-name', { errors: errors })
+          res.render('.//r2/children/sibling-relationship', { errors: errors })
         }
       }
       else {
@@ -3311,7 +3325,7 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
 
     if (req.body['child-order-type'] === "other" && req.body['child-other-order'] === "") {
       errors.push({
-      text: 'Please select an answer',
+      text: 'Enter an order type',
       href: '#other-order'
       })
     }
@@ -3602,7 +3616,7 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
           res.redirect('/r2/la-portal/sibling-order-type')
         }
         else {
-          res.render('.//r2/la-portal/sibling-name', { errors: errors })
+          res.render('.//r2/la-portal/sibling-relationship', { errors: errors })
         }
       }
       else {
