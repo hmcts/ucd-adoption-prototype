@@ -19,12 +19,12 @@ Apply to adopt a child
 
         <div class="govuk-form-group">
           <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
-          <span class="govuk-caption-l">{% if data['numberApplicants'] !== '1' %}{{ data['firstApplicant'] }}{% else %} {{ data['oneApplicant'] }}{% endif %}</span>
+          <span class="govuk-caption-l">{{ data['secondApplicant'] }}</span>
           <h1 class="govuk-fieldset__heading">
-            Addresses changed
+            Address changed
           </h1>
         </legend>
-        <p>Both applicants' addresses have now been changed.</p>
+        <p>Your address has now been changed.</p>
         <button type="submit" class="govuk-button" data-module="govuk-button" name="submit-button" value="continue">
           Continue
         </button>
