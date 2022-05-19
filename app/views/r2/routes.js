@@ -1986,7 +1986,8 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
     if (req.body['submit-button'] === 'save-and-continue') {
       if (errors.length === 0) {
 //        req.session.data.reviewStatus = 'completed'
-        res.redirect('https://products.payments.service.gov.uk/pay/02133e4814ea416cb7a1e540b49a8545')
+          res.redirect('/r2/check-pay-and-submit/pay-and-submit')
+          // res.redirect('https://products.payments.service.gov.uk/pay/02133e4814ea416cb7a1e540b49a8545')
       }
       else {
         res.render('.//r2/check-pay-and-submit/declaration', { errors: errors })
