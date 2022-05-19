@@ -1419,10 +1419,10 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
     if (errors.length === 0) {
     if (req.body['submit-button'] === 'save-and-continue') {
         if (req.body['first-applicant-change-address'] === "Yes") {
-          res.redirect('/r2/applicants/first-applicant-change-address-confirmation')
+          res.redirect('/r2/applicants/first-applicant-change-address-confirmation-both')
         }
         else {
-          res.redirect('/r2/task-list')
+          res.redirect('/r2/applicants/first-applicant-change-address-confirmation-first')
         }
       }
       else {
@@ -1816,10 +1816,10 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
     if (errors.length === 0) {
     if (req.body['submit-button'] === 'save-and-continue') {
         if (req.body['second-applicant-change-address'] === "Yes") {
-          res.redirect('/r2/applicants/second-applicant-change-address-confirmation')
+          res.redirect('/r2/applicants/second-applicant-change-address-confirmation-both')
         }
         else {
-          res.redirect('/r2/task-list')
+          res.redirect('/r2/applicants/second-applicant-change-address-confirmation-second')
         }
       }
       else {
