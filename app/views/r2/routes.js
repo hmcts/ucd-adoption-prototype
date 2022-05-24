@@ -357,7 +357,7 @@ router.post('/r2/la-portal/save-as-draft', function(req, res) {
     }
     if (req.body['applicant-email'] === '') {
       errors.push({
-      text: 'Devs: "The email address should be an official government email that ends in gov.uk." [if it is not on that format]',
+      text: 'Devs: "The email address should be an official government email that ends in gov.uk." [only if it is filled in and not on the correct format, otherwise it is not an error]',
       href: '#emailFormatError'
       })
     }
