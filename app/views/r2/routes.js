@@ -357,14 +357,14 @@ router.post('/r2/la-portal/save-as-draft', function(req, res) {
     }
     if (req.body['applicant-email'] === '') {
       errors.push({
-      text: 'Devs: "The email address should be an official government email that ends in gov.uk." [only if it is filled in and not on the correct format, otherwise it is not an error]',
+      text: 'Devs: "Enter an email address that ends in gov.uk" [only if it is filled in and not on the correct format, otherwise it is not an error]',
       href: '#emailFormatError'
       })
     }
 
     if (req.body['applicant-la-email'] === '') {
       errors.push({
-        text: 'Devs: "Enter an email address" [if left blank] or "Enter an email address in the correct format, like name@example.com" [if in the wrong format], "The email address should be an official government email that ends in gov.uk." [if it is not on that format] ',
+        text: 'Devs: "Enter an email address that ends in gov.uk" [if blank or not on gov.uk format]',
       href: '#email'
       })
     }
@@ -498,14 +498,14 @@ router.post('/r2/la-portal/save-as-draft', function(req, res) {
     }
     if (req.body['child-social-worker-email'] === '') {
       errors.push({
-        text: 'Devs: "The email address should be an official government email that ends in gov.uk." [only if it is filled in and not on the correct format, otherwise it is not an error]',
+        text: 'Devs: "Enter an email address that ends in gov.uk" [only if it is filled in and not on the correct format, otherwise it is not an error]',
         href: '#email'
       })
     }
 
     if (req.body['child-la-email'] === '') {
       errors.push({
-        text: 'Devs: "Enter an email address" [if left blank] or "Enter an email address in the correct format, like name@example.com" [if in the wrong format], "The email address should be an official government email that ends in gov.uk." [if it is not on that format] ',
+        text: 'Devs: "Enter an email address that ends in gov.uk" [if blank or not on gov.uk format]',
         href: '#emailFormatError'
       })
     }
