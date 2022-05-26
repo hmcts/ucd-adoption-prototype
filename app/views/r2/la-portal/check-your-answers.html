@@ -41,10 +41,6 @@ Apply to adopt a child
               {% endif %}
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a href="../children/child-name.html">
-                Change
-                <span class="govuk-visually-hidden"> full name</span>
-              </a>
             </dd>
           </div>
 
@@ -60,13 +56,9 @@ Apply to adopt a child
               {% endif %}
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a href="../children/child-date-birth.html">
-                Change
-                <span class="govuk-visually-hidden"> date of birth</span>
-              </a>
             </dd>
           </div>
-        
+          
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
               Sex at birth
@@ -79,7 +71,7 @@ Apply to adopt a child
               {% endif %}              
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a href="../children/child-sex.html">
+              <a href="child-sex.html">
                 Change
                 <span class="govuk-visually-hidden"> sex at birth</span>
               </a>
@@ -94,31 +86,13 @@ Apply to adopt a child
               British
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a href="../children/child-nationality.html">
+              <a href="child-nationality.html">
                 Change
                 <span class="govuk-visually-hidden"> nationality</span>
               </a>
             </dd>
           </div>
         
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              Full name after adoption
-            </dt>
-            <dd class="govuk-summary-list__value">
-              {%if data['certificate-first-names'] and data['certificate-last-names'] %}
-                {{data['certificate-first-names']}} {{data['certificate-last-names']}}
-              {% else %}
-                Jane Christie Doyle
-              {% endif %}
-            </dd>
-            <dd class="govuk-summary-list__actions">
-              <a href="../children/child-adoption-certificate.html">
-                Change
-                <span class="govuk-visually-hidden"> birth certificate details</span>
-              </a>
-            </dd>
-          </div>
         </dl>
 
         <!-- **************** Birth mother's details **************** -->
@@ -137,7 +111,7 @@ Apply to adopt a child
               {% endif %}
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a href="../children/mother-name.html">
+              <a href="mother-name.html">
                 Change
                 <span class="govuk-visually-hidden"> birth mother's full name</span>
               </a>
@@ -160,7 +134,7 @@ Apply to adopt a child
               {% endif %}              
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a href="../children/mother-alive.html">
+              <a href="mother-alive.html">
                 Change
                 <span class="govuk-visually-hidden"> alive status</span>
               </a>
@@ -178,7 +152,7 @@ Apply to adopt a child
               Irish
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a href="../children/mother-nationality.html">
+              <a href="mother-nationality.html">
                 Change
                 <span class="govuk-visually-hidden"> nationality</span>
               </a>
@@ -197,7 +171,7 @@ Apply to adopt a child
               {% endif %}
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a href="../children/mother-occupation.html">
+              <a href="mother-occupation.html">
                 Change
                 <span class="govuk-visually-hidden"> occupation</span>
               </a>
@@ -219,7 +193,7 @@ Apply to adopt a child
               {% endif %}
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a href="../children/mother-have-address.html">
+              <a href="mother-have-address.html">
                 Change
                 <span class="govuk-visually-hidden"> address known</span>
               </a>
@@ -236,9 +210,24 @@ Apply to adopt a child
               <br> London SW1A 1AA            
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a href="../children/mother-address-postcode.html">
+              <a href="mother-address-postcode.html">
                 Change
                 <span class="govuk-visually-hidden"> address</span>
+              </a>
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Last date this address was confirmed
+            </dt>
+            <dd class="govuk-summary-list__value">
+              12 June 2021
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="mother-last-date-address-confirmed.html">
+                Change
+                <span class="govuk-visually-hidden"> last date address confirmed </span>
               </a>
             </dd>
           </div>
@@ -263,7 +252,7 @@ Apply to adopt a child
               {% endif %}
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a href="../children/father-alive.html">
+              <a href="father-alive.html">
                 Change
                 <span class="govuk-visually-hidden"> alive status</span>
               </a>
@@ -280,11 +269,11 @@ Apply to adopt a child
               {%if data['father-first-names'] and data['father-last-names'] %}
                 {{data['father-first-names']}} {{data['father-last-names']}}
               {% else %}
-                John Austen
+                John Denver
               {% endif %}
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a href="../children/father-name.html">
+              <a href="father-name.html">
                 Change
                 <span class="govuk-visually-hidden"> birth father's full name</span>
               </a>
@@ -307,7 +296,7 @@ Apply to adopt a child
               {% endif %}              
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a href="../children/father-alive.html">
+              <a href="father-alive.html">
                 Change
                 <span class="govuk-visually-hidden"> alive status</span>
               </a>
@@ -325,7 +314,7 @@ Apply to adopt a child
               British
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a href="../children/father-nationality.html">
+              <a href="father-nationality.html">
                 Change
                 <span class="govuk-visually-hidden"> nationality</span>
               </a>
@@ -344,7 +333,7 @@ Apply to adopt a child
               {% endif %}
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a href="../children/father-occupation.html">
+              <a href="father-occupation.html">
                 Change
                 <span class="govuk-visually-hidden"> occupation</span>
               </a>
@@ -366,7 +355,7 @@ Apply to adopt a child
               {% endif %}
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a href="../children/father-have-address.html">
+              <a href="father-have-address.html">
                 Change
                 <span class="govuk-visually-hidden"> address known</span>
               </a>
@@ -383,12 +372,28 @@ Apply to adopt a child
               <br> London SW1A 1AA            
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a href="../children/father-address-postcode.html">
+              <a href="father-address-postcode.html">
                 Change
                 <span class="govuk-visually-hidden"> address</span>
               </a>
             </dd>
           </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Last date this address was confirmed
+            </dt>
+            <dd class="govuk-summary-list__value">
+              1 September 2018
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="father-last-date-address-confirmed.html">
+                Change
+                <span class="govuk-visually-hidden"> last date address confirmed </span>
+              </a>
+            </dd>
+          </div>
+
           {% endif %}
           {% endif %}
           {% endif %}
@@ -410,7 +415,7 @@ Apply to adopt a child
               {% endif %}
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a href="../children/other-parent-exists.html">
+              <a href="other-parent-exists.html">
                 Change
                 <span class="govuk-visually-hidden"> other parent exists status</span>
               </a>
@@ -430,7 +435,7 @@ Apply to adopt a child
               {% endif %}
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a href="../children/other-parent-name.html">
+              <a href="other-parent-name.html">
                 Change
                 <span class="govuk-visually-hidden"> birth other-parent's full name</span>
               </a>
@@ -452,7 +457,7 @@ Apply to adopt a child
               {% endif %}
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a href="../children/other-parent-have-address.html">
+              <a href="other-parent-have-address.html">
                 Change
                 <span class="govuk-visually-hidden"> address known</span>
               </a>
@@ -469,9 +474,24 @@ Apply to adopt a child
               <br> London SW1A 1AA            
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a href="../children/other-parent-address-postcode.html">
+              <a href="other-parent-address-postcode.html">
                 Change
                 <span class="govuk-visually-hidden"> address</span>
+              </a>
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Last date this address was confirmed
+            </dt>
+            <dd class="govuk-summary-list__value">
+              20 May 2022
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="other-parent-last-date-address-confirmed.html">
+                Change
+                <span class="govuk-visually-hidden"> last date address confirmed </span>
               </a>
             </dd>
           </div>
@@ -518,7 +538,7 @@ Apply to adopt a child
               {% endif %}
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a href="../children/orders-placement-case-number.html">
+              <a href="orders-placement-case-number.html">
                 Change
                 <span class="govuk-visually-hidden"> placement order case or serial number</span>
               </a>
@@ -537,7 +557,7 @@ Apply to adopt a child
               {% endif %}
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a href="../children/orders-placement-court.html">
+              <a href="orders-placement-court.html">
                 Change
                 <span class="govuk-visually-hidden"> court</span>
               </a>
@@ -556,7 +576,7 @@ Apply to adopt a child
               {% endif %}
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a href="../children/orders-placement-date.html">
+              <a href="orders-placement-date.html">
                 Change
                 <span class="govuk-visually-hidden"> date</span>
               </a>
@@ -576,7 +596,7 @@ Apply to adopt a child
               {% endif %}
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a href="../children/orders-order-type.html">
+              <a href="orders-order-type.html">
                 Change
                 <span class="govuk-visually-hidden"> order type</span>
               </a>
@@ -593,7 +613,7 @@ Apply to adopt a child
               {% endif %}
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a href="../children/orders-order-case-number.html">
+              <a href="orders-order-case-number.html">
                 Change
                 <span class="govuk-visually-hidden">  order case or serial number</span>
               </a>
@@ -610,7 +630,7 @@ Apply to adopt a child
               {% endif %}
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a href="../children/orders-order-court.html">
+              <a href="orders-order-court.html">
                 Change
                 <span class="govuk-visually-hidden"> court</span>
               </a>
@@ -629,7 +649,7 @@ Apply to adopt a child
               {% endif %}
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a href="../children/orders-order-date.html">
+              <a href="orders-order-date.html">
                 Change
                 <span class="govuk-visually-hidden"> date</span>
               </a>
@@ -661,7 +681,7 @@ Apply to adopt a child
                 AC17238376
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a href="../children/orders-placement-case-number.html">
+              <a href="orders-placement-case-number.html">
                 Change
                 <span class="govuk-visually-hidden"> placement order case or serial number</span>
               </a>
@@ -676,7 +696,7 @@ Apply to adopt a child
                 Derby County Court
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a href="../children/orders-placement-court.html">
+              <a href="orders-placement-court.html">
                 Change
                 <span class="govuk-visually-hidden"> court</span>
               </a>
@@ -691,7 +711,7 @@ Apply to adopt a child
                 23 June 2020
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a href="../children/orders-placement-date.html">
+              <a href="orders-placement-date.html">
                 Change
                 <span class="govuk-visually-hidden"> date</span>
               </a>
@@ -705,10 +725,10 @@ Apply to adopt a child
               Type of order
             </dt>
             <dd class="govuk-summary-list__value">
-              Something order
+              Care order
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a href="../children/orders-order-type.html">
+              <a href="orders-order-type.html">
                 Change
                 <span class="govuk-visually-hidden"> order type</span>
               </a>
@@ -723,7 +743,7 @@ Apply to adopt a child
               ABC123456
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a href="../children/orders-order-case-number.html">
+              <a href="orders-order-case-number.html">
                 Change
                 <span class="govuk-visually-hidden">  order case or serial number</span>
               </a>
@@ -738,7 +758,7 @@ Apply to adopt a child
               Watford Crown Court
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a href="../children/orders-order-court.html">
+              <a href="orders-order-court.html">
                 Change
                 <span class="govuk-visually-hidden"> court</span>
               </a>
@@ -753,7 +773,7 @@ Apply to adopt a child
                 3 September 2021
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a href="../children/orders-order-date.html">
+              <a href="orders-order-date.html">
                 Change
                 <span class="govuk-visually-hidden"> date</span>
               </a>
@@ -781,7 +801,7 @@ Apply to adopt a child
             {% endif %}
           </dd>
           <dd class="govuk-summary-list__actions">
-            <a href="../children/sibling-exists.html">
+            <a href="sibling-exists.html">
               Change
               <span class="govuk-visually-hidden"> date</span>
             </a>
@@ -801,7 +821,7 @@ Apply to adopt a child
             {% endif %}
           </dd>
           <dd class="govuk-summary-list__actions">
-            <a href="../children/sibling-court-order-exists.html">
+            <a href="sibling-court-order-exists.html">
               Change
               <span class="govuk-visually-hidden"> date</span>
             </a>
@@ -822,7 +842,7 @@ Apply to adopt a child
               {% endif %}
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a href="../children/sibling-name.html">
+              <a href="sibling-name.html">
                 Change
                 <span class="govuk-visually-hidden"> sibling or half-sibling name</span>
               </a>
@@ -856,7 +876,7 @@ Apply to adopt a child
               {% endif %}
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a href="../children/orders-order-type.html">
+              <a href="orders-order-type.html">
                 Change
                 <span class="govuk-visually-hidden"> order type</span>
               </a>
@@ -873,7 +893,7 @@ Apply to adopt a child
             {% endif %}
           </dd>
           <dd class="govuk-summary-list__actions">
-            <a href="../children/orders-order-case-number.html">
+            <a href="orders-order-case-number.html">
               Change
               <span class="govuk-visually-hidden">  order case or serial number</span>
             </a>
@@ -894,7 +914,7 @@ Apply to adopt a child
             Mary Poppins
           </dd>
           <dd class="govuk-summary-list__actions">
-            <a href="../children/sibling-name.html">
+            <a href="sibling-name.html">
               Change
               <span class="govuk-visually-hidden"> sibling or half-sibling name</span>
             </a>
@@ -909,7 +929,7 @@ Apply to adopt a child
             Freddie Mercury
           </dd>
           <dd class="govuk-summary-list__actions">
-            <a href="../children/sibling-name.html">
+            <a href="sibling-name.html">
               Change
               <span class="govuk-visually-hidden"> sibling or half-sibling name</span>
             </a>
@@ -938,7 +958,7 @@ Apply to adopt a child
             Placement order
           </dd>
           <dd class="govuk-summary-list__actions">
-            <a href="../children/orders-order-type.html">
+            <a href="orders-order-type.html">
               Change
               <span class="govuk-visually-hidden"> order type</span>
             </a>
@@ -953,7 +973,7 @@ Apply to adopt a child
           1223366363
         </dd>
         <dd class="govuk-summary-list__actions">
-          <a href="../children/orders-order-case-number.html">
+          <a href="orders-order-case-number.html">
             Change
             <span class="govuk-visually-hidden">  order case or serial number</span>
           </a>
@@ -981,7 +1001,7 @@ Apply to adopt a child
             Exclusion order
           </dd>
           <dd class="govuk-summary-list__actions">
-            <a href="../children/orders-order-type.html">
+            <a href="orders-order-type.html">
               Change
               <span class="govuk-visually-hidden"> order type</span>
             </a>
@@ -996,7 +1016,7 @@ Apply to adopt a child
           AB-77626366363
         </dd>
         <dd class="govuk-summary-list__actions">
-          <a href="../children/orders-order-case-number.html">
+          <a href="orders-order-case-number.html">
             Change
             <span class="govuk-visually-hidden">  order case or serial number</span>
           </a>
@@ -1024,7 +1044,7 @@ Apply to adopt a child
             Something order
           </dd>
           <dd class="govuk-summary-list__actions">
-            <a href="../children/orders-order-type.html">
+            <a href="orders-order-type.html">
               Change
               <span class="govuk-visually-hidden"> order type</span>
             </a>
@@ -1039,7 +1059,7 @@ Apply to adopt a child
           TC7726363373
         </dd>
         <dd class="govuk-summary-list__actions">
-          <a href="../children/orders-order-case-number.html">
+          <a href="orders-order-case-number.html">
             Change
             <span class="govuk-visually-hidden">  order case or serial number</span>
           </a>
@@ -1067,7 +1087,7 @@ Apply to adopt a child
               {% endif %}
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a href="../children/family-court-finder.html">
+              <a href="family-court-finder.html">
                 Change
                 <span class="govuk-visually-hidden"> family court name</span>
               </a>

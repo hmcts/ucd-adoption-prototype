@@ -101,6 +101,7 @@ module.exports = {
   "checkpaysubmit": "Review your application, pay and send",
   "paySubmit": "Pay and submit your application",
   "reviewApplication": "Review your application",
+  "familyCourt": "Family court details",
 
   "monthName": [
     "",
