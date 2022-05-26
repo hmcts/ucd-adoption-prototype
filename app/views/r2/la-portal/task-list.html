@@ -27,7 +27,7 @@ Task list
                 <!-- <p><strong>First child</strong></p><-->
                 <li class="app-task-list__item">
                     <span class="app-task-list__task-name">
-                  <a href="child-date-birth.html" aria-describedby="eligibility-completed">
+                  <a href="child-sex.html" aria-describedby="eligibility-completed">
                         Birth certificate details
                     </a></span>
                     {% if data['childDetailsStatus'] === 'completed' %}
@@ -170,11 +170,13 @@ Task list
             </ul>
           </li> -->
 
-
             </ol>
-            <button class="govuk-button" data-module="govuk-button">
-                Submit application
-            </button>
+
+            <form action="/r2/la-portal/check-your-answers" method="post" class="form">
+                <button class="govuk-button" data-module="govuk-button">
+                    Continue
+                </button>
+            </form>
     
 
   </div>
