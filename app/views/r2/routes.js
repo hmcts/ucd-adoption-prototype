@@ -314,8 +314,7 @@ router.post('/r2/la-portal/save-as-draft', function(req, res) {
 
     if (req.body['submit-button'] === 'save-and-continue') {
       if (errors.length === 0) {
-        req.session.data.adoptionCertificateStatus = 'completed'
-        res.redirect('/r2/task-list')
+        res.redirect('/r2/children/child-date-birth')
       }
       else {
         res.render('.//r2/children/child-post-adoption-name', { errors: errors })
@@ -331,6 +330,30 @@ router.post('/r2/la-portal/save-as-draft', function(req, res) {
       }
     }
   })
+
+  router.post('/r2/children/child-date-birth', function(req, res) {
+    // console.log("Day: ", req.body['day'])
+    var errors = []
+    if (req.body['child-birth-day'] === '' || req.body['child-birth-month'] === '' || req.body['child-birth-year'] === '') {
+      errors.push({
+      text: 'Developers: please refer to ADOP-203 for different error messages',
+      href: '#child-date-birth'
+      })
+    }
+      if (req.body['submit-button'] === 'save-and-continue') {
+        if (errors.length === 0) {
+          req.session.data.adoptionCertificateStatus = 'completed'
+          res.redirect('/r2/task-list')
+        }
+        else {
+          res.render('./r2/children/child-date-birth', { errors: errors })
+        }
+      }
+      else {
+        res.redirect('/r2/task-list')
+      }
+  })
+
 
 
 
@@ -2270,28 +2293,6 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
 // ************************************************************************************************************************************
 
    // ********************** Child's details **********************
-  router.post('/r2/la-portal/child-date-birth', function(req, res) {
-    // console.log("Day: ", req.body['day'])
-    var errors = []
-    if (req.body['child-birth-day'] === '' || req.body['child-birth-month'] === '' || req.body['child-birth-year'] === '') {
-      errors.push({
-      text: 'Developers: please refer to ADOP-203 for different error messages',
-      href: '#child-date-birth'
-      })
-    }
-      if (req.body['submit-button'] === 'save-and-continue') {
-        if (errors.length === 0) {
-          res.redirect('/r2/la-portal/child-sex')
-        }
-        else {
-          res.render('./r2/la-portal/child-date-birth', { errors: errors })
-        }
-      }
-      else {
-        res.redirect('/r2/la-portal/task-list')
-      }
-  })
-
     
   router.post('/r2/la-portal/child-sex', function(req, res) {
     var errors = []
@@ -2308,8 +2309,10 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
         })
     }
 
+
     if (req.body['submit-button'] === 'save-and-continue') {
       if (errors.length === 0) {
+        req.session.data.childDetailsStatus = 'in progress'
         res.redirect('/r2/la-portal/child-nationality')
       }
       else {
@@ -2317,6 +2320,7 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
       }
     }
     else {
+      req.session.data.childDetailsStatus = 'in progress'
       res.redirect('/r2/la-portal/task-list')
     }
   })
