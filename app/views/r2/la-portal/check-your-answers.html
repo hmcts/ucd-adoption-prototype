@@ -530,7 +530,7 @@ Apply to adopt a child
         {% for id in data['childOrderId'] %}
 
           {% if id === 0 %}
-          <h3 class="govuk-heading-s">Placement order</h3>
+          <h3 class="govuk-heading-s">Placements order</h3>
                     
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
@@ -577,7 +577,7 @@ Apply to adopt a child
                 Derby County Court
               {% endif %}
             </dd>
-            <dd class="govuk-summary-list__actions">
+            <dd class="govuk-summary-list__value">
             </dd>
           </div>      
 
@@ -601,7 +601,7 @@ Apply to adopt a child
           </div>      
 
           {% else %}
-          <h3 class="govuk-heading-s">Court order</h3>
+          <h3 class="govuk-heading-s govuk-!-margin-top-8">Court order</h3>
 
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
@@ -649,7 +649,7 @@ Apply to adopt a child
             <dd class="govuk-summary-list__actions">
               <a href="orders-order-court.html">
                 Change
-                <span class="govuk-visually-hidden"> court</span>
+                <span class="govuk-visually-hidden">  court</span>
               </a>
             </dd>
           </div>      
@@ -713,10 +713,6 @@ Apply to adopt a child
                 Derby County Court
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a href="orders-placement-court.html">
-                Change
-                <span class="govuk-visually-hidden"> court</span>
-              </a>
             </dd>
           </div>      
 
@@ -841,6 +837,10 @@ Apply to adopt a child
               {% endif %}
             </dd>
             <dd class="govuk-summary-list__actions">
+              <a href="sibling-relationship.html">
+                Change
+                <span class="govuk-visually-hidden">  sibling relationship</span>
+              </a>
             </dd>
           </div>      
 
@@ -884,6 +884,10 @@ Apply to adopt a child
         <!-- If there isn't a court case for siblings, just to show how it would display -->
         {% else %}
         
+
+        <!-- Court orders for siblings -->
+        <h3 class="govuk-heading-s govuk-!-margin-top-8">Court order</h3>
+
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
             Relationship
@@ -894,38 +898,9 @@ Apply to adopt a child
           <dd class="govuk-summary-list__actions">
             <a href="sibling-relationship.html">
               Change
-              <span class="govuk-visually-hidden"> relationship to the child</span>
+              <span class="govuk-visually-hidden">  sibling relationship</span>
             </a>
-          </dd>
-        </div>     
-
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-            Sibling name
-          </dt>
-          <dd class="govuk-summary-list__value">
-            Freddie Mercury
-          </dd>
-          <dd class="govuk-summary-list__actions">
-            <a href="sibling-name.html">
-              Change
-              <span class="govuk-visually-hidden"> sibling or half-sibling name</span>
-            </a>
-          </dd>
-        </div>     
-
-        <!-- Court orders for siblings -->
-        <h3 class="govuk-heading-s govuk-!-margin-top-8">Court order</h3>
-
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-            Sibling name
-          </dt>
-          <dd class="govuk-summary-list__value">
-            Mary Poppins
-          </dd>
-          <dd class="govuk-summary-list__actions">
-          </dd>
+        </dd>
         </div>      
 
         <div class="govuk-summary-list__row">
@@ -962,13 +937,17 @@ Apply to adopt a child
 
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
-            Sibling name
+            Relationship
           </dt>
           <dd class="govuk-summary-list__value">
-            Mary Poppins
+            Half sister
           </dd>
           <dd class="govuk-summary-list__actions">
-          </dd>
+            <a href="sibling-relationship.html">
+              Change
+              <span class="govuk-visually-hidden">  sibling relationship</span>
+            </a>
+        </dd>
         </div>      
 
         <div class="govuk-summary-list__row">
@@ -976,7 +955,7 @@ Apply to adopt a child
             Type of order
           </dt>
           <dd class="govuk-summary-list__value">
-            Exclusion order
+            Placement order
           </dd>
           <dd class="govuk-summary-list__actions">
             <a href="orders-order-type.html">
@@ -1005,12 +984,16 @@ Apply to adopt a child
 
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
-            Sibling name
+            Relationship
           </dt>
           <dd class="govuk-summary-list__value">
-            Freddie Mercury
+            Half brother
           </dd>
           <dd class="govuk-summary-list__actions">
+            <a href="sibling-relationship.html">
+              Change
+              <span class="govuk-visually-hidden">  sibling relationship</span>
+            </a>
           </dd>
         </div>      
 
@@ -1019,7 +1002,7 @@ Apply to adopt a child
             Type of order
           </dt>
           <dd class="govuk-summary-list__value">
-            Something order
+            Care order
           </dd>
           <dd class="govuk-summary-list__actions">
             <a href="orders-order-type.html">
@@ -1049,29 +1032,6 @@ Apply to adopt a child
       {% endif %}
 
 
-        <!-- **************** Choose your family court **************** -->
-        <h2 class="govuk-heading-m">Family court details</h2>
-        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
-
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              Family court name
-            </dt>
-            <dd class="govuk-summary-list__value">
-              {%if data['court-name'] %}
-                {{ data['court-name'] }}
-              {% else %}
-                Bromley Family Court
-              {% endif %}
-            </dd>
-            <dd class="govuk-summary-list__actions">
-              <a href="family-court-finder.html">
-                Change
-                <span class="govuk-visually-hidden"> family court name</span>
-              </a>
-            </dd>
-          </div>
-        </dl>
 
     
         <!-- **************** Uploads **************** -->
@@ -1088,7 +1048,7 @@ Apply to adopt a child
               <br>birthcertificate.png
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a href="../upload/child-documents-upload.html">
+              <a href="upload.html">
                 Change
                 <span class="govuk-visually-hidden"> uploaded child's documents</span>
               </a>
@@ -1103,7 +1063,7 @@ Apply to adopt a child
               Death certificate
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a href="../upload/child-documents-upload.html">
+              <a href="upload.html">
                 Change
                 <span class="govuk-visually-hidden"> documents not uploaded</span>
               </a>
