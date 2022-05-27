@@ -636,7 +636,7 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
         href: '#sibling'
         })
       }
-      else if (req.body['sibling-exists'] === 'unsure' && req.body['reason-not-sure'] === '') {
+      else if (req.body['sibling-exists'] === 'Not sure' && req.body['reason-not-sure'] === '') {
         errors.push({
         text: 'Enter more detail',
         href: '#sibling-no-reason'
@@ -645,7 +645,7 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
   
       if (req.body['submit-button'] === 'save-and-continue') {
         if (errors.length === 0) {
-          if (req.body['sibling-exists'] === 'yes') {
+          if (req.body['sibling-exists'] === 'Yes') {
             req.session.data.siblingStatus = 'in progress'
             res.redirect('/r2/children/sibling-court-order-exists')
           }
@@ -673,16 +673,16 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
         href: '#court-order-checkbox'
         })
       }
-      else if (req.body['sibling-court-order-exists'] === 'unsure' && req.body['reason-not-sure'] === '') {
-        errors.push({
-        text: 'Enter more detail',
-        href: '#sibling-court-order-no-reason'
-        })
-      }
+      // else if (req.body['sibling-court-order-exists'] === 'Not sure' && req.body['reason-not-sure'] === '') {
+      //   errors.push({
+      //   text: 'Enter more detail',
+      //   href: '#sibling-court-order-no-reason'
+      //   })
+      // }
   
       if (req.body['submit-button'] === 'save-and-continue') {
         if (errors.length === 0) {
-          if (req.body['sibling-court-order-exists'] === 'yes') {
+          if (req.body['sibling-court-order-exists'] === 'Yes') {
             req.session.data.siblingStatus = 'in progress'
             res.redirect('/r2/children/sibling-relationship')
           }
@@ -3652,7 +3652,7 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
         href: '#sibling'
         })
       }
-      else if (req.body['sibling-exists'] === 'unsure' && req.body['reason-not-sure'] === '') {
+      else if (req.body['sibling-exists'] === 'Not sure' && req.body['reason-not-sure'] === '') {
         errors.push({
         text: 'Enter more detail',
         href: '#sibling-no-reason'
@@ -3661,7 +3661,7 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
   
       if (req.body['submit-button'] === 'save-and-continue') {
         if (errors.length === 0) {
-          if (req.body['sibling-exists'] === 'yes') {
+          if (req.body['sibling-exists'] === 'Yes') {
             req.session.data.siblingStatus = 'in progress'
             res.redirect('/r2/la-portal/sibling-court-order-exists')
           }
@@ -3689,7 +3689,7 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
         href: '#court-order-checkbox'
         })
       }
-      else if (req.body['sibling-court-order-exists'] === 'unsure' && req.body['reason-not-sure'] === '') {
+      else if (req.body['sibling-court-order-exists'] === 'Not sure' && req.body['reason-not-sure'] === '') {
         errors.push({
         text: 'Enter more detail',
         href: '#sibling-court-order-no-reason'
@@ -3698,7 +3698,7 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
   
       if (req.body['submit-button'] === 'save-and-continue') {
         if (errors.length === 0) {
-          if (req.body['sibling-court-order-exists'] === 'yes') {
+          if (req.body['sibling-court-order-exists'] === 'Yes') {
             req.session.data.siblingStatus = 'in progress'
             res.redirect('/r2/la-portal/sibling-relationship')
           }
