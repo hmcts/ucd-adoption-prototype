@@ -3315,7 +3315,7 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
         req.session.data.childOrderNumber[count] = req.body['placement-case-number']
         req.session.data.childOrderCompleted[count] = "No"
         req.session.data.childOrderInProgress = "Yes"
-        res.redirect('/r2/la-portal/orders-placement-court')
+        res.redirect('/r2/la-portal/orders-placement-date')
       }
       else {
         res.render('.//r2/la-portal/orders-placement-case-number', { errors: errors })
