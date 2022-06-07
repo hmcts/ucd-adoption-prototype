@@ -2292,8 +2292,45 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
 // ******************************************** SECTION 3. CHILDREN ********************************************
 // ************************************************************************************************************************************
 
-   // ********************** Child's details **********************
+  router.post('/r2/la-portal/access-questions', function(req, res) {
+    // console.log("Day: ", req.body['day'])
+    var errors = []
+    if (req.body['case-reference'] === '') {
+      errors.push({
+      text: 'Enter a case reference',
+      href: '#reference'
+      })
+    }
+
+    if (req.body['ref-child-full-name'] === '') {
+      errors.push({
+      text: 'Enter a full name',
+      href: '#childName'
+      })
+    }
     
+    if (req.body['ref-child-birth-day'] === '' || req.body['ref-child-birth-month'] === '' || req.body['ref-child-birth-year'] === '') {
+      errors.push({
+      text: 'Developers: please refer to ADOP-203 for different error messages',
+      href: '#dob'
+      })
+    }    
+    
+    if (req.body['submit-button'] === 'save-and-continue') {
+      if (errors.length === 0) {
+        req.session.data.adoptionCertificateStatus = 'completed'
+        res.redirect('/r2/la-portal/start-page')
+      }
+      else {
+        res.render('./r2/la-portal/access-questions', { errors: errors })
+      }
+    }
+  })
+
+
+
+
+   // ********************** Child's details **********************    
   router.post('/r2/la-portal/child-sex', function(req, res) {
     var errors = []
     if (req.body['child-sex'] === undefined) {
@@ -4179,6 +4216,16 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
       }
       else {
         res.render('.//r2/la-portal/sibling-remove-order-court', { errors: errors })
+      }
+    })
+  
+    router.post('/r2/la-portal/upload', function(req, res) {
+      if (req.body['submit-button'] === 'save-and-continue') {
+        req.session.data.childUpload = 1
+        res.redirect('/r2/la-portal/task-list')
+      }
+      else {
+        res.redirect('/r2/save-as-draft')
       }
     })
   
