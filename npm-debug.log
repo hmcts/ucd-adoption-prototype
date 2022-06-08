@@ -1,0 +1,23 @@
+0 info it worked if it ends with ok
+1 verbose cli [
+1 verbose cli   '/Users/jaypreetaujla/.nvm/versions/node/v16.15.0/bin/node',
+1 verbose cli   '/Users/jaypreetaujla/.nvm/versions/node/v16.15.0/bin/npm',
+1 verbose cli   'install'
+1 verbose cli ]
+2 info using npm@3.10.10
+3 info using node@v16.15.0
+4 silly loadCurrentTree Starting
+5 silly install loadCurrentTree
+6 silly install readLocalPackageData
+7 verbose stack TypeError: cb.apply is not a function
+7 verbose stack     at /Users/jaypreetaujla/.nvm/versions/node/v16.15.0/lib/node_modules/npm/node_modules/graceful-fs/polyfills.js:267:18
+7 verbose stack     at FSReqCallback.oncomplete (node:fs:199:5)
+8 verbose cwd /Users/jaypreetaujla/Documents/Prototypes/ucd-adoption-prototype
+9 error Darwin 21.5.0
+10 error argv "/Users/jaypreetaujla/.nvm/versions/node/v16.15.0/bin/node" "/Users/jaypreetaujla/.nvm/versions/node/v16.15.0/bin/npm" "install"
+11 error node v16.15.0
+12 error npm  v3.10.10
+13 error cb.apply is not a function
+14 error If you need help, you may report this error at:
+14 error     <https://github.com/npm/npm/issues>
+15 verbose exit [ 1, true ]
