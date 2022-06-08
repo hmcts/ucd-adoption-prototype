@@ -703,9 +703,9 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
   
     router.post('/r2/children/sibling-relationship', function(req, res) {
       var errors = []
-      if (req.body['sibling-relationship'] === '') {
+      if (req.body['sibling-relationship'] === undefined) {
         errors.push({
-        text: 'Enter the relationship',
+        text: 'Please answer the question',
         href: '#relationship'
         })
       }
