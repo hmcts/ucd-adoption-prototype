@@ -702,6 +702,7 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
   
   
     router.post('/r2/children/sibling-relationship', function(req, res) {
+      console.log("Sibling relationship", req.body['sibling-relationship'])
       var errors = []
       if (req.body['sibling-relationship'] === undefined) {
         errors.push({
@@ -714,6 +715,7 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
   
       if (req.body['submit-button'] === 'save-and-continue') {
         if (errors.length === 0) {
+          console.log("Sibling relationship", req.body['sibling-relationship'])
           req.session.data.siblingOrderId[count] = count
           req.session.data.siblingRelationship[count] = req.body['sibling-relationship']
           req.session.data.siblingOrderCount++
@@ -3756,9 +3758,9 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
   
     router.post('/r2/la-portal/sibling-relationship', function(req, res) {
       var errors = []
-      if (req.body['sibling-relationship'] === '') {
+      if (req.body['sibling-relationship'] === undefined) {
         errors.push({
-        text: 'Enter the relationship',
+        text: 'Please select an answer',
         href: '#relationship'
         })
       }
