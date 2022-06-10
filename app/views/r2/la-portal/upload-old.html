@@ -16,7 +16,7 @@ Apply to adopt a child
         <h1 class="govuk-heading-l">
           Upload the child's documents
         </h1>
-        <form action="/r2/la-portal/upload" method="post" class="form">
+        <form action="/r2/upload/child-documents-upload" method="post" class="form">
           <p class="govuk-body">You need to upload a file, digital photo or scan the child's documents, if relevant such as:</p>
           <ul class="govuk-list govuk-list--bullet">
             <li>death certificates of birth parents</li>
@@ -125,15 +125,8 @@ Apply to adopt a child
                       </div>
 
                       <div class="govuk-checkboxes__item">
-                        <input class="govuk-checkboxes__input" id="annex-a" name="cant-upload" type="checkbox" value="annex-a"  {{ checked("cant-upload", "Annex A") }}>
-                        <label class="govuk-label govuk-checkboxes__label" for="cant-upload-2">
-                          Annex A
-                        </label>
-                      </div>
-
-                      <div class="govuk-checkboxes__item">
                         <input class="govuk-checkboxes__input" id="death-certificate" name="cant-upload" type="checkbox" value="death-certificate"  {{ checked("cant-upload", "My original foreign marriage certificate") }}>
-                        <label class="govuk-label govuk-checkboxes__label" for="cant-upload-3">
+                        <label class="govuk-label govuk-checkboxes__label" for="cant-upload-2">
                           Death certificate
                         </label>
                       </div>
@@ -153,7 +146,7 @@ Apply to adopt a child
             </div>
           </div>
           <!-- Buttons -->
-          {% include "../../includes/buttons-laportal.html" %}
+          {% include "../../includes/buttons.html" %}
 
         </form>
           {% include "../../includes/contactforhelp.html" %}
