@@ -1,4 +1,4 @@
-{% extends "layout-signed-in.html" %}
+{% extends "layout-la-portal.html" %}
 
 {% block pageTitle %}
 Apply to adopt a father
@@ -41,9 +41,9 @@ Apply to adopt a father
               What is the full name of the other person with parental responsibility?
             </h1>
           </legend>
-          <div id="namehint" class="govuk-hint">
+          <!-- <div id="namehint" class="govuk-hint">
             If you are not sure, ask your social worker or adoption agency for help.
-          </div>
+          </div> -->
 
           <div class="govuk-form-group {% if (firstNamesError != '') %} govuk-form-group--error{% endif %}">
             <label class="govuk-label" for="firstNames">

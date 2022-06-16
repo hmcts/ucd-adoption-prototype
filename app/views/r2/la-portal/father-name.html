@@ -1,4 +1,4 @@
-{% extends "layout-signed-in.html" %}
+{% extends "layout-la-portal.html" %}
 
 {% block pageTitle %}
 Apply to adopt a child
@@ -41,9 +41,9 @@ Apply to adopt a child
               What is the full name of the child's birth father?
             </h1>
           </legend>
-          <div id="namehint" class="govuk-hint">
+          <!-- <div id="namehint" class="govuk-hint">
             This will be on the child's full birth certificate. Ask the adoption agency or social worker if you're not sure.
-          </div>
+          </div> -->
 
           <div class="govuk-form-group {% if (firstNamesError != '') %} govuk-form-group--error{% endif %}">
             <label class="govuk-label" for="firstNames">

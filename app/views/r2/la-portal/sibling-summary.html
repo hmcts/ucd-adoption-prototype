@@ -1,4 +1,4 @@
-{% extends "layout-signed-in.html" %}
+{% extends "layout-la-portal.html" %}
 
 {% block pageTitle %}
 Apply to adopt a child
@@ -74,9 +74,9 @@ Apply to adopt a child
               <legend class="govuk-fieldset__legend govuk-fieldset__legend govuk-fieldset__legend--m">
                 Do you want to add another order?
               </legend>
-              <div id="sibling-add-another-hint" class="govuk-hint">
+              <!-- <div id="sibling-add-another-hint" class="govuk-hint">
                 For example, a care order or supervision order.
-              </div>
+              </div> -->
               {% if (summaryError != '')%}
               <span class="govuk-error-message govuk-form">
                 <span class="govuk-visually-hidden">Error:</span> {{ summaryError }}

@@ -1,4 +1,4 @@
-{% extends "layout-signed-in.html" %}
+{% extends "layout-la-portal.html" %}
 
 {% block pageTitle %}
 Task list
@@ -27,7 +27,7 @@ Task list
                 <!-- <p><strong>First child</strong></p><-->
                 <li class="app-task-list__item">
                     <span class="app-task-list__task-name">
-                  <a href="child-date-birth.html" aria-describedby="eligibility-completed">
+                  <a href="child-sex.html" aria-describedby="eligibility-completed">
                         Birth certificate details
                     </a></span>
                     {% if data['childDetailsStatus'] === 'completed' %}
@@ -128,7 +128,7 @@ Task list
 
                 <li class="app-task-list__item">
                     <span class="app-task-list__task-name">
-                        <a href="child-documents-upload.html">
+                        <a href="upload.html">
                             Upload documents
                         </a>
                     </span>
@@ -170,11 +170,13 @@ Task list
             </ul>
           </li> -->
 
-
             </ol>
-            <button class="govuk-button" data-module="govuk-button">
-                Submit application
-            </button>
+
+            <form action="/r2/la-portal/check-your-answers" method="post" class="form">
+                <button class="govuk-button" data-module="govuk-button">
+                    Review and submit
+                </button>
+            </form>
     
 
   </div>

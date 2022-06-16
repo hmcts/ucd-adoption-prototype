@@ -1,4 +1,4 @@
-{% extends "layout-signed-in.html" %}
+{% extends "layout-la-portal.html" %}
 
 {% block pageTitle %}
 Apply to adopt a child
@@ -38,9 +38,9 @@ Apply to adopt a child
             Is the birth father's name on the birth certificate?
           </h1>
         </legend>
-        <div id="certficatehint" class="govuk-hint">
+        <!-- <div id="certficatehint" class="govuk-hint">
           Ask the adoption agency or social worker if you're not sure.
-        </div>
+        </div> -->
         {% if (certificateError != '')%}
           <span class="govuk-error-message govuk-form">
             <span class="govuk-visually-hidden">Error:</span> {{ certificateError }}

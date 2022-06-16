@@ -1,4 +1,4 @@
-{% extends "layout-signed-in.html" %}
+{% extends "layout-la-portal.html" %}
 
 {% block pageTitle %}
 Apply to adopt a child
@@ -38,9 +38,9 @@ Apply to adopt a child
             What is the occupation of the child's birth mother?
           </h1>
           </legend>
-          <div id="occupationhint" class="govuk-hint">
+          <!-- <div id="occupationhint" class="govuk-hint">
             Ask the adoption agency or social worker if you're not sure. If the occupation is not known, you can type 'unknown'. 
-          </div>
+          </div> -->
 
           {% if (occupationError != '')%}
           <span id="name-error" class="govuk-error-message">

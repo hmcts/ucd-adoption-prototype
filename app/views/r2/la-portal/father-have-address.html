@@ -1,4 +1,4 @@
-{% extends "layout-signed-in.html" %}
+{% extends "layout-la-portal.html" %}
 
 {% block pageTitle %}
 Apply to adopt a child
@@ -42,9 +42,9 @@ Apply to adopt a child
             Do you have the birth father's last known address?
           </h1>
         </legend>
-        <div id="namehint" class="govuk-hint">
+        <!-- <div id="namehint" class="govuk-hint">
           Ask the adoption agency or social worker if you're not sure.
-        </div>
+        </div> -->
 
         {% if (haveAddressError != '')%}
           <span class="govuk-error-message govuk-form">
