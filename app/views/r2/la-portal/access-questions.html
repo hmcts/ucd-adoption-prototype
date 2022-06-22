@@ -64,7 +64,7 @@ Apply to adopt a child
           <div class="govuk-form-group {% if (childNameError != '') %} govuk-form-group--error{% endif %}">
             <label class="govuk-label" for="phone-number">
             Full name
-            </label>  
+            </label>
             {% if childNameError != '' %}
             <span id="contact-error" class="govuk-error-message">
               <span class="govuk-visually-hidden">Error:</span> {{ childNameError }}
@@ -76,18 +76,18 @@ Apply to adopt a child
           <div class="govuk-form-group  {% if (dobError != '')%} govuk-form-group--error {% endif%}">
             <label class="govuk-label" for="phone-number">
             Date of birth
-            </label>  
+            </label>
           <div id="date-of-birth-hint" class="govuk-hint">
             For example, 31 3 2012.
           </div>
-  
-  
+
+
             {% if (dobError != '')%}
             <span id="national-insurance-number-error" class="govuk-error-message">
               <span class="govuk-visually-hidden">Error:</span> {{ dobError }}
             </span>
             {% endif%}
-  
+
             <div class="govuk-date-input" id="dob">
               <div class="govuk-date-input__item">
                 <div class="govuk-form-group">
@@ -110,13 +110,18 @@ Apply to adopt a child
                   </label>
                   <input class="govuk-input govuk-date-input__input govuk-input--width-4 {% if (dobError != '')%} govuk-input--error {% endif%}" id="year" name="ref-child-birth-year" type="text" pattern="[0-9]*" inputmode="numeric" value="{{ data['ref-child-birth-year'] }}"></div>
               </div>
-  
+
           </div>
-  
+
         </fieldset>
 
         <!-- Buttons -->
         {% include "../../includes/buttons-laportal.html" %}
+        <div class="govuk-button-group govuk-!-margin-top-6">
+          <a href="/r2/la-portal/negative-scenario.html"  class="govuk-button">
+              Negative scenario
+          </a>
+          </div>
         </form>
          {% include "../../includes/contactforhelp.html" %}
       </div>
