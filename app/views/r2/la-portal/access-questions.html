@@ -48,9 +48,9 @@ Apply to adopt a child
           </div>
 
           <div class="govuk-form-group {% if (referenceError != '') %} govuk-form-group--error{% endif %}">
-            <h2 class="govuk-heading-m govuk-!-margin-bottom-1">Case reference number</h2>
+            <h2 class="govuk-heading-m govuk-!-margin-bottom-1">Court case reference number</h2>
             <div id="lahint" class="govuk-hint">
-              This number will be 16 digits long.
+               This is the 16 digit reference number that was on the email sent to you. Please insert the numbers only, without the hyphens.
             </div>
               {% if referenceError != '' %}
             <span id="contact-error" class="govuk-error-message">
@@ -63,7 +63,7 @@ Apply to adopt a child
           <h2 class="govuk-heading-m govuk-!-margin-bottom-1">Child named on the application</h2>
           <div class="govuk-form-group {% if (childNameError != '') %} govuk-form-group--error{% endif %}">
             <label class="govuk-label" for="phone-number">
-            Full name
+            Enter their name exactly as it is on their original birth certificate.
             </label>
             {% if childNameError != '' %}
             <span id="contact-error" class="govuk-error-message">
