@@ -2299,7 +2299,7 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
     var errors = []
     if (req.body['case-reference'] === '') {
       errors.push({
-      text: 'Enter a case reference',
+      text: 'Developers: please refer to ADOP-1020 for different error messages',
       href: '#reference'
       })
     }
@@ -2323,7 +2323,7 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
         req.session.data.adoptionCertificateStatus = 'completed'
         res.redirect('/r2/la-portal/start-page')
       }
-    
+
       else {
         res.render('./r2/la-portal/access-questions', { errors: errors })
       }
