@@ -1,0 +1,48 @@
+{% extends "layout-la-portal.html" %}
+
+{% block pageTitle %}
+Apply to adopt a child
+{% endblock %}
+
+{% block beforeContent %}
+<a class="govuk-back-link" href="javascript:history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-width-container">
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+
+
+      <form action="/r2/la-portal/negative-scenario" method="post" class="form">
+        <fieldset class="govuk-fieldset">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+            <h1 class="govuk-fieldset__heading">
+              There is a problem
+            </h1>
+          </legend>
+          <p class="govuk-body">Some of the information you have given does not match what is stored in our records. </p>
+            <p class="govuk-body">You should select the back link and check that spellings, dates and numbers are correct. </p>
+            <p class="govuk-body">If this error comes up after you have checked all your details then there might be a problem with the information provided by the applicants. In that case you should contact the caseworker:</p>
+
+  <p class="govuk-body">Contact: Name of service, eg CTSC </p>
+      <p class="govuk-body">Telephone: Telephone number</p>
+          <p class="govuk-body">Email: Email address</p>
+              <p class="govuk-body">Monday to Friday, 9am to 5pm</p>
+
+          </div>
+          </div>
+
+        </fieldset>
+
+  
+        </form>
+         {% include "../../includes/contactforhelp.html" %}
+      </div>
+    </div>
+  </main>
+</div>
+
+{% endblock %}
