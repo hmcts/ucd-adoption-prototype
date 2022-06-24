@@ -43,9 +43,7 @@ Apply to adopt a child
               Application details
             </h1>
           </legend>
-          <div id="lahint" class="govuk-hint">
-            You can find this information in the email notification you received.
-          </div>
+
 
           <div class="govuk-form-group {% if (referenceError != '') %} govuk-form-group--error{% endif %}">
             <h2 class="govuk-heading-m govuk-!-margin-bottom-1">Court case reference number</h2>
@@ -63,7 +61,7 @@ Apply to adopt a child
           <h2 class="govuk-heading-m govuk-!-margin-bottom-1">Child named on the application</h2>
           <div class="govuk-form-group {% if (childNameError != '') %} govuk-form-group--error{% endif %}">
             <label class="govuk-label" for="phone-number">
-            Enter their name exactly as it is on their original birth certificate.
+            Enter their name as it appears on the email sent to you.
             </label>
             {% if childNameError != '' %}
             <span id="contact-error" class="govuk-error-message">
@@ -74,9 +72,7 @@ Apply to adopt a child
           </div>
 
           <div class="govuk-form-group  {% if (dobError != '')%} govuk-form-group--error {% endif%}">
-            <label class="govuk-label" for="phone-number">
-            Date of birth
-            </label>
+            <h2 class="govuk-heading-m govuk-!-margin-bottom-1">Child's date of birth</h2>
           <div id="date-of-birth-hint" class="govuk-hint">
             For example, 31 3 2012.
           </div>
