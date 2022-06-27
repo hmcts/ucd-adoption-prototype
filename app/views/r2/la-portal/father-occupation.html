@@ -5,6 +5,13 @@ Apply to adopt a child
 {% endblock %}
 
 {% block beforeContent %}
+{% from "govuk/components/phase-banner/macro.njk" import govukPhaseBanner %}
+{{ govukPhaseBanner({
+  tag: {
+    text: "beta"
+  },
+  html: 'This is a new service – your <a class="govuk-link" href="https://www.smartsurvey.co.uk/s/Adoption_LA_Feedback/?pageurl=X">feedback</a> will help us to improve it.'
+}) }}
 <a class="govuk-back-link" href="javascript:history.back()">Back</a>
 {% endblock %}
 
@@ -38,7 +45,7 @@ Apply to adopt a child
             What is the occupation of the child's birth father?
           </h1>
           <!-- <div id="occupation-hint" class="govuk-hint">
-          Ask the adoption agency or social worker if you’re not sure. If the occupation is not known, you can type 'unknown'. 
+          Ask the adoption agency or social worker if you’re not sure. If the occupation is not known, you can type 'unknown'.
           </div> -->
           </legend>
 
