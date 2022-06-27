@@ -5,6 +5,13 @@ Apply to adopt a child
 {% endblock %}
 
 {% block beforeContent %}
+{% from "govuk/components/phase-banner/macro.njk" import govukPhaseBanner %}
+{{ govukPhaseBanner({
+  tag: {
+    text: "beta"
+  },
+  html: 'This is a new service – your <a class="govuk-link" href="https://www.smartsurvey.co.uk/s/Adoption_LA_Feedback/?pageurl=X">feedback</a> will help us to improve it.'
+}) }}
 <a class="govuk-back-link" href="javascript:history.back()">Back</a>
 {% endblock %}
 
@@ -74,21 +81,21 @@ Apply to adopt a child
               </label>
             </div>
 
-            <div class="govuk-radios__item"> 
+            <div class="govuk-radios__item">
               <input class="govuk-radios__input" id="Freeing" name="child-order-type" type="radio" value="Freeing order" {%if data['child-order-type'] == 'Freeing order' %} checked {% endif %}>
               <label class="govuk-label govuk-radios__label" for="Freeing">
                 Freeing order
               </label>
             </div>
 
-            <div class="govuk-radios__item"> 
+            <div class="govuk-radios__item">
               <input class="govuk-radios__input" id="Placement" name="child-order-type" type="radio" value="Placement order" {%if data['child-order-type'] == 'Placement order' %} checked {% endif %}>
               <label class="govuk-label govuk-radios__label" for="Placement">
                 Placement order
               </label>
             </div>
 
-            <div class="govuk-radios__item"> 
+            <div class="govuk-radios__item">
               <input class="govuk-radios__input" id="Supervision" name="child-order-type" type="radio" value="Supervision order"  {%if data['child-order-type'] == 'Supervision order' %} checked {% endif %}>
               <label class="govuk-label govuk-radios__label" for="Supervision">
                 Supervision order
@@ -112,12 +119,12 @@ Apply to adopt a child
                 </span>
                 {% endif %}
                 <input class="govuk-input govuk-!-width-two-thirds{% if (noOtherError != '') %} govuk-input--error{% endif %}" id="child-other-order" name="child-other-order" type="text" value="{{data['child-other-order']}}">
-              </div>          
+              </div>
             </div>
           </div>
-      
+
         </fieldset>
-      </div>          
+      </div>
 
           <!-- Buttons -->
           {% include "../../includes/buttons.html" %}

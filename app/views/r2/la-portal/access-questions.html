@@ -5,6 +5,13 @@ Apply to adopt a child
 {% endblock %}
 
 {% block beforeContent %}
+{% from "govuk/components/phase-banner/macro.njk" import govukPhaseBanner %}
+{{ govukPhaseBanner({
+  tag: {
+    text: "beta"
+  },
+  html: 'This is a new service – your <a class="govuk-link" href="https://www.smartsurvey.co.uk/s/Adoption_LA_Feedback/?pageurl=X">feedback</a> will help us to improve it.'
+}) }}
 <a class="govuk-back-link" href="javascript:history.back()">Back</a>
 {% endblock %}
 
@@ -46,7 +53,9 @@ Apply to adopt a child
 
 
           <div class="govuk-form-group {% if (referenceError != '') %} govuk-form-group--error{% endif %}">
+
             <h2 class="govuk-heading-m govuk-!-margin-bottom-1">Court case reference number</h2>
+
             <div id="lahint" class="govuk-hint">
                This is the 16 digit reference number that was on the email sent to you. Please insert the numbers only, without the hyphens.
             </div>
