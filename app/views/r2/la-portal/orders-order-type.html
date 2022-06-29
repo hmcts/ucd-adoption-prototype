@@ -49,9 +49,9 @@ Apply to adopt a child
             What type of order is it?
           </h1>
           </legend>
-          <!-- <div id="case-hint" class="govuk-hint">
-            This is on the top right of the order. Ask the adoption agency or social worker if you're not sure.
-          </div> -->
+          <div id="case-hint" class="govuk-hint">
+          This information makes it easier for the court to link past court orders.
+          </div>
 
           {% if (typeError != '')%}
           <span id="number-error" class="govuk-error-message">
@@ -59,39 +59,36 @@ Apply to adopt a child
           </span>
           {% endif%}
 
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="Care" name="child-order-type" type="radio" value="Care order" {%if data['child-order-type'] == 'Care order' %} checked {% endif %}>
+            <label class="govuk-label govuk-radios__label" for="Care">
+              Care order
+            </label>
+          </div>
+          
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="Contact" name="child-order-type" type="radio" value="Contact order" {%if data['child-order-type'] == 'Contact order' %} checked {% endif %}>
+            <label class="govuk-label govuk-radios__label" for="Contact">
+              Child arrangements order
+            </label>
+          </div>
+
+
           <div class="govuk-radios" data-module="govuk-radios">
             <div class="govuk-radios__item">
               <input class="govuk-radios__input" id="Adoption" name="child-order-type" type="radio" value="Adoption order" {%if data['child-order-type'] == 'Adoption order' %} checked {% endif %}>
               <label class="govuk-label govuk-radios__label" for="Adoption">
-                Adoption order
+                Previous adoption order
               </label>
             </div>
 
-            <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="Care" name="child-order-type" type="radio" value="Care order" {%if data['child-order-type'] == 'Care order' %} checked {% endif %}>
-              <label class="govuk-label govuk-radios__label" for="Care">
-                Care order
-              </label>
-            </div>
 
-            <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="Contact" name="child-order-type" type="radio" value="Contact order" {%if data['child-order-type'] == 'Contact order' %} checked {% endif %}>
-              <label class="govuk-label govuk-radios__label" for="Contact">
-                Contact order
-              </label>
-            </div>
 
-            <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="Freeing" name="child-order-type" type="radio" value="Freeing order" {%if data['child-order-type'] == 'Freeing order' %} checked {% endif %}>
-              <label class="govuk-label govuk-radios__label" for="Freeing">
-                Freeing order
-              </label>
-            </div>
 
             <div class="govuk-radios__item">
               <input class="govuk-radios__input" id="Placement" name="child-order-type" type="radio" value="Placement order" {%if data['child-order-type'] == 'Placement order' %} checked {% endif %}>
               <label class="govuk-label govuk-radios__label" for="Placement">
-                Placement order
+                Previous placement order
               </label>
             </div>
 
