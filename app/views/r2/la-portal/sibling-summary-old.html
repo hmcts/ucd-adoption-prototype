@@ -39,12 +39,9 @@ Apply to adopt a child
         {% for id in data['siblingOrderId'] %}
                   
         <div class="govuk-summary-list__row">
-          <dd class="govuk-summary-list__actions govuk-!-text-align-left">
-            {{ data['siblingOrderNumber'][id]}}
-          </dd>
-          <dd class="govuk-summary-list__value govuk-!-text-align-right">
+          <dt class="govuk-summary-list__value govuk-!-text-align-left">
             {{ data['siblingRelationship'][id]}}
-          </dd>
+          </dt>
           <dd class="govuk-summary-list__actions govuk-!-text-align-left">
             {{ data['siblingOrderType'][id]}}
           </dd>
@@ -75,7 +72,7 @@ Apply to adopt a child
           <div class="govuk-form-group  {% if (summaryError != '')%} govuk-form-group--error {% endif %}">
             <fieldset class="govuk-fieldset" aria-describedby="sibling-add-another-hint">
               <legend class="govuk-fieldset__legend govuk-fieldset__legend govuk-fieldset__legend--m">
-                Do you want to add another order for the same or another sibling?
+                Do you want to add another order?
               </legend>
               <!-- <div id="sibling-add-another-hint" class="govuk-hint">
                 For example, a care order or supervision order.
