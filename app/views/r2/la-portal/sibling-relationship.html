@@ -5,6 +5,13 @@ Sibling name
 {% endblock %}
 
 {% block beforeContent %}
+{% from "govuk/components/phase-banner/macro.njk" import govukPhaseBanner %}
+{{ govukPhaseBanner({
+  tag: {
+    text: "beta"
+  },
+  html: 'This is a new service – your <a class="govuk-link" href="https://www.smartsurvey.co.uk/s/Adoption_LA_Feedback/?pageurl=X">feedback</a> will help us to improve it.'
+}) }}
 <a class="govuk-back-link" href="javascript:history.back()">Back</a>
 {% endblock %}
 
@@ -69,21 +76,21 @@ Sibling name
                   </label>
                 </div> -->
 
-                <div class="govuk-radios__item"> 
+                <div class="govuk-radios__item">
                   <input class="govuk-radios__input" id="Brother" name="sibling-relationship" type="radio" value="Brother">
                   <label class="govuk-label govuk-radios__label" for="Brother">
                     Brother
                   </label>
                 </div>
 
-                <div class="govuk-radios__item"> 
+                <div class="govuk-radios__item">
                   <input class="govuk-radios__input" id="Half-brother" name="sibling-relationship" type="radio" value="Half-brother">
                   <label class="govuk-label govuk-radios__label" for="Half-brother">
                     Half-brother
                   </label>
                 </div>
 
-                <!-- <div class="govuk-radios__item"> 
+                <div class="govuk-radios__item">
                   <input class="govuk-radios__input" id="Step-brother" name="sibling-relationship" type="radio" value="Step-brother">
                   <label class="govuk-label govuk-radios__label" for="Step-brother">
                     Step-brother
@@ -107,13 +114,13 @@ Sibling name
                     </span>
                     {% endif %}
                     <input class="govuk-input govuk-!-width-two-thirds{% if (noOtherError != '') %} govuk-input--error{% endif %}" id="sibling-other-order" name="sibling-other-order" type="text">
-                  </div>          
+                  </div>
                 </div> -->
               </div>
-          
+
             </fieldset>
-          </div>          
-  
+          </div>
+
         <!-- Buttons -->
         {% include "../../includes/buttons.html" %}
       </form>

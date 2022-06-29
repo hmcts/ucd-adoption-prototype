@@ -393,7 +393,7 @@ router.post('/r2/la-portal/save-as-draft', function(req, res) {
     }
 
     req.session.data.agencyStatus = 'in progress'
-    
+
     if (req.body['submit-button'] === 'save-and-continue') {
       if (errors.length === 0) {
         res.redirect('/r2/application/applicant-other-adoption-agency')
@@ -534,7 +534,7 @@ router.post('/r2/la-portal/save-as-draft', function(req, res) {
     }
 
     req.session.data.agencyStatus = 'in progress'
-  
+
     if (req.body['submit-button'] === 'save-and-continue') {
       if (errors.length === 0) {
         res.redirect('/r2/application/local-authority-details')
@@ -642,7 +642,7 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
         href: '#sibling-no-reason'
         })
       }
-  
+
       if (req.body['submit-button'] === 'save-and-continue') {
         if (errors.length === 0) {
           if (req.body['sibling-exists'] === 'Yes') {
@@ -662,8 +662,8 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
           res.redirect('/r2/save-as-draft')
       }
     })
-  
-  
+
+
     router.post('/r2/children/sibling-court-order-exists', function(req, res) {
       console.log("sibling: ", req.body['sibling-court-order-exists'])
       var errors = []
@@ -679,7 +679,7 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
       //   href: '#sibling-court-order-no-reason'
       //   })
       // }
-  
+
       if (req.body['submit-button'] === 'save-and-continue') {
         if (errors.length === 0) {
           if (req.body['sibling-court-order-exists'] === 'Yes') {
@@ -699,8 +699,8 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
           res.redirect('/r2/save-as-draft')
       }
     })
-  
-  
+
+
     router.post('/r2/children/sibling-relationship', function(req, res) {
       console.log("Sibling relationship", req.body['sibling-relationship'])
       var errors = []
@@ -710,9 +710,9 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
         href: '#relationship'
         })
       }
-      
+
       count = req.session.data.siblingOrderCount
-  
+
       if (req.body['submit-button'] === 'save-and-continue') {
         if (errors.length === 0) {
           console.log("Sibling relationship", req.body['sibling-relationship'])
@@ -729,8 +729,8 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
         res.redirect('/r2/save-as-draft')
       }
     })
-  
-  
+
+
     router.post('/r2/children/sibling-change-relationship', function(req, res) {
       var errors = []
       if (req.body['sibling-relationship'] === '') {
@@ -739,9 +739,9 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
         href: '#relationship'
         })
       }
-      
+
       count = req.session.data.siblingOrderCount
-      
+
       if (errors.length === 0) {
         req.session.data.uniqueSiblingFirstNames[sib] = req.body['sibling-relationship']
         res.redirect('/r2/children/sibling-summary')
@@ -750,8 +750,8 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
         res.render('.//r2/children/sibling-change-relationship', { errors: errors })
       }
     })
-  
-  
+
+
     router.post('/r2/children/sibling-order-type', function(req, res) {
       var errors = []
       if (req.body['sibling-order-type'] === undefined) {
@@ -760,15 +760,15 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
         href: '#order-type'
         })
       }
-  
+
       if (req.body['sibling-order-type'] === "other" && req.body['sibling-other-order'] === "") {
         errors.push({
         text: 'Please select an answer',
         href: '#other-order'
         })
       }
-  
-  
+
+
       if (req.body['submit-button'] === 'save-and-continue') {
         if (errors.length === 0) {
           req.session.data.siblingOrderType[count] = req.body['sibling-order-type']
@@ -783,8 +783,8 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
         res.redirect('/r2/save-as-draft')
       }
     })
-  
-  
+
+
     router.post('/r2/children/sibling-change-order-type', function(req, res) {
       var errors = []
       if (req.body['sibling-new-order-type'] === undefined) {
@@ -793,14 +793,14 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
         href: '#order-type'
         })
       }
-  
+
       if (req.body['sibling-new-order-type'] === "other" && req.body['sibling-new-other-order'] === "") {
         errors.push({
         text: 'Please select an answer',
         href: '#other-order'
         })
       }
-  
+
       if (errors.length === 0) {
         req.session.data.siblingOrderType[req.body['sibling-id']] = req.body['sibling-new-order-type']
         res.redirect('/r2/children/sibling-check-your-answers')
@@ -809,9 +809,9 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
         res.render('.//r2/children/sibling-change-order-type', { errors: errors })
       }
     })
-  
-  
-  
+
+
+
     router.post('/r2/children/sibling-order-case-number', function(req, res) {
       var errors = []
       if (req.body['sibling-order-case-number'] === '') {
@@ -820,7 +820,7 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
         href: '#case-number'
         })
       }
-  
+
       if (req.body['submit-button'] === 'save-and-continue') {
         if (errors.length === 0) {
           req.session.data.siblingOrderNumber[count] = req.body['sibling-order-case-number']
@@ -838,8 +838,8 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
         res.redirect('/r2/save-as-draft')
       }
     })
-  
-  
+
+
     router.post('/r2/children/sibling-change-order-case-number', function(req, res) {
       var errors = []
       if (req.body['sibling-new-case-number'] === '') {
@@ -850,7 +850,7 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
       }
       console.log(req.session.data.siblingOrderType[req.body['sibling-id']])
       console.log(req.body['sibling-new-case-number'])
-  
+
       if (errors.length === 0) {
         req.session.data.siblingOrderNumber[req.body['sibling-id']] = req.body['sibling-new-case-number']
         res.redirect('/r2/children/sibling-check-your-answers')
@@ -859,8 +859,8 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
         res.render('.//r2/children/sibling-change-case-number', { errors: errors })
       }
     })
-  
-  
+
+
     router.post('/r2/children/sibling-order-court', function(req, res) {
       var errors = []
       if (req.body['sibling-order-court-name'] === '') {
@@ -869,7 +869,7 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
         href: '#order-court-name'
         })
       }
-  
+
       arrayLength = req.session.data.siblingOrderId.length
       if (arrayLength == 1) {
         count = 0
@@ -877,7 +877,7 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
       else {
         count = req.session.data.siblingOrderId.length - 1
       }
-  
+
       if (req.body['submit-button'] === 'save-and-continue') {
         if (errors.length === 0) {
           req.session.data.siblingOrderCourt[count] = req.body['sibling-order-court-name']
@@ -891,8 +891,8 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
         res.redirect('/r2/save-as-draft')
       }
     })
-  
-  
+
+
     router.post('/r2/children/sibling-change-order-court', function(req, res) {
       var errors = []
       if (req.body['sibling-new-court-name'] === '') {
@@ -903,7 +903,7 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
       }
       console.log(req.session.data.siblingOrderType[req.body['sibling-id']])
       console.log(req.body['sibling-new-court-name'])
-  
+
       if (errors.length === 0) {
         req.session.data.siblingOrderCourt[req.body['sibling-id']] = req.body['sibling-new-court-name']
         res.redirect('/r2/children/sibling-check-your-answers')
@@ -912,8 +912,8 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
         res.render('.//r2/children/sibling-change-court', { errors: errors })
       }
     })
-  
-  
+
+
     router.post('/r2/children/sibling-order-date', function(req, res) {
       var errors = []
       if (req.body['sibling-day'] === '' || req.body['sibling-month'] === '' || req.body['sibling-year'] === '') {
@@ -922,7 +922,7 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
         href: '#order-date'
         })
       }
-  
+
       arrayLength = req.session.data.siblingOrderId.length
       if (arrayLength == 1) {
         count = 0
@@ -930,7 +930,7 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
       else {
         count = req.session.data.siblingOrderId.length - 1
       }
-  
+
       if (req.body['submit-button'] === 'save-and-continue') {
         if (errors.length === 0) {
           req.session.data.siblingOrderIncomplete = 0
@@ -940,7 +940,7 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
           req.session.data.siblingOrderCompleted[count] = "Yes"
           res.redirect('/r2/children/sibling-summary')
   //        req.session.data.siblingOrderCount = req.session.data.siblingOrderCount + 1
-  
+
         }
         else {
           res.render('.//r2/children/sibling-order-date', { errors: errors })
@@ -950,8 +950,8 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
         res.redirect('/r2/save-as-draft')
       }
     })
-  
-  
+
+
     router.post('/r2/children/sibling-change-order-date', function(req, res) {
       var errors = []
       if (req.body['sibling-day'] === '' || req.body['sibling-month'] === '' || req.body['sibling-year'] === '') {
@@ -960,7 +960,7 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
         href: '#order-date'
         })
       }
-  
+
       if (errors.length === 0) {
         req.session.data.siblingOrderDay[req.body['sibling-id']] = req.body['sibling-day']
         req.session.data.siblingOrderMonth[req.body['sibling-id']] = req.body['sibling-month']
@@ -971,8 +971,8 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
         res.render('.//r2/children/sibling-change-order-date', { errors: errors })
       }
     })
-  
-  
+
+
     router.post('/r2/children/sibling-summary', function(req, res) {
       var errors = []
       if (req.body['sibling-add-another'] === undefined) {
@@ -981,7 +981,7 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
         href: '#sibling-add-another'
         })
       }
-  
+
       if (req.body['submit-button'] === 'continue') {
         res.redirect('/r2/children/sibling-summary')
       }
@@ -1008,9 +1008,9 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
           res.redirect('/r2/save-as-draft')
       }
     })
-  
-  
-  
+
+
+
     router.post('/r2/children/sibling-choose-sibling', function(req, res) {
       var errors = []
       if (req.body['what-sibling'] === undefined) {
@@ -1033,11 +1033,11 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
           })
         }
       }
-  
+
       count = req.session.data.siblingOrderId.length
       sib = req.session.data.numberOfSiblings
       id = req.body['what-sibling']
-  
+
       if (req.body['submit-button'] === 'save-and-continue') {
         if (errors.length === 0) {
           if (req.body['what-sibling'] === 'add-new-sibling') {
@@ -1074,9 +1074,9 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
       console.log("count: ", count)
       console.log("id: ", id)
     })
-  
-  
-  
+
+
+
     router.post('/r2/children/sibling-remove-court-order', function(req, res) {
       var occ = 0
       var errors = []
@@ -1086,13 +1086,13 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
         href: '#remove-court-order'
         })
       }
-  
+
       id = req.body['order-id']
       fn = req.session.data.siblingFirstNames[id]
       ln = req.session.data.siblingLastNames[id]
       console.log("order-id: ",id)
       console.log("count: ",req.session.data.siblingOrderCount)
-  
+
       if (errors.length === 0) {
         for (let index = 0; index < req.session.data.siblingOrderId.length; index++) {
           if (req.session.data.siblingOrderId[index] == id) {
@@ -1135,7 +1135,7 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
             }
           }
         }
-  
+
         if (req.session.data.siblingOrderCount > 0) {
           res.redirect('/r2/children/sibling-summary')
         }
@@ -1147,8 +1147,8 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
         res.render('.//r2/children/sibling-remove-order-court', { errors: errors })
       }
     })
-  
-  
+
+
 
 
 
@@ -1892,7 +1892,7 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
     }
   })
 
-  
+
   router.post('/r2/applicants/second-applicant-language-selector', function(req, res) {
     var errors = []
     if (req.body['second-applicant-language-selector'] === undefined) {
@@ -2299,7 +2299,7 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
     var errors = []
     if (req.body['case-reference'] === '') {
       errors.push({
-      text: 'Enter a case reference',
+      text: 'Developers: please refer to ADOP-1020 for different error messages',
       href: '#reference'
       })
     }
@@ -2310,19 +2310,20 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
       href: '#childName'
       })
     }
-    
+
     if (req.body['ref-child-birth-day'] === '' || req.body['ref-child-birth-month'] === '' || req.body['ref-child-birth-year'] === '') {
       errors.push({
       text: 'Developers: please refer to ADOP-203 for different error messages',
       href: '#dob'
       })
-    }    
-    
+    }
+
     if (req.body['submit-button'] === 'save-and-continue') {
       if (errors.length === 0) {
         req.session.data.adoptionCertificateStatus = 'completed'
         res.redirect('/r2/la-portal/start-page')
       }
+
       else {
         res.render('./r2/la-portal/access-questions', { errors: errors })
       }
@@ -2332,7 +2333,7 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
 
 
 
-   // ********************** Child's details **********************    
+   // ********************** Child's details **********************
   router.post('/r2/la-portal/child-sex', function(req, res) {
     var errors = []
     if (req.body['child-sex'] === undefined) {
@@ -3629,7 +3630,7 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
     }
   })
 
- 
+
 
 
 
@@ -3697,7 +3698,7 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
         href: '#sibling-no-reason'
         })
       }
-  
+
       if (req.body['submit-button'] === 'save-and-continue') {
         if (errors.length === 0) {
           if (req.body['sibling-exists'] === 'Yes') {
@@ -3717,8 +3718,8 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
           res.redirect('/r2/la-portal/save-as-draft')
       }
     })
-  
-  
+
+
     router.post('/r2/la-portal/sibling-court-order-exists', function(req, res) {
       console.log("sibling: ", req.body['sibling-court-order-exists'])
       var errors = []
@@ -3734,7 +3735,7 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
         href: '#sibling-court-order-no-reason'
         })
       }
-  
+
       if (req.body['submit-button'] === 'save-and-continue') {
         if (errors.length === 0) {
           if (req.body['sibling-court-order-exists'] === 'Yes') {
@@ -3754,8 +3755,8 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
           res.redirect('/r2/la-portal/save-as-draft')
       }
     })
-  
-  
+
+
     router.post('/r2/la-portal/sibling-relationship', function(req, res) {
       var errors = []
       if (req.body['sibling-relationship'] === undefined) {
@@ -3764,9 +3765,9 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
         href: '#relationship'
         })
       }
-      
+
       count = req.session.data.siblingOrderCount
-  
+
       if (req.body['submit-button'] === 'save-and-continue') {
         if (errors.length === 0) {
           req.session.data.siblingOrderId[count] = count
@@ -3782,8 +3783,8 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
         res.redirect('/r2/la-portal/save-as-draft')
       }
     })
-  
-  
+
+
     router.post('/r2/la-portal/sibling-change-relationship', function(req, res) {
       var errors = []
       if (req.body['sibling-relationship'] === '') {
@@ -3792,9 +3793,9 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
         href: '#relationship'
         })
       }
-      
+
       count = req.session.data.siblingOrderCount
-      
+
       if (errors.length === 0) {
         req.session.data.uniqueSiblingFirstNames[sib] = req.body['sibling-relationship']
         res.redirect('/r2/la-portal/sibling-summary')
@@ -3803,8 +3804,8 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
         res.render('.//r2/la-portal/sibling-change-relationship', { errors: errors })
       }
     })
-  
-  
+
+
     router.post('/r2/la-portal/sibling-order-type', function(req, res) {
       var errors = []
       if (req.body['sibling-order-type'] === undefined) {
@@ -3813,15 +3814,15 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
         href: '#order-type'
         })
       }
-  
+
       if (req.body['sibling-order-type'] === "other" && req.body['sibling-other-order'] === "") {
         errors.push({
         text: 'Enter an order type',
         href: '#other-order'
         })
       }
-  
-  
+
+
       if (req.body['submit-button'] === 'save-and-continue') {
         if (errors.length === 0) {
           req.session.data.siblingOrderType[count] = req.body['sibling-order-type']
@@ -3836,8 +3837,8 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
         res.redirect('/r2/la-portal/save-as-draft')
       }
     })
-  
-  
+
+
     router.post('/r2/la-portal/sibling-change-order-type', function(req, res) {
       var errors = []
       if (req.body['sibling-new-order-type'] === undefined) {
@@ -3846,14 +3847,14 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
         href: '#order-type'
         })
       }
-  
+
       if (req.body['sibling-new-order-type'] === "other" && req.body['sibling-new-other-order'] === "") {
         errors.push({
         text: 'Please select an answer',
         href: '#other-order'
         })
       }
-  
+
       if (errors.length === 0) {
         req.session.data.siblingOrderType[req.body['sibling-id']] = req.body['sibling-new-order-type']
         res.redirect('/r2/la-portal/sibling-check-your-answers')
@@ -3862,9 +3863,9 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
         res.render('.//r2/la-portal/sibling-change-order-type', { errors: errors })
       }
     })
-  
-  
-  
+
+
+
     router.post('/r2/la-portal/sibling-order-case-number', function(req, res) {
       var errors = []
       if (req.body['sibling-order-case-number'] === '') {
@@ -3873,7 +3874,7 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
         href: '#case-number'
         })
       }
-  
+
       if (req.body['submit-button'] === 'save-and-continue') {
         if (errors.length === 0) {
           req.session.data.siblingOrderNumber[count] = req.body['sibling-order-case-number']
@@ -3891,8 +3892,8 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
         res.redirect('/r2/la-portal/save-as-draft')
       }
     })
-  
-  
+
+
     router.post('/r2/la-portal/sibling-change-order-case-number', function(req, res) {
       var errors = []
       if (req.body['sibling-new-case-number'] === '') {
@@ -3903,7 +3904,7 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
       }
       console.log(req.session.data.siblingOrderType[req.body['sibling-id']])
       console.log(req.body['sibling-new-case-number'])
-  
+
       if (errors.length === 0) {
         req.session.data.siblingOrderNumber[req.body['sibling-id']] = req.body['sibling-new-case-number']
         res.redirect('/r2/la-portal/sibling-check-your-answers')
@@ -3912,8 +3913,8 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
         res.render('.//r2/la-portal/sibling-change-case-number', { errors: errors })
       }
     })
-  
-  
+
+
     router.post('/r2/la-portal/sibling-order-court', function(req, res) {
       var errors = []
       if (req.body['sibling-order-court-name'] === '') {
@@ -3922,7 +3923,7 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
         href: '#order-court-name'
         })
       }
-  
+
       arrayLength = req.session.data.siblingOrderId.length
       if (arrayLength == 1) {
         count = 0
@@ -3930,7 +3931,7 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
       else {
         count = req.session.data.siblingOrderId.length - 1
       }
-  
+
       if (req.body['submit-button'] === 'save-and-continue') {
         if (errors.length === 0) {
           req.session.data.siblingOrderCourt[count] = req.body['sibling-order-court-name']
@@ -3944,8 +3945,8 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
         res.redirect('/r2/la-portal/save-as-draft')
       }
     })
-  
-  
+
+
     router.post('/r2/la-portal/sibling-change-order-court', function(req, res) {
       var errors = []
       if (req.body['sibling-new-court-name'] === '') {
@@ -3956,7 +3957,7 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
       }
       console.log(req.session.data.siblingOrderType[req.body['sibling-id']])
       console.log(req.body['sibling-new-court-name'])
-  
+
       if (errors.length === 0) {
         req.session.data.siblingOrderCourt[req.body['sibling-id']] = req.body['sibling-new-court-name']
         res.redirect('/r2/la-portal/sibling-check-your-answers')
@@ -3965,8 +3966,8 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
         res.render('.//r2/la-portal/sibling-change-court', { errors: errors })
       }
     })
-  
-  
+
+
     router.post('/r2/la-portal/sibling-order-date', function(req, res) {
       var errors = []
       if (req.body['sibling-day'] === '' || req.body['sibling-month'] === '' || req.body['sibling-year'] === '') {
@@ -3975,7 +3976,7 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
         href: '#order-date'
         })
       }
-  
+
       arrayLength = req.session.data.siblingOrderId.length
       if (arrayLength == 1) {
         count = 0
@@ -3983,7 +3984,7 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
       else {
         count = req.session.data.siblingOrderId.length - 1
       }
-  
+
       if (req.body['submit-button'] === 'save-and-continue') {
         if (errors.length === 0) {
           req.session.data.siblingOrderIncomplete = 0
@@ -3993,7 +3994,7 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
           req.session.data.siblingOrderCompleted[count] = "Yes"
           res.redirect('/r2/la-portal/sibling-summary')
   //        req.session.data.siblingOrderCount = req.session.data.siblingOrderCount + 1
-  
+
         }
         else {
           res.render('.//r2/la-portal/sibling-order-date', { errors: errors })
@@ -4003,8 +4004,8 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
         res.redirect('/r2/la-portal/save-as-draft')
       }
     })
-  
-  
+
+
     router.post('/r2/la-portal/sibling-change-order-date', function(req, res) {
       var errors = []
       if (req.body['sibling-day'] === '' || req.body['sibling-month'] === '' || req.body['sibling-year'] === '') {
@@ -4013,7 +4014,7 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
         href: '#order-date'
         })
       }
-  
+
       if (errors.length === 0) {
         req.session.data.siblingOrderDay[req.body['sibling-id']] = req.body['sibling-day']
         req.session.data.siblingOrderMonth[req.body['sibling-id']] = req.body['sibling-month']
@@ -4024,8 +4025,8 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
         res.render('.//r2/la-portal/sibling-change-order-date', { errors: errors })
       }
     })
-  
-  
+
+
     router.post('/r2/la-portal/sibling-summary', function(req, res) {
       var errors = []
       if (req.body['sibling-add-another'] === undefined) {
@@ -4034,7 +4035,7 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
         href: '#sibling-add-another'
         })
       }
-  
+
       if (req.body['submit-button'] === 'continue') {
         res.redirect('/r2/la-portal/sibling-summary')
       }
@@ -4061,9 +4062,9 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
           res.redirect('/r2/la-portal/save-as-draft')
       }
     })
-  
-  
-  
+
+
+
     router.post('/r2/la-portal/sibling-choose-sibling', function(req, res) {
       var errors = []
       if (req.body['what-sibling'] === undefined) {
@@ -4086,11 +4087,11 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
           })
         }
       }
-  
+
       count = req.session.data.siblingOrderId.length
       sib = req.session.data.numberOfSiblings
       id = req.body['what-sibling']
-  
+
       if (req.body['submit-button'] === 'save-and-continue') {
         if (errors.length === 0) {
           if (req.body['what-sibling'] === 'add-new-sibling') {
@@ -4127,9 +4128,9 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
       console.log("count: ", count)
       console.log("id: ", id)
     })
-  
-  
-  
+
+
+
     router.post('/r2/la-portal/sibling-remove-court-order', function(req, res) {
       var occ = 0
       var errors = []
@@ -4139,13 +4140,13 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
         href: '#remove-court-order'
         })
       }
-  
+
       id = req.body['order-id']
       fn = req.session.data.siblingFirstNames[id]
       ln = req.session.data.siblingLastNames[id]
       console.log("order-id: ",id)
       console.log("count: ",req.session.data.siblingOrderCount)
-  
+
       if (errors.length === 0) {
         for (let index = 0; index < req.session.data.siblingOrderId.length; index++) {
           if (req.session.data.siblingOrderId[index] == id) {
@@ -4202,7 +4203,7 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
           }
         }
         console.log("sibling unique first names: ", req.session.data.uniqueSiblingFirstNames)
-  
+
         // console.log(req.session.data.siblingOrderId)
         // console.log(req.session.data.siblingFirstNames)
         // console.log(req.session.data.siblingLastNames)
@@ -4220,7 +4221,7 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
         res.render('.//r2/la-portal/sibling-remove-order-court', { errors: errors })
       }
     })
-  
+
     router.post('/r2/la-portal/upload', function(req, res) {
       if (req.body['submit-button'] === 'save-and-continue') {
         req.session.data.childUpload = 1
@@ -4230,14 +4231,14 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
         res.redirect('/r2/save-as-draft')
       }
     })
-  
-  
-  
-  
-  
-  
-  
-  
+
+
+
+
+
+
+
+
 
 
   // ***************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************

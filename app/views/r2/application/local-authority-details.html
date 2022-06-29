@@ -104,7 +104,7 @@ Apply to adopt a applicant
             </label>
             <div id="lahint" class="govuk-hint">
               This is the local authority that your social worker works for. They will be named on the placement order if you are not sure.
-            </div>  
+            </div>
             {% if nameError != '' %}
             <span id="contact-error" class="govuk-error-message">
               <span class="govuk-visually-hidden">Error:</span> {{ nameError }}
@@ -115,10 +115,10 @@ Apply to adopt a applicant
 
           <div class="govuk-form-group {% if (emailError != '') %} govuk-form-group--error{% endif %}">
             <label class="govuk-label" for="contact">
-            Your local authority email address 
-            </label> 
+            Your local authority email address
+            </label>
             <div id="lahint" class="govuk-hint">
-              The email address should be an official government email that ends in gov.uk.
+              This will be used to send a notification to the local authority to progress your application so it is important that it is accurate. It should end in gov.uk.
            </div>
            {% if emailError != '' %}
             <span id="contact-error" class="govuk-error-message">

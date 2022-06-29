@@ -5,6 +5,13 @@ Apply to adopt a child
 {% endblock %}
 
 {% block beforeContent %}
+{% from "govuk/components/phase-banner/macro.njk" import govukPhaseBanner %}
+{{ govukPhaseBanner({
+  tag: {
+    text: "beta"
+  },
+  html: 'This is a new service – your <a class="govuk-link" href="https://www.smartsurvey.co.uk/s/Adoption_LA_Feedback/?pageurl=X">feedback</a> will help us to improve it.'
+}) }}
 <a class="govuk-back-link" href="javascript:history.back()">Back</a>
 {% endblock %}
 
@@ -19,7 +26,7 @@ Apply to adopt a child
         <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
           <!-- <span class="govuk-caption-l">{{ data['reviewApplication'] }}</span> -->
           <h1 class="govuk-fieldset__heading">
-            Review your answers 1
+            Check your answers
           </h1>
         </legend>
 
@@ -58,7 +65,7 @@ Apply to adopt a child
             <dd class="govuk-summary-list__actions">
             </dd>
           </div>
-          
+
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
               Sex at birth
@@ -68,7 +75,7 @@ Apply to adopt a child
                 {{data['child-sex']}}
               {% else %}
                 Female
-              {% endif %}              
+              {% endif %}
             </dd>
             <dd class="govuk-summary-list__actions">
               <a href="child-sex.html">
@@ -92,7 +99,7 @@ Apply to adopt a child
               </a>
             </dd>
           </div>
-        
+
         </dl>
 
         <!-- **************** Birth mother's details **************** -->
@@ -117,21 +124,21 @@ Apply to adopt a child
               </a>
             </dd>
           </div>
-        
+
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
               Alive
             </dt>
             <dd class="govuk-summary-list__value">
               {%if data['mother-alive'] %}
-                {{data['mother-alive']}} 
+                {{data['mother-alive']}}
               {% else %}
                 Yes
               {% endif %}
-              
+
               {%if data['mother-alive'] === 'Not sure' and data['mother-reason-not-sure'] %}
-                <p><span class="govuk-!-font-weight-bold">Reason: </span>{{data['mother-reason-not-sure']}}</p> 
-              {% endif %}              
+                <p><span class="govuk-!-font-weight-bold">Reason: </span>{{data['mother-reason-not-sure']}}</p>
+              {% endif %}
             </dd>
             <dd class="govuk-summary-list__actions">
               <a href="mother-alive.html">
@@ -139,7 +146,7 @@ Apply to adopt a child
                 <span class="govuk-visually-hidden"> alive status</span>
               </a>
             </dd>
-          </div>      
+          </div>
 
           <!-- If birth mother is alive -->
           {%if data['mother-alive'] === 'Yes' or data['mother-alive'] === undefined %}
@@ -165,7 +172,7 @@ Apply to adopt a child
             </dt>
             <dd class="govuk-summary-list__value">
               {%if data['mother-occupation'] %}
-                {{data['mother-occupation']}} 
+                {{data['mother-occupation']}}
               {% else %}
                 Office administrator
               {% endif %}
@@ -176,20 +183,20 @@ Apply to adopt a child
                 <span class="govuk-visually-hidden"> occupation</span>
               </a>
             </dd>
-          </div>      
-          
+          </div>
+
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
               Address known
             </dt>
             <dd class="govuk-summary-list__value">
               {%if data['mother-have-address'] %}
-                {{data['mother-have-address']}} 
+                {{data['mother-have-address']}}
               {% else %}
                 Yes
               {% endif %}
               {%if data['mother-have-address'] === 'No' and data['reason-mother'] %}
-                <p><span class="govuk-!-font-weight-bold">Reason: </span>{{data['reason-mother']}}</p> 
+                <p><span class="govuk-!-font-weight-bold">Reason: </span>{{data['reason-mother']}}</p>
               {% endif %}
             </dd>
             <dd class="govuk-summary-list__actions">
@@ -207,7 +214,7 @@ Apply to adopt a child
             </dt>
             <dd class="govuk-summary-list__value">
               Buckingham Palace
-              <br> London SW1A 1AA            
+              <br> London SW1A 1AA
             </dd>
             <dd class="govuk-summary-list__actions">
               <a href="mother-address-postcode.html">
@@ -246,7 +253,7 @@ Apply to adopt a child
             </dt>
             <dd class="govuk-summary-list__value">
               {% if data['father-in-certificate'] %}
-                {{data['father-in-certificate']}} 
+                {{data['father-in-certificate']}}
               {% else %}
                 Yes
               {% endif %}
@@ -257,7 +264,7 @@ Apply to adopt a child
                 <span class="govuk-visually-hidden"> father in birth certificate status</span>
               </a>
             </dd>
-          </div>      
+          </div>
 
           {% if data['father-in-certificate'] === 'No' %}
           <div class="govuk-summary-list__row">
@@ -266,7 +273,7 @@ Apply to adopt a child
             </dt>
             <dd class="govuk-summary-list__value">
               {% if data['father-identity-known'] %}
-                {{data['father-identity-known']}} 
+                {{data['father-identity-known']}}
               {% else %}
                 Yes
               {% endif %}
@@ -277,7 +284,7 @@ Apply to adopt a child
                 <span class="govuk-visually-hidden"> father's identity known</span>
               </a>
             </dd>
-          </div>      
+          </div>
           {% endif %}
 
           {% if data['father-identity-known'] !== 'No'%}
@@ -300,21 +307,21 @@ Apply to adopt a child
               </a>
             </dd>
           </div>
-        
+
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
               Alive
             </dt>
             <dd class="govuk-summary-list__value">
               {%if data['father-alive'] %}
-                {{data['father-alive']}} 
+                {{data['father-alive']}}
               {% else %}
                 Yes
               {% endif %}
-              
+
               {%if data['father-alive'] === 'Not sure' and data['father-reason-not-sure'] %}
-                <p><span class="govuk-!-font-weight-bold">Reason: </span>{{data['father-reason-not-sure']}}</p> 
-              {% endif %}              
+                <p><span class="govuk-!-font-weight-bold">Reason: </span>{{data['father-reason-not-sure']}}</p>
+              {% endif %}
             </dd>
             <dd class="govuk-summary-list__actions">
               <a href="father-alive.html">
@@ -322,7 +329,7 @@ Apply to adopt a child
                 <span class="govuk-visually-hidden"> alive status</span>
               </a>
             </dd>
-          </div>      
+          </div>
 
           <!-- If birth father is alive -->
           {%if data['father-alive'] === 'Yes' or data['father-alive'] === undefined %}
@@ -348,7 +355,7 @@ Apply to adopt a child
             </dt>
             <dd class="govuk-summary-list__value">
               {%if data['father-occupation'] %}
-                {{data['father-occupation']}} 
+                {{data['father-occupation']}}
               {% else %}
                 Taxi driver
               {% endif %}
@@ -359,20 +366,20 @@ Apply to adopt a child
                 <span class="govuk-visually-hidden"> occupation</span>
               </a>
             </dd>
-          </div>      
-          
+          </div>
+
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
               Address known
             </dt>
             <dd class="govuk-summary-list__value">
               {%if data['father-have-address'] %}
-                {{data['father-have-address']}} 
+                {{data['father-have-address']}}
               {% else %}
                 Yes
               {% endif %}
               {%if data['father-have-address'] === 'No' and data['reason-father'] %}
-                <p><span class="govuk-!-font-weight-bold">Reason: </span>{{data['reason-father']}}</p> 
+                <p><span class="govuk-!-font-weight-bold">Reason: </span>{{data['reason-father']}}</p>
               {% endif %}
             </dd>
             <dd class="govuk-summary-list__actions">
@@ -390,7 +397,7 @@ Apply to adopt a child
             </dt>
             <dd class="govuk-summary-list__value">
               Buckingham Palace
-              <br> London SW1A 1AA            
+              <br> London SW1A 1AA
             </dd>
             <dd class="govuk-summary-list__actions">
               <a href="father-address-postcode.html">
@@ -430,7 +437,7 @@ Apply to adopt a child
             </dt>
             <dd class="govuk-summary-list__value">
               {% if data['other-parent-exists'] %}
-                {{data['other-parent-exists']}} 
+                {{data['other-parent-exists']}}
               {% else %}
                 No
               {% endif %}
@@ -441,7 +448,7 @@ Apply to adopt a child
                 <span class="govuk-visually-hidden"> other parent exists status</span>
               </a>
             </dd>
-          </div>      
+          </div>
 
           {% if data['other-parent-exists'] === 'Yes' or data['other-parent-exists'] === undefined %}
           <div class="govuk-summary-list__row">
@@ -462,19 +469,19 @@ Apply to adopt a child
               </a>
             </dd>
           </div>
-          
+
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
               Address known
             </dt>
             <dd class="govuk-summary-list__value">
               {%if data['other-parent-have-address'] %}
-                {{data['other-parent-have-address']}} 
+                {{data['other-parent-have-address']}}
               {% else %}
                 Yes
               {% endif %}
               {%if data['other-parent-have-address'] === 'No' and data['reason-other-parent'] %}
-                <p><span class="govuk-!-font-weight-bold">Reason: </span>{{data['reason-other-parent']}}</p> 
+                <p><span class="govuk-!-font-weight-bold">Reason: </span>{{data['reason-other-parent']}}</p>
               {% endif %}
             </dd>
             <dd class="govuk-summary-list__actions">
@@ -492,7 +499,7 @@ Apply to adopt a child
             </dt>
             <dd class="govuk-summary-list__value">
               Buckingham Palace
-              <br> London SW1A 1AA            
+              <br> London SW1A 1AA
             </dd>
             <dd class="govuk-summary-list__actions">
               <a href="other-parent-address-postcode.html">
@@ -531,21 +538,21 @@ Apply to adopt a child
 
           {% if id === 0 %}
           <h3 class="govuk-heading-s">Placements order</h3>
-                    
+
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
               Type of order
             </dt>
             <dd class="govuk-summary-list__value">
               {% if data['childOrderType'][id] %}
-                {{data['childOrderType'][id]}} 
+                {{data['childOrderType'][id]}}
               {% else %}
                 Placement order
               {% endif %}
             </dd>
             <dd class="govuk-summary-list__actions">
             </dd>
-          </div>      
+          </div>
 
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
@@ -553,7 +560,7 @@ Apply to adopt a child
             </dt>
             <dd class="govuk-summary-list__value">
               {% if data['childOrderNumber'][id] %}
-                {{data['childOrderNumber'][id]}} 
+                {{data['childOrderNumber'][id]}}
               {% else %}
                 AC17238376
               {% endif %}
@@ -564,7 +571,7 @@ Apply to adopt a child
                 <span class="govuk-visually-hidden"> placement order case or serial number</span>
               </a>
             </dd>
-          </div>      
+          </div>
 
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
@@ -572,14 +579,14 @@ Apply to adopt a child
             </dt>
             <dd class="govuk-summary-list__value">
               {% if data['childOrderCourt'][id] %}
-                {{data['childOrderCourt'][id]}} 
+                {{data['childOrderCourt'][id]}}
               {% else %}
                 Derby County Court
               {% endif %}
             </dd>
             <dd class="govuk-summary-list__value">
             </dd>
-          </div>      
+          </div>
 
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
@@ -598,7 +605,7 @@ Apply to adopt a child
                 <span class="govuk-visually-hidden"> date</span>
               </a>
             </dd>
-          </div>      
+          </div>
 
           {% else %}
           <h3 class="govuk-heading-s govuk-!-margin-top-8">Court order</h3>
@@ -609,7 +616,7 @@ Apply to adopt a child
             </dt>
             <dd class="govuk-summary-list__value">
               {% if data['childOrderType'][id] %}
-                {{data['childOrderType'][id]}} 
+                {{data['childOrderType'][id]}}
               {% endif %}
             </dd>
             <dd class="govuk-summary-list__actions">
@@ -618,7 +625,7 @@ Apply to adopt a child
                 <span class="govuk-visually-hidden"> order type</span>
               </a>
             </dd>
-          </div>      
+          </div>
 
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
@@ -626,7 +633,7 @@ Apply to adopt a child
             </dt>
             <dd class="govuk-summary-list__value">
               {% if data['childOrderNumber'][id] %}
-                {{data['childOrderNumber'][id]}} 
+                {{data['childOrderNumber'][id]}}
               {% endif %}
             </dd>
             <dd class="govuk-summary-list__actions">
@@ -635,7 +642,7 @@ Apply to adopt a child
                 <span class="govuk-visually-hidden">  order case or serial number</span>
               </a>
             </dd>
-          </div>   
+          </div>
 
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
@@ -643,7 +650,7 @@ Apply to adopt a child
             </dt>
             <dd class="govuk-summary-list__value">
               {% if data['childOrderCourt'][id] %}
-                {{data['childOrderCourt'][id]}} 
+                {{data['childOrderCourt'][id]}}
               {% endif %}
             </dd>
             <dd class="govuk-summary-list__actions">
@@ -652,7 +659,7 @@ Apply to adopt a child
                 <span class="govuk-visually-hidden">  court</span>
               </a>
             </dd>
-          </div>      
+          </div>
 
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
@@ -671,14 +678,14 @@ Apply to adopt a child
                 <span class="govuk-visually-hidden"> date</span>
               </a>
             </dd>
-          </div>   
+          </div>
           {% endif %}
         {% endfor %}
 
         <!-- If there aren't any placement and court orders for the child -->
         {% else %}
           <h3 class="govuk-heading-s">Placement order</h3>
-                    
+
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
               Type of order
@@ -688,7 +695,7 @@ Apply to adopt a child
             </dd>
             <dd class="govuk-summary-list__actions">
             </dd>
-          </div>      
+          </div>
 
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
@@ -703,7 +710,7 @@ Apply to adopt a child
                 <span class="govuk-visually-hidden"> placement order case or serial number</span>
               </a>
             </dd>
-          </div>      
+          </div>
 
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
@@ -714,7 +721,7 @@ Apply to adopt a child
             </dd>
             <dd class="govuk-summary-list__actions">
             </dd>
-          </div>      
+          </div>
 
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
@@ -729,7 +736,7 @@ Apply to adopt a child
                 <span class="govuk-visually-hidden"> date</span>
               </a>
             </dd>
-          </div>      
+          </div>
 
           <h3 class="govuk-heading-s govuk-!-margin-top-8">Court order</h3>
 
@@ -746,7 +753,7 @@ Apply to adopt a child
                 <span class="govuk-visually-hidden"> order type</span>
               </a>
             </dd>
-          </div>      
+          </div>
 
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
@@ -761,7 +768,7 @@ Apply to adopt a child
                 <span class="govuk-visually-hidden">  order case or serial number</span>
               </a>
             </dd>
-          </div>   
+          </div>
 
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
@@ -776,7 +783,7 @@ Apply to adopt a child
                 <span class="govuk-visually-hidden"> court</span>
               </a>
             </dd>
-          </div>      
+          </div>
 
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
@@ -791,9 +798,9 @@ Apply to adopt a child
                 <span class="govuk-visually-hidden"> date</span>
               </a>
             </dd>
-          </div>      
-        {% endif %} 
-        
+          </div>
+        {% endif %}
+
         </dl>
 
         <!-- **************** Sibling court orders **************** -->
@@ -807,9 +814,9 @@ Apply to adopt a child
             Siblings or half siblings with court orders
           </dt>
           <dd class="govuk-summary-list__value">
-            {% if data['sibling-court-order-exists'] %} 
+            {% if data['sibling-court-order-exists'] %}
               {{ data['sibling-court-order-exists']}}
-            {% else %} 
+            {% else %}
               Yes
             {% endif %}
           </dd>
@@ -819,10 +826,10 @@ Apply to adopt a child
               <span class="govuk-visually-hidden"> does the child have siblings or half siblings with court orders</span>
             </a>
           </dd>
-        </div>              
+        </div>
 
         {% if data['siblingOrderId'].length > 0 %}
-      
+
 
           {% for id in data['siblingOrderId'] %}
           <h3 class="govuk-heading-s govuk-!-margin-top-8">Court order</h3>
@@ -833,7 +840,7 @@ Apply to adopt a child
             </dt>
             <dd class="govuk-summary-list__value">
               {% if data['siblingRelationship'][id] %}
-                {{ data['siblingRelationship'][id] }} 
+                {{ data['siblingRelationship'][id] }}
               {% endif %}
             </dd>
             <dd class="govuk-summary-list__actions">
@@ -842,7 +849,7 @@ Apply to adopt a child
                 <span class="govuk-visually-hidden">  sibling relationship</span>
               </a>
             </dd>
-          </div>      
+          </div>
 
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
@@ -850,7 +857,7 @@ Apply to adopt a child
             </dt>
             <dd class="govuk-summary-list__value">
               {% if data['siblingOrderType'][id] %}
-                {{data['siblingOrderType'][id]}} 
+                {{data['siblingOrderType'][id]}}
               {% endif %}
             </dd>
             <dd class="govuk-summary-list__actions">
@@ -859,7 +866,7 @@ Apply to adopt a child
                 <span class="govuk-visually-hidden"> order type</span>
               </a>
             </dd>
-          </div>      
+          </div>
 
             <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
@@ -867,7 +874,7 @@ Apply to adopt a child
           </dt>
           <dd class="govuk-summary-list__value">
             {% if data['siblingOrderNumber'][id] %}
-              {{data['siblingOrderNumber'][id]}} 
+              {{data['siblingOrderNumber'][id]}}
             {% endif %}
           </dd>
           <dd class="govuk-summary-list__actions">
@@ -876,14 +883,14 @@ Apply to adopt a child
               <span class="govuk-visually-hidden">  order case or serial number</span>
             </a>
           </dd>
-        </div>   
+        </div>
 
       {% endfor %}
         </dl>
 
         <!-- If there isn't a court case for siblings, just to show how it would display -->
         {% else %}
-        
+
 
         <!-- Court orders for siblings -->
         <h3 class="govuk-heading-s govuk-!-margin-top-8">Court order</h3>
@@ -901,7 +908,7 @@ Apply to adopt a child
               <span class="govuk-visually-hidden">  sibling relationship</span>
             </a>
         </dd>
-        </div>      
+        </div>
 
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
@@ -916,7 +923,7 @@ Apply to adopt a child
               <span class="govuk-visually-hidden"> order type</span>
             </a>
           </dd>
-        </div>      
+        </div>
 
         <div class="govuk-summary-list__row">
         <dt class="govuk-summary-list__key">
@@ -931,7 +938,7 @@ Apply to adopt a child
             <span class="govuk-visually-hidden">  order case or serial number</span>
           </a>
         </dd>
-        </div>   
+        </div>
 
         <h3 class="govuk-heading-s govuk-!-margin-top-8">Court order</h3>
 
@@ -948,7 +955,7 @@ Apply to adopt a child
               <span class="govuk-visually-hidden">  sibling relationship</span>
             </a>
         </dd>
-        </div>      
+        </div>
 
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
@@ -963,7 +970,7 @@ Apply to adopt a child
               <span class="govuk-visually-hidden"> order type</span>
             </a>
           </dd>
-        </div>      
+        </div>
 
           <div class="govuk-summary-list__row">
         <dt class="govuk-summary-list__key">
@@ -978,7 +985,7 @@ Apply to adopt a child
             <span class="govuk-visually-hidden">  order case or serial number</span>
           </a>
         </dd>
-        </div>   
+        </div>
 
         <h3 class="govuk-heading-s govuk-!-margin-top-8">Court order</h3>
 
@@ -995,7 +1002,7 @@ Apply to adopt a child
               <span class="govuk-visually-hidden">  sibling relationship</span>
             </a>
           </dd>
-        </div>      
+        </div>
 
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
@@ -1010,7 +1017,7 @@ Apply to adopt a child
               <span class="govuk-visually-hidden"> order type</span>
             </a>
           </dd>
-        </div>      
+        </div>
 
           <div class="govuk-summary-list__row">
         <dt class="govuk-summary-list__key">
@@ -1025,7 +1032,7 @@ Apply to adopt a child
             <span class="govuk-visually-hidden">  order case or serial number</span>
           </a>
         </dd>
-        </div>   
+        </div>
 
         </dl>
 
@@ -1033,7 +1040,7 @@ Apply to adopt a child
 
 
 
-    
+
         <!-- **************** Uploads **************** -->
         <h2 class="govuk-heading-m">Uploaded documents</h2>
         <dl class="govuk-summary-list govuk-!-margin-bottom-9">
@@ -1072,13 +1079,12 @@ Apply to adopt a child
 
         </dl>
 
-    
+
         <h2 class="govuk-heading-m">Check your answers</h2>
 
         <p>Check all the information you have provided. If you need to edit any of the answers, select the change link at the end of the relevant answer.</p>
 
-        <p>You cannot save your progress so it is important that all information provided is correct.</p> 
-          
+      
         <p>Once you are happy with your answers, you can submit the application to the court.</p>
 
 
@@ -1091,6 +1097,3 @@ Apply to adopt a child
 </div>
 
 {% endblock %}
-
-
-

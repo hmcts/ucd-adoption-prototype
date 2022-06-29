@@ -5,6 +5,13 @@ Sibing details
 {% endblock %}
 
 {% block beforeContent %}
+{% from "govuk/components/phase-banner/macro.njk" import govukPhaseBanner %}
+{{ govukPhaseBanner({
+  tag: {
+    text: "beta"
+  },
+  html: 'This is a new service – your <a class="govuk-link" href="https://www.smartsurvey.co.uk/s/Adoption_LA_Feedback/?pageurl=X">feedback</a> will help us to improve it.'
+}) }}
 <a class="govuk-back-link" href="javascript:history.back()">Back</a>
 {% endblock %}
 
@@ -15,7 +22,7 @@ Sibing details
     <div class="govuk-grid-column-two-thirds">
 
       {% set noAnswerError = '' %}
-  
+
       {% if errors | length > 0 %}
       {{ govukErrorSummary({
         titleText: "There is a problem",
@@ -30,7 +37,7 @@ Sibing details
 
 
       <form action="/r2/la-portal/orders-remove-court-order" method="post" class="form">
-        
+
         <div class="govuk-form-group {% if (noAnswerError != '')%} govuk-form-group--error {% endif %}">
         <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
           <span class="govuk-caption-l">{{ data['child'] }}</span>
@@ -63,7 +70,7 @@ Sibing details
                     No
                   </label>
                 </div>
-  
+
             </div>
             <input type="hidden" name="child-order-id" value="{{ data['id'] }}">
           </fieldset>
@@ -73,7 +80,7 @@ Sibing details
         {% include "../../includes/buttons.html" %}
 
 
-      </form>   
+      </form>
   </div>
 </div>
 

@@ -5,6 +5,13 @@ Apply to adopt a child
 {% endblock %}
 
 {% block beforeContent %}
+{% from "govuk/components/phase-banner/macro.njk" import govukPhaseBanner %}
+{{ govukPhaseBanner({
+  tag: {
+    text: "beta"
+  },
+  html: 'This is a new service – your <a class="govuk-link" href="https://www.smartsurvey.co.uk/s/Adoption_LA_Feedback/?pageurl=X">feedback</a> will help us to improve it.'
+}) }}
 <a class="govuk-back-link" href="javascript:history.back()">Back</a>
 {% endblock %}
 
@@ -87,7 +94,7 @@ Apply to adopt a child
             Order date
           </dt>
           <dd class="govuk-summary-list__value">
-            {{ data['placement-day'] }} {{ data['monthName'][data['childOrderMonth'][0]] }} {{ data['placement-year'] }} 
+            {{ data['placement-day'] }} {{ data['monthName'][data['childOrderMonth'][0]] }} {{ data['placement-year'] }}
           </dd>
           <dd class="govuk-summary-list__actions">
             <a href="orders-placement-date.html">
