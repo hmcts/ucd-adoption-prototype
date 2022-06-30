@@ -30,6 +30,22 @@ Apply to adopt a child
           </h1>
         </legend>
 
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+          <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Case reference number
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {%if data['case-reference'] %}
+              {{ data['case-reference'] }}
+            {% else %}
+              1234-5678-9012-1245
+            {% endif %}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+          </dd>
+        </div>
+        </dl>
 
 
          <!-- **************** Child's details **************** -->
