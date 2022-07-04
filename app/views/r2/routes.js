@@ -1293,7 +1293,7 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
     else if (req.body['first-applicant-other'] !== undefined && req.session.data.firstApplicantNationalityCount === 0) {
       // console.log("no nationality added error: ", req.session.data.firstApplicantNationalities)
       errors.push({
-      text: 'This is not a valid entry',
+      text: 'Select \'Add\' before you continue',
       href: '#first-applicant-no-nationality'
       })
     }
@@ -1660,7 +1660,7 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
     else if (req.body['second-applicant-other'] !== undefined && req.session.data.secondApplicantNationalityCount === 0) {
       // console.log("no nationality added error: ", req.session.data.secondApplicantNationalities)
       errors.push({
-      text: 'This is not a valid entry',
+      text: 'Select \'Add\' before you continue',
       href: '#second-applicant-no-nationality'
       })
     }
@@ -2386,7 +2386,7 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
     else if (req.body['child-other'] !== undefined && req.session.data.childNationalityCount === 0) {
       // console.log("no nationality added error: ", req.session.data.childNationalities)
       errors.push({
-      text: 'This is not a valid entry',
+      text: 'Select \'Add\' before you continue',
       href: '#no-country'
       })
     }
@@ -2506,7 +2506,7 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
     else if (req.body['mother-other'] !== undefined && req.session.data.motherNationalityCount === 0) {
       // console.log("no nationality added error: ", req.session.data.motherNationalities)
       errors.push({
-      text: 'This is not a valid entry',
+      text: 'Select \'Add\' before you continue',
       href: '#no-country'
       })
     }
@@ -2871,7 +2871,7 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
     else if (req.body['father-other'] !== undefined && req.session.data.fatherNationalityCount === 0) {
       // console.log("no nationality added error: ", req.session.data.fatherNationalities)
       errors.push({
-      text: 'This is not a valid entry',
+      text: 'Select \'Add\' before you continue',
       href: '#no-country'
       })
     }
