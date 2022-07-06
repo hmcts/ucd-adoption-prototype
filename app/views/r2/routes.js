@@ -3652,7 +3652,7 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
       res.redirect('/r2/task-list')
     }
     else {
-      res.redirect('/r2/save-as-draft')
+      res.redirect('/r2/task-list')
     }
   })
 
@@ -3672,7 +3672,7 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
       res.redirect('/r2/task-list')
     }
     else {
-      res.redirect('/r2/save-as-draft')
+      res.redirect('/r2/task-list')
     }
   })
 
@@ -3715,7 +3715,7 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
         }
       }
       else {
-          res.redirect('/r2/la-portal/save-as-draft')
+          res.redirect('/r2/la-portal/task-list')
       }
     })
 
@@ -3752,7 +3752,7 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
         }
       }
       else {
-          res.redirect('/r2/la-portal/save-as-draft')
+          res.redirect('/r2/la-portal/task-list')
       }
     })
 
@@ -3780,7 +3780,7 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
         }
       }
       else {
-        res.redirect('/r2/la-portal/save-as-draft')
+        res.redirect('/r2/la-portal/task-list')
       }
     })
 
@@ -3834,7 +3834,7 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
         }
       }
       else {
-        res.redirect('/r2/la-portal/save-as-draft')
+        res.redirect('/r2/la-portal/task-list')
       }
     })
 
@@ -3889,7 +3889,7 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
         }
       }
       else {
-        res.redirect('/r2/la-portal/save-as-draft')
+        res.redirect('/r2/la-portal/task-list')
       }
     })
 
@@ -3942,7 +3942,7 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
         }
       }
       else {
-        res.redirect('/r2/la-portal/save-as-draft')
+        res.redirect('/r2/la-portal/task-list')
       }
     })
 
@@ -4001,7 +4001,7 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
         }
       }
       else {
-        res.redirect('/r2/la-portal/save-as-draft')
+        res.redirect('/r2/la-portal/task-list')
       }
     })
 
@@ -4059,7 +4059,7 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
         }
       }
       else {
-          res.redirect('/r2/la-portal/save-as-draft')
+          res.redirect('/r2/la-portal/task-list')
       }
     })
 
@@ -4117,7 +4117,7 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
         }
       }
       else {
-        res.redirect('/r2/la-portal/save-as-draft')
+        res.redirect('/r2/la-portal/task-list')
       }
       console.log("Sibling array: ", req.session.data.uniqueSiblingFirstNames)
       console.log("siblingFirstNames array: ", req.session.data.siblingFirstNames)
