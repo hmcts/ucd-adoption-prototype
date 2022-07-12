@@ -13,38 +13,44 @@
                   <h2 class="govuk-heading-l">#1234-5678-0921-2722</h2>
 
 
-                  <form action="/r2/x-ui/case-worker/case-worker-message-radios" method="post" class="form">
-                  <!-- <div class="govuk-form-group">
+                  <form action="/r2/x-ui/case-worker/case-worker-message-send-and-reply" method="post" class="form">
+                  <div class="govuk-form-group">
                     <div class="govuk-radios govuk-radios--conditional" data-module="govuk-radios">
                       <label class="govuk-label govuk-!-margin-bottom-4" for="sender-email-address">
                         Do you want to send or reply to a message?
-                      </label> -->
+                      </label>
 
-                        <!-- <div class="govuk-radios__item">
-                          <input class="govuk-radios__input" id="xui-send-message" name="xui-send-reply-radio" type="radio" value="request Annex A" {% if data['xui-send-reply-radio'] == "xui-send-message" %} checked {% endif %}>
+                        <div class="govuk-radios__item">
+                          <input class="govuk-radios__input" id="xui-send-message" name="xui-send-reply-radio" type="radio" value="send" {% if data['xui-send-reply-radio'] == "xui-send-message" %} checked {% endif %}>
                           <label class="govuk-label govuk-radios__label" for="xui-send-message">
                             Send a message
                           </label>
-                        </div> -->
+                        </div>
 
 
                         <div class="govuk-radios__item">
-                          <input class="govuk-radios__input" id="xui-reply-message" name="xui-send-reply-radio" type="radio" value="request information" data-aria-controls="conditional-contact" {% if data['xui-send-reply-radio'] == "xui-reply-message" %} checked {% endif %}>
+                          <input class="govuk-radios__input" id="xui-reply-message" name="xui-send-reply-radio" type="radio" value="reply" data-aria-controls="conditional-contact" {% if data['xui-send-reply-radio'] == "xui-reply-message" %} checked {% endif %}>
                           <label class="govuk-label govuk-radios__label" for="xui-reply-message">
                             Reply to a message
                           </label>
                         </div>
                         <div class="govuk-radios__conditional govuk-radios__conditional--hidden " id="conditional-contact">
                           <div class="govuk-form-group">
-                              <label class="govuk-label" for="contact-by-email">
-                                Give a brief overview of what your relationship is with the other applicant.
+                            <label class="govuk-label" for="contact-by-email">
+                              Your messages
                             </label>
-                            {% if (explanationError != '')%}
-                              <span class="govuk-error-message govuk-form">
-                                <span class="govuk-visually-hidden">Error:</span> {{ explanationError }}
-                              </span>
-                            {% endif %}
-                            <textarea class="govuk-textarea{% if (explanationError != '') %} govuk-input--error{% endif %}" id="other-relationship-description" name="other-relationship-description" rows="2" aria-describedby="more-detail-hint" value="{{data['other-relationship-description']}}"></textarea>
+                            <div id="sign-in-item-hint" class="govuk-hint">
+                               Message subject comprises application type and urgency, if relevant, and date requested.
+                            </div>
+                            <div class="govuk-form-group">
+                              <select class="govuk-select" id="messages-list" name="messages-list">
+                                <option value="select">Select a message</option>
+                                <option value="message1">My message subject, 12 July 2022 at 4:32 pm, two days</option>
+                                <option value="message2">Another message subject, 11 July 2022 at 9:03 am, two days</option>
+                                <option value="message3">Lorem ipsum</option>
+                                <option value="message4">Lorem ipsum</option>
+                              </select>
+                            </div>            
                         </div>
         
                       </div>

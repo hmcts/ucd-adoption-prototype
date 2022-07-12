@@ -2139,6 +2139,40 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
   })
 
 
+  router.post('/r2/x-ui/case-worker/case-worker-message-send-and-reply', function(req, res) {
+    if (req.body['submit-button'] === 'continue') {
+      if (req.body['xui-send-reply-radio'] === 'send') {
+        res.redirect('/r2/x-ui/case-worker/case-worker-message-radios')
+      }
+      else {
+        res.redirect('/r2/x-ui/case-worker/case-worker-message-reply-required')
+      }
+    }
+    else {
+      res.redirect('/r2/x-ui/case-worker/case-worker-messages')
+    }
+  })
+
+  router.post('/r2/x-ui/case-worker/case-worker-message-reply-required', function(req, res) {
+    if (req.body['submit-button'] === 'continue') {
+      res.redirect('/r2/x-ui/case-worker/case-worker-message-check-your-answers')
+    }
+    else {
+      res.redirect('/r2/x-ui/case-worker/case-worker-message-send-and-reply')
+    }
+  })
+
+  router.post('/r2/x-ui/case-worker/case-worker-message-check-your-answers', function(req, res) {
+    if (req.body['submit-button'] === 'continue') {
+      res.redirect('/r2/x-ui/case-worker/case-worker-messages')
+    }
+    else {
+      res.redirect('/r2/x-ui/case-worker/case-worker-message-reply-required')
+    }
+  })
+
+
+
   router.post('/r2/x-ui/case-worker/index', function(req, res) {
     console.log(req.body['next-steps'])
     if (req.body['next-steps'] === 'manage-documents') {
