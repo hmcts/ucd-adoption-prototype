@@ -1,5 +1,5 @@
 {% block header %}
-{% include "includes/xui-header.html" %}
+{% include "layout-xui.html" %}
 {% endblock %}
 
 
@@ -28,12 +28,24 @@
                         </div>
 
                         <div class="govuk-radios__item">
-                          <input class="govuk-radios__input" id="xui-reply-message" name="xui-send-reply-radio" type="radio" value="request information" {% if data['xui-send-reply-radio'] == "xui-reply-message" %} checked {% endif %}>
+                          <input class="govuk-radios__input" id="xui-reply-message" name="xui-send-reply-radio" type="radio" value="request information" data-aria-controls="conditional-contact" {% if data['xui-send-reply-radio'] == "xui-reply-message" %} checked {% endif %}>
                           <label class="govuk-label govuk-radios__label" for="xui-reply-message">
                             Reply to a message
                           </label>
                         </div>
-
+                        <div class="govuk-radios__conditional govuk-radios__conditional--hidden " id="conditional-contact">
+                          <div class="govuk-form-group">
+                              <label class="govuk-label" for="contact-by-email">
+                                Give a brief overview of what your relationship is with the other applicant.
+                            </label>
+                            {% if (explanationError != '')%}
+                              <span class="govuk-error-message govuk-form">
+                                <span class="govuk-visually-hidden">Error:</span> {{ explanationError }}
+                              </span>
+                            {% endif %}
+                            <textarea class="govuk-textarea{% if (explanationError != '') %} govuk-input--error{% endif %}" id="other-relationship-description" name="other-relationship-description" rows="2" aria-describedby="more-detail-hint" value="{{data['other-relationship-description']}}"></textarea>
+                        </div>
+        
                       </div>
                 </div>
                 <!-- Buttons -->
