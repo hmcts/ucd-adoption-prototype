@@ -119,7 +119,8 @@ module.exports = {
     "December"
 ],
 
-"newNote": "no"
+"newNote": "no",
+"repliedMessage": ""
 
 
 ,}

@@ -1,7 +1,6 @@
 {% block header %}
-{% include "includes/xui-header.html" %}
+{% include "layout-xui.html" %}
 {% endblock %}
-
 
 <html lang="en" class="govuk-template ">  
   <div style=" max-width:1300px; margin: 0 auto;">
@@ -9,33 +8,42 @@
           <main class="govuk-main-wrapper " id="main-content" role="main" style="padding-top: 25px;">                      
               <div class="govuk-width-container">
                 <div class="govuk-grid-row" style="width:1300px; margin-left: -90px;">
-                    <div class="" style="display: flex; justify-content: space-between; ">
-                        <div>
-                          <h1 class="govuk-heading-xl">#1234-5678-0921-2722  &nbsp;&nbsp;&nbsp; </h1>
-                            <!-- <span class="govuk-caption-l" style="padding-top: 0px">1234-5678-9012-3456</span>
-                            <span style="margin-bottom:50px; padding-top: 25px;"><a href="#">Print</a></span>
-                            <button class="govuk-button govuk-button--secondary" data-module="govuk-button">
-                                Print
-                            </button> -->                           
-                        </div>
-                        <form action="/r2/x-ui/case-worker/index" method="post" class="form">
-                          <div style="display: flex; align-items:right; padding-top: 0px;">
-                              <p class="govuk-!-margin-top-2">Next step &nbsp;</p>
-                      
-                              <select class="govuk-select" id="sort" name="next-steps">
-                                  <option value="select-action" selected="">Select action</option>
-                                  <option value="manage-documents">Upload documents</option>
-                                  <option value="send-a-message">Send message</option>
-                                  <option value="case-issue">Case issue</option>
-                                  <option value="notes">Add a case note</option>
-                              </select>
-                      
-                              <div>
-                                  <button class="govuk-button govuk-!-margin-left-1" data-module="govuk-button" name="go-button">Go</button>
-                              </div>
-                          </div>
-                      </form>
+
+                  {% if (data['repliedMessage']) %}
+                  <div class="govuk-notification-banner govuk-notification-banner--success" role="alert" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
+                    <div class="govuk-notification-banner__header">
+                      <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+                        Success
+                      </h2>
                     </div>
+                    <div class="govuk-notification-banner__content">
+                      <p class="govuk-body">Case #1234-5678-0921-2722 has been updated with event: Send and reply to messages</p>
+                    </div>
+                  </div>                  
+                  {% endif %}
+
+                  <div class="" style="display: flex; justify-content: space-between; ">
+                    <div>
+                      <h1 class="govuk-heading-xl">#1234-5678-0921-2722</h1>
+                    </div>
+                    <form action="/r2/x-ui/case-worker/index" method="post" class="form">
+                      <div style="display: flex; align-items:right; padding-top: 0px;">
+                          <p class="govuk-!-margin-top-2">Next step &nbsp;</p>
+                  
+                          <select class="govuk-select" id="sort" name="next-steps">
+                              <option value="select-action" selected="">Select action</option>
+                              <option value="manage-documents">Upload documents</option>
+                              <option value="send-a-message">Send message</option>
+                              <option value="case-issue">Case issue</option>
+                              <option value="notes">Add a case note</option>
+                          </select>
+                  
+                          <div>
+                              <button class="govuk-button govuk-!-margin-left-1" data-module="govuk-button" name="go-button">Go</button>
+                          </div>
+                      </div>
+                    </form>
+                  </div>
 
                     <div class="govuk-tabs" data-module="govuk-tabs">
 
