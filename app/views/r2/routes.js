@@ -2164,6 +2164,7 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
 
   router.post('/r2/x-ui/case-worker/case-worker-message-check-your-answers', function(req, res) {
     if (req.body['submit-button'] === 'continue') {
+      req.session.data.repliedMessage = 1
       res.redirect('/r2/x-ui/case-worker/case-worker-messages')
     }
     else {
