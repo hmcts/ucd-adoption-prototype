@@ -58,11 +58,12 @@ Statement of truth
 
           <p>I believe that the facts stated in this form and any additional documents are true.</p>
 
-          <div class="govuk-form-group govuk-!-margin-bottom-0 {% if (dateError != '')%} govuk-form-group--error {% endif%}">
+          <div class="govuk-form-group govuk-!-margin-bottom-2">
             <label class="govuk-label" for="date">
               Date
           </div>
 
+          <div class="govuk-form-group govuk-!-margin-top-1 {% if (dateError != '')%} govuk-form-group--error {% endif%}">
 
           {% if (dateError != '')%}
           <span id="national-insurance-number-error" class="govuk-error-message">
@@ -97,10 +98,12 @@ Statement of truth
                 <input class="govuk-input govuk-date-input__input govuk-input--width-4 {% if (dateError != '')%} govuk-input--error {% endif%}" id="year" name="sw-year" type="text" pattern="[0-9]*" inputmode="numeric" value="{{ data['sw-year'] }}">
               </div>
             </div>
+          </div>
+          </div>
 
             <label class="govuk-label" for="name">
               Your full name
-            <div class="govuk-form-group {% if (nameError != '') %} govuk-form-group--error{% endif %}">
+            <div class="govuk-form-group {% if (nameError != '') %} govuk-!-margin-top-2 govuk-form-group--error{% endif %}">
               {% if nameError != '' %}
               <span id="contact-error" class="govuk-error-message">
                 <span class="govuk-visually-hidden">Error:</span> {{ nameError }}
@@ -111,7 +114,7 @@ Statement of truth
   
             <label class="govuk-label" for="jobtitle">
               Your job title
-            <div class="govuk-form-group {% if (jobTitleError != '') %} govuk-form-group--error{% endif %}">
+            <div class="govuk-form-group {% if (jobTitleError != '') %} govuk-!-margin-top-2 govuk-form-group--error{% endif %}">
               {% if jobTitleError != '' %}
               <span id="contact-error" class="govuk-error-message">
                 <span class="govuk-visually-hidden">Error:</span> {{ jobTitleError }}
@@ -122,7 +125,7 @@ Statement of truth
   
             <label class="govuk-label" for="la">
               Name of the local authority you represent
-            <div class="govuk-form-group {% if (laError != '') %} govuk-form-group--error{% endif %}">
+            <div class="govuk-form-group {% if (laError != '') %} govuk-!-margin-top-2 govuk-form-group--error{% endif %}">
               {% if laError != '' %}
               <span id="contact-error" class="govuk-error-message">
                 <span class="govuk-visually-hidden">Error:</span> {{ laError }}
@@ -137,7 +140,7 @@ Statement of truth
           </div>
 
         </fieldset>
-
+  </div>
         <!-- Buttons -->
         {% include "../../includes/buttons-laportal.html" %}
         </form>
