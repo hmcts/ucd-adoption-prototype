@@ -1,0 +1,150 @@
+{% extends "layout-la-portal.html" %}
+
+{% block pageTitle %}
+Statement of truth
+{% endblock %}
+
+{% block beforeContent %}
+{% from "govuk/components/phase-banner/macro.njk" import govukPhaseBanner %}
+{{ govukPhaseBanner({
+  tag: {
+    text: "beta"
+  },
+  html: 'This is a new service – your <a class="govuk-link" href="https://www.smartsurvey.co.uk/s/Adoption_LA_Feedback/?pageurl=X">feedback</a> will help us to improve it.'
+}) }}
+<a class="govuk-back-link" href="javascript:history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-width-container">
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      {% set dateError = '' %}
+      {% set nameError = '' %}
+      {% set jobTitleError = '' %}
+      {% set laError = '' %}
+
+      {% if errors | length > 0 %}
+        {{ govukErrorSummary({
+          titleText: "There is a problem",
+          errorList: errors
+        }) }}
+        {% for error in errors %}
+          {% if error.href == '#jobtitle' %}
+            {% set jobTitleError = error.text %}
+          {% endif %}
+          {% if error.href == '#name' %}
+            {% set nameError = error.text %}
+          {% endif %}
+          {% if error.href == '#date' %}
+            {% set dateError = error.text %}
+          {% endif %}
+          {% if error.href == '#localauthority' %}
+            {% set laError = error.text %}
+          {% endif %}
+        {% endfor %}
+      {% endif %}
+
+      <form action="/r2/la-portal/statement-of-truth" method="post" class="form">
+        <fieldset class="govuk-fieldset">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+            <h1 class="govuk-fieldset__heading">
+              Statement of truth
+            </h1>
+          </legend>
+          <p>I understand that proceedings for contempt of court may be brought against anyone who makes, or causes to be made, a false statement in a document verified by a statement of truth without an honest belief in its truth.</p>
+
+          <p>I believe that the facts stated in this form and any additional documents are true.</p>
+
+          <div class="govuk-form-group govuk-!-margin-bottom-0 {% if (dateError != '')%} govuk-form-group--error {% endif%}">
+            <label class="govuk-label" for="date">
+              Date
+          </div>
+
+
+          {% if (dateError != '')%}
+          <span id="national-insurance-number-error" class="govuk-error-message">
+            <span class="govuk-visually-hidden">Error:</span> {{ dateError }}
+          </span>
+          {% endif%}
+
+          <div class="govuk-date-input" id="dob">
+            <div class="govuk-date-input__item">
+              <div class="govuk-form-group">
+                <label class="govuk-label govuk-date-input__label" for="day">
+                  Day
+                </label>
+                <input class="govuk-input govuk-date-input__input govuk-input--width-2 {% if (dateError != '')%} govuk-input--error {% endif%}" id="day" name="sw-day" type="text" pattern="[0-9]*" inputmode="numeric" value="{{ data['sw-day'] }}">
+              </div>
+            </div>
+
+            <div class="govuk-date-input__item">
+              <div class="govuk-form-group">
+                <label class="govuk-label govuk-date-input__label" for="month">
+                  Month
+                </label>
+                <input class="govuk-input govuk-date-input__input govuk-input--width-2 {% if (dateError != '')%} govuk-input--error {% endif%}" id="month" name="sw-month" type="text" pattern="[0-9]*" inputmode="numeric" value="{{ data['sw-month'] }}">
+              </div>
+            </div>
+
+            <div class="govuk-date-input__item">
+              <div class="govuk-form-group">
+                <label class="govuk-label govuk-date-input__label" for="year">
+                  Year
+                </label>
+                <input class="govuk-input govuk-date-input__input govuk-input--width-4 {% if (dateError != '')%} govuk-input--error {% endif%}" id="year" name="sw-year" type="text" pattern="[0-9]*" inputmode="numeric" value="{{ data['sw-year'] }}">
+              </div>
+            </div>
+
+            <label class="govuk-label" for="name">
+              Your full name
+            <div class="govuk-form-group {% if (nameError != '') %} govuk-form-group--error{% endif %}">
+              {% if nameError != '' %}
+              <span id="contact-error" class="govuk-error-message">
+                <span class="govuk-visually-hidden">Error:</span> {{ nameError }}
+              </span>
+              {% endif %}
+              <input class="govuk-input govuk-!-margin-top-2 {% if (nameError != '') %} govuk-input--error{% endif %}" id="sw-full-name" name="sw-full-name" type="text" value="{{ data['sw-full-name'] }}">
+            </div>
+  
+            <label class="govuk-label" for="jobtitle">
+              Your job title
+            <div class="govuk-form-group {% if (jobTitleError != '') %} govuk-form-group--error{% endif %}">
+              {% if jobTitleError != '' %}
+              <span id="contact-error" class="govuk-error-message">
+                <span class="govuk-visually-hidden">Error:</span> {{ jobTitleError }}
+              </span>
+              {% endif %}
+              <input class="govuk-input govuk-!-margin-top-2 {% if (jobTitleError != '') %} govuk-input--error{% endif %}" id="sw-job-title" name="sw-job-title" type="text" value="{{ data['sw-job-title'] }}">
+            </div>
+  
+            <label class="govuk-label" for="la">
+              Name of the local authority you represent
+            <div class="govuk-form-group {% if (laError != '') %} govuk-form-group--error{% endif %}">
+              {% if laError != '' %}
+              <span id="contact-error" class="govuk-error-message">
+                <span class="govuk-visually-hidden">Error:</span> {{ laError }}
+              </span>
+              {% endif %}
+              <input class="govuk-input govuk-!-margin-top-2 {% if (laError != '') %} govuk-input--error{% endif %}" id="la" name="la" type="text" value="{{ data['la'] }}">
+            </div>
+  
+
+
+
+          </div>
+
+        </fieldset>
+
+        <!-- Buttons -->
+        {% include "../../includes/buttons-laportal.html" %}
+        </form>
+         {% include "../../includes/contactforhelp.html" %}
+      </div>
+    </div>
+  </main>
+</div>
+
+{% endblock %}
