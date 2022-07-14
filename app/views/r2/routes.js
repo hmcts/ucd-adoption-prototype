@@ -4268,7 +4268,50 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
     })
 
 
+    router.post('/r2/la-portal/statement-of-truth', function(req, res) {
+      // console.log("Day: ", req.body['day'])
+      var errors = []
+      if (req.body['sw-day'] === '' || req.body['sw-month'] === '' || req.body['sw-year'] === '') {
+        errors.push({
+        text: 'Developers: please refer to ADOP-203 for different error messages',
+        href: '#date'
+        })
+      }
 
+      if (req.body['sw-full-name'] === '') {
+        errors.push({
+        text: 'Enter a full name',
+        href: '#name'
+        })
+      }
+  
+      if (req.body['sw-job-title'] === '') {
+        errors.push({
+        text: 'Enter a job title',
+        href: '#jobtitle'
+        })
+      }
+  
+      if (req.body['la'] === '') {
+        errors.push({
+        text: 'Enter a local authority',
+        href: '#localauthority'
+        })
+      }
+  
+  
+      if (req.body['submit-button'] === 'save-and-continue') {
+        if (errors.length === 0) {
+          res.redirect('/r2/la-portal/confirmation')
+        }
+  
+        else {
+          res.render('./r2/la-portal/statement-of-truth', { errors: errors })
+        }
+      }
+    })
+  
+  
 
 
 
