@@ -58,12 +58,8 @@ Statement of truth
 
           <p>I believe that the facts stated in this form and any additional documents are true.</p>
 
-          <div class="govuk-form-group govuk-!-margin-bottom-2">
-            <label class="govuk-label" for="date">
-              Date
-          </div>
 
-          <div class="govuk-form-group govuk-!-margin-top-1 {% if (dateError != '')%} govuk-form-group--error {% endif%}">
+          <div class="govuk-form-group {% if (dateError != '')%} govuk-form-group--error {% endif%}">
 
           {% if (dateError != '')%}
           <span id="national-insurance-number-error" class="govuk-error-message">
