@@ -14,16 +14,8 @@
 
                   <form action="/r2/x-ui/case-worker/case-worker-upload" method="post" class="form">
                   <div class="govuk-form-group">
-                    <div class="govuk-inset-text">
-                      <h3 class="govuk-heading-m">{{ data['document-type'] }}</h3>
-                      
-                      <p class="govuk-!-margin-bottom-1">Document name</p>
-                      <div id="event-name-hint" class="govuk-hint">
-                        Make sure the name identifies what the document is, for example, child birth certificate.
-                      </div>
-                      <input class="govuk-input" id="event-name" name="document-name" type="text">
-                      
-                      <p class="govuk-!-margin-top-5 govuk-!-margin-bottom-1">Document</p>
+                    <div class="govuk-inset-text">                                            
+                      <p class="govuk-!-margin-bottom-1">Document</p>
                       <div id="event-name-hint" class="govuk-hint">
                         The selected file must be smaller than 1GB
                       </div>
@@ -35,22 +27,86 @@
                           Cancel upload
                         </button>       
                       </p>
-
-                      <div class="govuk-grid-row">
-                        <div class="govuk-grid-column-two-thirds">
-                          <button class="govuk-button" data-module="govuk-button" name="add-new-button" value="add-new-button-top">
-                            Add new
-                          </button>
-                        </div>
+                    <!-- </div>
+                    <div class="govuk-inset-text">                                             -->
+                      <p class="govuk-!-margin-bottom-1">Document name</p>
+                      <div id="event-name-hint" class="govuk-hint">
+                        Make sure the name identifies what the document is, for example, child birth certificate.
+                      </div>
+                      <input class="govuk-input" id="event-name" name="document-name" type="text">
+                    </div>
                         <!-- <div class="govuk-grid-column-one-third">
                           <button class="govuk-button govuk-button--secondary" data-module="govuk-button" name="remove-button" value="remove">
                             Remove
                           </button>          
                         </div> -->
-                      </div>
+                    <div class="govuk-!-margin-top-7">
+                      <h3 class="govuk-heading-s">Copy requested here: document type?</h3>
+                      <div class="govuk-radios govuk-radios--conditional" data-module="govuk-radios">
+                        <div class="govuk-radios__item">
+                          <input class="govuk-radios__input" id="application" name="document-type" type="radio" value="Application documents">
+                          <label class="govuk-label govuk-radios__label" for="application">
+                            Application documents
+                          </label>
+                          <div id="sign-in-item-hint" class="govuk-hint govuk-radios__hint">
+                            Including birth certificates.
+                          </div>
+                        </div>
+          
+                        <div class="govuk-radios__item">
+                          <input class="govuk-radios__input" id="placement-order" name="document-type" type="radio" value="Court orders">
+                          <label class="govuk-label govuk-radios__label" for="placement-order">
+                            Court orders
+                          </label>
+                          <div id="sign-in-item-hint" class="govuk-hint govuk-radios__hint">
+                            For example placement and care orders.
+                          </div>
+                        </div>
+          
+                        <div class="govuk-radios__item">
+                          <input class="govuk-radios__input" id="reports" name="document-type" type="radio" value="Reports">
+                          <label class="govuk-label govuk-radios__label" for="reports">
+                            Reports
+                          </label>
+                          <div id="sign-in-item-hint" class="govuk-hint govuk-radios__hint">
+                            For example Annex A.
+                          </div>
+                        </div>
+          
+                        <div class="govuk-radios__item">
+                          <input class="govuk-radios__input" id="statements" name="document-type" type="radio" value="Statements">
+                          <label class="govuk-label govuk-radios__label" for="statements">
+                            Statements
+                          </label>
+                          <div id="sign-in-item-hint" class="govuk-hint govuk-radios__hint">
+                            Supporting information on leave to oppose provided by other parties.
+                          </div>
+                        </div>
+          
+                        <div class="govuk-radios__item">
+                          <input class="govuk-radios__input" id="correspondence" name="document-type" type="radio" value="Correspondence">
+                          <label class="govuk-label govuk-radios__label" for="correspondence">
+                            Correspondence
+                          </label>
+                          <div id="sign-in-item-hint" class="govuk-hint govuk-radios__hint">
+                            Notes and messages.
+                          </div>
+                        </div>
 
+                        <div class="govuk-radios__item">
+                          <input class="govuk-radios__input" id="additional-documents" name="document-type" type="radio" value="Additional documents">
+                          <label class="govuk-label govuk-radios__label" for="additional-documents">
+                            Additional documents
+                          </label>
+                          <div id="sign-in-item-hint" class="govuk-hint govuk-radios__hint">
+                            Any other documents, for instance additional evidence.
+                          </div>
+                        </div>
+    
+                      </div>                  
                     
-                    </div>                 
+                    </div>   
+                    <div class="govuk-!-margin-bottom-4">&nbsp;</div>              
                   </div>
                   <!-- Buttons -->
                   {% include "../../../includes/buttons-xui.html" %}
