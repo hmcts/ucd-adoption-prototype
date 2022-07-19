@@ -2061,7 +2061,7 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
       //   res.redirect('/r2/x-ui/case-worker/case-worker-intention-oppose')
       // }
       // else {
-      res.redirect('/r2/x-ui/case-worker/case-worker-upload')
+      res.redirect('/r2/x-ui/case-worker/case-worker-documents')
     }
     // }
     else {
@@ -2088,7 +2088,7 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
 
   router.post('/r2/x-ui/case-worker/case-worker-upload', function(req, res) {
     if (req.body['submit-button'] === 'continue') {
-      res.redirect('/r2/x-ui/case-worker/case-worker-documents')
+      res.redirect('/r2/x-ui/case-worker/case-worker-statements-select-respondent')
     }
     else if (req.body['add-new-button'] === 'add-new-button-top' || req.body['add-new-button'] === 'add-new-button-bottom' || req.body['remove-button'] === 'remove') {
       res.redirect('/r2/x-ui/case-worker/case-worker-upload')
