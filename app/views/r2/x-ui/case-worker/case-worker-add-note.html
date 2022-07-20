@@ -3,26 +3,34 @@
 {% endblock %}
 
 
-<html lang="en" class="govuk-template ">  
+<html lang="en" class="govuk-template ">
   <div style=" max-width:1300px; margin: 0 auto;">
       <div style=" max-width:1300px;  min-width:1300px;  margin: 20px 0px 0px 0px;  ">
-          <main class="govuk-main-wrapper " id="main-content" role="main" style="padding-top: 25px;">                      
+          <main class="govuk-main-wrapper " id="main-content" role="main" style="padding-top: 25px;">
               <div class="govuk-width-container">
                 <div class="govuk-grid-row" style="width:1300px; margin-left: -90px;">
-                  <div class="govuk-grid-column-two-thirds">                  
+                  <div class="govuk-grid-column-two-thirds">
                     <h1 class="govuk-heading-xl">Add a case note</h1>
-                    <h2 class="govuk-heading-l">#1234-5678-0921-2722  &nbsp;&nbsp;&nbsp; </h2>
-                    
+                    <h2 class="govuk-heading-m">Case ref:&nbsp1234-5678-0921-2722  &nbsp;&nbsp;&nbsp; </h2>
+                    <h2 class="govuk-heading-m">Case name:&nbspJane Austin &nbsp;&nbsp;&nbsp; </h2>
 
                     <form action="/r2/x-ui/case-worker/case-worker-notes" method="post" class="form">
                     <div class="govuk-form-group">
                       <div class="govuk-form-group">
-                        <label class="govuk-label govuk-label--s" for="more-detail">
+                        <label class="govuk-label govuk-label--s" for="subject">
+                            Subject
+                          </label>
+                        </h2>
+
+                        <textarea class="govuk-textarea" id="subject" name="subject" rows="2" aria-describedby="subject-hint"></textarea>
+                      </div>
+                      <div class="govuk-form-group">
+                        <label class="govuk-label govuk-label--s" for="subject">
                             Note
                           </label>
-                        </h1>
+                        </h2>
                         <div id="more-detail-hint" class="govuk-hint">
-                          Add more information including the names of people involved and relevant dates.
+                          Include relevant dates and the people involved 
                         </div>
                         <textarea class="govuk-textarea" id="more-detail" name="more-detail" rows="2" aria-describedby="more-detail-hint"></textarea>
                       </div>
