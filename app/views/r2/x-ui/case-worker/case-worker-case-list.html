@@ -66,56 +66,19 @@
                         </div>                            
                         
                         <div class="govuk-form-group">
-                            <label class="govuk-label" for="state">
-                                Allocated local court
+                            <label class="govuk-label" for="ccd-case-number">
+                                Case number
                             </label>
-                            <select class="govuk-select" id="state" name="state">
-                                <option value="any" selected>Any</option>
-                                <option value="brighton">Brighton Family Court</option>
-                                <option value="bromley">Bromley Court</option>
-                                <option value="updated">Lorem ipsum</option>
-                                <option value="views">Dolor sit</option>
-                                <option value="comments">Amet consectetur</option>
-                            </select>
-                        </div>                            
-                            
-                        <div class="govuk-form-group">
-                            <label class="govuk-label" for="payment-type">
-                                Payment type
-                            </label>
-                            <select class="govuk-select" id="payment-type" name="payment-type">
-                                <option value="adoption" selected>-- Select a value --</option>
-                                <option value="updated">Lorem ipsum</option>
-                                <option value="views">Dolor sit</option>
-                                <option value="comments">Amet consectetur</option>
-                            </select>
-                        </div>
-
-                        <div class="govuk-form-group">
-                            <label class="govuk-label" for="flags">
-                                Flags
-                            </label>
-                            <select class="govuk-select" id="flags" name="flags">
-                                <option value="adoption" selected>-- Select a value --</option>
-                                <option value="updated">Lorem ipsum</option>
-                                <option value="views">Dolor sit</option>
-                                <option value="comments">Amet consectetur</option>
-                            </select>
-                        </div>
+                            <input class="govuk-input govuk-input--width-20" id="ccd-case-number" name="ccd-case-number" type="text">
+                        </div>                        
 
                         <div class="govuk-form-group">
                             <label class="govuk-label" for="case-name">
                                 Case name
                             </label>
-                            <input class="govuk-input" id="case-name" name="case-name" type="text">
+                            <input class="govuk-input govuk-input--width-20" id="case-name" name="case-name" type="text">
                         </div>                        
                            
-                        <div class="govuk-form-group">
-                            <label class="govuk-label" for="ccd-case-number">
-                                CCD case number
-                            </label>
-                            <input class="govuk-input" id="ccd-case-number" name="ccd-case-number" type="text">
-                        </div>                        
                         <div class="govuk-form-group">
                             <label class="govuk-label" for="ccd-case-number">
                                 Date submitted
@@ -142,8 +105,47 @@
                                     </label>
                                     <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="year" name="child-birth-year" type="text" pattern="[0-9]*" inputmode="numeric" value=""></div>
                                 </div>
-                            </div>                        
+                            </div> 
+                        </div>                       
+
+                        <div class="govuk-form-group">
+                            <label class="govuk-label" for="region">
+                                Region
+                            </label>
+                            <select class="govuk-select" id="region" name="region">
+                                <option value="adoption" selected>-- Select a value --</option>
+                                <option value="updated">Lorem ipsum</option>
+                                <option value="views">Dolor sit</option>
+                                <option value="comments">Amet consectetur</option>
+                            </select>
                         </div>
+
+                        <div class="govuk-form-group">
+                            <label class="govuk-label" for="area">
+                                Area
+                            </label>
+                            <select class="govuk-select" id="area" name="area">
+                                <option value="adoption" selected>-- Select a value --</option>
+                                <option value="updated">Lorem ipsum</option>
+                                <option value="views">Dolor sit</option>
+                                <option value="comments">Amet consectetur</option>
+                            </select>
+                        </div>
+
+                        <div class="govuk-form-group">
+                            <label class="govuk-label" for="state">
+                                Allocated local court
+                            </label>
+                            <select class="govuk-select" id="state" name="state">
+                                <option value="any" selected>Any</option>
+                                <option value="brighton">Brighton Family Court</option>
+                                <option value="bromley">Bromley Court</option>
+                                <option value="updated">Lorem ipsum</option>
+                                <option value="views">Dolor sit</option>
+                                <option value="comments">Amet consectetur</option>
+                            </select>
+                        </div>                            
+                            
 
                         {% include "../../../includes/filter-buttons.html" %}    
                     </div>
@@ -158,8 +160,8 @@
                                 <th scope="col" class="govuk-table__header govuk-body govuk-!-font-size-17">Case reference number</th>
                                 <th scope="col" class="govuk-table__header govuk-body govuk-!-font-size-17 ">State</th>
                                 <th scope="col" class="govuk-table__header govuk-body govuk-!-font-size-17 ">Date submitted</th>
-                                <th scope="col" class="govuk-table__header govuk-body govuk-!-font-size-17 ">Surname of child</th>
-                                <th scope="col" class="govuk-table__header govuk-body govuk-!-font-size-17 ">Allocated local court</th>
+                                <th scope="col" class="govuk-table__header govuk-body govuk-!-font-size-17 ">Child's name</th>
+                                <!-- <th scope="col" class="govuk-table__header govuk-body govuk-!-font-size-17 ">Allocated local court</th> -->
                             </tr>
                         </thead>
                         
@@ -167,65 +169,65 @@
                             <tr class="govuk-table__row">
                                 <td class="govuk-table__cell govuk-body govuk-!-font-size-16"><a href="index.html">1234-5678-0921-2722</a></td>
                                 <td class="govuk-table__cell govuk-body govuk-!-font-size-16">Application processed</td>
-                                <td class="govuk-table__cell govuk-body govuk-!-font-size-16">23 February 2022</td>
-                                <td class="govuk-table__cell govuk-body govuk-!-font-size-16">Austen</td>
-                                <td class="govuk-table__cell govuk-body govuk-!-font-size-16">Brighton Family Court</td>
+                                <td class="govuk-table__cell govuk-body govuk-!-font-size-16">23 Jul 2022, 10:20 AM</td>
+                                <td class="govuk-table__cell govuk-body govuk-!-font-size-16">Jane Austen</td>
+                                <!-- <td class="govuk-table__cell govuk-body govuk-!-font-size-16">Brighton Family Court</td> -->
                             </tr>
 
                             <tr class="govuk-table__row">
                                 <td class="govuk-table__cell govuk-body govuk-!-font-size-16"><a href="">3689-2642-5857-7069</a></td>
                                 <td class="govuk-table__cell govuk-body govuk-!-font-size-16">Adoption granted</td>
-                                <td class="govuk-table__cell govuk-body govuk-!-font-size-16">10 April 2020</td>
-                                <td class="govuk-table__cell govuk-body govuk-!-font-size-16">Poppins</td>
-                                <td class="govuk-table__cell govuk-body govuk-!-font-size-16">Bromley Court</td>
+                                <td class="govuk-table__cell govuk-body govuk-!-font-size-16">10 Jun 2022, 04:03 PM</td>
+                                <td class="govuk-table__cell govuk-body govuk-!-font-size-16">Mary Poppins</td>
+                                <!-- <td class="govuk-table__cell govuk-body govuk-!-font-size-16">Bromley Court</td> -->
                             </tr>
                             
                             <tr class="govuk-table__row">
                                 <td class="govuk-table__cell govuk-body govuk-!-font-size-16"><a href="">3827-2010-3565-3933</a></td>
                                 <td class="govuk-table__cell govuk-body govuk-!-font-size-16">Lorem ipsum</td>
-                                <td class="govuk-table__cell govuk-body govuk-!-font-size-16">12 February 2020</td>
-                                <td class="govuk-table__cell govuk-body govuk-!-font-size-16">Lorem</td>
-                                <td class="govuk-table__cell govuk-body govuk-!-font-size-16">Lorem Ipsum Court</td>
+                                <td class="govuk-table__cell govuk-body govuk-!-font-size-16">12 Feb 2022, 01:55 PM</td>
+                                <td class="govuk-table__cell govuk-body govuk-!-font-size-16">Anne Marie Jones</td>
+                                <!-- <td class="govuk-table__cell govuk-body govuk-!-font-size-16">Lorem Ipsum Court</td> -->
                             </tr>
                 
                             <tr class="govuk-table__row">
                                 <td class="govuk-table__cell govuk-body govuk-!-font-size-16"><a href="">3827-2010-3565-3933</a></td>
                                 <td class="govuk-table__cell govuk-body govuk-!-font-size-16">Lorem ipsum</td>
-                                <td class="govuk-table__cell govuk-body govuk-!-font-size-16">12 February 2020</td>
-                                <td class="govuk-table__cell govuk-body govuk-!-font-size-16">Lorem</td>
-                                <td class="govuk-table__cell govuk-body govuk-!-font-size-16">Lorem Ipsum Court</td>
+                                <td class="govuk-table__cell govuk-body govuk-!-font-size-16">12 Feb 2022, 10:20 AM</td>
+                                <td class="govuk-table__cell govuk-body govuk-!-font-size-16">Lorem Ipsum</td>
+                                <!-- <td class="govuk-table__cell govuk-body govuk-!-font-size-16">Lorem Ipsum Court</td> -->
                             </tr>
                 
                             <tr class="govuk-table__row">
                                 <td class="govuk-table__cell govuk-body govuk-!-font-size-16"><a href="">3827-2010-3565-3933</a></td>
                                 <td class="govuk-table__cell govuk-body govuk-!-font-size-16">Lorem ipsum</td>
-                                <td class="govuk-table__cell govuk-body govuk-!-font-size-16">12 February 2020</td>
-                                <td class="govuk-table__cell govuk-body govuk-!-font-size-16">Lorem</td>
-                                <td class="govuk-table__cell govuk-body govuk-!-font-size-16">Lorem Ipsum Court</td>
+                                <td class="govuk-table__cell govuk-body govuk-!-font-size-16">12 Feb 2022, 10:20 AM</td>
+                                <td class="govuk-table__cell govuk-body govuk-!-font-size-16">Lorem Ipsum</td>
+                                <!-- <td class="govuk-table__cell govuk-body govuk-!-font-size-16">Lorem Ipsum Court</td> -->
                             </tr>
                 
                             <tr class="govuk-table__row">
                                 <td class="govuk-table__cell govuk-body govuk-!-font-size-16"><a href="">3827-2010-3565-3933</a></td>
                                 <td class="govuk-table__cell govuk-body govuk-!-font-size-16">Lorem ipsum</td>
-                                <td class="govuk-table__cell govuk-body govuk-!-font-size-16">12 February 2020</td>
-                                <td class="govuk-table__cell govuk-body govuk-!-font-size-16">Lorem</td>
-                                <td class="govuk-table__cell govuk-body govuk-!-font-size-16">Lorem Ipsum Court</td>
+                                <td class="govuk-table__cell govuk-body govuk-!-font-size-16">12 Feb 2022, 10:20 AM</td>
+                                <td class="govuk-table__cell govuk-body govuk-!-font-size-16">Lorem Ipsum</td>
+                                <!-- <td class="govuk-table__cell govuk-body govuk-!-font-size-16">Lorem Ipsum Court</td> -->
                             </tr>
                 
                             <tr class="govuk-table__row">
                                 <td class="govuk-table__cell govuk-body govuk-!-font-size-16"><a href="">3827-2010-3565-3933</a></td>
                                 <td class="govuk-table__cell govuk-body govuk-!-font-size-16">Lorem ipsum</td>
-                                <td class="govuk-table__cell govuk-body govuk-!-font-size-16">12 February 2020</td>
-                                <td class="govuk-table__cell govuk-body govuk-!-font-size-16">Lorem</td>
-                                <td class="govuk-table__cell govuk-body govuk-!-font-size-16">Lorem Ipsum Court</td>
+                                <td class="govuk-table__cell govuk-body govuk-!-font-size-16">12 Feb 2022, 10:20 AM</td>
+                                <td class="govuk-table__cell govuk-body govuk-!-font-size-16">Lorem Ipsum</td>
+                                <!-- <td class="govuk-table__cell govuk-body govuk-!-font-size-16">Lorem Ipsum Court</td> -->
                             </tr>
                 
                             <tr class="govuk-table__row">
                                 <td class="govuk-table__cell govuk-body govuk-!-font-size-16"><a href="">3827-2010-3565-3933</a></td>
                                 <td class="govuk-table__cell govuk-body govuk-!-font-size-16">Lorem ipsum</td>
-                                <td class="govuk-table__cell govuk-body govuk-!-font-size-16">12 February 2020</td>
-                                <td class="govuk-table__cell govuk-body govuk-!-font-size-16">Lorem</td>
-                                <td class="govuk-table__cell govuk-body govuk-!-font-size-16">Lorem Ipsum Court</td>
+                                <td class="govuk-table__cell govuk-body govuk-!-font-size-16">12 Feb 2022, 10:20 AM</td>
+                                <td class="govuk-table__cell govuk-body govuk-!-font-size-16">Lorem Ipsum</td>
+                                <!-- <td class="govuk-table__cell govuk-body govuk-!-font-size-16">Lorem Ipsum Court</td> -->
                             </tr>            
                         </tbody>
                     </table>
