@@ -2184,7 +2184,7 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
       res.redirect('/r2/x-ui/case-worker/case-worker-add-note')
     }
     else if (req.body['next-steps'] === 'send-a-message') {
-      res.redirect('/r2/x-ui/case-worker/case-worker-message-radios')
+      res.redirect('/r2/x-ui/case-worker/case-worker-message-send-and-reply')
     }
   })
 
