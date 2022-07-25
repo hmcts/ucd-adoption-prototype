@@ -17,57 +17,67 @@
 
                   <div class="govuk-form-group">
 
-                      <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+                    <div class="govuk-checkboxes" data-module="govuk-checkboxes">
 
-                        <div class="govuk-checkboxes__item">
-                          <input class="govuk-checkboxes__input" id="child social worker" name="send-to-role" type="checkbox" value="child social worker">
-                          <label class="govuk-label govuk-checkboxes__label" for="child social worker">
-                            Child's social worker: Agnes James
-                          </label>
-                        </div>
+                      <div class="govuk-checkboxes__item">
+                        <input class="govuk-checkboxes__input" id="child social worker" name="send-to-role" type="checkbox" value="child social worker">
+                        <label class="govuk-label govuk-checkboxes__label" for="child social worker">
+                          Child's social worker: Agnes James, London Borough of Tower Hamlets
+                        </label>
+                      </div>
 
-                        <div class="govuk-checkboxes__item">
-                          <input class="govuk-checkboxes__input" id="applicants-social-worker" name="send-to-role" type="checkbox" value="applicant social worker">
-                          <label class="govuk-label govuk-checkboxes__label" for="applicants-social-worker">
-                            Applicants' social worker: Mary Francis
-                          </label>
-                        </div>
-                        <div class="govuk-checkboxes__item">
-                          <input class="govuk-checkboxes__input" id="applicants local authority" name="send-to-role" type="checkbox" value="applicants local authority">
-                          <label class="govuk-label govuk-checkboxes__label" for="applicants local authority">
-                            Applicant's Local Authority: London Borough of Southwark
-                          </label>
-                        </div>
-                        <div class="govuk-checkboxes__item">
-                          <input class="govuk-checkboxes__input" id="first applicant" name="send-to-role" type="checkbox" value="first applicant">
-                          <label class="govuk-label govuk-checkboxes__label" for="first applicant">
-                            First applicant: Agatha Mary Clarissa Christie
-                          </label>
-                        </div>
-                        <div class="govuk-checkboxes__item">
-                          <input class="govuk-checkboxes__input" id="second applicant" name="send-to-role" type="checkbox" value="second applicant">
-                          <label class="govuk-label govuk-checkboxes__label" for="second applicant">
-                            Second applicant: Arthur Ignatius Conan Doyle
-                          </label>
-                        </div>
-                        <div class="govuk-checkboxes__item">
-                          <input class="govuk-checkboxes__input" id="lorem-ipsum" name="send-to-role" type="checkbox" value="lorem ipsum">
-                          <label class="govuk-label govuk-checkboxes__label" for="lorem-ipsum">
+                      <div class="govuk-checkboxes__item">
+                        <input class="govuk-checkboxes__input" id="applicants-social-worker" name="send-to-role" type="checkbox" value="applicant social worker">
+                        <label class="govuk-label govuk-checkboxes__label" for="applicants-social-worker">
+                          Adoption agency or local authority: Mary Francis, Royal Borough of Greenwich
+                        </label>
+                      </div>
 
-                            Lorem ipsum: Dolor Sit
+                      <div class="govuk-checkboxes__item">
+                        <input class="govuk-checkboxes__input" id="applicants local authority" name="send-to-role" type="checkbox" value="applicants local authority">
+                        <label class="govuk-label govuk-checkboxes__label" for="applicants local authority">
+                          Other adoption agency or local authority: Phil Jones, London Borough of Southwark
+                        </label>
+                      </div>
 
-                          </label>
-                        </div>
-                        <div class="govuk-checkboxes__item">
-                          <input class="govuk-checkboxes__input" id="lorem-ipsum" name="send-to-role" type="checkbox" value="lorem ipsum">
-                          <label class="govuk-label govuk-checkboxes__label" for="lorem-ipsum">
+                      <div class="govuk-checkboxes__item">
+                        <input class="govuk-checkboxes__input" id="first applicant" name="send-to-role" type="checkbox" value="first applicant">
+                        <label class="govuk-label govuk-checkboxes__label" for="first applicant">
+                          First applicant: Agatha Mary Clarissa Christie
+                        </label>
+                      </div>
 
-                            Lorem ipsum: Dolor Sit
+                      <div class="govuk-checkboxes__item">
+                        <input class="govuk-checkboxes__input" id="second applicant" name="send-to-role" type="checkbox" value="second applicant">
+                        <label class="govuk-label govuk-checkboxes__label" for="second applicant">
+                          Second applicant: Arthur Ignatius Conan Doyle
+                        </label>
+                      </div>
 
-                          </label>
-                        </div>
-                </div>
-                <input type="hidden" name="document-type" value="{{data['document-type']}}">
+                      <div class="govuk-checkboxes__item">
+                        <input class="govuk-checkboxes__input" id="birth mother" name="send-to-role" type="checkbox" value="birth mother">
+                        <label class="govuk-label govuk-checkboxes__label" for="birth mother">
+                          Birth mother: Marianne Austen
+                        </label>
+                      </div>
+
+                      <div class="govuk-checkboxes__item">
+                        <input class="govuk-checkboxes__input" id="birth father" name="send-to-role" type="checkbox" value="birth father">
+                        <label class="govuk-label govuk-checkboxes__label" for="birth-father">
+                          Birth father: John Austen
+                        </label>
+                      </div>
+
+                      <div class="govuk-checkboxes__item">
+                        <input class="govuk-checkboxes__input" id="parental responsibility" name="send-to-role" type="checkbox" value="parental responsibility">
+                        <label class="govuk-label govuk-checkboxes__label" for="parental responsibility">
+                          Person with parental responsibility: Peter Murphy
+                        </label>
+                      </div>
+
+                  </div>
+
+                  <input type="hidden" name="document-type" value="{{data['document-type']}}">
                 <!-- Buttons -->
                 {% include "../../../includes/buttons-xui.html" %}
                   </form>
