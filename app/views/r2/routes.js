@@ -2032,7 +2032,7 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
 
   router.post('/r2/includes/next-steps-case-worker', function(req, res) {
     if (req.body['next-steps'] === 'notes') {
-      res.redirect('/r2/x-ui/case-worker/case-worker-notes')
+      res.redirect('/r2/x-ui/case-worker/x')
     }
     else {
       res.redirect('/r2/x-ui/case-worker/')
@@ -2065,7 +2065,7 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
     }
     // }
     else {
-      res.redirect('/r2/x-ui/case-worker/case-worker-manage-documents')
+      res.redirect('/r2/x-ui/case-worker/case-worker-upload')
     }
   })
 
@@ -2094,7 +2094,7 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
       res.redirect('/r2/x-ui/case-worker/case-worker-upload')
     }
     else {
-      res.redirect('/r2/x-ui/case-worker/case-worker-manage-documents')
+      res.redirect('/r2/x-ui/case-worker/case-worker-documents')
     }
   })
 
@@ -2177,7 +2177,7 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
   router.post('/r2/x-ui/case-worker/index', function(req, res) {
     console.log(req.body['next-steps'])
     if (req.body['next-steps'] === 'manage-documents') {
-      res.redirect('/r2/x-ui/case-worker/case-worker-manage-documents')
+      res.redirect('/r2/x-ui/case-worker/case-worker-upload')
     }
     else if (req.body['next-steps'] === 'notes') {
       req.session.data.newNote = 'yes'
