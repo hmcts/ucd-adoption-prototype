@@ -2099,6 +2099,19 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
   })
 
 
+  router.post('/r2/x-ui/case-worker/case-worker-edit-document', function(req, res) {
+    if (req.body['submit-button'] === 'continue') {
+      res.redirect('/r2/x-ui/case-worker/case-worker-statements-select-respondent')
+    }
+    else if (req.body['add-new-button'] === 'add-new-button-top' || req.body['add-new-button'] === 'add-new-button-bottom' || req.body['remove-button'] === 'remove') {
+      res.redirect('/r2/x-ui/case-worker/case-worker-edit-document')
+    }
+    else {
+      res.redirect('/r2/x-ui/case-worker/case-worker-documents')
+    }
+  })
+
+
   router.post('/r2/x-ui/case-worker/case-worker-message-radios', function(req, res) {
     if (req.body['submit-button'] === 'continue') {
       res.redirect('/r2/x-ui/case-worker/case-worker-messages-select-person')
