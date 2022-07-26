@@ -2187,6 +2187,28 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
   })
 
 
+  router.post('/r2/x-ui/case-worker/case-worker-add-note', function(req, res) {
+    console.log("Note")
+    if (req.body['submit-button'] === 'continue') {
+      res.redirect('/r2/x-ui/case-worker/case-worker-add-note-summary')
+    }
+    else {
+      res.redirect('/r2/x-ui/case-worker/case-worker-notes')
+    }
+  })
+
+
+  router.post('/r2/x-ui/case-worker/case-worker-add-note-summary', function(req, res) {
+    console.log("Note")
+    if (req.body['submit-button'] === 'continue') {
+      res.redirect('/r2/x-ui/case-worker/index')
+    }
+    else {
+      res.redirect('/r2/x-ui/case-worker/case-worker-add-note')
+    }
+  })
+
+
 
   router.post('/r2/x-ui/case-worker/index', function(req, res) {
     console.log(req.body['next-steps'])
