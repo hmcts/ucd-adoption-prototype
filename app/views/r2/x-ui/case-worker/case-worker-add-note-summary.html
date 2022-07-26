@@ -14,17 +14,22 @@
                     <h2 class="govuk-heading-l govuk-!-margin-bottom-3">#1234-5678-0921-2722</h2>
                     <h2 class="govuk-heading-m govuk-!-margin-top-0 govuk-!-margin-bottom-7">Child's name: Jane Austen</h2>                   
 
-                    <form action="/r2/x-ui/case-worker/case-worker-add-note" method="post" class="form">
+                    <form action="/r2/x-ui/case-worker/case-worker-add-note-summary" method="post" class="form">
                     <div class="govuk-form-group">
                       <div class="govuk-form-group">
                         <label class="govuk-label govuk-label--s" for="more-detail">
-                            Note
+                            Event summary (optional)
                           </label>
-                        </h1>
                         <div id="more-detail-hint" class="govuk-hint">
-                          Add more information including the names of people involved and relevant dates.
+                          A few words describing the purpose of the event.
                         </div>
-                        <textarea class="govuk-textarea" id="more-detail" name="more-detail" rows="2" aria-describedby="more-detail-hint"></textarea>
+                        <textarea class="govuk-textarea" id="event-summary" name="event-summary" rows="2" aria-describedby="event-summary"></textarea>
+                      </div>
+                      <div class="govuk-form-group">
+                        <label class="govuk-label govuk-label--s" for="more-detail">
+                          Event description (optional)
+                          </label>
+                        <textarea class="govuk-textarea" id="event-summary" name="event-summary" rows="2" aria-describedby="event-summary"></textarea>
                       </div>
                     </div>
                   <!-- Buttons -->
