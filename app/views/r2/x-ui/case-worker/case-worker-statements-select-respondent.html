@@ -80,27 +80,30 @@
                             Other party
                           </label>
                         </div>
+
                         <div class="govuk-radios__conditional govuk-radios__conditional--hidden " id="conditional-contact">
                           <div class="govuk-form-group">
                             <label class="govuk-label" for="role">
                               Role
                             </label>
-                            <input class="govuk-input govuk-input--width-30" id="upload-party-role" name="upload-party-role" type="text" value="{{ data['upload-party-role'] }}"></div>
+                            <input class="govuk-input govuk-input--width-30" id="upload-party-role" name="upload-party-role" type="text" value="{{ data['upload-party-role'] }}">
                                             
                             <label class="govuk-label govuk-!-margin-top-5" for="role">
                               Name
                             </label>
-                            <input class="govuk-input govuk-input--width-30" id="upload-party-name" name="upload-party-name" type="text" value="{{ data['upload-party-name'] }}"></div>                                            
+                            <input class="govuk-input govuk-input--width-30" id="upload-party-name" name="upload-party-name" type="text" value="{{ data['upload-party-name'] }}">
+                          </div>                                            
                         </div>
                       </div>                  
                 </div>
-              </div>
               
                 <input type="hidden" name="document-type" value="{{data['document-type']}}">
                 <!-- Buttons -->
                 {% include "../../../includes/buttons-xui.html" %}
                   </form>
                 </div>
+  </div>
+  
 
               </div>
           </main>
