@@ -120,7 +120,8 @@ module.exports = {
 ],
 
 "newNote": "no",
-"repliedMessage": ""
+"repliedMessage": "",
+"correspondenceStatus": 0
 
 
 ,}
