@@ -2088,6 +2088,9 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
 
   router.post('/r2/x-ui/case-worker/case-worker-upload', function(req, res) {
     if (req.body['submit-button'] === 'continue') {
+      if (req.body['document-type'] === "Correspondence") {
+        req.session.data.correspondenceStatus = 1
+      }
       res.redirect('/r2/x-ui/case-worker/case-worker-statements-select-respondent')
     }
     else if (req.body['add-new-button'] === 'add-new-button-top' || req.body['add-new-button'] === 'add-new-button-bottom' || req.body['remove-button'] === 'remove') {

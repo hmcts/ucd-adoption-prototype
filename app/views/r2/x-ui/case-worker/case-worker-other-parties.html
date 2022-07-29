@@ -70,6 +70,14 @@
                             </a>
                         </li>
 
+                        {% if data['correspondenceStatus'] === 1 %}
+                        <li class="govuk-tabs__list-item">
+                            <a class="govuk-tabs__tab" href="case-worker-correspondence.html">
+                                Correspondence
+                            </a>
+                          </li>
+                        {% endif %}
+  
                         <li class="govuk-tabs__list-item">
                             <a class="govuk-tabs__tab" href="case-worker-messages.html">
                                 Messages
