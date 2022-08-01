@@ -11,8 +11,9 @@
                 <div class="govuk-grid-row" style="width:1300px; margin-left: -90px;">
                     <div class="" style="display: flex; justify-content: space-between; ">
                         <div>
-                          <h1 class="govuk-heading-xl">#1234-5678-0921-2722  &nbsp;&nbsp;&nbsp; </h1>
-                            <!-- <span class="govuk-caption-l" style="padding-top: 0px">1234-5678-9012-3456</span>
+                            <h1 class="govuk-heading-xl govuk-!-margin-bottom-4">#1234-5678-0921-2722</h1>
+                            <h2 class="govuk-heading-l govuk-!-margin-top-0 govuk-!-margin-bottom-7">Child's name: Jane Austen</h2>
+                              <!-- <span class="govuk-caption-l" style="padding-top: 0px">1234-5678-9012-3456</span>
                             <span style="margin-bottom:50px; padding-top: 25px;"><a href="#">Print</a></span>
                             <button class="govuk-button govuk-button--secondary" data-module="govuk-button">
                                 Print
@@ -24,8 +25,8 @@
                         
                                 <select class="govuk-select" id="sort" name="next-steps">
                                     <option value="select-action" selected="">Select action</option>
-                                    <option value="manage-documents">Upload documents</option>
-                                    <option value="send-a-message">Send message</option>
+                                    <option value="manage-documents">Manage documents</option>
+                                    <option value="send-a-message">Send or reply to messages</option>
                                     <option value="case-issue">Case issue</option>
                                     <option value="notes">Add a case note</option>
                                 </select>
@@ -69,6 +70,14 @@
                             </a>
                         </li>
                         
+                        {% if data['correspondenceStatus'] === 1 %}
+                        <li class="govuk-tabs__list-item">
+                            <a class="govuk-tabs__tab" href="case-worker-correspondence.html">
+                                Correspondence
+                            </a>
+                          </li>
+                        {% endif %}
+  
                         <li class="govuk-tabs__list-item">
                             <a class="govuk-tabs__tab" href="case-worker-messages.html">
                                 Messages
@@ -81,7 +90,7 @@
                             </a>
                           </li>
 
-                        <li class="govuk-tabs__list-item">
+                        <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
                             <a class="govuk-tabs__tab" href="case-worker-history.html">
                                 History
                             </a>

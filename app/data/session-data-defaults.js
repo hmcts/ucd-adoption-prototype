@@ -119,7 +119,9 @@ module.exports = {
     "December"
 ],
 
-"newNote": "no"
+"newNote": "no",
+"repliedMessage": "",
+"correspondenceStatus": 0
 
 
 ,}

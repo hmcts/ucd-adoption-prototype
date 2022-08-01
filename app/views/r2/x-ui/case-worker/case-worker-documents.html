@@ -11,7 +11,8 @@
                 <div class="govuk-grid-row" style="width:1300px; margin-left: -90px;">
                     <div class="" style="display: flex; justify-content: space-between; ">
                         <div>
-                          <h1 class="govuk-heading-xl">#1234-5678-0921-2722  &nbsp;&nbsp;&nbsp; </h1>
+                          <h1 class="govuk-heading-xl govuk-!-margin-bottom-4">#1234-5678-0921-2722</h1>
+                          <h2 class="govuk-heading-l govuk-!-margin-top-0 govuk-!-margin-bottom-7">Child's name: Jane Austen</h2>
                             <!-- <span class="govuk-caption-l" style="padding-top: 0px">1234-5678-9012-3456</span>
                             <span style="margin-bottom:50px; padding-top: 25px;"><a href="#">Print</a></span>
                             <button class="govuk-button govuk-button--secondary" data-module="govuk-button">
@@ -24,8 +25,8 @@
                       
                               <select class="govuk-select" id="sort" name="next-steps">
                                   <option value="select-action" selected="">Select action</option>
-                                  <option value="manage-documents">Upload documents</option>
-                                  <option value="send-a-message">Send message</option>
+                                  <option value="manage-documents">Manage documents</option>
+                                  <option value="send-a-message">Send or reply to messages</option>
                                   <option value="case-issue">Case issue</option>
                                   <option value="notes">Add a case note</option>
                               </select>
@@ -69,6 +70,14 @@
                             </a>
                         </li>
                         
+                        {% if data['correspondenceStatus'] === 1 %}
+                        <li class="govuk-tabs__list-item">
+                            <a class="govuk-tabs__tab" href="case-worker-correspondence.html">
+                                Correspondence
+                            </a>
+                          </li>
+                        {% endif %}
+  
                         <li class="govuk-tabs__list-item">
                             <a class="govuk-tabs__tab" href="case-worker-messages.html">
                                 Messages
@@ -111,7 +120,7 @@
 
                       <div class="govuk-tabs__panel" id="1">
                         <h1 class="govuk-heading-l">Documents</h2>
-                          <p><a href="case-worker-manage-documents.html">Upload documents</a></p>
+                          <p><a href="case-worker-upload.html">Upload documents</a></p>
                           <!-- <dl class="govuk-summary-list">
                             <div class="govuk-summary-list__row">
                             <dd class="govuk-summary-list__value">
@@ -126,7 +135,45 @@
                           </div>
                         </dl> -->
 
+                        <h2 class="govuk-heading-m govuk-!-margin-top-7">Incoming, need review</h2>
+                        <dl class="govuk-summary-list">
+                          <div class="govuk-summary-list__row">
+                            <dt class="govuk-summary-list__value">
+                              <a href="">annexA283776.pdf</a>
+                            </dt>
+                            <dd class="govuk-summary-list__value">
+                              <a href="case-worker-edit-document.html">Edit details</a>
+                            </dd>
+                            <dd class="govuk-summary-list__value">
+                              &nbsp;
+                            </dd>
+                          </div>
 
+                          <div class="govuk-summary-list__row">
+                            <dt class="govuk-summary-list__value">
+                              <a href="">LetterToJanet.pdf</a>
+                            </dt>
+                            <dd class="govuk-summary-list__value">
+                              <a href="case-worker-edit-document.html">Edit details</a>
+                            </dd>
+                            <dd class="govuk-summary-list__value">
+                              &nbsp;
+                            </dd>
+                          </div>
+
+                          <div class="govuk-summary-list__row">
+                            <dt class="govuk-summary-list__value">
+                              <a href="">Document1.pdf</a>
+                            </dt>
+                            <dd class="govuk-summary-list__value">
+                              <a href="case-worker-edit-document.html">Edit details</a>
+                            </dd>
+                            <dd class="govuk-summary-list__value">
+                              &nbsp;
+                            </dd>
+                          </div>
+
+                        </dl>
 
                           <h2 class="govuk-heading-m govuk-!-margin-top-7">Application documents</h2>
 
@@ -152,6 +199,30 @@
                               </dt>
                               <dd class="govuk-summary-list__value">
                                 <a href="">fullapplication1233434.pdf</a>
+                              </dd>
+                              <dd class="govuk-summary-list__value">
+                                &nbsp;
+                              </dd>
+                            </div>
+
+                            <div class="govuk-summary-list__row">
+                              <dt class="govuk-summary-list__value">
+                                Date
+                              </dt>
+                              <dd class="govuk-summary-list__value">
+                                1 March 2022
+                              </dd>
+                              <dd class="govuk-summary-list__value">
+                                &nbsp;
+                              </dd>
+                            </div>
+
+                            <div class="govuk-summary-list__row">
+                              <dt class="govuk-summary-list__value">
+                                Uploaded by
+                              </dt>
+                              <dd class="govuk-summary-list__value">
+                                First applicant: Agatha Mary Clarissa Christie
                               </dd>
                               <dd class="govuk-summary-list__value">
                                 &nbsp;
@@ -189,7 +260,31 @@
                               &nbsp;
                             </dd>
                           </div>
-                        </dl>
+
+                          <div class="govuk-summary-list__row">
+                            <dt class="govuk-summary-list__value">
+                              Date
+                            </dt>
+                            <dd class="govuk-summary-list__value">
+                              20 July 2022
+                            </dd>
+                            <dd class="govuk-summary-list__value">
+                              &nbsp;
+                            </dd>
+                          </div>
+
+                          <div class="govuk-summary-list__row">
+                            <dt class="govuk-summary-list__value">
+                              Uploaded by
+                            </dt>
+                            <dd class="govuk-summary-list__value">
+                              Child's social worker: Agnes James, London Borough of Tower Hamlets
+                            </dd>
+                            <dd class="govuk-summary-list__value">
+                              &nbsp;
+                            </dd>
+                          </div>
+                      </dl>
 
                         <h2 class="govuk-heading-m govuk-!-margin-top-7">Statements</h2>
 
@@ -220,6 +315,30 @@
                               </dd>
                               </dd>
                           </div>
+                          
+                          <div class="govuk-summary-list__row">
+                            <dt class="govuk-summary-list__value">
+                              Date
+                            </dt>
+                            <dd class="govuk-summary-list__value">
+                              15 May 2022
+                            </dd>
+                            <dd class="govuk-summary-list__value">
+                              &nbsp;
+                            </dd>
+                          </div>
+
+                          <div class="govuk-summary-list__row">
+                            <dt class="govuk-summary-list__value">
+                              Uploaded by
+                            </dt>
+                            <dd class="govuk-summary-list__value">
+                              Birth mother: Marianne Austen
+                            </dd>
+                            <dd class="govuk-summary-list__value">
+                              &nbsp;
+                            </dd>
+                          </div>
                         </dl>
 
                         <dt class="complex-panel govuk-!-margin-top-7">
@@ -248,6 +367,30 @@
                                 &nbsp;
                               </dd>
                               </dd>
+                          </div>
+
+                          <div class="govuk-summary-list__row">
+                            <dt class="govuk-summary-list__value">
+                              Date
+                            </dt>
+                            <dd class="govuk-summary-list__value">
+                              15 May 2022
+                            </dd>
+                            <dd class="govuk-summary-list__value">
+                              &nbsp;
+                            </dd>
+                          </div>
+
+                          <div class="govuk-summary-list__row">
+                            <dt class="govuk-summary-list__value">
+                              Uploaded by
+                            </dt>
+                            <dd class="govuk-summary-list__value">
+                              Birth father: John Austen
+                            </dd>
+                            <dd class="govuk-summary-list__value">
+                              &nbsp;
+                            </dd>
                           </div>
                         </dl>
 

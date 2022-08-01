@@ -1293,7 +1293,7 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
     else if (req.body['first-applicant-other'] !== undefined && req.session.data.firstApplicantNationalityCount === 0) {
       // console.log("no nationality added error: ", req.session.data.firstApplicantNationalities)
       errors.push({
-      text: 'This is not a valid entry',
+      text: 'Select \'Add\' before you continue',
       href: '#first-applicant-no-nationality'
       })
     }
@@ -1660,7 +1660,7 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
     else if (req.body['second-applicant-other'] !== undefined && req.session.data.secondApplicantNationalityCount === 0) {
       // console.log("no nationality added error: ", req.session.data.secondApplicantNationalities)
       errors.push({
-      text: 'This is not a valid entry',
+      text: 'Select \'Add\' before you continue',
       href: '#second-applicant-no-nationality'
       })
     }
@@ -2032,7 +2032,7 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
 
   router.post('/r2/includes/next-steps-case-worker', function(req, res) {
     if (req.body['next-steps'] === 'notes') {
-      res.redirect('/r2/x-ui/case-worker/case-worker-notes')
+      res.redirect('/r2/x-ui/case-worker/x')
     }
     else {
       res.redirect('/r2/x-ui/case-worker/')
@@ -2061,11 +2061,11 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
       //   res.redirect('/r2/x-ui/case-worker/case-worker-intention-oppose')
       // }
       // else {
-      res.redirect('/r2/x-ui/case-worker/case-worker-upload')
+      res.redirect('/r2/x-ui/case-worker/case-worker-documents')
     }
     // }
     else {
-      res.redirect('/r2/x-ui/case-worker/case-worker-manage-documents')
+      res.redirect('/r2/x-ui/case-worker/case-worker-upload')
     }
   })
 
@@ -2088,13 +2088,29 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
 
   router.post('/r2/x-ui/case-worker/case-worker-upload', function(req, res) {
     if (req.body['submit-button'] === 'continue') {
-      res.redirect('/r2/x-ui/case-worker/case-worker-documents')
+      if (req.body['document-type'] === "Correspondence") {
+        req.session.data.correspondenceStatus = 1
+      }
+      res.redirect('/r2/x-ui/case-worker/case-worker-statements-select-respondent')
     }
     else if (req.body['add-new-button'] === 'add-new-button-top' || req.body['add-new-button'] === 'add-new-button-bottom' || req.body['remove-button'] === 'remove') {
       res.redirect('/r2/x-ui/case-worker/case-worker-upload')
     }
     else {
-      res.redirect('/r2/x-ui/case-worker/case-worker-manage-documents')
+      res.redirect('/r2/x-ui/case-worker/case-worker-documents')
+    }
+  })
+
+
+  router.post('/r2/x-ui/case-worker/case-worker-edit-document', function(req, res) {
+    if (req.body['submit-button'] === 'continue') {
+      res.redirect('/r2/x-ui/case-worker/case-worker-statements-select-respondent')
+    }
+    else if (req.body['add-new-button'] === 'add-new-button-top' || req.body['add-new-button'] === 'add-new-button-bottom' || req.body['remove-button'] === 'remove') {
+      res.redirect('/r2/x-ui/case-worker/case-worker-edit-document')
+    }
+    else {
+      res.redirect('/r2/x-ui/case-worker/case-worker-documents')
     }
   })
 
@@ -2121,7 +2137,8 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
 
   router.post('/r2/x-ui/case-worker/case-worker-send-message', function(req, res) {
     if (req.body['submit-button'] === 'continue') {
-      res.redirect('/r2/x-ui/case-worker/case-worker-message-sent')
+      req.session.data.repliedMessage = 1
+      res.redirect('/r2/x-ui/case-worker/case-worker-messages')
     }
     else {
       res.redirect('/r2/x-ui/case-worker/case-worker-messages-select-person')
@@ -2139,17 +2156,85 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
   })
 
 
+  router.post('/r2/x-ui/case-worker/case-worker-message-send-and-reply', function(req, res) {
+    if (req.body['submit-button'] === 'continue') {
+      if (req.body['xui-send-reply-radio'] === 'send') {
+        res.redirect('/r2/x-ui/case-worker/case-worker-message-radios')
+      }
+      else {
+        res.redirect('/r2/x-ui/case-worker/case-worker-message-reply-required')
+      }
+    }
+    else {
+      res.redirect('/r2/x-ui/case-worker/case-worker-messages')
+    }
+  })
+
+  router.post('/r2/x-ui/case-worker/case-worker-message-reply-required', function(req, res) {
+    if (req.body['submit-button'] === 'continue') {
+      res.redirect('/r2/x-ui/case-worker/case-worker-message-check-your-answers')
+    }
+    else {
+      res.redirect('/r2/x-ui/case-worker/case-worker-message-send-and-reply')
+    }
+  })
+
+  router.post('/r2/x-ui/case-worker/case-worker-message-check-your-answers', function(req, res) {
+    if (req.body['submit-button'] === 'continue') {
+      req.session.data.repliedMessage = 1
+      res.redirect('/r2/x-ui/case-worker/case-worker-messages')
+    }
+    else {
+      res.redirect('/r2/x-ui/case-worker/case-worker-message-reply-required')
+    }
+  })
+
+
+  router.post('/r2/x-ui/case-worker/case-worker-add-note', function(req, res) {
+    console.log("Note")
+    if (req.body['submit-button'] === 'continue') {
+      res.redirect('/r2/x-ui/case-worker/case-worker-notes-check-your-answers')
+    }
+    else {
+      res.redirect('/r2/x-ui/case-worker/case-worker-notes')
+    }
+  })
+
+
+  router.post('/r2/x-ui/case-worker/case-worker-notes-check-your-answers', function(req, res) {
+    console.log("Note")
+    if (req.body['submit-button'] === 'continue') {
+      res.redirect('/r2/x-ui/case-worker/index')
+    }
+    else {
+      res.redirect('/r2/x-ui/case-worker/case-worker-add-note')
+    }
+  })
+
+
+  router.post('/r2/x-ui/case-worker/case-worker-add-note-summary', function(req, res) {
+    console.log("Note")
+    if (req.body['submit-button'] === 'continue') {
+      res.redirect('/r2/x-ui/case-worker/index')
+    }
+    else {
+      res.redirect('/r2/x-ui/case-worker/case-worker-add-note')
+    }
+  })
+
+
+
   router.post('/r2/x-ui/case-worker/index', function(req, res) {
     console.log(req.body['next-steps'])
     if (req.body['next-steps'] === 'manage-documents') {
-      res.redirect('/r2/x-ui/case-worker/case-worker-manage-documents')
+      res.redirect('/r2/x-ui/case-worker/case-worker-upload')
     }
     else if (req.body['next-steps'] === 'notes') {
       req.session.data.newNote = 'yes'
       res.redirect('/r2/x-ui/case-worker/case-worker-add-note')
     }
     else if (req.body['next-steps'] === 'send-a-message') {
-      res.redirect('/r2/x-ui/case-worker/case-worker-message-radios')
+      res.redirect('/r2/x-ui/case-worker/case-worker-message-send-and-reply')
     }
   })
 
@@ -2386,7 +2471,7 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
     else if (req.body['child-other'] !== undefined && req.session.data.childNationalityCount === 0) {
       // console.log("no nationality added error: ", req.session.data.childNationalities)
       errors.push({
-      text: 'This is not a valid entry',
+      text: 'Select \'Add\' before you continue',
       href: '#no-country'
       })
     }
@@ -2506,7 +2591,7 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
     else if (req.body['mother-other'] !== undefined && req.session.data.motherNationalityCount === 0) {
       // console.log("no nationality added error: ", req.session.data.motherNationalities)
       errors.push({
-      text: 'This is not a valid entry',
+      text: 'Select \'Add\' before you continue',
       href: '#no-country'
       })
     }
@@ -2871,7 +2956,7 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
     else if (req.body['father-other'] !== undefined && req.session.data.fatherNationalityCount === 0) {
       // console.log("no nationality added error: ", req.session.data.fatherNationalities)
       errors.push({
-      text: 'This is not a valid entry',
+      text: 'Select \'Add\' before you continue',
       href: '#no-country'
       })
     }
@@ -3652,7 +3737,7 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
       res.redirect('/r2/task-list')
     }
     else {
-      res.redirect('/r2/save-as-draft')
+      res.redirect('/r2/task-list')
     }
   })
 
@@ -3672,7 +3757,7 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
       res.redirect('/r2/task-list')
     }
     else {
-      res.redirect('/r2/save-as-draft')
+      res.redirect('/r2/task-list')
     }
   })
 
@@ -3715,7 +3800,7 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
         }
       }
       else {
-          res.redirect('/r2/la-portal/save-as-draft')
+          res.redirect('/r2/la-portal/task-list')
       }
     })
 
@@ -3752,7 +3837,7 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
         }
       }
       else {
-          res.redirect('/r2/la-portal/save-as-draft')
+          res.redirect('/r2/la-portal/task-list')
       }
     })
 
@@ -3780,7 +3865,7 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
         }
       }
       else {
-        res.redirect('/r2/la-portal/save-as-draft')
+        res.redirect('/r2/la-portal/task-list')
       }
     })
 
@@ -3834,7 +3919,7 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
         }
       }
       else {
-        res.redirect('/r2/la-portal/save-as-draft')
+        res.redirect('/r2/la-portal/task-list')
       }
     })
 
@@ -3889,7 +3974,7 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
         }
       }
       else {
-        res.redirect('/r2/la-portal/save-as-draft')
+        res.redirect('/r2/la-portal/task-list')
       }
     })
 
@@ -3942,7 +4027,7 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
         }
       }
       else {
-        res.redirect('/r2/la-portal/save-as-draft')
+        res.redirect('/r2/la-portal/task-list')
       }
     })
 
@@ -4001,7 +4086,7 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
         }
       }
       else {
-        res.redirect('/r2/la-portal/save-as-draft')
+        res.redirect('/r2/la-portal/task-list')
       }
     })
 
@@ -4059,7 +4144,7 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
         }
       }
       else {
-          res.redirect('/r2/la-portal/save-as-draft')
+          res.redirect('/r2/la-portal/task-list')
       }
     })
 
@@ -4117,7 +4202,7 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
         }
       }
       else {
-        res.redirect('/r2/la-portal/save-as-draft')
+        res.redirect('/r2/la-portal/task-list')
       }
       console.log("Sibling array: ", req.session.data.uniqueSiblingFirstNames)
       console.log("siblingFirstNames array: ", req.session.data.siblingFirstNames)
@@ -4233,7 +4318,50 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
     })
 
 
+    router.post('/r2/la-portal/statement-of-truth', function(req, res) {
+      // console.log("Day: ", req.body['day'])
+      var errors = []
+      if (req.body['sw-day'] === '' || req.body['sw-month'] === '' || req.body['sw-year'] === '') {
+        errors.push({
+        text: 'Developers: please refer to ADOP-203 for different error messages',
+        href: '#date'
+        })
+      }
 
+      if (req.body['sw-full-name'] === '') {
+        errors.push({
+        text: 'Enter a full name',
+        href: '#name'
+        })
+      }
+  
+      if (req.body['sw-job-title'] === '') {
+        errors.push({
+        text: 'Enter a job title',
+        href: '#jobtitle'
+        })
+      }
+  
+      if (req.body['la'] === '') {
+        errors.push({
+        text: 'Enter a local authority',
+        href: '#localauthority'
+        })
+      }
+  
+  
+      if (req.body['submit-button'] === 'save-and-continue') {
+        if (errors.length === 0) {
+          res.redirect('/r2/la-portal/confirmation')
+        }
+  
+        else {
+          res.render('./r2/la-portal/statement-of-truth', { errors: errors })
+        }
+      }
+    })
+  
+  
 
 
 

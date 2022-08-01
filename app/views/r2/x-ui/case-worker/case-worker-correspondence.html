@@ -3,10 +3,10 @@
 {% endblock %}
 
 
-<html lang="en" class="govuk-template ">  
+<html lang="en" class="govuk-template ">
   <div style=" max-width:1300px; margin: 0 auto;">
       <div style=" max-width:1300px;  min-width:1300px;  margin: 20px 0px 0px 0px;  ">
-          <main class="govuk-main-wrapper " id="main-content" role="main" style="padding-top: 25px;">                      
+          <main class="govuk-main-wrapper " id="main-content" role="main" style="padding-top: 25px;">
               <div class="govuk-width-container">
                 <div class="govuk-grid-row" style="width:1300px; margin-left: -90px;">
                     <div class="" style="display: flex; justify-content: space-between; ">
@@ -17,7 +17,7 @@
                             <span style="margin-bottom:50px; padding-top: 25px;"><a href="#">Print</a></span>
                             <button class="govuk-button govuk-button--secondary" data-module="govuk-button">
                                 Print
-                            </button> -->                           
+                            </button> -->
                         </div>
                         <form action="/r2/x-ui/case-worker/index" method="post" class="form">
                           <div style="display: flex; align-items:right; padding-top: 0px;">
@@ -53,53 +53,51 @@
                         </li>
                         
                         <li class="govuk-tabs__list-item">
-                            <a class="govuk-tabs__tab" href="case-worker-prospective-parents.html">
-                                Applicants
-                            </a>
+                          <a class="govuk-tabs__tab" href="case-worker-prospective-parents.html">
+                            Applicants
+                          </a>
                         </li>
     
                         <li class="govuk-tabs__list-item">
-                            <a class="govuk-tabs__tab" href="case-worker-other-parties.html">
-                              Other parties
-                            </a>
-                          </li>
-  
-                          <li class="govuk-tabs__list-item">
-                            <a class="govuk-tabs__tab" href="case-worker-documents.html">
-                                Documents
-                            </a>
+                          <a class="govuk-tabs__tab" href="case-worker-other-parties.html">
+                            Other parties
+                          </a>
                         </li>
-                        
-                        {% if data['correspondenceStatus'] === 1 %}
+
                         <li class="govuk-tabs__list-item">
-                            <a class="govuk-tabs__tab" href="case-worker-correspondence.html">
-                                Correspondence
-                            </a>
-                          </li>
-                        {% endif %}
-  
-                        <li class="govuk-tabs__list-item">
-                            <a class="govuk-tabs__tab" href="case-worker-messages.html">
-                                Messages
-                            </a>
+                          <a class="govuk-tabs__tab" href="case-worker-documents.html">
+                              Documents
+                          </a>
                         </li>
                         
                         <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
-                            <a class="govuk-tabs__tab" href="case-worker-notes.html">
-                                  Notes
-                            </a>
-                          </li>
-
+                          <a class="govuk-tabs__tab" href="case-worker-correspondence.html">
+                              Correspondence
+                          </a>
+                        </li>
+                        
                         <li class="govuk-tabs__list-item">
-                            <a class="govuk-tabs__tab" href="case-worker-history.html">
-                                History
-                            </a>
+                          <a class="govuk-tabs__tab" href="case-worker-messages.html">
+                              Messages
+                          </a>
+                        </li>
+                        
+                        <li class="govuk-tabs__list-item">
+                          <a class="govuk-tabs__tab" href="case-worker-notes.html">
+                                Notes
+                          </a>
                         </li>
 
                         <li class="govuk-tabs__list-item">
-                            <a class="govuk-tabs__tab" href="case-worker-payments.html">
-                                Payments
-                            </a>
+                          <a class="govuk-tabs__tab" href="case-worker-history.html">
+                              History
+                          </a>
+                        </li>
+
+                        <li class="govuk-tabs__list-item">
+                          <a class="govuk-tabs__tab" href="case-worker-payments.html">
+                              Payments
+                          </a>
                         </li>
 
                         <!-- <li class="govuk-tabs__list-item">
@@ -119,23 +117,30 @@
                       <!-- ****************************** END OF TABS ****************************** -->
 
                       <div class="govuk-tabs__panel" id="1">
-                        <p><a href="case-worker-add-note.html">Add a case note</a></p>
+                        <h1 class="govuk-heading-l">Correspondence</h2>
+                          <p class="govuk-body govuk-!-margin-bottom-8"><a href="case-worker-upload.html">Upload correspondence</a></p>
+                          <!-- <dl class="govuk-summary-list">
+                            <div class="govuk-summary-list__row">
+                            <dd class="govuk-summary-list__value">
+                              <a href="case-worker-manage-documents.html">Upload documents</a>
+                            </dd>
+                            <dd class="govuk-summary-list__value">
+                              &nbsp;
+                            </dd>
+                            <dd class="govuk-summary-list__value">
+                              &nbsp;
+                            </dd>
+                          </div>
+                        </dl> -->
 
-                        <h2 class="govuk-heading-l">Notes</h2>
-
-                        {% if data['newNote'] == 'yes' %}
-
-                        <dt class="complex-panel">
-                          Note 3
-                        </dt>
-
+                        <!-- <h2 class="govuk-heading-m govuk-!-margin-top-7">Incoming, need review</h2>
                         <dl class="govuk-summary-list">
                           <div class="govuk-summary-list__row">
                             <dt class="govuk-summary-list__value">
-                              Subject
+                              <a href="">annexA283776.pdf</a>
                             </dt>
                             <dd class="govuk-summary-list__value">
-                              Change of address of birth mother
+                              <a href="case-worker-edit-document.html">Edit details</a>
                             </dd>
                             <dd class="govuk-summary-list__value">
                               &nbsp;
@@ -144,22 +149,10 @@
 
                           <div class="govuk-summary-list__row">
                             <dt class="govuk-summary-list__value">
-                              Case note 
+                              <a href="">LetterToJanet.pdf</a>
                             </dt>
                             <dd class="govuk-summary-list__value">
-                              Lorem ipsum dolor sit amet.
-                            </dd>
-                            <dd class="govuk-summary-list__value">
-                              &nbsp;
-                            </dd>
-                          </div>
-                          
-                          <div class="govuk-summary-list__row">
-                            <dt class="govuk-summary-list__value">
-                              User
-                            </dt>
-                            <dd class="govuk-summary-list__value">
-                              Mary Jones
+                              <a href="case-worker-edit-document.html">Edit details</a>
                             </dd>
                             <dd class="govuk-summary-list__value">
                               &nbsp;
@@ -168,30 +161,95 @@
 
                           <div class="govuk-summary-list__row">
                             <dt class="govuk-summary-list__value">
-                              Date added
+                              <a href="">Document1.pdf</a>
                             </dt>
                             <dd class="govuk-summary-list__value">
-                              8 August 2022
+                              <a href="case-worker-edit-document.html">Edit details</a>
                             </dd>
                             <dd class="govuk-summary-list__value">
                               &nbsp;
                             </dd>
                           </div>
 
-                        </dl>
-                        {% endif %}
+                        </dl> -->
 
+                          <!-- <h2 class="govuk-heading-m govuk-!-margin-top-7">Application documents</h2> -->
+
+                          <dt class="complex-panel">
+                            Correspondence document 1
+                          </dt>
+                          <dl class="govuk-summary-list">
+                            <!-- <div class="govuk-summary-list__row">
+                              <dt class="govuk-summary-list__value">
+                                Document name
+                              </dt>
+                              <dd class="govuk-summary-list__value">
+                                Correspondence
+                              </dd>
+                              <dd class="govuk-summary-list__value">
+                                &nbsp;
+                              </dd>
+                            </div> -->
+
+                            <div class="govuk-summary-list__row">
+                              <dt class="govuk-summary-list__value">
+                                Correspondence
+                              </dt>
+                              <dd class="govuk-summary-list__value">
+                                <a href="">letterfrombirthmother.pdf</a>
+                              </dd>
+                              <dd class="govuk-summary-list__value">
+                                &nbsp;
+                              </dd>
+                            </div>
+
+                            <div class="govuk-summary-list__row">
+                              <dt class="govuk-summary-list__value">
+                                Date
+                              </dt>
+                              <dd class="govuk-summary-list__value">
+                                1 March 2022
+                              </dd>
+                              <dd class="govuk-summary-list__value">
+                                &nbsp;
+                              </dd>
+                            </div>
+
+                            <div class="govuk-summary-list__row">
+                              <dt class="govuk-summary-list__value">
+                                Uploaded by
+                              </dt>
+                              <dd class="govuk-summary-list__value">
+                                Birth mother: Marianne Austen
+                              </dd>
+                              <dd class="govuk-summary-list__value">
+                                &nbsp;
+                              </dd>
+                            </div>
+                          </dl>
+  
                         <dt class="complex-panel">
-                          Note 2
+                          Correspondence 2
                         </dt>
-
                         <dl class="govuk-summary-list">
-                          <div class="govuk-summary-list__row">
+                          <!-- <div class="govuk-summary-list__row">
                             <dt class="govuk-summary-list__value">
-                              Subject
+                              Document name
                             </dt>
                             <dd class="govuk-summary-list__value">
-                              Lorem ipsum.
+                              Document name
+                            </dd>
+                            <dd class="govuk-summary-list__value">
+                              &nbsp;
+                            </dd>
+                          </div> -->
+ 
+                          <div class="govuk-summary-list__row">
+                            <dt class="govuk-summary-list__value">
+                              Correspondence
+                            </dt>
+                            <dd class="govuk-summary-list__value">
+                              <a href="">uploadeddocument.pdf</a>
                             </dd>
                             <dd class="govuk-summary-list__value">
                               &nbsp;
@@ -200,22 +258,10 @@
 
                           <div class="govuk-summary-list__row">
                             <dt class="govuk-summary-list__value">
-                              Case note 
+                              Date
                             </dt>
                             <dd class="govuk-summary-list__value">
-                              Lorem ipsum dolor sit amet.
-                            </dd>
-                            <dd class="govuk-summary-list__value">
-                              &nbsp;
-                            </dd>
-                          </div>
-                          
-                          <div class="govuk-summary-list__row">
-                            <dt class="govuk-summary-list__value">
-                              User
-                            </dt>
-                            <dd class="govuk-summary-list__value">
-                              Mary Jones
+                              20 July 2022
                             </dd>
                             <dd class="govuk-summary-list__value">
                               &nbsp;
@@ -224,74 +270,19 @@
 
                           <div class="govuk-summary-list__row">
                             <dt class="govuk-summary-list__value">
-                              Date added
+                              Uploaded by
                             </dt>
                             <dd class="govuk-summary-list__value">
-                              1 June 2022
+                              Child's social worker: Agnes James, London Borough of Tower Hamlets
                             </dd>
                             <dd class="govuk-summary-list__value">
                               &nbsp;
                             </dd>
                           </div>
-                          
-                        </dl>
-
-                        <dt class="complex-panel">
-                          Note 1
-                        </dt>
-
-                        <dl class="govuk-summary-list">
-                          <div class="govuk-summary-list__row">
-                            <dt class="govuk-summary-list__value">
-                              Subject
-                            </dt>
-                            <dd class="govuk-summary-list__value">
-                              Lorem ipsum.
-                            </dd>
-                            <dd class="govuk-summary-list__value">
-                              &nbsp;
-                            </dd>
-                          </div>
-
-                          <div class="govuk-summary-list__row">
-                            <dt class="govuk-summary-list__value">
-                              Case note 
-                            </dt>
-                            <dd class="govuk-summary-list__value">
-                              Lorem ipsum dolor sit amet.
-                            </dd>
-                            <dd class="govuk-summary-list__value">
-                              &nbsp;
-                            </dd>
-                          </div>
-                          
-                          <div class="govuk-summary-list__row">
-                            <dt class="govuk-summary-list__value">
-                              User
-                            </dt>
-                            <dd class="govuk-summary-list__value">
-                              Mary Jones
-                            </dd>
-                            <dd class="govuk-summary-list__value">
-                              &nbsp;
-                            </dd>
-                          </div>
-
-                          <div class="govuk-summary-list__row">
-                            <dt class="govuk-summary-list__value">
-                              Date added
-                            </dt>
-                            <dd class="govuk-summary-list__value">
-                              16 May 2022
-                            </dd>
-                            <dd class="govuk-summary-list__value">
-                              &nbsp;
-                            </dd>
-                          </div>
-                        </dl>
+                      </dl>
 
                       </div>
-                  </div>
+                    </div>
                 </div>
               </div>
           </main>

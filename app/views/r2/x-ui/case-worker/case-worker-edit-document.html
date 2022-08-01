@@ -9,13 +9,30 @@
           <main class="govuk-main-wrapper " id="main-content" role="main" style="padding-top: 25px;">                      
               <div class="govuk-width-container">
                 <div class="govuk-grid-row" style="width:1300px; margin-left: -90px;">
-                  <h1 class="govuk-heading-xl">Upload documents</h1>
+                  <h1 class="govuk-heading-xl">Edit documents</h1>
                   <h2 class="govuk-heading-l govuk-!-margin-bottom-3">#1234-5678-0921-2722</h2>
-                  <h2 class="govuk-heading-m govuk-!-margin-top-0 govuk-!-margin-bottom-7">Child's name: Jane Austen</h2>                  
-
-                  <form action="/r2/x-ui/case-worker/case-worker-manage-documents" method="post" class="form">
+                  <h2 class="govuk-heading-m govuk-!-margin-top-0 govuk-!-margin-bottom-7">Child's name: Jane Austen</h2>
+                  
+                  <form action="/r2/x-ui/case-worker/case-worker-edit-document" method="post" class="form">
                   <div class="govuk-form-group">
-          
+                    <p><a href="">annexA283776.pdf</a></p>
+                    <div class="govuk-inset-text">                                            
+                      <p class="govuk-!-margin-bottom-1">Document name</p>
+                      <div id="event-name-hint" class="govuk-hint">
+                        Make sure the name identifies what the document is, for example, child birth certificate.
+                      </div>
+                      <input class="govuk-input" id="event-name" name="document-name" type="text">
+                    </div>
+                        <!-- <div class="govuk-grid-column-one-third">
+                          <button class="govuk-button govuk-button--secondary" data-module="govuk-button" name="remove-button" value="remove">
+                            Remove
+                          </button>          
+                        </div> -->
+                    <div class="govuk-!-margin-top-7">
+                      <h3 class="govuk-heading-s">Which document do you want to edit?</h3>
+                      <!-- <div id="sign-in-item-hint" class="govuk-hint govuk-radios__hint">
+                        If you want to upload more than one, you need to go through the steps again from the documents tab.
+                      </div> -->
                       <div class="govuk-radios govuk-radios--conditional" data-module="govuk-radios">
                         <div class="govuk-radios__item">
                           <input class="govuk-radios__input" id="application" name="document-type" type="radio" value="Application documents">
@@ -76,14 +93,16 @@
                             Any other documents, for instance additional evidence.
                           </div>
                         </div>
-
+    
                       </div>                  
-                </div>
-                <!-- Buttons -->
-                {% include "../../../includes/buttons-xui.html" %}
+                    
+                    </div>   
+                    <div class="govuk-!-margin-bottom-4">&nbsp;</div>              
+                  </div>
+                  <!-- Buttons -->
+                  {% include "../../../includes/buttons-xui.html" %}
                   </form>
                 </div>
-
               </div>
           </main>
       </div>

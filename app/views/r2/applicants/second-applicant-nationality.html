@@ -119,7 +119,7 @@ Apply to adopt a child
                         </span>
                         {% endif%}
 
-                        <input class="govuk-input govuk-!-width-two-thirds {% if (noCountryAddedError != '') %} govuk-input--error{% endif %}" id="second-applicant-different-country" name="second-applicant-different-country" type="text">
+                        <input class="govuk-input govuk-!-width-two-thirds {% if (noCountryAddedError != '') %} govuk-input--error{% endif %}" id="second-applicant-different-country" name="second-applicant-different-country" type="text" value="{{data['second-applicant-different-country']}}">
                       </div>
                         <button class="govuk-button govuk-button--secondary govuk-!-margin-top-5" data-module="govuk-button" name="submit-button" value="add">Add</button>
                     </details>

@@ -5,13 +5,6 @@ Apply to adopt a child
 {% endblock %}
 
 {% block beforeContent %}
-{% from "govuk/components/phase-banner/macro.njk" import govukPhaseBanner %}
-{{ govukPhaseBanner({
-  tag: {
-    text: "beta"
-  },
-  html: 'This is a new service – your <a class="govuk-link" href="https://www.smartsurvey.co.uk/s/Adoption_LA_Feedback/?pageurl=X">feedback</a> will help us to improve it.'
-}) }}
 <a class="govuk-back-link" href="javascript:history.back()">Back</a>
 {% endblock %}
 
@@ -44,15 +37,12 @@ Apply to adopt a child
 
       <dl class="govuk-summary-list govuk-!-margin-bottom-9 govuk-!-margin-top-9">
         {% for id in data['siblingOrderId'] %}
-
+                  
         <div class="govuk-summary-list__row">
-          <dd class="govuk-summary-list__value govuk-!-text-align-left">
-            {{ data['siblingOrderNumber'][id]}} 
-          </dd>
-          <dd class="govuk-summary-list__value govuk-!-text-align-right">
+          <dt class="govuk-summary-list__value govuk-!-text-align-left">
             {{ data['siblingRelationship'][id]}}
-          </dd>
-          <dd class="govuk-summary-list__value govuk-!-text-align-left">
+          </dt>
+          <dd class="govuk-summary-list__actions govuk-!-text-align-left">
             {{ data['siblingOrderType'][id]}}
           </dd>
           <dd class="govuk-summary-list__actions">
@@ -78,11 +68,11 @@ Apply to adopt a child
       </dl>
 
         <form action="/r2/la-portal/sibling-summary" method="post" class="form">
-
+        
           <div class="govuk-form-group  {% if (summaryError != '')%} govuk-form-group--error {% endif %}">
             <fieldset class="govuk-fieldset" aria-describedby="sibling-add-another-hint">
               <legend class="govuk-fieldset__legend govuk-fieldset__legend govuk-fieldset__legend--m">
-                Do you want to add another order for the same or another sibling?
+                Do you want to add another order?
               </legend>
               <!-- <div id="sibling-add-another-hint" class="govuk-hint">
                 For example, a care order or supervision order.
@@ -92,7 +82,7 @@ Apply to adopt a child
                 <span class="govuk-visually-hidden">Error:</span> {{ summaryError }}
               </span>
             {% endif %}
-
+    
               <div class="govuk-radios govuk-radios--inline">
                 <div class="govuk-radios__item">
                   <input class="govuk-radios__input" id="sibling-add-another" name="sibling-add-another" type="radio" value="Yes">
@@ -107,10 +97,10 @@ Apply to adopt a child
                   </label>
                 </div>
               </div>
-
+        
             </fieldset>
           </div>
-
+        
           <!-- Buttons -->
           {% include "../../includes/buttons.html" %}
         </form>
