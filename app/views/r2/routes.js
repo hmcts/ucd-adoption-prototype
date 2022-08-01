@@ -2223,6 +2223,22 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
   })
 
 
+  router.post('/r2/x-ui/case-worker/case-worker-gatekeeping-directions', function(req, res) {
+    console.log("Note")
+    if (req.body['submit-button'] === 'continue') {
+      if (req.body['xui-directions-radio'] === 'create') {
+        res.redirect('/r2/x-ui/case-worker/case-worker-gatekeeping-type-of-order')  
+      }
+      else {
+        res.redirect('/r2/x-ui/case-worker/index')
+      }
+    }
+    else {
+      res.redirect('/r2/x-ui/case-worker/case-worker-add-note')
+    }
+  })
+
+
 
   router.post('/r2/x-ui/case-worker/index', function(req, res) {
     console.log(req.body['next-steps'])
