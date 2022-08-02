@@ -59,6 +59,7 @@ Statement of truth
           <p>I believe that the facts stated in this form and any additional documents are true.</p>
 
 
+
           <!-- <div class="govuk-form-group {% if (dateError != '')%} govuk-form-group--error {% endif%}">
 
           {% if (dateError != '')%}
@@ -97,6 +98,46 @@ Statement of truth
           </div>
           </div> -->
 
+          <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset" role="group" aria-describedby="passport-issued-hint">
+            <!--<legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+       <h3 class="govuk-fieldset__heading">
+         Date
+       </h3>
+     </legend>-->
+     <legend class="govuk-fieldset__legend">
+    Date
+  </legend>
+          <div class="govuk-date-input" id="passport-issued">
+            <div class="govuk-date-input__item">
+              <div class="govuk-form-group">
+                <label class="govuk-label govuk-date-input__label" for="passport-issued-day">
+                  Day
+                </label>
+                <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="passport-issued-day" name="passport-issued-day" type="text" inputmode="numeric">
+              </div>
+            </div>
+            <div class="govuk-date-input__item">
+              <div class="govuk-form-group">
+                <label class="govuk-label govuk-date-input__label" for="passport-issued-month">
+                  Month
+                </label>
+                <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="passport-issued-month" name="passport-issued-month" type="text" inputmode="numeric">
+              </div>
+            </div>
+            <div class="govuk-date-input__item">
+              <div class="govuk-form-group">
+                <label class="govuk-label govuk-date-input__label" for="passport-issued-year">
+                  Year
+                </label>
+                <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="passport-issued-year" name="passport-issued-year" type="text" inputmode="numeric">
+              </div>
+            </div>
+          </div>
+
+        </fieldset>
+      </div>
+
             <label class="govuk-label" for="name">
               Your full name
             <div class="govuk-form-group {% if (nameError != '') %} govuk-!-margin-top-2 govuk-form-group--error{% endif %}">
@@ -107,7 +148,7 @@ Statement of truth
               {% endif %}
               <input class="govuk-input govuk-!-margin-top-2 {% if (nameError != '') %} govuk-input--error{% endif %}" id="sw-full-name" name="sw-full-name" type="text" value="{{ data['sw-full-name'] }}">
             </div>
-  
+
             <label class="govuk-label" for="jobtitle">
               Your job title
             <div class="govuk-form-group {% if (jobTitleError != '') %} govuk-!-margin-top-2 govuk-form-group--error{% endif %}">
@@ -118,7 +159,7 @@ Statement of truth
               {% endif %}
               <input class="govuk-input govuk-!-margin-top-2 {% if (jobTitleError != '') %} govuk-input--error{% endif %}" id="sw-job-title" name="sw-job-title" type="text" value="{{ data['sw-job-title'] }}">
             </div>
-  
+
             <label class="govuk-label" for="la">
               Name of the local authority you represent
             <div class="govuk-form-group {% if (laError != '') %} govuk-!-margin-top-2 govuk-form-group--error{% endif %}">
@@ -130,23 +171,34 @@ Statement of truth
               <input class="govuk-input govuk-!-margin-top-2 {% if (laError != '') %} govuk-input--error{% endif %}" id="la" name="la" type="text" value="{{ data['la'] }}">
             </div>
 
+
+
             <div class="govuk-checkboxes" data-module="govuk-checkboxes">
               <div class="govuk-checkboxes__item">
                 <input class="govuk-checkboxes__input" id="confirmation-checkbox" name="confirmation-checkbox" type="checkbox" value="confirmation-checkbox">
                 <label class="govuk-label govuk-checkboxes__label" for="waste">
-                  I confirm that this statement of truth is signed on behalf of, and with the agreement of, the head of the legal department of the above mentioned local authority.  
+                  I confirm that this statement of truth is signed on behalf of, and with the agreement of, the head of the legal department of the above mentioned local authority.
                 </label>
               </div>
+<<<<<<< HEAD
             </div>     
             <p class="govuk-body govuk-!-margin-top-5">Once you submit your response to this application, you cannot make any further changes. You can select 'Save as draft' to review all the information you have given before you submit.</p>       
+=======
+            </div>
+            &nbsp;
+            <div id="passport-issued-hint" class="govuk-hint">
+                 Once you submit your response to this application, you cannot make any further changes. You can select 'Save as draft' to review all the information you have given before you submit.
+               </div>
+>>>>>>> 060a1460fba13bf15a78ad6f8f4ff2fa81c97b41
           </div>
           </fieldset>
         </div>
         <!-- Buttons -->
-        {% include "../../includes/buttons-laportal.html" %}
+        {% include "../../includes/buttons-laportal-save-as-draft.html" %}
+
       </form>
          {% include "../../includes/contactforhelp.html" %}
-    
+
 </div>
 
 {% endblock %}
