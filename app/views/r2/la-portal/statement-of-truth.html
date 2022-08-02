@@ -56,91 +56,15 @@ Statement of truth
           </legend>
           <p>I understand that proceedings for contempt of court may be brought against anyone who makes, or causes to be made, a false statement in a document verified by a statement of truth without an honest belief in its truth.</p>
 
-          <p>I believe that the facts stated in this form and any additional documents are true.</p>
-
-
-
-          <!-- <div class="govuk-form-group {% if (dateError != '')%} govuk-form-group--error {% endif%}">
-
-          {% if (dateError != '')%}
-          <span id="national-insurance-number-error" class="govuk-error-message">
-            <span class="govuk-visually-hidden">Error:</span> {{ dateError }}
-          </span>
-          {% endif%}
-
-          <div class="govuk-date-input" id="dob">
-            <div class="govuk-date-input__item">
-              <div class="govuk-form-group">
-                <label class="govuk-label govuk-date-input__label" for="day">
-                  Day
-                </label>
-                <input class="govuk-input govuk-date-input__input govuk-input--width-2 {% if (dateError != '')%} govuk-input--error {% endif%}" id="day" name="sw-day" type="text" pattern="[0-9]*" inputmode="numeric" value="{{ data['sw-day'] }}">
-              </div>
-            </div>
-
-            <div class="govuk-date-input__item">
-              <div class="govuk-form-group">
-                <label class="govuk-label govuk-date-input__label" for="month">
-                  Month
-                </label>
-                <input class="govuk-input govuk-date-input__input govuk-input--width-2 {% if (dateError != '')%} govuk-input--error {% endif%}" id="month" name="sw-month" type="text" pattern="[0-9]*" inputmode="numeric" value="{{ data['sw-month'] }}">
-              </div>
-            </div>
-
-            <div class="govuk-date-input__item">
-              <div class="govuk-form-group">
-                <label class="govuk-label govuk-date-input__label" for="year">
-                  Year
-                </label>
-                <input class="govuk-input govuk-date-input__input govuk-input--width-4 {% if (dateError != '')%} govuk-input--error {% endif%}" id="year" name="sw-year" type="text" pattern="[0-9]*" inputmode="numeric" value="{{ data['sw-year'] }}">
-              </div>
-            </div>
-          </div>
-          </div> -->
+          <p class="govuk-body govuk-!-margin-bottom-1">I believe that the facts stated in this form and any additional documents are true.</p>
 
           <div class="govuk-form-group">
-        <fieldset class="govuk-fieldset" role="group" aria-describedby="passport-issued-hint">
-            <!--<legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
-       <h3 class="govuk-fieldset__heading">
-         Date
-       </h3>
-     </legend>-->
-     <legend class="govuk-fieldset__legend">
-    Date
-  </legend>
-          <div class="govuk-date-input" id="passport-issued">
-            <div class="govuk-date-input__item">
-              <div class="govuk-form-group">
-                <label class="govuk-label govuk-date-input__label" for="passport-issued-day">
-                  Day
-                </label>
-                <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="passport-issued-day" name="passport-issued-day" type="text" inputmode="numeric">
-              </div>
+            <fieldset class="govuk-fieldset" role="group" aria-describedby="passport-issued-hint">
             </div>
-            <div class="govuk-date-input__item">
-              <div class="govuk-form-group">
-                <label class="govuk-label govuk-date-input__label" for="passport-issued-month">
-                  Month
-                </label>
-                <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="passport-issued-month" name="passport-issued-month" type="text" inputmode="numeric">
-              </div>
-            </div>
-            <div class="govuk-date-input__item">
-              <div class="govuk-form-group">
-                <label class="govuk-label govuk-date-input__label" for="passport-issued-year">
-                  Year
-                </label>
-                <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="passport-issued-year" name="passport-issued-year" type="text" inputmode="numeric">
-              </div>
-            </div>
-          </div>
-
-        </fieldset>
-      </div>
 
             <label class="govuk-label" for="name">
               Your full name
-            <div class="govuk-form-group {% if (nameError != '') %} govuk-!-margin-top-2 govuk-form-group--error{% endif %}">
+            <div class="govuk-form-group {% if (nameError != '') %} govuk-form-group--error{% endif %}">
               {% if nameError != '' %}
               <span id="contact-error" class="govuk-error-message">
                 <span class="govuk-visually-hidden">Error:</span> {{ nameError }}
