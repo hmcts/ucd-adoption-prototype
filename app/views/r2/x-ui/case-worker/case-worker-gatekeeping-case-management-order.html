@@ -1,0 +1,61 @@
+{% block header %}
+{% include "includes/xui-header.html" %}
+{% endblock %}
+
+
+<html lang="en" class="govuk-template ">
+  <div style=" max-width:1300px; margin: 0 auto;">
+      <div style=" max-width:1300px;  min-width:1300px;  margin: 20px 0px 0px 0px;  ">
+          <main class="govuk-main-wrapper " id="main-content" role="main" style="padding-top: 25px;">
+              <div class="govuk-width-container">
+                <div class="govuk-grid-row" style="width:1300px; margin-left: -90px;">
+                  <h1 class="govuk-heading-xl">Case management order (gatekeeping order)</h1>
+                  <h2 class="govuk-heading-l govuk-!-margin-bottom-3">#1234-5678-0921-2722</h2>
+                  <h2 class="govuk-heading-m govuk-!-margin-top-0 govuk-!-margin-bottom-7">Child's name: Jane Austen</h2>
+
+
+                  <form action="/r2/x-ui/case-worker/case-worker-gatekeeping-case-management-order" method="post" class="form">
+                    <div class="govuk-form-group">
+                      <fieldset class="govuk-fieldset" aria-describedby="xui-la-directions-checkbox-hint">
+                        <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                          <label class="govuk-label govuk-!-font-weight-bold" for="sender-email-address">
+                            Local authority directions
+                          </label>
+                        </legend>
+                        <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+                          <div class="govuk-checkboxes__item">
+                            <input class="govuk-checkboxes__input" id="supply-annex-a" name="xui-la-directions-checkbox" type="checkbox" value="supply-annex-a" checked>
+                            <label class="govuk-label govuk-checkboxes__label" for="xui-la-directions-checkbox">
+                              Local Authority shall supply the annex A within X days of this order / by date
+                            </label>
+                          </div>
+                          <div class="govuk-checkboxes__item">
+                            <input class="govuk-checkboxes__input" id="notify-clerk" name="xui-la-directions-checkbox" type="checkbox" value="notify-clerk">
+                            <label class="govuk-label govuk-checkboxes__label" for="xui-la-directions-checkbox-2">
+                              Local Authority shall notify the adoption clerk &ndash; are the birth parents addresses correct?
+                            </label>
+                          </div>
+                          <div class="govuk-checkboxes__item">
+                            <input class="govuk-checkboxes__input" id="no-consent-needed" name="xui-la-directions-checkbox" type="checkbox" value="no-consent-needed">
+                            <label class="govuk-label govuk-checkboxes__label" for="xui-la-directions-checkbox-3">
+                              Local Authority shall send a report within X days of this order to the court, to satisfy the court that &ndash; (i) the parent or guardian cannot be found or is incapable of giving consent or (ii) the welfare of the child requires the consent to be dispensed with.
+                            </label>
+                          </div>
+                        </div>
+                    
+                      </fieldset>
+                    </div>                
+                    <!-- Buttons -->
+                    {% include "../../../includes/buttons-xui.html" %}
+                  </form>
+                </div>
+
+              </div>
+          </main>
+      </div>
+  </div>
+</html>
+
+{% block footer %}
+{% include "includes/newfooter.html" %}
+{% endblock %}
