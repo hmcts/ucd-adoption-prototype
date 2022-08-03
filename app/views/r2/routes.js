@@ -2159,7 +2159,7 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
   router.post('/r2/x-ui/case-worker/case-worker-message-send-and-reply', function(req, res) {
     if (req.body['submit-button'] === 'continue') {
       if (req.body['xui-send-reply-radio'] === 'send') {
-        res.redirect('/r2/x-ui/case-worker/case-worker-message-radios')
+        res.redirect('/r2/x-ui/case-worker/case-worker-send-message')
       }
       else {
         res.redirect('/r2/x-ui/case-worker/case-worker-message-reply-required')
