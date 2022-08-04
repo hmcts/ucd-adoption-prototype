@@ -2138,7 +2138,7 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
   router.post('/r2/x-ui/case-worker/case-worker-send-message', function(req, res) {
     if (req.body['submit-button'] === 'continue') {
       req.session.data.repliedMessage = 1
-      res.redirect('/r2/x-ui/case-worker/case-worker-messages')
+      res.redirect('/r2/x-ui/case-worker/case-worker-send-message-check-your-answers')
     }
     else {
       res.redirect('/r2/x-ui/case-worker/case-worker-messages-select-person')
@@ -4331,6 +4331,11 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
       else {
         res.redirect('/r2/save-as-draft')
       }
+    })
+
+
+    router.post('/r2/la-portal/check-your-answers', function(req, res) {
+        res.redirect('/r2/la-portal/statement-of-truth')
     })
 
 
