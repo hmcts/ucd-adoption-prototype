@@ -2234,7 +2234,45 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
       }
     }
     else {
-      res.redirect('/r2/x-ui/case-worker/case-worker-add-note')
+      res.redirect('/r2/x-ui/case-worker/index')
+    }
+  })
+
+
+  router.post('/r2/x-ui/case-worker/case-worker-gatekeeping-type-of-order', function(req, res) {
+    console.log("Note")
+    if (req.body['submit-button'] === 'continue') {
+      if (req.body['xui-type-order'] === 'gatekeeping') {
+        res.redirect('/r2/x-ui/case-worker/case-worker-gatekeeping-case-management-order')  
+      }
+      else {
+        res.redirect('/r2/x-ui/case-worker/index')
+      }
+    }
+    else {
+      res.redirect('/r2/x-ui/case-worker/case-worker-directions')
+    }
+  })
+
+
+  router.post('/r2/x-ui/case-worker/case-worker-gatekeeping-case-management-order', function(req, res) {
+    console.log("Note")
+    if (req.body['submit-button'] === 'continue') {
+      res.redirect('/r2/x-ui/case-worker/case-worker-gatekeeping-annexa-required-by')  
+    }
+    else {
+      res.redirect('/r2/x-ui/case-worker/case-worker-type-of-order')
+    }
+  })
+
+
+  router.post('/r2/x-ui/case-worker/case-worker-gatekeeping-annexa-required-by', function(req, res) {
+    console.log("Note")
+    if (req.body['submit-button'] === 'continue') {
+      res.redirect('/r2/x-ui/case-worker/case-worker-gatekeeping-birth-parents-details-required-by')  
+    }
+    else {
+      res.redirect('/r2/x-ui/case-worker/case-worker-gatekeeping-case-management-order')
     }
   })
 
