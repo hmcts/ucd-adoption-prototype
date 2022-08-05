@@ -2135,25 +2135,17 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
   })
 
 
-  router.post('/r2/x-ui/case-worker/case-worker-send-message', function(req, res) {
+  router.post('/r2/x-ui/case-worker/case-worker-messages-send-message', function(req, res) {
     if (req.body['submit-button'] === 'continue') {
       req.session.data.repliedMessage = 1
-      res.redirect('/r2/x-ui/case-worker/case-worker-send-message-check-your-answers')
-    }
-    else {
-      res.redirect('/r2/x-ui/case-worker/case-worker-messages-select-person')
-    }
-  })
-
-
-  router.post('/r2/x-ui/case-worker/case-worker-message-sent', function(req, res) {
-    if (req.body['submit-button'] === 'continue') {
       res.redirect('/r2/x-ui/case-worker/case-worker-messages')
     }
     else {
-      res.redirect('/r2/x-ui/case-worker/case-worker-send-message')
+      res.redirect('/r2/x-ui/case-worker/case-worker-messages')
     }
   })
+
+
 
 
   router.post('/r2/x-ui/case-worker/case-worker-message-send-and-reply', function(req, res) {
@@ -2170,12 +2162,13 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
     }
   })
 
-  router.post('/r2/x-ui/case-worker/case-worker-message-reply-required', function(req, res) {
+  router.post('/r2/x-ui/case-worker/case-worker-messages-reply-message', function(req, res) {
     if (req.body['submit-button'] === 'continue') {
-      res.redirect('/r2/x-ui/case-worker/case-worker-message-check-your-answers')
+      req.session.data.repliedMessage = 1
+      res.redirect('/r2/x-ui/case-worker/case-worker-messages')
     }
     else {
-      res.redirect('/r2/x-ui/case-worker/case-worker-message-send-and-reply')
+      res.redirect('/r2/x-ui/case-worker/case-worker-messages')
     }
   })
 
@@ -2289,6 +2282,9 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
     }
     else if (req.body['next-steps'] === 'send-a-message') {
       res.redirect('/r2/x-ui/case-worker/case-worker-message-send-and-reply')
+    }
+    else if (req.body['next-steps'] === 'manage-orders') {
+      res.redirect('/r2/x-ui/case-worker/case-worker-gatekeeping-directions')
     }
   })
 
