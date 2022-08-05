@@ -2220,7 +2220,7 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
     console.log("Note")
     if (req.body['submit-button'] === 'continue') {
       if (req.body['xui-directions-radio'] === 'create') {
-        res.redirect('/r2/x-ui/case-worker/case-worker-gatekeeping-type-of-order')  
+        res.redirect('/r2/x-ui/case-worker/case-worker-gatekeeping-type-of-order')
       }
       else {
         res.redirect('/r2/x-ui/case-worker/index')
@@ -2285,9 +2285,34 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
     }
     else if (req.body['next-steps'] === 'manage-orders') {
       res.redirect('/r2/x-ui/case-worker/case-worker-gatekeeping-directions')
+    else if (req.body['next-steps'] === 'info') {
+      req.session.data.newNote = 'yes'
+      res.redirect('/r2/x-ui/case-worker/case-worker-seek-further-information')
     }
   })
 
+  router.post('/r2/x-ui/case-worker/case-worker-seek-further-information', function(req, res) {
+    if (req.body['submit-button'] === 'continue') {
+
+      res.redirect('/r2/x-ui/case-worker/case-worker-seek-further-information-send-message')
+    }
+    // }
+    else if (req.body['submit-button'] === 'previous') {
+      res.redirect('/r2/x-ui/case-worker/index')
+    }
+  })
+
+
+  router.post('/r2/x-ui/case-worker/case-worker-seek-further-information-send-message', function(req, res) {
+    if (req.body['submit-button'] === 'continue') {
+
+      res.redirect('/r2/x-ui/case-worker/case-worker-seek-further-information-reply-by')
+    }
+    // }
+    else if (req.body['submit-button'] === 'previous') {
+      res.redirect('/r2/x-ui/case-worker/case-worker-seek-further-information')
+    }
+  })
 
 
 
@@ -4389,34 +4414,34 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
         href: '#name'
         })
       }
-  
+
       if (req.body['sw-job-title'] === '') {
         errors.push({
         text: 'Enter a job title',
         href: '#jobtitle'
         })
       }
-  
+
       if (req.body['la'] === '') {
         errors.push({
         text: 'Enter a local authority',
         href: '#localauthority'
         })
       }
-  
-  
+
+
       if (req.body['submit-button'] === 'save-and-continue') {
         if (errors.length === 0) {
           res.redirect('/r2/la-portal/confirmation')
         }
-  
+
         else {
           res.render('./r2/la-portal/statement-of-truth', { errors: errors })
         }
       }
     })
-  
-  
+
+
 
 
 

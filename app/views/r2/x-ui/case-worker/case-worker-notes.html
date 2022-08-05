@@ -3,10 +3,10 @@
 {% endblock %}
 
 
-<html lang="en" class="govuk-template ">  
+<html lang="en" class="govuk-template ">
   <div style=" max-width:1300px; margin: 0 auto;">
       <div style=" max-width:1300px;  min-width:1300px;  margin: 20px 0px 0px 0px;  ">
-          <main class="govuk-main-wrapper " id="main-content" role="main" style="padding-top: 25px;">                      
+          <main class="govuk-main-wrapper " id="main-content" role="main" style="padding-top: 25px;">
               <div class="govuk-width-container">
                 <div class="govuk-grid-row" style="width:1300px; margin-left: -90px;">
                     <div class="" style="display: flex; justify-content: space-between; ">
@@ -17,12 +17,12 @@
                             <span style="margin-bottom:50px; padding-top: 25px;"><a href="#">Print</a></span>
                             <button class="govuk-button govuk-button--secondary" data-module="govuk-button">
                                 Print
-                            </button> -->                           
+                            </button> -->
                         </div>
                         <form action="/r2/x-ui/case-worker/index" method="post" class="form">
                           <div style="display: flex; align-items:right; padding-top: 0px;">
                               <p class="govuk-!-margin-top-2">Next step &nbsp;</p>
-                      
+
                               <select class="govuk-select" id="sort" name="next-steps">
                                   <option value="select-action" selected="">Select action</option>
                                   <option value="manage-documents">Manage documents</option>
@@ -30,8 +30,9 @@
                                   <option value="manage-orders">Manage orders</option>
                                   <option value="case-issue">Case issue</option>
                                   <option value="notes">Add a case note</option>
+                                  <option value="info">Seek further information</option>
                               </select>
-                      
+
                               <div>
                                   <button class="govuk-button govuk-!-margin-left-1" data-module="govuk-button" name="go-button">Go</button>
                               </div>
@@ -52,25 +53,25 @@
                             Summary
                           </a>
                         </li>
-                        
+
                         <li class="govuk-tabs__list-item">
                             <a class="govuk-tabs__tab" href="case-worker-prospective-parents.html">
                                 Applicants
                             </a>
                         </li>
-    
+
                         <li class="govuk-tabs__list-item">
                             <a class="govuk-tabs__tab" href="case-worker-other-parties.html">
                               Other parties
                             </a>
                           </li>
-  
+
                           <li class="govuk-tabs__list-item">
                             <a class="govuk-tabs__tab" href="case-worker-documents.html">
                                 Documents
                             </a>
                         </li>
-                        
+
                         {% if data['correspondenceStatus'] === 1 %}
                         <li class="govuk-tabs__list-item">
                             <a class="govuk-tabs__tab" href="case-worker-correspondence.html">
@@ -78,13 +79,13 @@
                             </a>
                           </li>
                         {% endif %}
-  
+
                         <li class="govuk-tabs__list-item">
                             <a class="govuk-tabs__tab" href="case-worker-messages.html">
                                 Messages
                             </a>
                         </li>
-                        
+
                         <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
                             <a class="govuk-tabs__tab" href="case-worker-notes.html">
                                   Notes
@@ -114,7 +115,7 @@
                                 Orders
                             </a>
                         </li> -->
-        
+
                     </ul>
 
                       <!-- ****************************** END OF TABS ****************************** -->
@@ -145,7 +146,7 @@
 
                           <div class="govuk-summary-list__row">
                             <dt class="govuk-summary-list__value">
-                              Case note 
+                              Case note
                             </dt>
                             <dd class="govuk-summary-list__value">
                               Lorem ipsum dolor sit amet.
@@ -154,7 +155,7 @@
                               &nbsp;
                             </dd>
                           </div>
-                          
+
                           <div class="govuk-summary-list__row">
                             <dt class="govuk-summary-list__value">
                               User
@@ -201,7 +202,7 @@
 
                           <div class="govuk-summary-list__row">
                             <dt class="govuk-summary-list__value">
-                              Case note 
+                              Case note
                             </dt>
                             <dd class="govuk-summary-list__value">
                               Lorem ipsum dolor sit amet.
@@ -210,7 +211,7 @@
                               &nbsp;
                             </dd>
                           </div>
-                          
+
                           <div class="govuk-summary-list__row">
                             <dt class="govuk-summary-list__value">
                               User
@@ -234,7 +235,7 @@
                               &nbsp;
                             </dd>
                           </div>
-                          
+
                         </dl>
 
                         <dt class="complex-panel">
@@ -256,7 +257,7 @@
 
                           <div class="govuk-summary-list__row">
                             <dt class="govuk-summary-list__value">
-                              Case note 
+                              Case note
                             </dt>
                             <dd class="govuk-summary-list__value">
                               Lorem ipsum dolor sit amet.
@@ -265,7 +266,7 @@
                               &nbsp;
                             </dd>
                           </div>
-                          
+
                           <div class="govuk-summary-list__row">
                             <dt class="govuk-summary-list__value">
                               User
