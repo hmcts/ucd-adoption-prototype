@@ -2497,7 +2497,7 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
       res.redirect('/r2/la-portal/check-your-answers')
     }
     else {
-      res.redirect('/r2/task-list')
+      res.redirect('/r2/la-portal/task-list')
     }
   })
 
