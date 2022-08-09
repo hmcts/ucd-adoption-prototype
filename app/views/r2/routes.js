@@ -2135,25 +2135,17 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
   })
 
 
-  router.post('/r2/x-ui/case-worker/case-worker-send-message', function(req, res) {
+  router.post('/r2/x-ui/case-worker/case-worker-messages-send-message', function(req, res) {
     if (req.body['submit-button'] === 'continue') {
       req.session.data.repliedMessage = 1
       res.redirect('/r2/x-ui/case-worker/case-worker-messages')
     }
     else {
-      res.redirect('/r2/x-ui/case-worker/case-worker-messages-select-person')
-    }
-  })
-
-
-  router.post('/r2/x-ui/case-worker/case-worker-message-sent', function(req, res) {
-    if (req.body['submit-button'] === 'continue') {
       res.redirect('/r2/x-ui/case-worker/case-worker-messages')
     }
-    else {
-      res.redirect('/r2/x-ui/case-worker/case-worker-send-message')
-    }
   })
+
+
 
 
   router.post('/r2/x-ui/case-worker/case-worker-message-send-and-reply', function(req, res) {
@@ -2170,12 +2162,13 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
     }
   })
 
-  router.post('/r2/x-ui/case-worker/case-worker-message-reply-required', function(req, res) {
+  router.post('/r2/x-ui/case-worker/case-worker-messages-reply-message', function(req, res) {
     if (req.body['submit-button'] === 'continue') {
-      res.redirect('/r2/x-ui/case-worker/case-worker-message-check-your-answers')
+      req.session.data.repliedMessage = 1
+      res.redirect('/r2/x-ui/case-worker/case-worker-messages')
     }
     else {
-      res.redirect('/r2/x-ui/case-worker/case-worker-message-send-and-reply')
+      res.redirect('/r2/x-ui/case-worker/case-worker-messages')
     }
   })
 
@@ -2234,7 +2227,45 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
       }
     }
     else {
-      res.redirect('/r2/x-ui/case-worker/case-worker-add-note')
+      res.redirect('/r2/x-ui/case-worker/index')
+    }
+  })
+
+
+  router.post('/r2/x-ui/case-worker/case-worker-gatekeeping-type-of-order', function(req, res) {
+    console.log("Note")
+    if (req.body['submit-button'] === 'continue') {
+      if (req.body['xui-type-order'] === 'gatekeeping') {
+        res.redirect('/r2/x-ui/case-worker/case-worker-gatekeeping-case-management-order')  
+      }
+      else {
+        res.redirect('/r2/x-ui/case-worker/index')
+      }
+    }
+    else {
+      res.redirect('/r2/x-ui/case-worker/case-worker-directions')
+    }
+  })
+
+
+  router.post('/r2/x-ui/case-worker/case-worker-gatekeeping-case-management-order', function(req, res) {
+    console.log("Note")
+    if (req.body['submit-button'] === 'continue') {
+      res.redirect('/r2/x-ui/case-worker/case-worker-gatekeeping-annexa-required-by')  
+    }
+    else {
+      res.redirect('/r2/x-ui/case-worker/case-worker-type-of-order')
+    }
+  })
+
+
+  router.post('/r2/x-ui/case-worker/case-worker-gatekeeping-annexa-required-by', function(req, res) {
+    console.log("Note")
+    if (req.body['submit-button'] === 'continue') {
+      res.redirect('/r2/x-ui/case-worker/case-worker-gatekeeping-birth-parents-details-required-by')  
+    }
+    else {
+      res.redirect('/r2/x-ui/case-worker/case-worker-gatekeeping-case-management-order')
     }
   })
 
@@ -2251,6 +2282,9 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
     }
     else if (req.body['next-steps'] === 'send-a-message') {
       res.redirect('/r2/x-ui/case-worker/case-worker-message-send-and-reply')
+    }
+    else if (req.body['next-steps'] === 'manage-orders') {
+      res.redirect('/r2/x-ui/case-worker/case-worker-gatekeeping-type-of-order')
     }
     else if (req.body['next-steps'] === 'info') {
       req.session.data.newNote = 'yes'
@@ -2457,6 +2491,15 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
     }
   })
 
+
+  router.post('/r2/la-portal/task-list', function(req, res) {
+    if (req.body['submit-button'] === 'save-and-continue') {
+      res.redirect('/r2/la-portal/check-your-answers')
+    }
+    else {
+      res.redirect('/r2/la-portal/task-list')
+    }
+  })
 
 
 
@@ -4355,7 +4398,14 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
         res.redirect('/r2/la-portal/task-list')
       }
       else {
-        res.redirect('/r2/save-as-draft')
+        res.redirect('/r2/task-list')
+      }
+    })
+
+
+    router.post('/r2/la-portal/check-your-answers', function(req, res) {
+      if (req.body['submit-button'] === 'save-and-continue') {
+        res.redirect('/r2/la-portal/statement-of-truth')
       }
     })
 
@@ -4400,6 +4450,9 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
         else {
           res.render('./r2/la-portal/statement-of-truth', { errors: errors })
         }
+      }
+      else {
+        res.redirect('/r2/la-portal/task-list')
       }
     })
 

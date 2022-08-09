@@ -173,8 +173,8 @@ Task list
             </ol>
 
             {% if data['childUpload'] %}
-            <form action="/r2/la-portal/check-your-answers" method="post" class="form">
-                <button class="govuk-button" data-module="govuk-button">
+            <form action="/r2/la-portal/task-list" method="post" class="form">
+                <button class="govuk-button" data-module="govuk-button" name="submit-button" value="save-and-continue">
                     Review and submit
                 </button>
             </form>
