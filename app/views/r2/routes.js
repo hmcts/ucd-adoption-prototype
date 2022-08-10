@@ -2233,7 +2233,6 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
 
 
   router.post('/r2/x-ui/case-worker/case-worker-gatekeeping-type-of-order', function(req, res) {
-    console.log("Note")
     if (req.body['submit-button'] === 'continue') {
       if (req.body['xui-type-order'] === 'gatekeeping') {
         res.redirect('/r2/x-ui/case-worker/case-worker-gatekeeping-case-management-order')
@@ -2249,7 +2248,6 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
 
 
   router.post('/r2/x-ui/case-worker/case-worker-gatekeeping-case-management-order', function(req, res) {
-    console.log("Note")
     if (req.body['submit-button'] === 'continue') {
       res.redirect('/r2/x-ui/case-worker/case-worker-gatekeeping-annexa-required-by')
     }
@@ -2260,12 +2258,31 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
 
 
   router.post('/r2/x-ui/case-worker/case-worker-gatekeeping-annexa-required-by', function(req, res) {
-    console.log("Note")
     if (req.body['submit-button'] === 'continue') {
       res.redirect('/r2/x-ui/case-worker/case-worker-gatekeeping-birth-parents-details-required-by')
     }
     else {
       res.redirect('/r2/x-ui/case-worker/case-worker-gatekeeping-case-management-order')
+    }
+  })
+
+
+  router.post('/r2/x-ui/case-worker/case-worker-gatekeeping-birth-parents-details-required-by', function(req, res) {
+    if (req.body['submit-button'] === 'continue') {
+      res.redirect('/r2/x-ui/case-worker/case-worker-gatekeeping-judge')  
+    }
+    else {
+      res.redirect('/r2/x-ui/case-worker/case-worker-gatekeeping-annexa-required-by')
+    }
+  })
+
+
+  router.post('/r2/x-ui/case-worker/case-worker-gatekeeping-judge', function(req, res) {
+    if (req.body['submit-button'] === 'continue') {
+      res.redirect('/r2/x-ui/case-worker/index')  
+    }
+    else {
+      res.redirect('/r2/x-ui/case-worker/case-worker-gatekeeping-birth-parents-details-required-by')
     }
   })
 
@@ -2281,7 +2298,7 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
       res.redirect('/r2/x-ui/case-worker/case-worker-add-note')
     }
     else if (req.body['next-steps'] === 'send-a-message') {
-      res.redirect('/r2/x-ui/case-worker/case-worker-message-send-and-reply')
+      res.redirect('/r2/x-ui/case-worker/case-worker-messages')
     }
     else if (req.body['next-steps'] === 'manage-orders') {
       res.redirect('/r2/x-ui/case-worker/case-worker-gatekeeping-type-of-order')
