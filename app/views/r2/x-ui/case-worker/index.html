@@ -29,6 +29,7 @@
                                     <option value="manage-documents">Manage documents</option>
                                     <option value="send-a-message">Send or reply to messages</option>
                                     <option value="manage-orders">Manage orders</option>
+                                    <option value="manage-hearings">Manage hearings</option>
                                     <option value="case-issue">Case issue</option>
                                     <option value="notes">Add a case note</option>
                                     <option value="info">Seek further information</option>
@@ -171,7 +172,7 @@
                                     Date submitted
                                 </dt>
                                 <dd class="govuk-summary-list__value">
-                                    23 February 2022
+                                    11 August 2022
                                 </dd>
                             </div>
 
@@ -180,7 +181,7 @@
                                     20 week timetable
                                 </dt>
                                 <dd class="govuk-summary-list__value">
-                                    ????
+                                    29 December 2022
                                 </dd>
                             </div>
 
@@ -213,12 +214,30 @@
 
                             <div class="govuk-summary-list__row">
                                 <dt class="govuk-summary-list__key">
+                                    Allocated judge
+                                </dt>
+                                <dd class="govuk-summary-list__value">
+                                    <!-- <p><span class="govuk-!-font-weight-bold">Title:</span> Her Honour Judge</p>
+                                    <p><span class="govuk-!-font-weight-bold">Last name:</span> Jameson</p>
+                                    <p><span class="govuk-!-font-weight-bold">Email address:</span> judgejameson@example.com</p> -->
+                                    {% if data['xui-allocated-judge-title'] %}
+                                        <p>{{ data['xui-allocated-judge-title'] }} {{ data['person-making-order-last-name'] }}</p>
+                                        <p>{{ data['person-making-order-email'] }}</p>
+                                    {% else %}
+                                        <p>Her Honour Judge Jameson</p>
+                                        <p>judgejameson@example.com</p>
+                                    {% endif %}
+                                </dd>
+                            </div>
+
+                            <div class="govuk-summary-list__row">
+                                <dt class="govuk-summary-list__key">
                                     Placement order details
                                 </dt>
                                 <dd class="govuk-summary-list__value">
-                                    <p>Brighton Family Court</p>
-                                    <p>13 August 2021</p>
-                                    <p>ANC13637883</p>
+                                    <p><span class="govuk-!-font-weight-bold">Court:</span> Brighton Family Court</p>
+                                    <p><span class="govuk-!-font-weight-bold">Date:</span> 12 July 2021</p>
+                                    <p><span class="govuk-!-font-weight-bold">Order case or serial number:</span> ANC13637883</p>
                                 </dd>
                             </div>
 
@@ -227,11 +246,11 @@
                                     Other court cases
                                 </dt>
                                 <dd class="govuk-summary-list__value">
-                                    <p>Care</p>
-                                    <p>JTR12346252</p>
+                                    <p><span class="govuk-!-font-weight-bold">Type of order:</span> Care</p>
+                                    <p><span class="govuk-!-font-weight-bold">Order case or serial number:</span> JTR12346252</p>
                                     <br>
-                                    <p>Lorem ipsum</p>
-                                    <p>BCC77162555</p>
+                                    <p><span class="govuk-!-font-weight-bold">Type of order:</span> General directions</p>
+                                    <p><span class="govuk-!-font-weight-bold">Order case or serial number:</span> AB1237686</p>
                                 </dd>
                             </div>
                             <div class="govuk-summary-list__row">
@@ -239,13 +258,13 @@
                                     Sibling court cases
                                 </dt>
                                 <dd class="govuk-summary-list__value">
-                                    <p>Brother</p>
-                                    <p>Care </p>
-                                    <p>CHCO12346252</p>
+                                    <p><span class="govuk-!-font-weight-bold">Relationship:</span> Brother</p>
+                                    <p><span class="govuk-!-font-weight-bold">Type of order:</span>  Care </p>
+                                    <p><span class="govuk-!-font-weight-bold">Order case or serial number:</span> CHCO12346252</p>
                                     <br>
-                                    <p>Half-sister</p>
-                                    <p>Placement</p>
-                                    <p>LCO77162555</p>
+                                    <p><span class="govuk-!-font-weight-bold">Relationship:</span> Half-sister</p>
+                                    <p><span class="govuk-!-font-weight-bold">Type of order:</span> Placement</p>
+                                    <p><span class="govuk-!-font-weight-bold">Order case or serial number:</span> LCO77162555</p>
 
                                 </dd>
                             </div>
