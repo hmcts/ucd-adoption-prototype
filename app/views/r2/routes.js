@@ -2269,7 +2269,7 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
 
   router.post('/r2/x-ui/case-worker/case-worker-gatekeeping-birth-parents-details-required-by', function(req, res) {
     if (req.body['submit-button'] === 'continue') {
-      res.redirect('/r2/x-ui/case-worker/case-worker-gatekeeping-judge')  
+      res.redirect('/r2/x-ui/case-worker/case-worker-gatekeeping-judge')
     }
     else {
       res.redirect('/r2/x-ui/case-worker/case-worker-gatekeeping-annexa-required-by')
@@ -2279,7 +2279,7 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
 
   router.post('/r2/x-ui/case-worker/case-worker-gatekeeping-judge', function(req, res) {
     if (req.body['submit-button'] === 'continue') {
-      res.redirect('/r2/x-ui/case-worker/index')  
+      res.redirect('/r2/x-ui/case-worker/index')
     }
     else {
       res.redirect('/r2/x-ui/case-worker/case-worker-gatekeeping-birth-parents-details-required-by')
@@ -2335,7 +2335,7 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
   router.post('/r2/x-ui/case-worker/case-worker-seek-further-information-reply-by', function(req, res) {
     if (req.body['submit-button'] === 'continue') {
 
-      res.redirect('/r2/x-ui/case-worker/case-worker-messages')
+      res.redirect('/r2/x-ui/case-worker/case-worker-correspondence')
     }
     // }
     else if (req.body['submit-button'] === 'previous') {
