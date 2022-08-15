@@ -36,6 +36,7 @@
                               <option value="manage-documents">Manage documents</option>
                               <option value="send-a-message">Send or reply to messages</option>
                               <option value="manage-orders">Manage orders</option>
+                              <option value="allocate-judge">Allocate judge</option>
                               <option value="case-issue">Case issue</option>
                               <option value="notes">Add a case note</option>
                               <option value="info">Seek further information</option>
@@ -145,12 +146,12 @@
                       <div class="govuk-tabs__panel" id="1">
                         <h2 class="govuk-heading-l">Messages</h2>
 
-                          <p><a href="case-worker-messages-send-message.html">Send a new message</a></p>
+                          <p><a href="case-worker-messages-send-message.html" class="govuk-link govuk-link--no-visited-state">Send a new message</a></p>
 
+                          <h2 class="govuk-heading-m govuk-!-margin-top-7">Open messages</h2>
 
-
-                          <dt class="complex-panel govuk-!-margin-top-7">
-                            Message 2 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="case-worker-messages-reply-message.html">Reply</a> &nbsp;
+                          <dt class="complex-panel govuk-!-margin-top-4">
+                            Re: Leave to oppose lorem ipsum &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="" class="govuk-link govuk-link--no-visited-state">Close message</a>&nbsp;&nbsp; <a href="case-worker-messages-reply-message.html" class="govuk-link govuk-link--no-visited-state">Reply</a> &nbsp;
                           </dt>
                           <dl class="govuk-summary-list">
                             <div class="govuk-summary-list__row">
@@ -206,7 +207,7 @@
                                 Message subject
                               </dt>
                               <dd class="govuk-summary-list__value">
-                                Annex A request
+                                Re: Leave to oppose lorem ipsum
                               </dd>
                               <dd class="govuk-summary-list__value">
                                 &nbsp;
@@ -218,7 +219,7 @@
                                 Latest message
                               </dt>
                               <dd class="govuk-summary-list__value">
-                                Can you please send me your latest copy of Annex A? Thanks.
+                                Can you please send me your latest copy of blah blah? Thanks.
                               </dd>
                               <dd class="govuk-summary-list__value">
                                 &nbsp;
@@ -236,18 +237,105 @@
                                 &nbsp;
                               </dd>
                             </div>
+                          </dl>
 
-                            <div class="govuk-summary-list__row">
-                              <dt class="govuk-summary-list__value">
-                                Message history
-                              </dt>
-                              <dd class="govuk-summary-list__value">
-                                N/A
-                              </dd>
-                              <dd class="govuk-summary-list__value">
-                                &nbsp;
-                              </dd>
-                            </div>
+                            <details class="govuk-details" data-module="govuk-details">
+                              <summary class="govuk-details__summary">
+                                <span class="govuk-details__summary-text">
+                                  View message history
+                                </span>
+                              </summary>
+                              <div class="govuk-details__text">
+                                <dt class="complex-panel govuk-!-margin-top-4">
+                                  Leave to oppose lorem ipsum &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="" class="govuk-link govuk-link--no-visited-state">Close message</a>&nbsp;&nbsp; <a href="case-worker-messages-reply-message.html" class="govuk-link govuk-link--no-visited-state">Reply</a> &nbsp;
+                                </dt>
+                                <dl class="govuk-summary-list">
+                                  <div class="govuk-summary-list__row">
+                                    <dt class="govuk-summary-list__value">
+                                      From
+                                    </dt>
+                                    <dd class="govuk-summary-list__value">
+                                      email@example.com
+                                    </dd>
+                                    <dd class="govuk-summary-list__value">
+                                      &nbsp;
+                                    </dd>
+                                  </div>
+      
+                                  <div class="govuk-summary-list__row">
+                                    <dt class="govuk-summary-list__value">
+                                      Sent to
+                                    </dt>
+                                    <dd class="govuk-summary-list__value">
+                                      email2@example.com
+                                    </dd>
+                                    <dd class="govuk-summary-list__value">
+                                      &nbsp;
+                                    </dd>
+                                  </div>
+      
+                                  <div class="govuk-summary-list__row">
+                                    <dt class="govuk-summary-list__value">
+                                      Date sent
+                                    </dt>
+                                    <dd class="govuk-summary-list__value">
+                                      1 August 2022 at 11:00am
+                                    </dd>
+                                    <dd class="govuk-summary-list__value">
+                                      &nbsp;
+                                    </dd>
+                                  </div>
+      
+                                  <div class="govuk-summary-list__row">
+                                    <dt class="govuk-summary-list__value">
+                                      Urgency
+                                    </dt>
+                                    <dd class="govuk-summary-list__value">
+                                      Two days
+                                    </dd>
+                                    <dd class="govuk-summary-list__value">
+                                      &nbsp;
+                                    </dd>
+                                  </div>
+      
+                                  <div class="govuk-summary-list__row">
+                                    <dt class="govuk-summary-list__value">
+                                      Message subject
+                                    </dt>
+                                    <dd class="govuk-summary-list__value">
+                                      Leave to oppose lorem ipsum
+                                    </dd>
+                                    <dd class="govuk-summary-list__value">
+                                      &nbsp;
+                                    </dd>
+                                  </div>
+      
+                                  <div class="govuk-summary-list__row">
+                                    <dt class="govuk-summary-list__value">
+                                      Latest message
+                                    </dt>
+                                    <dd class="govuk-summary-list__value">
+                                      Can you please send me your latest copy of blah blah? Thanks.
+                                    </dd>
+                                    <dd class="govuk-summary-list__value">
+                                      &nbsp;
+                                    </dd>
+                                  </div>
+      
+                                  <div class="govuk-summary-list__row">
+                                    <dt class="govuk-summary-list__value">
+                                      Status
+                                    </dt>
+                                    <dd class="govuk-summary-list__value">
+                                      Open
+                                    </dd>
+                                    <dd class="govuk-summary-list__value">
+                                      &nbsp;
+                                    </dd>
+                                  </div>
+                                    </div>
+                                  </dt>
+                            </details>                            
 
                             <!-- <div class="govuk-summary-list__row">
                               <dt class="govuk-summary-list__value">
@@ -266,7 +354,7 @@
 
 
                           <dt class="complex-panel govuk-!-margin-top-7">
-                            Message 1 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="case-worker-messages-reply-message.html">Reply</a> &nbsp;
+                            Something else request &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="" class="govuk-link govuk-link--no-visited-state">Close message</a>&nbsp;&nbsp; <a href="case-worker-messages-reply-message.html" class="govuk-link govuk-link--no-visited-state">Reply</a> &nbsp;
                           </dt>
                           <dl class="govuk-summary-list">
                             <div class="govuk-summary-list__row">
@@ -322,7 +410,7 @@
                                 Message subject
                               </dt>
                               <dd class="govuk-summary-list__value">
-                                Annex A request
+                                Something else request
                               </dd>
                               <dd class="govuk-summary-list__value">
                                 &nbsp;
@@ -334,7 +422,7 @@
                                 Latest message
                               </dt>
                               <dd class="govuk-summary-list__value">
-                                Can you please send me your latest copy of Annex A? Thanks.
+                                Can you please send me your latest copy of blah blah or whatever? Thanks.
                               </dd>
                               <dd class="govuk-summary-list__value">
                                 &nbsp;
@@ -353,18 +441,203 @@
                               </dd>
                             </div>
 
+                          </dl>
+
+
+                          <h2 class="govuk-heading-m govuk-!-margin-top-9">Closed messages</h2>
+
+                          <dt class="complex-panel govuk-!-margin-top-4">
+                            Leave to oppose lorem ipsum &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="" class="govuk-link govuk-link--no-visited-state">Re-open message</a>&nbsp;&nbsp; <a href="case-worker-messages-reply-message.html" class="govuk-link govuk-link--no-visited-state">Reply</a> &nbsp;
+                          </dt>
+                          <dl class="govuk-summary-list">
                             <div class="govuk-summary-list__row">
                               <dt class="govuk-summary-list__value">
-                                Message history
+                                From
                               </dt>
                               <dd class="govuk-summary-list__value">
-                                N/A
+                                email@example.com
                               </dd>
                               <dd class="govuk-summary-list__value">
                                 &nbsp;
                               </dd>
                             </div>
 
+                            <div class="govuk-summary-list__row">
+                              <dt class="govuk-summary-list__value">
+                                Sent to
+                              </dt>
+                              <dd class="govuk-summary-list__value">
+                                email2@example.com
+                              </dd>
+                              <dd class="govuk-summary-list__value">
+                                &nbsp;
+                              </dd>
+                            </div>
+
+                            <div class="govuk-summary-list__row">
+                              <dt class="govuk-summary-list__value">
+                                Date sent
+                              </dt>
+                              <dd class="govuk-summary-list__value">
+                                1 August 2022 at 11:00am
+                              </dd>
+                              <dd class="govuk-summary-list__value">
+                                &nbsp;
+                              </dd>
+                            </div>
+
+                            <div class="govuk-summary-list__row">
+                              <dt class="govuk-summary-list__value">
+                                Urgency
+                              </dt>
+                              <dd class="govuk-summary-list__value">
+                                Two days
+                              </dd>
+                              <dd class="govuk-summary-list__value">
+                                &nbsp;
+                              </dd>
+                            </div>
+
+                            <div class="govuk-summary-list__row">
+                              <dt class="govuk-summary-list__value">
+                                Message subject
+                              </dt>
+                              <dd class="govuk-summary-list__value">
+                                Leave to oppose lorem ipsum
+                              </dd>
+                              <dd class="govuk-summary-list__value">
+                                &nbsp;
+                              </dd>
+                            </div>
+
+                            <div class="govuk-summary-list__row">
+                              <dt class="govuk-summary-list__value">
+                                Latest message
+                              </dt>
+                              <dd class="govuk-summary-list__value">
+                                Can you please send me your latest copy of blah blah? Thanks.
+                              </dd>
+                              <dd class="govuk-summary-list__value">
+                                &nbsp;
+                              </dd>
+                            </div>
+
+                            <div class="govuk-summary-list__row">
+                              <dt class="govuk-summary-list__value">
+                                Status
+                              </dt>
+                              <dd class="govuk-summary-list__value">
+                                Closed
+                              </dd>
+                              <dd class="govuk-summary-list__value">
+                                &nbsp;
+                              </dd>
+                            </div>
+
+
+                            <!-- <div class="govuk-summary-list__row">
+                              <dt class="govuk-summary-list__value">
+                                <a href="">Reply to this message</a>
+                              </dt>
+                              <dd class="govuk-summary-list__value">
+                                &nbsp;
+                              </dd>
+                              <dd class="govuk-summary-list__value">
+                                &nbsp;
+                              </dd>
+                            </div> -->
+
+
+                            </dl>
+
+
+                          <dt class="complex-panel govuk-!-margin-top-7">
+                            Something else request &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="" class="govuk-link govuk-link--no-visited-state">Re-open message</a>&nbsp;&nbsp; <a href="case-worker-messages-reply-message.html" class="govuk-link govuk-link--no-visited-state">Reply</a> &nbsp;
+                          </dt>
+                          <dl class="govuk-summary-list">
+                            <div class="govuk-summary-list__row">
+                              <dt class="govuk-summary-list__value">
+                                From
+                              </dt>
+                              <dd class="govuk-summary-list__value">
+                                email@example.com
+                              </dd>
+                              <dd class="govuk-summary-list__value">
+                                &nbsp;
+                              </dd>
+                            </div>
+
+                            <div class="govuk-summary-list__row">
+                              <dt class="govuk-summary-list__value">
+                                Sent to
+                              </dt>
+                              <dd class="govuk-summary-list__value">
+                                email2@example.com
+                              </dd>
+                              <dd class="govuk-summary-list__value">
+                                &nbsp;
+                              </dd>
+                            </div>
+
+                            <div class="govuk-summary-list__row">
+                              <dt class="govuk-summary-list__value">
+                                Date sent
+                              </dt>
+                              <dd class="govuk-summary-list__value">
+                                12 January 2022 at 1:35pm
+                              </dd>
+                              <dd class="govuk-summary-list__value">
+                                &nbsp;
+                              </dd>
+                            </div>
+
+                            <div class="govuk-summary-list__row">
+                              <dt class="govuk-summary-list__value">
+                                Urgency
+                              </dt>
+                              <dd class="govuk-summary-list__value">
+                                Two days
+                              </dd>
+                              <dd class="govuk-summary-list__value">
+                                &nbsp;
+                              </dd>
+                            </div>
+
+                            <div class="govuk-summary-list__row">
+                              <dt class="govuk-summary-list__value">
+                                Message subject
+                              </dt>
+                              <dd class="govuk-summary-list__value">
+                                Something else request
+                              </dd>
+                              <dd class="govuk-summary-list__value">
+                                &nbsp;
+                              </dd>
+                            </div>
+
+                            <div class="govuk-summary-list__row">
+                              <dt class="govuk-summary-list__value">
+                                Latest message
+                              </dt>
+                              <dd class="govuk-summary-list__value">
+                                Can you please send me your latest copy of blah blah or whatever? Thanks.
+                              </dd>
+                              <dd class="govuk-summary-list__value">
+                                &nbsp;
+                              </dd>
+                            </div>
+
+                            <div class="govuk-summary-list__row">
+                              <dt class="govuk-summary-list__value">
+                                Status
+                              </dt>
+                              <dd class="govuk-summary-list__value">
+                                Closed
+                              </dd>
+                              <dd class="govuk-summary-list__value">
+                                &nbsp;
+                              </dd>
+                            </div>
 
                           </dl>
 

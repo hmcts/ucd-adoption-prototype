@@ -2286,6 +2286,15 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
     }
   })
 
+  router.post('/r2/x-ui/case-worker/case-worker-gatekeeping-allocate-judge', function(req, res) {
+    if (req.body['submit-button'] === 'continue') {
+      res.redirect('/r2/x-ui/case-worker/index')  
+    }
+    else {
+      res.redirect('/r2/x-ui/case-worker/index')
+    }
+  })
+
 
 
   router.post('/r2/x-ui/case-worker/index', function(req, res) {
@@ -2302,6 +2311,9 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
     }
     else if (req.body['next-steps'] === 'manage-orders') {
       res.redirect('/r2/x-ui/case-worker/case-worker-gatekeeping-type-of-order')
+    }
+    else if (req.body['next-steps'] === 'allocate-judge') {
+      res.redirect('/r2/x-ui/case-worker/case-worker-gatekeeping-allocate-judge')
     }
     else if (req.body['next-steps'] === 'info') {
       req.session.data.newNote = 'yes'
