@@ -2232,6 +2232,21 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
   })
 
 
+  router.post('/r2/x-ui/case-worker/case-worker-gatekeeping-manage-orders', function(req, res) {
+    if (req.body['submit-button'] === 'continue') {
+      if (req.body['xui-orders-radio'] === 'create') {
+        res.redirect('/r2/x-ui/case-worker/case-worker-gatekeeping-type-of-order')
+      }
+      else {
+        res.redirect('/r2/x-ui/case-worker/index')
+      }
+    }
+    else {
+      res.redirect('/r2/x-ui/case-worker/index')
+    }
+  })
+
+
   router.post('/r2/x-ui/case-worker/case-worker-gatekeeping-type-of-order', function(req, res) {
     if (req.body['submit-button'] === 'continue') {
       if (req.body['xui-type-order'] === 'gatekeeping') {
@@ -2252,7 +2267,7 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
       res.redirect('/r2/x-ui/case-worker/case-worker-gatekeeping-annexa-required-by')  
     }
     else {
-      res.redirect('/r2/x-ui/case-worker/case-worker-type-of-order')
+      res.redirect('/r2/x-ui/case-worker/case-worker-gatekeeping-type-of-order')
     }
   })
 
@@ -2310,7 +2325,7 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
       res.redirect('/r2/x-ui/case-worker/case-worker-messages')
     }
     else if (req.body['next-steps'] === 'manage-orders') {
-      res.redirect('/r2/x-ui/case-worker/case-worker-gatekeeping-type-of-order')
+      res.redirect('/r2/x-ui/case-worker/case-worker-gatekeeping-manage-orders')
     }
     else if (req.body['next-steps'] === 'allocate-judge') {
       res.redirect('/r2/x-ui/case-worker/case-worker-gatekeeping-allocate-judge')
