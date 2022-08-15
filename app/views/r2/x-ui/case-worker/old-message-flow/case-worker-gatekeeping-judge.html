@@ -9,69 +9,68 @@
           <main class="govuk-main-wrapper " id="main-content" role="main" style="padding-top: 25px;">
               <div class="govuk-width-container">
                 <div class="govuk-grid-row" style="width:1300px; margin-left: -90px;">
-                  <h1 class="govuk-heading-xl">Manage orders and directions</h1>
+                  <h1 class="govuk-heading-xl">Confirm / edit who is making the order</h1>
                   <h2 class="govuk-heading-l govuk-!-margin-bottom-3">#1234-5678-0921-2722</h2>
                   <h2 class="govuk-heading-m govuk-!-margin-top-0 govuk-!-margin-bottom-7">Child's name: Jane Austen</h2>
 
 
-                  <form action="/r2/x-ui/case-worker/case-worker-gatekeeping-type-of-order" method="post" class="form">
+                  <form action="/r2/x-ui/case-worker/case-worker-gatekeeping-judge" method="post" class="form">
                   <div class="govuk-form-group">
                     <div class="govuk-radios govuk-radios--conditional" data-module="govuk-radios">
                       <label class="govuk-label govuk-!-margin-bottom-4 govuk-!-font-weight-bold" for="sender-email-address">
-                        Select type of order
+                        Which level of judge is needed for this case?
                       </label>
 
                       <div class="govuk-radios__item">
-                        <input class="govuk-radios__input" id="gatekeeping" name="xui-type-order" type="radio" value="gatekeeping" {% if data['xui-type-order'] == "gatekeeping" %} checked {% endif %}>
+                        <input class="govuk-radios__input" id="circuit-judge" name="xui-level-judge" type="radio" value="circuit-judge" {% if data['xui-level-judge'] == "circuit-judge" %} checked {% endif %}>
                         <label class="govuk-label govuk-radios__label" for="xui-send-message">
-                          Case management order (gatekeeping order)
+                          Circuit Judge
                         </label>
                       </div>
 
                       <div class="govuk-radios__item">
-                        <input class="govuk-radios__input" id="general" name="xui-type-order" type="radio" value="general" {% if data['xui-type-order'] == "general" %} checked {% endif %}>
+                        <input class="govuk-radios__input" id="circuit-judge-9" name="xui-level-judge" type="radio" value="circuit-judge-9" {% if data['xui-level-judge'] == "circuit-judge-9" %} checked {% endif %}>
                         <label class="govuk-label govuk-radios__label" for="xui-send-message">
-                          General directions order
+                          Circuit Judge (Section 9)
                         </label>
                       </div>
         
                       <div class="govuk-radios__item">
-                        <input class="govuk-radios__input" id="adoption" name="xui-type-order" type="radio" value="adoption" {% if data['xui-type-order'] == "adoption" %} checked {% endif %}>
+                        <input class="govuk-radios__input" id="district-judge" name="xui-level-judge" type="radio" value="district-judge" {% if data['xui-level-judge'] == "district-judge" %} checked {% endif %}>
                         <label class="govuk-label govuk-radios__label" for="xui-send-message">
-                          Final adoption order
-                        </label>
-                      </div>
-
-                      <!-- <div class="govuk-radios__item">
-                        <input class="govuk-radios__input" id="lot" name="xui-type-order" type="radio" value="lot" {% if data['xui-type-order'] == "lot" %} checked {% endif %}>
-                        <label class="govuk-label govuk-radios__label" for="xui-send-message">
-                          Leave to oppose order
-                        </label>
-                      </div>
-        
-                      <div class="govuk-radios__item">
-                        <input class="govuk-radios__input" id="dwp" name="xui-type-order" type="radio" value="dwp" {% if data['xui-type-order'] == "dwp" %} checked {% endif %}>
-                        <label class="govuk-label govuk-radios__label" for="xui-send-message">
-                          DWP / HMRC order
+                          District Judge
                         </label>
                       </div>
 
                       <div class="govuk-radios__item">
-                        <input class="govuk-radios__input" id="ceremony" name="xui-type-order" type="radio" value="ceremony" {% if data['xui-type-order'] == "ceremony" %} checked {% endif %}>
+                        <input class="govuk-radios__input" id="magistrate" name="xui-level-judge" type="radio" value="magistrate" {% if data['xui-level-judge'] == "magistrate" %} checked {% endif %}>
                         <label class="govuk-label govuk-radios__label" for="xui-send-message">
-                          Ceremony order
+                          Magistrate
                         </label>
                       </div>
         
                       <div class="govuk-radios__item">
-                        <input class="govuk-radios__input" id="production" name="xui-type-order" type="radio" value="production" {% if data['xui-type-order'] == "production" %} checked {% endif %}>
+                        <input class="govuk-radios__input" id="high-court-judge" name="xui-level-judge" type="radio" value="high-court-judge" {% if data['xui-level-judge'] == "high-court-judge" %} checked {% endif %}>
                         <label class="govuk-label govuk-radios__label" for="xui-send-message">
-                          Production order
+                          High Court Judge
                         </label>
                       </div>
-         -->
+
+                      <div class="govuk-radios__item">
+                        <input class="govuk-radios__input" id="legal-adviser" name="xui-level-judge" type="radio" value="legal-adviser" {% if data['xui-level-judge'] == "legal-adviser" %} checked {% endif %}>
+                        <label class="govuk-label govuk-radios__label" for="xui-send-message">
+                          Legal Adviser
+                        </label>
+                      </div>
+                
                     </div>
                 
+                    <div class="govuk-form-group govuk-!-margin-top-6">
+                      <label class="govuk-label" for="person-making-order">
+                        Name of person making the order
+                      </label>
+                      <input class="govuk-input govuk-input--width-30" id="person-making-order" name="person-making-order" type="text">
+                    </div>          
                   </fieldset>
                 </div>
                 <!-- Buttons -->
