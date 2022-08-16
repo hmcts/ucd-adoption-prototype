@@ -121,7 +121,8 @@ module.exports = {
 
 "newNote": "no",
 "repliedMessage": "",
-"correspondenceStatus": 0
+"correspondenceStatus": 0,
+"correspondence": ""
 
 
 ,}
