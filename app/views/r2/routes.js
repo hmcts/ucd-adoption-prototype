@@ -2329,6 +2329,9 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
     else if (req.body['next-steps'] === 'send-a-message') {
       res.redirect('/r2/x-ui/case-worker/case-worker-messages')
     }
+    else if (req.body['next-steps'] === 'create-order') {
+      res.redirect('/r2/x-ui/case-worker/case-worker-gatekeeping-order-creation-type-of-order')
+    }
     else if (req.body['next-steps'] === 'manage-orders') {
       res.redirect('/r2/x-ui/case-worker/case-worker-gatekeeping-order-creation-manage-orders')
     }
