@@ -2267,7 +2267,7 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
 
   router.post('/r2/x-ui/case-worker/case-worker-gatekeeping-order-creation-case-management-order', function(req, res) {
     if (req.body['submit-button'] === 'continue') {
-      res.redirect('/r2/x-ui/case-worker/case-worker-gatekeeping-annexa-required-by')  
+      res.redirect('/r2/x-ui/case-worker/case-worker-gatekeeping-annexa-required-by')
     }
     else {
       res.redirect('/r2/x-ui/case-worker/case-worker-gatekeeping-order-creation-type-of-order')
@@ -2277,7 +2277,7 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
 
   router.post('/r2/x-ui/case-worker/case-worker-gatekeeping-annexa-required-by', function(req, res) {
     if (req.body['submit-button'] === 'continue') {
-      res.redirect('/r2/x-ui/case-worker/case-worker-gatekeeping-birth-parents-details-required-by')  
+      res.redirect('/r2/x-ui/case-worker/case-worker-gatekeeping-birth-parents-details-required-by')
     }
     else {
       res.redirect('/r2/x-ui/case-worker/case-worker-gatekeeping-order-creation-case-management-order')
@@ -2297,7 +2297,7 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
 
   router.post('/r2/x-ui/case-worker/case-worker-gatekeeping-order-creation-judge', function(req, res) {
     if (req.body['submit-button'] === 'continue') {
-      res.redirect('/r2/x-ui/case-worker/index')  
+      res.redirect('/r2/x-ui/case-worker/index')
     }
     else {
       res.redirect('/r2/x-ui/case-worker/case-worker-gatekeeping-birth-parents-details-required-by')
@@ -2361,6 +2361,17 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
     // }
     else if (req.body['submit-button'] === 'previous') {
       res.redirect('/r2/x-ui/case-worker/case-worker-seek-further-information')
+    }
+  })
+
+  router.post('/r2/x-ui/case-worker/case-worker-seek-further-information-reply-by', function(req, res) {
+    if (req.body['submit-button'] === 'continue') {
+
+      res.redirect('/r2/x-ui/case-worker/case-worker-correspondence')
+    }
+    // }
+    else if (req.body['submit-button'] === 'previous') {
+      res.redirect('/r2/x-ui/case-worker/case-worker-seek-further-information-reply-by')
     }
   })
 
