@@ -2303,6 +2303,8 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
 
   router.post('/r2/x-ui/case-worker/case-worker-gatekeeping-allocate-judge', function(req, res) {
     if (req.body['submit-button'] === 'continue') {
+      req.session.data.allocatedJudge = 1
+      console.log("test: ",req.session.data.allocatedJudge)
       res.redirect('/r2/x-ui/case-worker/index')  
     }
     else {

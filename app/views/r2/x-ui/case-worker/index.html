@@ -187,7 +187,7 @@
 
                             <div class="govuk-summary-list__row">
                                 <dt class="govuk-summary-list__key">
-                                    Date child was placed
+                                    Date child moved in
                                 </dt>
                                 <dd class="govuk-summary-list__value">
                                     12 July 2021
@@ -220,7 +220,7 @@
                                     <!-- <p><span class="govuk-!-font-weight-bold">Title:</span> Her Honour Judge</p>
                                     <p><span class="govuk-!-font-weight-bold">Last name:</span> Jameson</p>
                                     <p><span class="govuk-!-font-weight-bold">Email address:</span> judgejameson@example.com</p> -->
-                                    {% if data['xui-allocated-judge-title'] %}
+                                    {% if (data['allocatedJudge'] === 1) %}
                                         <p>{{ data['xui-allocated-judge-title'] }} {{ data['person-making-order-last-name'] }}</p>
                                         <p>{{ data['person-making-order-email'] }}</p>
                                     {% else %}
