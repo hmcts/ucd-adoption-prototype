@@ -2412,12 +2412,13 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
 
   router.post('/r2/x-ui/judge/judge-statements-select-respondent', function(req, res) {
     if (req.body['submit-button'] === 'continue') {
-      // if (req.body['respondent-role'] === 'birth mother' || req.body['respondent-role'] === 'birth father' || req.body['respondent-role'] === 'person with parental responsibility') {
-      //   res.redirect('/r2/x-ui/judge/judge-intention-oppose')
-      // }
-      // else {
-      res.redirect('/r2/x-ui/judge/judge-upload')
-    }
+      if (req.session.data.correspondenceStatus === 1) {
+        res.redirect('/research-10/case-worker/case-worker-correspondence')
+      }
+      else {
+        res.redirect('/research-10/case-worker/case-worker-documents')
+      }
+  }
     // }
     else {
       res.redirect('/r2/x-ui/judge/judge-manage-documents')
