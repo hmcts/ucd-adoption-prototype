@@ -2265,7 +2265,7 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
   router.post('/r2/x-ui/case-worker/case-worker-gatekeeping-order-creation-type-of-order', function(req, res) {
     if (req.body['submit-button'] === 'continue') {
       if (req.body['xui-type-order'] === 'gatekeeping') {
-        res.redirect('/r2/x-ui/case-worker/case-worker-gatekeeping-order-creation-case-management-order')  
+        res.redirect('/r2/x-ui/case-worker/case-worker-gatekeeping-order-creation-case-management-order')
       }
       else {
         res.redirect('/r2/x-ui/case-worker/index')
@@ -2299,7 +2299,7 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
 
   router.post('/r2/x-ui/case-worker/case-worker-gatekeeping-birth-parents-details-required-by', function(req, res) {
     if (req.body['submit-button'] === 'continue') {
-      res.redirect('/r2/x-ui/case-worker/case-worker-gatekeeping-order-creation-judge')  
+      res.redirect('/r2/x-ui/case-worker/case-worker-gatekeeping-order-creation-judge')
     }
     else {
       res.redirect('/r2/x-ui/case-worker/case-worker-gatekeeping-annexa-required-by')
@@ -2320,7 +2320,7 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
     if (req.body['submit-button'] === 'continue') {
       req.session.data.allocatedJudge = 1
       console.log("test: ",req.session.data.allocatedJudge)
-      res.redirect('/r2/x-ui/case-worker/index')  
+      res.redirect('/r2/x-ui/case-worker/index')
     }
     else {
       res.redirect('/r2/x-ui/case-worker/index')
@@ -2353,6 +2353,10 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
     else if (req.body['next-steps'] === 'info') {
       req.session.data.newNote = 'yes'
       res.redirect('/r2/x-ui/case-worker/case-worker-seek-further-information')
+    }
+    else if (req.body['next-steps'] === 'amend-applicant') {
+      req.session.data.newNote = 'yes'
+      res.redirect('/r2/x-ui/case-worker/case-worker-amend-applicant-details')
     }
   })
 
