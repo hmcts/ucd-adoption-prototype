@@ -123,7 +123,11 @@ module.exports = {
 "repliedMessage": "",
 "correspondenceStatus": 0,
 "allocatedJudge": 0,
-"correspondence": ""
+"correspondence": "",
+
+"firstApplicantFirstNames": "Agatha Mary Clarissa",
+"firstApplicantLastNames": "Christie"
+
 
 
 ,}
