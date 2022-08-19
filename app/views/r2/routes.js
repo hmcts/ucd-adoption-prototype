@@ -2348,6 +2348,34 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
   })
 
 
+  router.post('/r2/x-ui/case-worker/case-worker-gatekeeping-order-creation-final-adoption-3', function(req, res) {
+    if (req.body['submit-button'] === 'continue') {
+      if (req.body['date-and-place-of-birth'] === 'date-and-time') {
+        res.redirect('/r2/x-ui/case-worker/case-worker-gatekeeping-order-creation-final-adoption-4-1')
+      }
+      else if (req.body['date-and-place-of-birth'] === 'place-of-birth-unknown') {
+        res.redirect('/r2/x-ui/case-worker/case-worker-gatekeeping-order-creation-final-adoption-4-3')
+      }
+      else {
+        res.redirect('/r2/x-ui/case-worker/case-worker-gatekeeping-order-creation-final-adoption-4-2')
+      }      
+    }
+    else {
+      res.redirect('/r2/x-ui/case-worker/case-worker-gatekeeping-order-creation-final-adoption-2')
+    }
+  })
+
+
+  router.post('/r2/x-ui/case-worker/case-worker-gatekeeping-order-creation-final-adoption-4-1', function(req, res) {
+    if (req.body['submit-button'] === 'continue') {
+      res.redirect('/r2/x-ui/case-worker/case-worker-gatekeeping-order-creation-final-adoption-5')
+    }
+    else {
+      res.redirect('/r2/x-ui/case-worker/case-worker-gatekeeping-order-creation-final-adoption-3')
+    }
+  })
+
+
   
 
 
