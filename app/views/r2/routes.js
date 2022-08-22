@@ -2057,11 +2057,12 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
 
   router.post('/r2/x-ui/case-worker/case-worker-statements-select-respondent', function(req, res) {
     if (req.body['submit-button'] === 'continue') {
-      // if (req.body['respondent-role'] === 'birth mother' || req.body['respondent-role'] === 'birth father' || req.body['respondent-role'] === 'person with parental responsibility') {
-      //   res.redirect('/r2/x-ui/case-worker/case-worker-intention-oppose')
-      // }
-      // else {
-      res.redirect('/r2/x-ui/case-worker/case-worker-documents')
+      if (req.body['document-type'] === "Correspondence") {
+        res.redirect('/r2/x-ui/case-worker/case-worker-correspondence')
+      }
+      else {
+        res.redirect('/r2/x-ui/case-worker/case-worker-documents')
+      }
     }
     // }
     else {
@@ -2142,6 +2143,17 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
     }
     else {
       res.redirect('/r2/x-ui/case-worker/case-worker-messages')
+    }
+  })
+
+
+  router.post('/r2/x-ui/case-worker/case-worker-amend-applicant-details', function(req, res) {
+    if (req.body['submit-button'] === 'continue') {
+      req.session.data.firstApplicantFirstNames = req.body['first-first-names']
+      res.redirect('/r2/x-ui/case-worker/case-worker-prospective-parents')
+    }
+    else {
+      res.redirect('/r2/x-ui/case-worker/')
     }
   })
 
@@ -2255,8 +2267,8 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
       if (req.body['xui-type-order'] === 'gatekeeping') {
         res.redirect('/r2/x-ui/case-worker/case-worker-gatekeeping-order-creation-case-management-order')
       }
-      else {
-        res.redirect('/r2/x-ui/case-worker/index')
+      else if (req.body['xui-type-order'] === 'adoption') {
+        res.redirect('/r2/x-ui/case-worker/case-worker-gatekeeping-order-creation-final-adoption-1')
       }
     }
     else {
@@ -2314,6 +2326,98 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
       res.redirect('/r2/x-ui/case-worker/index')
     }
   })
+
+
+  router.post('/r2/x-ui/case-worker/case-worker-gatekeeping-order-creation-final-adoption-1', function(req, res) {
+    if (req.body['submit-button'] === 'continue') {
+      res.redirect('/r2/x-ui/case-worker/case-worker-gatekeeping-order-creation-final-adoption-2')
+    }
+    else {
+      res.redirect('/r2/x-ui/case-worker/index')
+    }
+  })
+
+
+  router.post('/r2/x-ui/case-worker/case-worker-gatekeeping-order-creation-final-adoption-2', function(req, res) {
+    if (req.body['submit-button'] === 'continue') {
+      res.redirect('/r2/x-ui/case-worker/case-worker-gatekeeping-order-creation-final-adoption-3')
+    }
+    else {
+      res.redirect('/r2/x-ui/case-worker/case-worker-gatekeeping-order-creation-final-adoption-1')
+    }
+  })
+
+
+  router.post('/r2/x-ui/case-worker/case-worker-gatekeeping-order-creation-final-adoption-3', function(req, res) {
+    if (req.body['submit-button'] === 'continue') {
+      if (req.body['date-and-place-of-birth'] === 'date-and-time') {
+        res.redirect('/r2/x-ui/case-worker/case-worker-gatekeeping-order-creation-final-adoption-4-1')
+      }
+      else if (req.body['date-and-place-of-birth'] === 'place-of-birth-unknown') {
+        res.redirect('/r2/x-ui/case-worker/case-worker-gatekeeping-order-creation-final-adoption-4-3')
+      }
+      else {
+        res.redirect('/r2/x-ui/case-worker/case-worker-gatekeeping-order-creation-final-adoption-4-2')
+      }      
+    }
+    else {
+      res.redirect('/r2/x-ui/case-worker/case-worker-gatekeeping-order-creation-final-adoption-2')
+    }
+  })
+
+
+  router.post('/r2/x-ui/case-worker/case-worker-gatekeeping-order-creation-final-adoption-4-1', function(req, res) {
+    if (req.body['submit-button'] === 'continue') {
+      req.session.data.pathFinalOrder = 1
+      res.redirect('/r2/x-ui/case-worker/case-worker-gatekeeping-order-creation-final-adoption-5')
+    }
+    else {
+      res.redirect('/r2/x-ui/case-worker/case-worker-gatekeeping-order-creation-final-adoption-3')
+    }
+  })
+
+
+  router.post('/r2/x-ui/case-worker/case-worker-gatekeeping-order-creation-final-adoption-4-2', function(req, res) {
+    if (req.body['submit-button'] === 'continue') {
+      req.session.data.pathFinalOrder = 2
+      res.redirect('/r2/x-ui/case-worker/case-worker-gatekeeping-order-creation-final-adoption-5')
+    }
+    else {
+      res.redirect('/r2/x-ui/case-worker/case-worker-gatekeeping-order-creation-final-adoption-3')
+    }
+  })
+
+
+  router.post('/r2/x-ui/case-worker/case-worker-gatekeeping-order-creation-final-adoption-4-3', function(req, res) {
+    if (req.body['submit-button'] === 'continue') {
+      req.session.data.pathFinalOrder = 3
+      res.redirect('/r2/x-ui/case-worker/case-worker-gatekeeping-order-creation-final-adoption-5')
+    }
+    else {
+      res.redirect('/r2/x-ui/case-worker/case-worker-gatekeeping-order-creation-final-adoption-3')
+    }
+  })
+
+
+  router.post('/r2/x-ui/case-worker/case-worker-gatekeeping-order-creation-final-adoption-5', function(req, res) {
+    if (req.body['submit-button'] === 'continue') {
+      res.redirect('/r2/x-ui/case-worker/')
+    }
+    else {
+      if (req.session.data.pathFinalOrder === 1) {
+        res.redirect('/r2/x-ui/case-worker/case-worker-gatekeeping-order-creation-final-adoption-4-1')
+      }
+      else if (req.session.data.pathFinalOrder === 2) {
+        res.redirect('/r2/x-ui/case-worker/case-worker-gatekeeping-order-creation-final-adoption-4-2')
+      }
+      else {
+        res.redirect('/r2/x-ui/case-worker/case-worker-gatekeeping-order-creation-final-adoption-4-3')
+      }
+    }
+  })
+
+
+  
 
 
 
