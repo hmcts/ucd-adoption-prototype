@@ -19,9 +19,12 @@
                       <h3 class="govuk-heading-m">Standard directions</h3>
                       <div class="govuk-form-group">
                         <fieldset class="govuk-fieldset">
-                          <legend class="govuk-fieldset__legend govuk-!-margin-bottom-4 govuk-label--s">
+                          <legend class="govuk-fieldset__legend govuk-label--s">
                             The court orders that:
-                          </legend>                        
+                          </legend>       
+                          <div id="changed-name-hint" class="govuk-hint">
+                            Choose one option
+                          </div>                                           
                           <div class="govuk-radios" data-module="govuk-radios">
                             <div class="govuk-radios__item">
                               <input class="govuk-radios__input" id="first-applicant" name="final-adoption-applicants" type="radio" value="The child is adopted by the first applicant.">
@@ -61,31 +64,34 @@
                           <legend class="govuk-fieldset__legend govuk-label--s">
                             The court directs that:
                           </legend>
+                          <div id="changed-name-hint" class="govuk-hint">
+                            Choose one or more options. You will be asked to complete the relevant details in later screens.
+                          </div>                          
                           <div class="govuk-checkboxes" data-module="govuk-checkboxes">
                             <div class="govuk-checkboxes__item">
                               <input class="govuk-checkboxes__input" id="entry-adopted-children-register" name="court-directs-checkboxes-1" type="checkbox" value="entry-adopted-children-register">
                               <label class="govuk-label govuk-checkboxes__label" for="entry-adopted-children-register">
-                                The Registrar General shall make an entry in the Adopted Children Register in the form specified by regulations made by him recording the particular set out in this order and schedule. 
+                                The Registrar General will make an entry in the Adopted Children Register in the form specified by regulations made by him recording the particulars set out in this order and schedule. 
                               </label>
                             </div>
                             <div class="govuk-checkboxes__item">
                               <input class="govuk-checkboxes__input" id="marked-adopted" name="court-directs-checkboxes-1" type="checkbox" value="marked-adopted">
                               <label class="govuk-label govuk-checkboxes__label" for="marked-adopted">
-                                The entry in the Register of Live Births given in the schedule attached t this order be marked with the word 'adopted'.
+                                The entry in the Register of Live Births given in the schedule attached to this order be marked with the word 'adopted'.
                               </label>
                             </div>
                             <div class="govuk-checkboxes__item">
                               <input class="govuk-checkboxes__input" id="marked-readopted" name="court-directs-checkboxes-1" type="checkbox" value="marked-readopted">
                               <label class="govuk-label govuk-checkboxes__label" for="marked-readopted">
-                                The entry in the Adopted Children Register given in the schedule attached to this order be marked with teh word 're-adopted'.
+                                The entry in the Adopted Children Register given in the schedule attached to this order be marked with the word 're-adopted'.
                               </label>
                             </div>
-                            <div class="govuk-checkboxes__item">
+                            <!-- <div class="govuk-checkboxes__item">
                               <input class="govuk-checkboxes__input" id="no-effect-status" name="court-directs-checkboxes-1" type="checkbox" value="no-effect-status">
                               <label class="govuk-label govuk-checkboxes__label" for="no-effect-status">
-                                The making of this order has no effect on the status if [12] {Parent whose status is unaffected} as parent of the child. 
+                                The making of this order has no effect on the status of {Parent whose status is unaffected} as parent of the child. 
                               </label>
-                            </div>
+                            </div> -->
                           </div>
                       
                         </fieldset>

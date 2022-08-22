@@ -16,14 +16,18 @@
 
                     <form action="/r2/x-ui/case-worker/case-worker-gatekeeping-order-creation-final-adoption-3" method="post" class="form">
                       <div class="govuk-form-group">
-                        <h3 class="govuk-heading-m govuk-!-margin-bottom-6">Date and place of birth</h3>
+                        <h3 class="govuk-heading-m govuk-!-margin-bottom-1">Date and place of birth</h3>
+                        <div id="changed-name-hint" class="govuk-hint">
+                          Select one option
+                        </div>                          
+
                         <div class="govuk-form-group">
                           <fieldset class="govuk-fieldset">
                             <div class="govuk-radios" data-module="govuk-radios">
                               <div class="govuk-radios__item">
                                 <input class="govuk-radios__input" id="date-and-time" name="date-and-place-of-birth" type="radio" value="date-and-time">
                                 <label class="govuk-label govuk-radios__label" for="date-and-time">
-                                  The court is satisfied that the child was born on {Child's date of birth} and {Time of birth} and is identical with {Child's name} (details to be specified).
+                                  The court is satisfied that the child was born on (child's date of birth) at (time of birth) and is identical with (child's name).
                                 </label>
                               </div>
                               <div class="govuk-radios__item">
