@@ -127,6 +127,33 @@ module.exports = {
 
 "firstApplicantFirstNames": "Agatha Mary Clarissa",
 "firstApplicantLastNames": "Christie",
+"firstApplicantPreviousNames": "Agatha Mary Clarissa Miller",
+"firstApplicantDateOfBirthDay" : "25",
+"firstApplicantDateOfBirthMonth" : "01",
+"firstApplicantDateOfBirthYear" : "1987",
+"firstApplicantOccupation" : "Physiotherapist",
+"firstApplicantFirstLine" : "Buckingham Palace",
+"firstApplicantSecondLine" : "",
+"firstApplicantTown" : "London",
+"firstApplicantCounty" : "",
+"firstApplicantPostcode" : "SW1A 1AA",
+"firstApplicantEmail" : "agatha@christie.com",
+"firstApplicantPhone" : "07865432323",
+
+"secondApplicantFirstNames": "Arthur Ignatius",
+"secondApplicantLastNames": "Conan Doyle",
+"secondApplicantPreviousNames": "",
+"secondApplicantDateOfBirthDay" : "3",
+"secondApplicantDateOfBirthMonth" : "12",
+"secondpplicantDateOfBirthYear" : "1977",
+"secondApplicantOccupation" : "Self-employed hairdresser",
+"secondApplicantFirstLine" : "Buckingham Palace",
+"secondApplicantSecondLine" : "",
+"secondApplicantTown" : "London",
+"secondApplicantCounty" : "",
+"secondApplicantPostcode" : "SW1A 1AA",
+"secondApplicantEmail" : "arthur.doyle@gmail.com",
+"secondApplicantPhone" : "07766779709",
 
 "pathFinalOrder": 0
 

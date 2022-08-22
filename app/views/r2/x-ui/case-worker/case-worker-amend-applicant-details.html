@@ -32,14 +32,14 @@
                         <label class="govuk-label" for="first-last-name">
                           Last names
                         </label>
-                        <input class="govuk-input" id="first-last-names" name="first-last-names" type="text">
+                        <input class="govuk-input" id="first-last-names" name="first-last-names" type="text" value="{{ data['firstApplicantLastNames'] }}">
                       </div>
 
                       <div class="govuk-form-group">
                         <label class="govuk-label" for="first-previous-name">
                           Previous names
                         </label>
-                        <input class="govuk-input" id="first-previous-names" name="first-previous-names" type="text">
+                        <input class="govuk-input" id="first-previous-names" name="first-previous-names" type="text" value="{{ data['firstApplicantPreviousNames'] }}">
                       </div>
 
                       <div class="govuk-form-group">
@@ -54,7 +54,7 @@
                         <label class="govuk-label govuk-date-input__label" for="first-dob-day">
                           Day
                         </label>
-                        <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="first-dob--day" name="first-dob-day" type="text" inputmode="numeric">
+                        <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="first-dob--day" name="first-dob-day" type="text" inputmode="numeric" value="{{ data['firstApplicantDateOfBirthDay'] }}">
                       </div>
                     </div>
                     <div class="govuk-date-input__item">
@@ -62,7 +62,7 @@
                         <label class="govuk-label govuk-date-input__label" for="first-dob-month">
                           Month
                         </label>
-                        <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="first-dob-month" name="first-dob-month" type="text" inputmode="numeric">
+                        <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="first-dob-month" name="first-dob-month" type="text" inputmode="numeric" value="{{ data['firstApplicantDateOfBirthMonth'] }}">
                       </div>
                     </div>
                     <div class="govuk-date-input__item">
@@ -70,7 +70,7 @@
                         <label class="govuk-label govuk-date-input__label" for="first-dob-year">
                           Year
                         </label>
-                        <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="first-dob-year" name="first-dob-year" type="text" inputmode="numeric">
+                        <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="first-dob-year" name="first-dob-year" type="text" inputmode="numeric" value="{{ data['firstApplicantDateOfBirthYear'] }}">
                       </div>
                     </div>
                   </div>
@@ -81,7 +81,7 @@
                             <label class="govuk-label" for="occupation">
                               Occupation
                             </label>
-                            <input class="govuk-input" id="first-occupation" name="first-occupation" type="text">
+                            <input class="govuk-input" id="first-occupation" name="first-occupation" type="text" value="{{ data['firstApplicantOccupation'] }}">
                           </div>
 
                                     <fieldset class="govuk-fieldset">
@@ -91,35 +91,35 @@
                         <label class="govuk-label" for="first-address-line-1">
                           Address line 1
                         </label>
-                        <input class="govuk-input" id="first-address-line-1" name="first-address-line-1" type="text" autocomplete="first-address-line1">
+                        <input class="govuk-input" id="first-address-line-1" name="first-address-line-1" type="text" autocomplete="first-address-line1" value="{{ data['firstApplicantFirstLine'] }}">
                         </div>
 
                         <div class="govuk-form-group">
                         <label class="govuk-label" for="first-address-line-2">
                           Address line 2 (optional)
                         </label>
-                        <input class="govuk-input" id="first-address-line-2" name="first-address-line-2" type="text" autocomplete="first-address-line2">
+                        <input class="govuk-input" id="first-address-line-2" name="first-address-line-2" type="text" autocomplete="first-address-line2" value="{{ data['firstApplicantSecondLine'] }}">
                         </div>
 
                         <div class="govuk-form-group">
                         <label class="govuk-label" for="first-address-town">
                           Town or city
                         </label>
-                        <input class="govuk-input govuk-!-width-two-thirds" id="first-address-town" name="first-address-town" type="text" autocomplete="address-level2">
+                        <input class="govuk-input govuk-!-width-two-thirds" id="first-address-town" name="first-address-town" type="text" autocomplete="address-level2" value="{{ data['firstApplicantTown'] }}">
                         </div>
 
                         <div class="govuk-form-group">
                         <label class="govuk-label" for="first-address-county">
                           County (optional)
                         </label>
-                        <input class="govuk-input govuk-!-width-two-thirds" id="first-address-county" name="first-address-county" type="text">
+                        <input class="govuk-input govuk-!-width-two-thirds" id="first-address-county" name="first-address-county" type="text" value="{{ data['firstApplicantCounty'] }}">
                         </div>
 
                         <div class="govuk-form-group">
                         <label class="govuk-label" for="first-address-postcode">
                           Postcode
                         </label>
-                        <input class="govuk-input govuk-input--width-10" id="first-address-postcode" name="first-address-postcode" type="text" autocomplete="postal-code">
+                        <input class="govuk-input govuk-input--width-10" id="first-address-postcode" name="first-address-postcode" type="text" autocomplete="postal-code" value="{{ data['firstApplicantPostcode'] }}">
                         </div>
 
                         </fieldset>
@@ -128,14 +128,14 @@
                             <label class="govuk-label" for="email">
                               Email address
                             </label>
-                            <input class="govuk-input" id="first-email" name="first-email" type="text">
+                            <input class="govuk-input" id="first-email" name="first-email" type="text" value="{{ data['firstApplicantEmail'] }}">
                           </div>
 
                     <div class="govuk-form-group">
                       <label class="govuk-label" for="first-telephone-number">
                         Phone number
                       </label>
-                      <input class="govuk-input govuk-input--width-20" id="first-telephone-number" name="first-telephone-number" type="tel" autocomplete="tel">
+                      <input class="govuk-input govuk-input--width-20" id="first-telephone-number" name="first-telephone-number" type="tel" autocomplete="tel" value="{{ data['firstApplicantPhone'] }}">
                     </div>
 
 
@@ -150,21 +150,21 @@
                       <label class="govuk-label" for="second-first-name">
                         First names
                       </label>
-                      <input class="govuk-input" id="second-first-names" name="second-first-names" type="text">
+                      <input class="govuk-input" id="second-first-names" name="second-first-names" type="text" value="{{ data['secondApplicantFirstNames'] }}">
                     </div>
 
                     <div class="govuk-form-group">
                       <label class="govuk-label" for="second-last-name">
                         Last names
                       </label>
-                      <input class="govuk-input" id="second-last-names" name="second-last-names" type="text">
+                      <input class="govuk-input" id="second-last-names" name="second-last-names" type="text" value="{{ data['secondApplicantLastNames'] }}">
                     </div>
 
                     <div class="govuk-form-group">
                       <label class="govuk-label" for="second-previous-name">
                         Previous names
                       </label>
-                      <input class="govuk-input" id="second-previous-names" name="second-previous-names" type="text">
+                      <input class="govuk-input" id="second-previous-names" name="second-previous-names" type="text" value="{{ data['secondApplicantPreviousNames'] }}">
                     </div>
 
                     <div class="govuk-form-group">
@@ -179,7 +179,7 @@
                       <label class="govuk-label govuk-date-input__label" for="second-dob-day">
                         Day
                       </label>
-                      <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="second-dob--day" name="second-dob-day" type="text" inputmode="numeric">
+                      <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="second-dob--day" name="second-dob-day" type="text" inputmode="numeric" value="{{ data['secondApplicantDateOfBirthDay'] }}">
                     </div>
                   </div>
                   <div class="govuk-date-input__item">
@@ -187,7 +187,7 @@
                       <label class="govuk-label govuk-date-input__label" for="second-dob-month">
                         Month
                       </label>
-                      <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="second-dob-month" name="second-dob-month" type="text" inputmode="numeric">
+                      <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="second-dob-month" name="second-dob-month" type="text" inputmode="numeric" value="{{ data['secondApplicantDateOfBirthMonth'] }}">
                     </div>
                   </div>
                   <div class="govuk-date-input__item">
@@ -195,7 +195,7 @@
                       <label class="govuk-label govuk-date-input__label" for="second-dob-year">
                         Year
                       </label>
-                      <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="second-dob-year" name="second-dob-year" type="text" inputmode="numeric">
+                      <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="second-dob-year" name="second-dob-year" type="text" inputmode="numeric" value="{{ data['secondpplicantDateOfBirthYear'] }}">
                     </div>
                   </div>
                 </div>
@@ -206,7 +206,7 @@
                           <label class="govuk-label" for="occupation">
                             Occupation
                           </label>
-                          <input class="govuk-input" id="second-occupation" name="second-occupation" type="text">
+                          <input class="govuk-input" id="second-occupation" name="second-occupation" type="text" value="{{ data['secondApplicantOccupation'] }}">
                         </div>
 
                                   <fieldset class="govuk-fieldset">
@@ -216,35 +216,35 @@
                       <label class="govuk-label" for="second-address-line-1">
                         Address line 1
                       </label>
-                      <input class="govuk-input" id="second-address-line-1" name="second-address-line-1" type="text" autocomplete="second-address-line1">
+                      <input class="govuk-input" id="second-address-line-1" name="second-address-line-1" type="text" autocomplete="second-address-line1" value="{{ data['secondApplicantFirstLine'] }}">
                       </div>
 
                       <div class="govuk-form-group">
                       <label class="govuk-label" for="second-address-line-2">
                         Address line 2 (optional)
                       </label>
-                      <input class="govuk-input" id="second-address-line-2" name="second-address-line-2" type="text" autocomplete="second-address-line2">
+                      <input class="govuk-input" id="second-address-line-2" name="second-address-line-2" type="text" autocomplete="second-address-line2" value="{{ data['secondApplicantSecondLine'] }}">
                       </div>
 
                       <div class="govuk-form-group">
                       <label class="govuk-label" for="second-address-town">
                         Town or city
                       </label>
-                      <input class="govuk-input govuk-!-width-two-thirds" id="second-address-town" name="second-address-town" type="text" autocomplete="address-level2">
+                      <input class="govuk-input govuk-!-width-two-thirds" id="second-address-town" name="second-address-town" type="text" autocomplete="address-level2" value="{{ data['secondApplicantTown'] }}">
                       </div>
 
                       <div class="govuk-form-group">
                       <label class="govuk-label" for="second-address-county">
                         County (optional)
                       </label>
-                      <input class="govuk-input govuk-!-width-two-thirds" id="second-address-county" name="second-address-county" type="text">
+                      <input class="govuk-input govuk-!-width-two-thirds" id="second-address-county" name="second-address-county" type="text" value="{{ data['secondApplicantCounty'] }}">
                       </div>
 
                       <div class="govuk-form-group">
                       <label class="govuk-label" for="second-address-postcode">
                         Postcode
                       </label>
-                      <input class="govuk-input govuk-input--width-10" id="second-address-postcode" name="second-address-postcode" type="text" autocomplete="postal-code">
+                      <input class="govuk-input govuk-input--width-10" id="second-address-postcode" name="second-address-postcode" type="text" autocomplete="postal-code" value="{{ data['secondApplicantPostcode'] }}">
                       </div>
 
                       </fieldset>
@@ -253,14 +253,14 @@
                           <label class="govuk-label" for="email">
                             Email address
                           </label>
-                          <input class="govuk-input" id="second-email" name="second-email" type="text">
+                          <input class="govuk-input" id="second-email" name="second-email" type="text" value="{{ data['secondApplicantEmail'] }}">
                         </div>
 
                   <div class="govuk-form-group">
                     <label class="govuk-label" for="second-telephone-number">
                       Phone number
                     </label>
-                    <input class="govuk-input govuk-input--width-20" id="second-telephone-number" name="second-telephone-number" type="tel" autocomplete="tel">
+                    <input class="govuk-input govuk-input--width-20" id="second-telephone-number" name="second-telephone-number" type="tel" autocomplete="tel" value="{{ data['secondApplicantPhone'] }}">
                   </div>
 
                   <div class="govuk-form-group">
