@@ -2396,6 +2396,16 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
   })
 
 
+  router.post('/r2/x-ui/case-worker/case-worker-gatekeeping-order-creation-final-adoption-5', function(req, res) {
+    if (req.body['submit-button'] === 'continue') {
+      res.redirect('/r2/x-ui/case-worker/')
+    }
+    else {
+      res.redirect('/r2/x-ui/case-worker/case-worker-gatekeeping-order-creation-final-adoption-4-2')
+    }
+  })
+
+
   
 
 
