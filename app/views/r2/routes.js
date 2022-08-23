@@ -2150,12 +2150,55 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
   router.post('/r2/x-ui/case-worker/case-worker-amend-applicant-details', function(req, res) {
     if (req.body['submit-button'] === 'continue') {
       req.session.data.firstApplicantFirstNames = req.body['first-first-names']
+      req.session.data.firstApplicantLastNames = req.body['first-last-names']
+      req.session.data.firstApplicantPreviousNames = req.body['first-previous-names']
+      req.session.data.firstApplicantDateOfBirthDay = req.body['first-dob--day']
+      req.session.data.firstApplicantDateOfBirthMonth = req.body['first-dob-month']
+      req.session.data.firstApplicantDateOfBirthYear = req.body['first-dob-year']
+      req.session.data.firstApplicantOccupation = req.body['first-occupation']
+      req.session.data.firstApplicantFirstLine = req.body['first-address-line-1']
+      req.session.data.firstApplicantSecondLine = req.body['first-address-line-2']
+      req.session.data.firstApplicantTown = req.body['first-address-town']
+      req.session.data.firstApplicantCounty = req.body['first-address-county']
+      req.session.data.firstApplicantPostcode = req.body['first-address-postcode']
+      req.session.data.firstApplicantEmail = req.body['first-email']
+      req.session.data.firstApplicantPhone = req.body['first-telephone-number']
+
+      req.session.data.secondApplicantFirstNames = req.body['second-first-names']
+      req.session.data.secondApplicantLastNames = req.body['second-last-names']
+      req.session.data.secondApplicantPreviousNames = req.body['second-previous-names']
+      req.session.data.secondApplicantDateOfBirthDay = req.body['second-dob--day']
+      req.session.data.secondApplicantDateOfBirthMonth = req.body['second-dob-month']
+      req.session.data.secondApplicantDateOfBirthYear = req.body['second-dob-year']
+      req.session.data.secondApplicantOccupation = req.body['second-occupation']
+      req.session.data.secondApplicantFirstLine = req.body['second-address-line-1']
+      req.session.data.secondApplicantSecondLine = req.body['second-address-line-2']
+      req.session.data.secondApplicantTown = req.body['second-address-town']
+      req.session.data.secondApplicantCounty = req.body['second-address-county']
+      req.session.data.secondApplicantPostcode = req.body['second-address-postcode']
+      req.session.data.secondApplicantEmail = req.body['second-email']
+      req.session.data.secondApplicantPhone = req.body['second-telephone-number']
+
+      req.session.data.solicitorApplicantFirstNames = req.body['Solicitor-name']
+      req.session.data.solicitorApplicantRef = req.body['Solicitor-reference number']
+      req.session.data.solicitorApplicantFirstLine = req.body['solicitor-address-line-1']
+      req.session.data.solicitorApplicantSecondLine = req.body['solicitor-address-line-2']
+      req.session.data.solicitorApplicantTown = req.body['solicitor-address-town']
+      req.session.data.solicitorApplicantCounty = req.body['solicitor-address-county']
+      req.session.data.solicitorApplicantPostcode = req.body['solicitor-address-postcode']
+      req.session.data.solicitorApplicantEmail = req.body['solicitor-email']
+      req.session.data.solicitorApplicantPhone = req.body['solicitor-telephone-number']
+
+
+
       res.redirect('/r2/x-ui/case-worker/case-worker-prospective-parents')
     }
     else {
       res.redirect('/r2/x-ui/case-worker/')
     }
   })
+
+
 
 
 
@@ -2358,7 +2401,7 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
       }
       else {
         res.redirect('/r2/x-ui/case-worker/case-worker-gatekeeping-order-creation-final-adoption-4-2')
-      }      
+      }
     }
     else {
       res.redirect('/r2/x-ui/case-worker/case-worker-gatekeeping-order-creation-final-adoption-2')
@@ -2417,7 +2460,7 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
   })
 
 
-  
+
 
 
 

@@ -162,8 +162,8 @@
                               Previous names
                             </dt>
                             <dd class="govuk-summary-list__value">
-                              Agatha Mary Clarissa Miller
-                              <p>Agatha Mary Clarissa Jones</p>
+                              {{ data['firstApplicantPreviousNames'] }}
+
                             </dd>
                             <dd class="govuk-summary-list__value">
                               &nbsp;
@@ -175,7 +175,10 @@
                               Date of birth
                             </dt>
                             <dd class="govuk-summary-list__value">
-                              25 January 1987
+                              {{ data['firstApplicantDateOfBirthDay'] }}
+                                {{ data['firstApplicantDateOfBirthMonth'] }}
+                                  {{ data['firstApplicantDateOfBirthYear'] }}
+
                             </dd>
                             <dd class="govuk-summary-list__value">
                               &nbsp;
@@ -187,7 +190,7 @@
                               Occupation
                             </dt>
                             <dd class="govuk-summary-list__value">
-                              Physiotherapist
+                                {{ data['firstApplicantOccupation'] }}
                             </dd>
                             <dd class="govuk-summary-list__value">
                               &nbsp;
@@ -201,7 +204,7 @@
                             </dt>
 
                             <dd class="govuk-summary-list__value">
-                              Buckingham Palace
+                             {{ data['firstApplicantFirstLine'] }}
 
                             </dd>
                             <dd class="govuk-summary-list__value">
@@ -216,7 +219,7 @@
                               Town or City
                             </dt>
                             <dd class="govuk-summary-list__value">
-                              London
+                              {{ data['firstApplicantTown'] }}
                             </dd>
                             <dd class="govuk-summary-list__value">
                               &nbsp;
@@ -227,7 +230,7 @@
                               Postcode
                             </dt>
                             <dd class="govuk-summary-list__value">
-                            SW1A 1AA
+                            {{ data['firstApplicantPostcode'] }}
                             </dd>
                             <dd class="govuk-summary-list__value">
                             &nbsp;
@@ -238,7 +241,7 @@
                               Email address
                             </dt>
                             <dd class="govuk-summary-list__value">
-                              agatha@christie.com
+                              {{ data['firstApplicantEmail'] }}
                             </dd>
                             <dd class="govuk-summary-list__value">
                               &nbsp;
@@ -251,7 +254,7 @@
                               Phone number
                             </dt>
                             <dd class="govuk-summary-list__value">
-                              07865432323
+                              {{ data['firstApplicantPhone'] }}
                             </dd>
                             <dd class="govuk-summary-list__value">
                               &nbsp;
@@ -269,7 +272,7 @@
                               First names
                             </dt>
                             <dd class="govuk-summary-list__value">
-                              Arthur Ignatius
+                              {{ data['secondApplicantFirstNames'] }}
                             </dd>
                             <dd class="govuk-summary-list__value">
                               &nbsp;
@@ -281,7 +284,7 @@
                               Last names
                             </dt>
                             <dd class="govuk-summary-list__value">
-                              Conan Doyle
+                                {{ data['secondApplicantLastNames'] }}
                             </dd>
                             <dd class="govuk-summary-list__value">
                               &nbsp;
@@ -293,6 +296,7 @@
                             Previous names
                           </dt>
                           <dd class="govuk-summary-list__value">
+                              {{ data['secondApplicantPreviousNames'] }}
                           </dd>
                           <dd class="govuk-summary-list__value">
                             &nbsp;
@@ -304,7 +308,9 @@
                             Date of birth
                           </dt>
                           <dd class="govuk-summary-list__value">
-                            3 December 1977
+                            {{ data['secondApplicantDateOfBirthDay'] }}
+                              {{ data['secondApplicantDateOfBirthMonth'] }}
+                                {{ data['secondApplicantDateOfBirthYear'] }}
                           </dd>
                           <dd class="govuk-summary-list__value">
                             &nbsp;
@@ -316,7 +322,7 @@
                             Occupation
                           </dt>
                           <dd class="govuk-summary-list__value">
-                            Self-employed hairdresser
+                            {{ data['secondApplicantOccupation'] }}
                           </dd>
                           <dd class="govuk-summary-list__value">
                             &nbsp;
@@ -328,7 +334,7 @@
                           </dt>
 
                           <dd class="govuk-summary-list__value">
-                            Buckingham Palace
+                          {{ data['secondApplicantFirstLine'] }}
 
                           </dd>
                           <dd class="govuk-summary-list__value">
@@ -343,7 +349,7 @@
                             Town or City
                           </dt>
                           <dd class="govuk-summary-list__value">
-                            London
+                              {{ data['secondApplicantTown'] }}
                           </dd>
                           <dd class="govuk-summary-list__value">
                             &nbsp;
@@ -354,7 +360,7 @@
                             Postcode
                           </dt>
                           <dd class="govuk-summary-list__value">
-                          SW1A 1AA
+                          {{ data['secondApplicantPostcode'] }}
                           </dd>
                           <dd class="govuk-summary-list__value">
                           &nbsp;
@@ -367,7 +373,7 @@
                             Email address
                           </dt>
                           <dd class="govuk-summary-list__value">
-                            arthur.doyle@gmail.com
+                              {{ data['secondApplicantEmail'] }}
                           </dd>
                           <dd class="govuk-summary-list__value">
                             &nbsp;
@@ -381,7 +387,7 @@
                             Phone number
                           </dt>
                           <dd class="govuk-summary-list__value">
-                            07766779709
+                            {{ data['secondApplicantPhone'] }}
                           </dd>
                           <dd class="govuk-summary-list__value">
                             &nbsp;
@@ -398,7 +404,7 @@
                             Solicitor
                           </dt>
                           <dd class="govuk-summary-list__value">
-                            Do Do & Sons
+                              {{ data['solicitorApplicantFirstNames'] }}
                           </dd>
                           <dd class="govuk-summary-list__value">
                             &nbsp;
@@ -410,7 +416,7 @@
                             Solicitor Reference number
                           </dt>
                           <dd class="govuk-summary-list__value">
-                            JA13786
+                              {{ data['solicitorApplicantRef'] }}
                           </dd>
                           <dd class="govuk-summary-list__value">
                             &nbsp;
@@ -423,7 +429,7 @@
                           Address
                         </dt>
                         <dd class="govuk-summary-list__value">
-                          4D Market Street
+                          {{ data['solicitorApplicantFirstLine'] }}
                         </dd>
                         <dd class="govuk-summary-list__value">
                           &nbsp;
@@ -436,7 +442,7 @@
                           Town or City
                         </dt>
                         <dd class="govuk-summary-list__value">
-                          West Wolsley
+                              {{ data['solicitorApplicantTown'] }}
                         </dd>
                         <dd class="govuk-summary-list__value">
                           &nbsp;
@@ -447,7 +453,7 @@
                           Postcode
                         </dt>
                         <dd class="govuk-summary-list__value">
-                          W34 H67
+                              {{ data['solicitorApplicantPostcode'] }}
                         </dd>
                         <dd class="govuk-summary-list__value">
                         &nbsp;
@@ -458,7 +464,7 @@
                           Phone Number
                         </dt>
                         <dd class="govuk-summary-list__value">
-                          07766554433
+                            {{ data['solicitorApplicantPhone'] }}
                         </dd>
                         <dd class="govuk-summary-list__value">
                           &nbsp;
@@ -470,7 +476,7 @@
                         Email
                         </dt>
                         <dd class="govuk-summary-list__value">
-                          dodoinfo@law.com
+                          {{ data['solicitorApplicantEmail'] }}
                         </dd>
                         <dd class="govuk-summary-list__value">
                           &nbsp;
