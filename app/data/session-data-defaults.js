@@ -155,6 +155,17 @@ module.exports = {
 "secondApplicantEmail" : "arthur.doyle@gmail.com",
 "secondApplicantPhone" : "07766779709",
 
+"solicitorApplicantFirstNames": "Do Do & Sons",
+"solicitorApplicantRef": "JA13786",
+"solicitorApplicantFirstLine" : "4D Market Street",
+"solicitorApplicantSecondLine" : "",
+"solicitorApplicantTown": "West Wolsley",
+"solicitorApplicantCounty" : "",
+"solicitorApplicantPostcode" : "W34 H67",
+"solicitorApplicantEmail" : "dodoinfo@law.com",
+"solicitorApplicantPhone" : "07766554433",
+
+
 "pathFinalOrder": 0
 
 
