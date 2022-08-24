@@ -9,7 +9,7 @@
           <main class="govuk-main-wrapper " id="main-content" role="main" style="padding-top: 25px;">
               <div class="govuk-width-container">
                 <div class="govuk-grid-row" style="width:1300px; margin-left: -90px;">
-                  <h1 class="govuk-heading-xl">Allocate judge</h1>
+                  <h1 class="govuk-heading-xl">Refer to judge</h1>
                   <h2 class="govuk-heading-l govuk-!-margin-bottom-3">#1234-5678-0921-2722</h2>
                   <h2 class="govuk-heading-m govuk-!-margin-top-0 govuk-!-margin-bottom-7">Child's name: Jane Austen</h2>
                   <h3 class="govuk-heading-s govuk-!-margin-bottom-1">Choose a judge for this case</h3>
@@ -19,7 +19,7 @@
 
                   <form action="/r2/x-ui/case-worker/case-worker-gatekeeping-allocate-judge" method="post" class="form">
                   <div class="govuk-form-group">
-                    <!-- <div class="govuk-radios govuk-radios--conditional" data-module="govuk-radios">
+                    <div class="govuk-radios govuk-radios--conditional" data-module="govuk-radios">
                       <label class="govuk-label govuk-!-margin-bottom-4 govuk-!-margin-top-7" for="sender-email-address">
                         Judge or magistrates' title
                       </label>
@@ -117,13 +117,13 @@
                 
                     </div>
                 
-                    <div class="govuk-form-group govuk-!-margin-top-6"> -->
+                    <div class="govuk-form-group govuk-!-margin-top-6">
                       <label class="govuk-label" for="person-making-order-last-name">
-                        Name of the judge
+                        Last name
                       </label>
-                      <input class="govuk-input govuk-input--width-30" id="allocate-judge-name" name="allocate-judge-name" type="text" value="{{ data['allocate-judge-name'] }}">
+                      <input class="govuk-input govuk-input--width-30" id="person-making-order-last-name" name="person-making-order-last-name" type="text" value="{{ data['person-making-order-last-name'] }}">
 
-                      <!-- <label class="govuk-label govuk-!-margin-top-5" for="person-making-order-email">
+                      <label class="govuk-label govuk-!-margin-top-5" for="person-making-order-email">
                         Email address
                       </label>
                       <input class="govuk-input govuk-input--width-30" id="person-making-order-email" name="person-making-order-email" type="text" value="{{ data['person-making-order-email'] }}">
@@ -131,9 +131,9 @@
                       <label class="govuk-label govuk-!-margin-top-5" for="person-making-order-email">
                         Justice's legal adviser's full name (Optional)
                       </label>
-                      <input class="govuk-input govuk-input--width-30 govuk-!-margin-bottom-5" id="legal-adviser-full-name" name="legal-adviser-full-name" type="text" value="{{ data['legal-adviser-full-name'] }}"> -->
-                    <!-- </div>          
-                  </fieldset> -->
+                      <input class="govuk-input govuk-input--width-30 govuk-!-margin-bottom-5" id="legal-adviser-full-name" name="legal-adviser-full-name" type="text" value="{{ data['legal-adviser-full-name'] }}">
+                    </div>          
+                  </fieldset>
                 </div>
                 <!-- Buttons -->
                 {% include "../../../includes/buttons-xui.html" %}
