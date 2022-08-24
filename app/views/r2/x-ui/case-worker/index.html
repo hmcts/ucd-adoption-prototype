@@ -223,8 +223,8 @@
                                     <p><span class="govuk-!-font-weight-bold">Last name:</span> Jameson</p>
                                     <p><span class="govuk-!-font-weight-bold">Email address:</span> judgejameson@example.com</p> -->
                                     {% if (data['allocatedJudge'] === 1) %}
-                                        <p>{{ data['xui-allocated-judge-title'] }} {{ data['person-making-order-last-name'] }}</p>
-                                        <p>{{ data['person-making-order-email'] }}</p>
+                                        <p>{{ data['allocate-judge-name'] }}</p>
+                                        <p>judgename@example.com</p>
                                     {% else %}
                                         <p>Her Honour Judge Jameson</p>
                                         <p>judgejameson@example.com</p>
