@@ -32,8 +32,14 @@ Apply to adopt a child
       <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
         <span class="govuk-caption-l">{{ data['sibling'] }}</span>
         <h1 class="govuk-fieldset__heading">
-          {{ data['siblingOrderType'][data['id']]}} for {{ data['siblingFirstNames'][data['id']]}} {{ data['siblingLastNames'][data['id']]}}
+          {{ data['siblingOrderType'][data['id']]}} details
         </h1>
+        <!-- <div id="event-name-hint" class="govuk-hint">
+          {{ data['siblingFirstNames'][data['id']]}} {{ data['siblingLastNames'][data['id']]}}
+        </div>         -->
+        <!-- <h1 class="govuk-fieldset__heading">x
+          {{ data['siblingOrderType'][data['id']]}} for {{ data['siblingFirstNames'][data['id']]}} {{ data['siblingLastNames'][data['id']]}}
+        </h1> -->
       </legend>
 
 
@@ -55,13 +61,28 @@ Apply to adopt a child
 
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
+            Sibling name
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['siblingFirstNames'][data['id']]}} {{ data['siblingLastNames'][data['id']]}}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link govuk-link--no-visited-state" href="">
+              Change
+              <span class="govuk-visually-hidden"> placement order</span>
+            </a>
+          </dd>
+        </div>
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
             Type of order
           </dt>
           <dd class="govuk-summary-list__value">
             {{ data['siblingOrderType'][data['id']]}}
           </dd>
           <dd class="govuk-summary-list__actions">
-            <a href="sibling-change-order-type.html?id={{data['siblingOrderId'][data['id']]}}">
+            <a class="govuk-link govuk-link--no-visited-state" href="sibling-change-order-type.html?id={{data['siblingOrderId'][data['id']]}}">
               Change
               <span class="govuk-visually-hidden"> placement order</span>
             </a>
@@ -76,7 +97,7 @@ Apply to adopt a child
             {{ data['siblingOrderNumber'][data['id']]}}
           </dd>
           <dd class="govuk-summary-list__actions">
-            <a href="sibling-change-order-case-number.html?id={{data['siblingOrderId'][data['id']]}}">
+            <a class="govuk-link govuk-link--no-visited-state" href="sibling-change-order-case-number.html?id={{data['siblingOrderId'][data['id']]}}">
               Change
               <span class="govuk-visually-hidden"> order case or serial number</span>
             </a>
