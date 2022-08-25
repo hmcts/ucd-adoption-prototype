@@ -2191,14 +2191,21 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
 
 
 
-      res.redirect('/r2/x-ui/case-worker/case-worker-prospective-parents')
+      res.redirect('/r2/x-ui/case-worker/amend-applicant-details-check-your-answers')
     }
     else {
       res.redirect('/r2/x-ui/case-worker/')
     }
   })
 
-
+  router.post('/r2/x-ui/case-worker/amend-applicant-details-check-your-answers', function(req, res) {
+    if (req.body['submit-button'] === 'continue') {
+      res.redirect('/r2/x-ui/case-worker/case-worker-prospective-parents')
+    }
+    else {
+      res.redirect('/r2/x-ui/case-worker/case-worker-amend-applicant-details')
+    }
+  })
 
 
 
