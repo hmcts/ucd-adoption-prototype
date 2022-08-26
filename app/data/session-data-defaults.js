@@ -166,7 +166,9 @@ module.exports = {
 "solicitorApplicantPhone" : "07766554433",
 
 
-"pathFinalOrder": 0
+"pathFinalOrder": 0,
+
+"gatekeeping-court-name": "Brighton Court"
 
 
 

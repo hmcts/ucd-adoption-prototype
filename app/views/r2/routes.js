@@ -2315,7 +2315,7 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
   router.post('/r2/x-ui/case-worker/case-worker-gatekeeping-order-creation-type-of-order', function(req, res) {
     if (req.body['submit-button'] === 'continue') {
       if (req.body['xui-type-order'] === 'gatekeeping') {
-        res.redirect('/r2/x-ui/case-worker/case-worker-gatekeeping-order-creation-case-management-order')
+        res.redirect('/r2/x-ui/case-worker/case-worker-gatekeeping-order-1')
       }
       else if (req.body['xui-type-order'] === 'adoption') {
         res.redirect('/r2/x-ui/case-worker/case-worker-gatekeeping-order-creation-final-adoption-1')
