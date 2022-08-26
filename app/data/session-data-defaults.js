@@ -128,7 +128,9 @@ module.exports = {
 "firstApplicantFirstNames": "Agatha Mary Clarissa",
 "firstApplicantLastNames": "Christie",
 
-"pathFinalOrder": 0
+"pathFinalOrder": 0,
+
+"gatekeeping-court-name": "Brighton Court"
 
 
 
