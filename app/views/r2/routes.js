@@ -2327,6 +2327,27 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
   })
 
 
+  // ********************************** GATEKEEPING ORDER **********************************
+  router.post('/r2/x-ui/case-worker/case-worker-gatekeeping-order-1', function(req, res) {
+    if (req.body['submit-button'] === 'continue') {
+      res.redirect('/r2/x-ui/case-worker/case-worker-gatekeeping-order-2')
+    }
+    else {
+      res.redirect('/r2/x-ui/case-worker/index')
+    }
+  })
+
+
+  router.post('/r2/x-ui/case-worker/case-worker-gatekeeping-order-2', function(req, res) {
+    if (req.body['submit-button'] === 'continue') {
+      res.redirect('/r2/x-ui/case-worker/case-worker-gatekeeping-order-2')
+    }
+    else {
+      res.redirect('/r2/x-ui/case-worker/case-worker-gatekeeping-order-1')
+    }
+  })
+
+
   // ********************************** FINAL ADOPTION ORDER **********************************
   router.post('/r2/x-ui/case-worker/case-worker-gatekeeping-order-creation-final-adoption-1', function(req, res) {
     if (req.body['submit-button'] === 'continue') {
