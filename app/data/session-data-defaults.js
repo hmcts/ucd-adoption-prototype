@@ -145,7 +145,7 @@ module.exports = {
 "secondApplicantPreviousNames": "",
 "secondApplicantDateOfBirthDay" : "3",
 "secondApplicantDateOfBirthMonth" : "12",
-"secondpplicantDateOfBirthYear" : "1977",
+"secondApplicantDateOfBirthYear" : "1977",
 "secondApplicantOccupation" : "Self-employed hairdresser",
 "secondApplicantFirstLine" : "Buckingham Palace",
 "secondApplicantSecondLine" : "",
