@@ -35,13 +35,13 @@
                               Choose which judge to allocate to
                             </div>                          
                             <div class="govuk-radios__item">
-                              <input class="govuk-radios__input" id="previous-judge" name="gatekeeping-order-allocate-judge" type="radio" value="previous-judge">
+                              <input class="govuk-radios__input" id="previous-judge" name="gatekeeping-order-allocate-judge" type="radio" value="previous-judge" {% if data['gatekeeping-order-allocate-judge'] === 'previous-judge' %} checked {% endif %}>
                               <label class="govuk-label govuk-radios__label" for="previous-judge">
                                 Allocate previous placement judge
                               </label>
                             </div>
                             <div class="govuk-radios__item">
-                              <input class="govuk-radios__input" id="different-judge" name="gatekeeping-order-allocate-judge" type="radio" value="different-judge" data-aria-controls="conditional-contact">
+                              <input class="govuk-radios__input" id="different-judge" name="gatekeeping-order-allocate-judge" type="radio" value="different-judge" {% if data['gatekeeping-order-allocate-judge'] === 'different-judge' %} checked {% endif %}>
                               <label class="govuk-label govuk-radios__label" for="different-judge">
                                 Allocate different judge
                               </label>
@@ -62,13 +62,13 @@
                           </legend>
                           <div class="govuk-checkboxes" data-module="govuk-checkboxes">
                             <div class="govuk-checkboxes__item">
-                              <input class="govuk-checkboxes__input" id="gatekeeping-first-hearing" name="gatekeeping-first-hearing-checkbox" type="checkbox" value="gatekeeping-first-hearing">
+                              <input class="govuk-checkboxes__input" id="gatekeeping-first-hearing" name="gatekeeping-first-hearing-checkbox" type="checkbox" value="gatekeeping-first-hearing" {% if (data['gatekeeping-first-hearing-checkbox'] != undefined) %} checked {% endif %}>
                               <label class="govuk-label govuk-checkboxes__label" for="gatekeeping-first-hearing">
                                 List for first hearing
                               </label>
                             </div>
                             <div class="govuk-checkboxes__item">
-                              <input class="govuk-checkboxes__input" id="gatekeeping-further-hearings" name="gatekeeping-further-hearings-checkbox" type="checkbox" value="gatekeeping-further-hearings">
+                              <input class="govuk-checkboxes__input" id="gatekeeping-further-hearings" name="gatekeeping-further-hearings-checkbox" type="checkbox" value="gatekeeping-further-hearings" {% if (data['gatekeeping-further-hearings-checkbox'] != undefined) %} checked {% endif %}>
                               <label class="govuk-label govuk-checkboxes__label" for="gatekeeping-further-hearings">
                                 List for further hearings
                               </label>
@@ -85,7 +85,7 @@
                         </legend>
                         <div class="govuk-checkboxes" data-module="govuk-checkboxes">
                           <div class="govuk-checkboxes__item">
-                            <input class="govuk-checkboxes__input" id="gatekeeping-submit-annex-a" name="gatekeeping-local-authority-checkboxes" type="checkbox" value="gatekeeping-submit-annex-a">
+                            <input class="govuk-checkboxes__input" id="gatekeeping-submit-annex-a" name="gatekeeping-local-authority-checkboxes" type="checkbox" value="gatekeeping-submit-annex-a" {% if (data['gatekeeping-submit-annex-a'] != undefined) %} checked {% endif %}>
                             <label class="govuk-label govuk-checkboxes__label" for="gatekeeping-submit-annex-a">
                               Submit Annex A
                             </label>
