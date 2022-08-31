@@ -31,7 +31,6 @@
                                       <option value="amend-applicant">Amend applicant details</option>
                                         <option value="amend-case">Amend case details</option>
                                     <option value="case-issue">Case issue</option>
-                                    <option value="create-order">Create an order</option>
                                     <option value="manage-documents">Manage documents</option>
                                     <option value="manage-orders">Manage orders</option>
                                     <option value="info">Need further info</option>
@@ -228,8 +227,8 @@
                                     <p><span class="govuk-!-font-weight-bold">Last name:</span> Jameson</p>
                                     <p><span class="govuk-!-font-weight-bold">Email address:</span> judgejameson@example.com</p> -->
                                     {% if (data['allocatedJudge'] === 1) %}
-                                        <p>{{ data['xui-allocated-judge-title'] }} {{ data['person-making-order-last-name'] }}</p>
-                                        <p>{{ data['person-making-order-email'] }}</p>
+                                        <p>{{ data['allocate-judge-name'] }}</p>
+                                        <p>judgename@example.com</p>
                                     {% else %}
                                         <p>Her Honour Judge Jameson</p>
                                         <p>judgejameson@example.com</p>
@@ -242,9 +241,12 @@
                                     Placement order details
                                 </dt>
                                 <dd class="govuk-summary-list__value">
-                                    <p><span class="govuk-!-font-weight-bold">Court:</span> Brighton Family Court</p>
+                                    <p>Brighton Family Court</p>
+                                    <p>12 July 2021</p>
+                                    <p>ANC13637883</p>
+                                    <!-- <p><span class="govuk-!-font-weight-bold">Court:</span> Brighton Family Court</p>
                                     <p><span class="govuk-!-font-weight-bold">Date:</span> 12 July 2021</p>
-                                    <p><span class="govuk-!-font-weight-bold">Order case or serial number:</span> ANC13637883</p>
+                                    <p><span class="govuk-!-font-weight-bold">Order case or serial number:</span> ANC13637883</p> -->
                                 </dd>
                             </div>
 
@@ -253,11 +255,11 @@
                                     Other court cases
                                 </dt>
                                 <dd class="govuk-summary-list__value">
-                                    <p><span class="govuk-!-font-weight-bold">Type of order:</span> Care</p>
-                                    <p><span class="govuk-!-font-weight-bold">Order case or serial number:</span> JTR12346252</p>
+                                    <p>Care</p>
+                                    <p>JTR12346252</p>
                                     <br>
-                                    <p><span class="govuk-!-font-weight-bold">Type of order:</span> General directions</p>
-                                    <p><span class="govuk-!-font-weight-bold">Order case or serial number:</span> AB1237686</p>
+                                    <p>General directions</p>
+                                    <p>AB1237686</p>
                                 </dd>
                             </div>
                             <div class="govuk-summary-list__row">
@@ -265,17 +267,17 @@
                                     Sibling court cases
                                 </dt>
                                 <dd class="govuk-summary-list__value">
-                                    <p><span class="govuk-!-font-weight-bold">Relationship:</span> Brother</p>
-                                    <p><span class="govuk-!-font-weight-bold">Type of order:</span>  Care </p>
-                                    <p><span class="govuk-!-font-weight-bold">Order case or serial number:</span> CHCO12346252</p>
+                                    <p>Brother</p>
+                                    <p>Care </p>
+                                    <p>CHCO12346252</p>
                                     <br>
-                                    <p><span class="govuk-!-font-weight-bold">Relationship:</span> Half-sister</p>
-                                    <p><span class="govuk-!-font-weight-bold">Type of order:</span> Placement</p>
-                                    <p><span class="govuk-!-font-weight-bold">Order case or serial number:</span> LCO77162555</p>
+                                    <p>Half-sister</p>
+                                    <p>Placement</p>
+                                    <p>LCO77162555</p>
 
                                 </dd>
                             </div>
-                            <div class="govuk-summary-list__row">
+                            <!-- <div class="govuk-summary-list__row">
                                 <dt class="govuk-summary-list__key">
                                     Applicants' social worker
                                 </dt>
@@ -296,7 +298,7 @@
                                     <p>02098756535</p>
                                     <p>Ipsem</p>
                                 </dd>
-                            </div>
+                            </div> -->
                         </dl>
                       </div>
                     </div>

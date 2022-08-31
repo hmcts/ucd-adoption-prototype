@@ -572,3 +572,45 @@ h2.govuk-heading-s {
   text-transform: none;
   line-height: 2;
 }
+
+
+.govuk-list--bullet:after {
+  border-left: unset !important;
+    li:before {
+      border: unset !important;
+    }
+    li:after {
+      border: unset !important;
+      top: 0px !important;
+    }
+}
+
+.govuk-list--bullet li {
+  list-style-type: disc;
+  border-bottom: none !important;
+}
+
+.govuk-list--none li {
+  list-style-type: none;
+  border-bottom: none !important;
+}
+
+.govuk-list--bullet li:before {
+  border: none !important;
+  background-color: black !important;
+  border-bottom: none !important;
+  margin-left: inherit;
+  margin-top: 8px;
+  padding-left: 0px !important;
+}
+.govuk-list--bullet.none{
+  list-style-type: none;
+  width: calc(2 * 2px);
+  height: calc(2 * 2px);
+}
+
+.govuk-list--bullet li:before {
+  // all: unset !important;
+  list-style-type: circle;
+}
+
