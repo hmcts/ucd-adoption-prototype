@@ -1,0 +1,137 @@
+{% block header %}
+{% include "layout-xui.html" %}
+{% endblock %}
+
+
+<html lang="en" class="govuk-template ">
+  <div style=" max-width:1300px; margin: 0 auto;">
+      <div style=" max-width:1300px;  min-width:1300px;  margin: 20px 0px 0px 0px;  ">
+          <main class="govuk-main-wrapper " id="main-content" role="main" style="padding-top: 25px;">
+            <div class="govuk-grid-row">
+                <div class="govuk-width-container">
+                  <div class="govuk-grid-row" style="width:1300px; margin-left: -90px;">
+                  <h1 class="govuk-heading-xl">&nbsp;&nbsp;Amend case details</h1>
+
+
+
+                    <div class="govuk-grid-column-two-thirds">
+
+                    <form action="/r2/x-ui/case-worker/case-worker-amend-case-details" method="post" class="form">
+
+                      <h2 class="govuk-heading-m govuk-!-margin-bottom-0">Case details</h2>
+                      <br>
+
+                      <div class="govuk-form-group">
+                        <label class="govuk-label" for="first-first-name">
+                          Adoption Type
+                        </label>
+                        <input class="govuk-input" id="first-first-names" name="first-first-names" type="text" value="{{ data['firstApplicantFirstNames'] }}">
+                      </div>
+
+
+
+                      <div class="govuk-form-group">
+                <fieldset class="govuk-fieldset" role="group" aria-describedby="passport-issued-hint">
+                  <legend class="govuk-fieldset__legend">
+                    Date submitted
+                  </legend>
+
+                  <div class="govuk-date-input" id="first-dob">
+                    <div class="govuk-date-input__item">
+                      <div class="govuk-form-group">
+                        <label class="govuk-label govuk-date-input__label" for="first-dob-day">
+                          Day
+                        </label>
+                        <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="first-dob--day" name="first-dob-day" type="text" inputmode="numeric" value="{{ data['firstApplicantDateOfBirthDay'] }}">
+                      </div>
+                    </div>
+                    <div class="govuk-date-input__item">
+                      <div class="govuk-form-group">
+                        <label class="govuk-label govuk-date-input__label" for="first-dob-month">
+                          Month
+                        </label>
+                        <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="first-dob-month" name="first-dob-month" type="text" inputmode="numeric" value="{{ data['firstApplicantDateOfBirthMonth'] }}">
+                      </div>
+                    </div>
+                    <div class="govuk-date-input__item">
+                      <div class="govuk-form-group">
+                        <label class="govuk-label govuk-date-input__label" for="first-dob-year">
+                          Year
+                        </label>
+                        <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="first-dob-year" name="first-dob-year" type="text" inputmode="numeric" value="{{ data['firstApplicantDateOfBirthYear'] }}">
+                      </div>
+                    </div>
+                  </div>
+
+                </fieldset>
+              </div>
+
+              <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset" role="group" aria-describedby="passport-issued-hint">
+          <legend class="govuk-fieldset__legend">
+            Date child moved in
+          </legend>
+
+          <div class="govuk-date-input" id="first-dob">
+            <div class="govuk-date-input__item">
+              <div class="govuk-form-group">
+                <label class="govuk-label govuk-date-input__label" for="first-dob-day">
+                  Day
+                </label>
+                <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="first-dob--day" name="first-dob-day" type="text" inputmode="numeric" value="{{ data['firstApplicantDateOfBirthDay'] }}">
+              </div>
+            </div>
+            <div class="govuk-date-input__item">
+              <div class="govuk-form-group">
+                <label class="govuk-label govuk-date-input__label" for="first-dob-month">
+                  Month
+                </label>
+                <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="first-dob-month" name="first-dob-month" type="text" inputmode="numeric" value="{{ data['firstApplicantDateOfBirthMonth'] }}">
+              </div>
+            </div>
+            <div class="govuk-date-input__item">
+              <div class="govuk-form-group">
+                <label class="govuk-label govuk-date-input__label" for="first-dob-year">
+                  Year
+                </label>
+                <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="first-dob-year" name="first-dob-year" type="text" inputmode="numeric" value="{{ data['firstApplicantDateOfBirthYear'] }}">
+              </div>
+            </div>
+          </div>
+
+          </fieldset>
+        </div>
+
+                        <div class="govuk-form-group">
+                            <label class="govuk-label" for="occupation">
+                              Placement order details
+                            </label>
+                          
+                             <textarea class="govuk-textarea" id="more-detail" name="more-detail" rows="5" aria-describedby="more-detail-hint"></textarea>
+                           </div>
+
+                          </div>
+
+                        </div>
+                  </div>
+                  <!-- Buttons -->
+                  {% include "../../../includes/buttons-xui.html" %}
+                    </form>
+
+                    </div>
+
+
+
+
+                  </div>
+                </div>
+
+          </main>
+
+      </div>
+  </div>
+</html>
+
+{% block footer %}
+{% include "includes/newfooter.html" %}
+{% endblock %}
