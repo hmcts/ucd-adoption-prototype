@@ -87,10 +87,54 @@
                         </a>
                       </dd>
                     </div>
+                      <br>
+
+                        <p class="govuk-body govuk-!-font-weight-regular">Placement order details</p>
 
                     <div class="govuk-summary-list__row">
                       <dt class="govuk-summary-list__key">
-                        Placement order details
+                        Name of court
+                      </dt>
+                      <dd class="govuk-summary-list__value">
+                        {%if data['place-order-court']%}
+                          {{data['place-order-court']}}
+                        {% else %}
+                            Brighton Family Court
+                        {% endif %}
+                      </dd>
+                      <dd class="govuk-summary-list__actions">
+                        <a href="case-worker-amend-case-details.html">
+                          Change
+                          <span class="govuk-visually-hidden"> placement order court</span>
+                        </a>
+                      </dd>
+
+                    </div>
+
+
+                                      <div class="govuk-summary-list__row">
+                                          <dt class="govuk-summary-list__key">
+                                            Date of order
+                                          </dt>
+                                          <dd class="govuk-summary-list__value">
+                                            {% if data['place-date-day'] and data['place-date-month'] and data['place-date-year'] %}
+                                              {{ data['place-date-day'] }} {{ data['place-date-month'] }} {{ data['place-date-year'] }}
+                                            {% else %}
+                                              12 July 2021
+                                            {% endif %}
+                                          </dd>
+                                          <dd class="govuk-summary-list__actions">
+                                            <a href="case-worker-amend-case-details.html">
+                                              Change
+                                              <span class="govuk-visually-hidden"> child of placement order</span>
+                                            </a>
+                                          </dd>
+                                        </div>
+
+
+                    <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+                        Order number
                       </dt>
                       <dd class="govuk-summary-list__value">
                         {%if data['place-order-detail']%}

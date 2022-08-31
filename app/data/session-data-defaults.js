@@ -129,7 +129,7 @@ module.exports = {
 "firstApplicantLastNames": "Christie",
 "firstApplicantPreviousNames": "Agatha Mary Clarissa Miller",
 "firstApplicantDateOfBirthDay" : "25",
-"firstApplicantDateOfBirthMonth" : "01",
+"firstApplicantDateOfBirthMonth" : "January",
 "firstApplicantDateOfBirthYear" : "1987",
 "firstApplicantOccupation" : "Physiotherapist",
 "firstApplicantFirstLine" : "Buckingham Palace",
@@ -144,7 +144,7 @@ module.exports = {
 "secondApplicantLastNames": "Conan Doyle",
 "secondApplicantPreviousNames": "",
 "secondApplicantDateOfBirthDay" : "3",
-"secondApplicantDateOfBirthMonth" : "12",
+"secondApplicantDateOfBirthMonth" : "December",
 "secondApplicantDateOfBirthYear" : "1977",
 "secondApplicantOccupation" : "Self-employed hairdresser",
 "secondApplicantFirstLine" : "Buckingham Palace",
@@ -173,6 +173,10 @@ module.exports = {
 "dateChildMovedInMonth" : "July",
 "dateChildMovedInYear" : "2021",
 "placementOrderDetails" : "ANC13637883",
+"adoptionPlacementCourt" : "Brighton Family Court",
+"placeSubmittedDay" : "12",
+"placeSubmittedMonth" : "July",
+"placeSubmittedYear" : "2021",
 
 
 "pathFinalOrder": 0,
