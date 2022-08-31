@@ -22,10 +22,10 @@
                       <br>
 
                       <div class="govuk-form-group">
-                        <label class="govuk-label" for="first-first-name">
+                        <label class="govuk-label" for="adop-type">
                           Adoption Type
                         </label>
-                        <input class="govuk-input" id="first-first-names" name="first-first-names" type="text" value="{{ data['adoptionType'] }}">
+                        <input class="govuk-input" id="adop-type" name="adop-type" type="text" value="{{ data['adoptionType'] }}">
                       </div>
 
 
@@ -39,26 +39,26 @@
                   <div class="govuk-date-input" id="first-dob">
                     <div class="govuk-date-input__item">
                       <div class="govuk-form-group">
-                        <label class="govuk-label govuk-date-input__label" for="first-dob-day">
+                        <label class="govuk-label govuk-date-input__label" for="sub-date-day">
                           Day
                         </label>
-                        <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="first-dob--day" name="first-dob-day" type="text" inputmode="numeric" value="{{ data['dateSubmittedDay'] }}">
+                        <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="sub-date-day" name="sub-date-day" type="text" inputmode="numeric" value="{{ data['dateSubmittedDay'] }}">
                       </div>
                     </div>
                     <div class="govuk-date-input__item">
                       <div class="govuk-form-group">
-                        <label class="govuk-label govuk-date-input__label" for="first-dob-month">
+                        <label class="govuk-label govuk-date-input__label" for="sub-date-month">
                           Month
                         </label>
-                        <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="first-dob-month" name="first-dob-month" type="text" inputmode="numeric" value="{{ data['dateSubmittedMonth'] }}">
+                        <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="sub-date-month" name="sub-date-month" type="text" inputmode="numeric" value="{{ data['dateSubmittedMonth'] }}">
                       </div>
                     </div>
                     <div class="govuk-date-input__item">
                       <div class="govuk-form-group">
-                        <label class="govuk-label govuk-date-input__label" for="first-dob-year">
+                        <label class="govuk-label govuk-date-input__label" for="sub-date-year">
                           Year
                         </label>
-                        <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="first-dob-year" name="first-dob-year" type="text" inputmode="numeric" value="{{ data['dateSubmittedYear'] }}">
+                        <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="sub-date-year" name="sub-date-year" type="text" inputmode="numeric" value="{{ data['dateSubmittedYear'] }}">
                       </div>
                     </div>
                   </div>
@@ -72,29 +72,29 @@
             Date child moved in
           </legend>
 
-          <div class="govuk-date-input" id="first-dob">
+          <div class="govuk-date-input" id="child-moved-in-day">
             <div class="govuk-date-input__item">
               <div class="govuk-form-group">
-                <label class="govuk-label govuk-date-input__label" for="first-dob-day">
+                <label class="govuk-label govuk-date-input__label" for="child-moved-in-day">
                   Day
                 </label>
-                <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="first-dob--day" name="first-dob-day" type="text" inputmode="numeric" value="{{ data['dateChildMovedInDay'] }}">
+                <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="child-moved-in-day" name="child-moved-in-day" type="text" inputmode="numeric" value="{{ data['dateChildMovedInDay'] }}">
               </div>
             </div>
             <div class="govuk-date-input__item">
               <div class="govuk-form-group">
-                <label class="govuk-label govuk-date-input__label" for="first-dob-month">
+                <label class="govuk-label govuk-date-input__label" for="child-moved-in-month">
                   Month
                 </label>
-                <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="first-dob-month" name="first-dob-month" type="text" inputmode="numeric" value="{{ data['dateChildMovedInMonth'] }}">
+                <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="child-moved-in-month" name="child-moved-in-month" type="text" inputmode="numeric" value="{{ data['dateChildMovedInMonth'] }}">
               </div>
             </div>
             <div class="govuk-date-input__item">
               <div class="govuk-form-group">
-                <label class="govuk-label govuk-date-input__label" for="first-dob-year">
+                <label class="govuk-label govuk-date-input__label" for="child-moved-in-year">
                   Year
                 </label>
-                <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="first-dob-year" name="first-dob-year" type="text" inputmode="numeric" value="{{ data['dateChildMovedInYear'] }}">
+                <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="child-moved-in-year" name="child-moved-in-year" type="text" inputmode="numeric" value="{{ data['dateChildMovedInYear'] }}">
               </div>
             </div>
           </div>
@@ -103,11 +103,11 @@
         </div>
 
                         <div class="govuk-form-group">
-                            <label class="govuk-label" for="occupation">
+                            <label class="govuk-label" for="place-order-detail">
                               Placement order details
                             </label>
 
-                             <textarea class="govuk-textarea" id="more-detail" name="more-detail" rows="5" aria-describedby="more-detail-hint"></textarea>
+                             <textarea class="govuk-textarea" id="place-order-detail" name="place-order-detail" rows="5" aria-describedby="more-detail-hint" value="{{ data['placementOrderDetails'] }}"></textarea>
                            </div>
 
                           </div>
