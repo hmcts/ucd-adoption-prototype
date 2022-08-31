@@ -2500,6 +2500,10 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
       req.session.data.newNote = 'yes'
       res.redirect('/r2/x-ui/case-worker/case-worker-amend-applicant-details')
     }
+    else if (req.body['next-steps'] === 'amend-case') {
+    req.session.data.newNote = 'yes'
+    res.redirect('/r2/x-ui/case-worker/case-worker-amend-case-details')
+  }
   })
 
   router.post('/r2/x-ui/case-worker/case-worker-seek-further-information', function(req, res) {
