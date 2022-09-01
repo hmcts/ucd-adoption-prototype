@@ -29,6 +29,7 @@
                                     <option value="notes">Add a case note</option>
                                     <option value="allocate-judge">Allocate judge</option>
                                       <option value="amend-applicant">Amend applicant details</option>
+                                        <option value="amend-case">Amend case details</option>
                                     <option value="case-issue">Case issue</option>
                                     <option value="manage-documents">Manage documents</option>
                                     <option value="manage-orders">Manage orders</option>
@@ -164,7 +165,7 @@
                                     Adoption type
                                 </dt>
                                 <dd class="govuk-summary-list__value">
-                                    Placement
+                                   {{ data['adoptionType'] }}
                                 </dd>
                             </div>
 
@@ -173,7 +174,9 @@
                                     Date submitted
                                 </dt>
                                 <dd class="govuk-summary-list__value">
-                                    11 August 2022
+                                  {{ data['dateSubmittedDay'] }}
+                                    {{ data['dateSubmittedMonth'] }}
+                                      {{ data['dateSubmittedYear'] }}
                                 </dd>
                             </div>
 
@@ -191,7 +194,9 @@
                                     Date child moved in
                                 </dt>
                                 <dd class="govuk-summary-list__value">
-                                    12 July 2021
+                                  {{ data['dateChildMovedInDay'] }}
+                                    {{ data['dateChildMovedInMonth'] }}
+                                      {{ data['dateChildMovedInYear'] }}
                                 </dd>
                             </div>
 

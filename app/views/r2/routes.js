@@ -2207,7 +2207,31 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
     }
   })
 
+  router.post('/r2/x-ui/case-worker/case-worker-amend-case-details', function(req, res) {
+    if (req.body['submit-button'] === 'continue') {
+      req.session.data.adoptionType = req.body['adop-type']
+      req.session.data.dateSubmittedDay = req.body['sub-date-day']
+      req.session.data.dateSubmittedMonth = req.body['sub-date-month']
+      req.session.data.dateSubmittedYear = req.body['sub-date-year']
+      req.session.data.dateChildMovedInDay = req.body['child-moved-in-day']
+      req.session.data.dateChildMovedInMonth = req.body['child-moved-in-month']
+      req.session.data.dateChildMovedInYear = req.body['child-moved-in-year']
+      req.session.data.placementOrderDetails = req.body['place-order-detail']
 
+      res.redirect('/r2/x-ui/case-worker/amend-case-details-check-your-answers')
+    }
+    else {
+      res.redirect('/r2/x-ui/case-worker/')
+    }
+  })
+  router.post('/r2/x-ui/case-worker/amend-case-details-check-your-answers', function(req, res) {
+    if (req.body['submit-button'] === 'continue') {
+      res.redirect('/r2/x-ui/case-worker/index')
+    }
+    else {
+      res.redirect('/r2/x-ui/case-worker/case-worker-amend-case-details')
+    }
+  })
 
 
   router.post('/r2/x-ui/case-worker/case-worker-message-send-and-reply', function(req, res) {
@@ -2521,6 +2545,10 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
       req.session.data.newNote = 'yes'
       res.redirect('/r2/x-ui/case-worker/case-worker-amend-applicant-details')
     }
+    else if (req.body['next-steps'] === 'amend-case') {
+    req.session.data.newNote = 'yes'
+    res.redirect('/r2/x-ui/case-worker/case-worker-amend-case-details')
+  }
   })
 
   router.post('/r2/x-ui/case-worker/case-worker-seek-further-information', function(req, res) {
