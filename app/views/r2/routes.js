@@ -2404,6 +2404,7 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
   // ********************************** GATEKEEPING ORDER **********************************
   router.post('/r2/x-ui/case-worker/case-worker-gatekeeping-order-1', function(req, res) {
     if (req.body['submit-button'] === 'continue') {
+      req.session.data.gatekeepingPreamble = req.body['gatekeeping-preamble']
       res.redirect('/r2/x-ui/case-worker/case-worker-gatekeeping-order-2')
     }
     else {

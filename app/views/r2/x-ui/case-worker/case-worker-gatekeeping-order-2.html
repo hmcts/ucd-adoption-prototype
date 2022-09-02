@@ -22,16 +22,16 @@
 
                         {% if data['gatekeeping-order-allocate-judge'] === 'previous-judge' %}
                         <label class="govuk-label" for="event-name">
-                          Pursuant to the Family Court (Composition and Distribution of Business) Rules 2014, given the original care proceedings were concluded by His Honour Judge Sherlock Holmes, the case is allocated to His Honour Judge Sherlock Holmes.
+                          {{ data['sameJudge'] }}
                         </label>  
                         {% else %}     
                         <label class="govuk-label" for="event-name">
-                          Upon consideration of the papers and in order to make the most effective and efficient use of local judicial resources, the proceedings are reallocated to [Name of Judge].                 
+                          {{ data['differentJudge'] }}                 
                         </label>       
                         <label class="govuk-label govuk-label--s govuk-!-margin-top-4" for="contact-by-email">
                           Name of judge
                         </label>
-                        <input class="govuk-input govuk-!-width-two-thirds" id="gatekeeping-judge-name" name="gatekeeping-judge-name" type="text" value="{% if data['gatekeeping-judge-name'] %}{{data['gatekeeping-judge-name']}} {% else %}{{data['allocate-judge-name']}}{% endif %}">
+                        <input class="govuk-input govuk-!-width-two-thirds" id="gatekeeping-judge-name" name="gatekeeping-judge-name" type="text" value="{{ data['gatekeeping-judge-name'] }}">
                         {% endif %}
                       </div>                      
 
