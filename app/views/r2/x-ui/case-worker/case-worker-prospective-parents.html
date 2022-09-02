@@ -175,7 +175,7 @@
                             </dt>
                             <dd class="govuk-summary-list__value">
                               {{ data['firstApplicantDateOfBirthDay'] }}
-                                {{ data['firstApplicantDateOfBirthMonth'] }}
+                              {{ data['monthName'][data['firstApplicantDateOfBirthMonth']] }}
                                   {{ data['firstApplicantDateOfBirthYear'] }}
 
                             </dd>
@@ -308,7 +308,7 @@
                           </dt>
                           <dd class="govuk-summary-list__value">
                             {{ data['secondApplicantDateOfBirthDay'] }}
-                              {{ data['secondApplicantDateOfBirthMonth'] }}
+                            {{ data['monthName'][data['secondApplicantDateOfBirthMonth']] }}
                                 {{ data['secondApplicantDateOfBirthYear'] }}
                           </dd>
                           <dd class="govuk-summary-list__value">

@@ -91,7 +91,7 @@
             </dt>
             <dd class="govuk-summary-list__value">
               {% if data['first-dob-day'] and data['first-dob-month'] and data['first-dob-year'] %}
-                {{ data['first-dob-day'] }} {{ data['first-dob-month'] }} {{ data['first-dob-year'] }}
+                {{ data['first-dob-day'] }} {{ data['monthName'][data['firstApplicantDateOfBirthMonth']] }} {{ data['first-dob-year'] }}
               {% else %}
                 25 01 1987
               {% endif %}
@@ -289,7 +289,7 @@
            </dt>
            <dd class="govuk-summary-list__value">
              {% if data['second-dob-day'] and data['second-dob-month'] and data['second-dob-year'] %}
-               {{ data['second-dob-day'] }} {{ data['second-dob-month'] }} {{ data['second-dob-year'] }}
+               {{ data['second-dob-day'] }} {{ data['monthName'][data['secondApplicantDateOfBirthMonth']] }} {{ data['second-dob-year'] }}
              {% else %}
                03 12 1987
              {% endif %}
