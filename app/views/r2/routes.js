@@ -2424,10 +2424,20 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
 
   router.post('/r2/x-ui/case-worker/case-worker-gatekeeping-order-3', function(req, res) {
     if (req.body['submit-button'] === 'continue') {
-      res.redirect('/r2/x-ui/case-worker/case-worker-gatekeeping-order-3')
+      res.redirect('/r2/x-ui/case-worker/case-worker-gatekeeping-order-check-your-answers')
     }
     else {
       res.redirect('/r2/x-ui/case-worker/case-worker-gatekeeping-order-2')
+    }
+  })
+
+
+  router.post('/r2/x-ui/case-worker/case-worker-gatekeeping-order-check-your-answers', function(req, res) {
+    if (req.body['submit-button'] === 'continue') {
+      res.redirect('/r2/x-ui/case-worker/case-worker-gatekeeping-order-check-your-answers')
+    }
+    else {
+      res.redirect('/r2/x-ui/case-worker/case-worker-gatekeeping-order-3')
     }
   })
 
