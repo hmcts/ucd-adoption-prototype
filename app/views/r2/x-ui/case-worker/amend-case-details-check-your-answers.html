@@ -55,7 +55,7 @@
             </dt>
             <dd class="govuk-summary-list__value">
               {% if data['sub-date-day'] and data['sub-date-month'] and data['sub-date-year'] %}
-                {{ data['sub-date-day'] }} {{ data['sub-date-month'] }} {{ data['sub-date-year'] }}
+                {{ data['sub-date-day'] }} {{ data['monthName'][data['sub-date-month']] }} {{ data['sub-date-year'] }}
               {% else %}
                 11 August 2022
               {% endif %}
@@ -75,7 +75,7 @@
                       </dt>
                       <dd class="govuk-summary-list__value">
                         {% if data['child-moved-in-day'] and data['child-moved-in-month'] and data['child-moved-in-year'] %}
-                          {{ data['child-moved-in-day'] }} {{ data['child-moved-in-month'] }} {{ data['child-moved-in-year'] }}
+                          {{ data['child-moved-in-day'] }} {{ data['monthName'][data['child-moved-in-month']] }}  {{ data['child-moved-in-year'] }}
                         {% else %}
                           12 July 2021
                         {% endif %}
@@ -90,7 +90,7 @@
                       <br>
 
 
-                          <h3 class="govuk-heading-s">Placement order details</h3>
+                    <h3 class="govuk-heading-s govuk-!-margin-top-4">Placement order details</h3>
 
                     <div class="govuk-summary-list__row">
                       <dt class="govuk-summary-list__key">
@@ -118,9 +118,9 @@
                                           <dt class="govuk-summary-list__key">
                                             Date of order
                                           </dt>
-                                          <dd class="govuk-summary-list__value">
+                                          <dd class="govuk-summary-list__value">                                        
                                             {% if data['place-date-day'] and data['place-date-month'] and data['place-date-year'] %}
-                                              {{ data['place-date-day'] }} {{ data['place-date-month'] }} {{ data['place-date-year'] }}
+                                              {{ data['place-date-day'] }} {{ data['monthName'][data['place-date-month']] }} 2021 
                                             {% else %}
                                               12 July 2021
                                             {% endif %}

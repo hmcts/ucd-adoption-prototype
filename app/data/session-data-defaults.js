@@ -167,7 +167,7 @@ module.exports = {
 
 "adoptionType" : "Placement",
 "dateSubmittedDay" : "11",
-"dateSubmittedMonth" : "August",
+"dateSubmittedMonth" : 8,
 "dateSubmittedYear" : "2022",
 "dateChildMovedInDay" : "12",
 "dateChildMovedInMonth" : 7,
