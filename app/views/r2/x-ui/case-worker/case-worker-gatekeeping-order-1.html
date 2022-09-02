@@ -57,7 +57,7 @@
                               3. Hearing dates
                             </label>
                             <div id="changed-name-hint" class="govuk-hint">
-                              You can choose just one hearing or both
+                              Hint text from hearing dates
                             </div>                          
                           </legend>
                           <div class="govuk-checkboxes" data-module="govuk-checkboxes">
@@ -71,6 +71,13 @@
                               <input class="govuk-checkboxes__input" id="gatekeeping-further-hearings" name="gatekeeping-further-hearings-checkbox" type="checkbox" value="gatekeeping-further-hearings" {% if (data['gatekeeping-further-hearings-checkbox'] != undefined) %} checked {% endif %}>
                               <label class="govuk-label govuk-checkboxes__label" for="gatekeeping-further-hearings">
                                 List for further hearings
+                              </label>
+                            </div>
+                            <div class="govuk-checkboxes__divider">or</div>
+                            <div class="govuk-checkboxes__item">
+                              <input class="govuk-checkboxes__input" id="gatekeeping-hearing-date-future" name="gatekeeping-hearing-date-future-checkbox" type="checkbox" value="gatekeeping-hearing-date-future" {% if (data['gatekeeping-hearing-date-future-checkbox'] != undefined) %} checked {% endif %}>
+                              <label class="govuk-label govuk-checkboxes__label" for="gatekeeping-hearing-date-future">
+                                Hearing date to be specified in the future
                               </label>
                             </div>
                           </div>                        
@@ -152,7 +159,7 @@
                       </div>
 
                       <div class="govuk-form-group">
-                        <label class="govuk-label govuk-label--s govuk-!-margin-top-4" for="contact-by-email">
+                        <label class="govuk-label govuk-label--s govuk-!-margin-top-8" for="contact-by-email">
                           7. Additional orders
                         </label>
                         <div id="changed-name-hint" class="govuk-hint">
