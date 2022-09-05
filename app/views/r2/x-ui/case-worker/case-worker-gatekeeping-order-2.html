@@ -26,7 +26,7 @@
                         </label>  
                         {% else %}     
                         <label class="govuk-label" for="event-name">
-                          {{ data['differentJudge'] }}                 
+                          {{ data['differentJudge'] }}  [Name of Judge].               
                         </label>       
                         <label class="govuk-label govuk-label--s govuk-!-margin-top-4" for="contact-by-email">
                           Name of judge
@@ -70,7 +70,7 @@
                                     <label class="govuk-label govuk-date-input__label" for="gatekeeping-first-hearing-day">
                                       Day
                                     </label>
-                                    <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="gatekeeping-first-hearing-day" name="gatekeeping-first-hearing-day" type="text" inputmode="numeric">
+                                    <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="gatekeeping-first-hearing-day" name="gatekeeping-first-hearing-day" type="text" inputmode="numeric" value="{{ data['gatekeeping-first-hearing-day'] }}">
                                   </div>
                                 </div>
                                 
@@ -79,7 +79,7 @@
                                     <label class="govuk-label govuk-date-input__label" for="gatekeeping-first-hearing-month">
                                       Month
                                     </label>
-                                    <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="gatekeeping-first-hearing-month" name="gatekeeping-first-hearing-month" type="text" inputmode="numeric">
+                                    <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="gatekeeping-first-hearing-month" name="gatekeeping-first-hearing-month" type="text" inputmode="numeric" value="{{ data['gatekeeping-first-hearing-month'] }}"">
                                   </div>
                                 </div>
                                 
@@ -88,7 +88,7 @@
                                     <label class="govuk-label govuk-date-input__label" for="gatekeeping-first-hearing-year">
                                       Year
                                     </label>
-                                    <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="gatekeeping-first-hearing-year" name="gatekeeping-first-hearing-year" type="text" inputmode="numeric">
+                                    <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="gatekeeping-first-hearing-year" name="gatekeeping-first-hearing-year" type="text" inputmode="numeric" value="{{ data['gatekeeping-first-hearing-year'] }}"">
                                   </div>
                                 </div>
                                 
@@ -97,7 +97,7 @@
                                       <label class="govuk-label govuk-date-input__label" for="gatekeeping-first-hearing-hour">
                                         Hour
                                       </label>
-                                      <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="gatekeeping-first-hearing-hour" name="gatekeeping-first-hearing-hour" type="text" inputmode="numeric">
+                                      <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="gatekeeping-first-hearing-hour" name="gatekeeping-first-hearing-hour" type="text" inputmode="numeric" value="{{ data['gatekeeping-first-hearing-hour'] }}"">
                                     </div>
                                   </div>
                                   
@@ -106,7 +106,7 @@
                                       <label class="govuk-label govuk-date-input__label" for="gatekeeping-first-hearing-minute">
                                         Minute
                                       </label>
-                                      <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="gatekeeping-first-hearing-minute" name="gatekeeping-first-hearing-minute" type="text" inputmode="numeric">
+                                      <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="gatekeeping-first-hearing-minute" name="gatekeeping-first-hearing-minute" type="text" inputmode="numeric" value="{{ data['gatekeeping-first-hearing-minute'] }}"">
                                     </div>
                                   </div>
                                   
@@ -115,7 +115,7 @@
                                       <label class="govuk-label govuk-date-input__label" for="gatekeeping-first-hearing-second">
                                         Second
                                       </label>
-                                      <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="gatekeeping-first-hearing-second" name="gatekeeping-first-hearing-second" type="text" inputmode="numeric">
+                                      <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="gatekeeping-first-hearing-second" name="gatekeeping-first-hearing-second" type="text" inputmode="numeric" value="00">
                                     </div>
                                   </div>
                               </div>     
@@ -158,55 +158,55 @@
                             <div class="govuk-date-input" id="report-date">
                               <div class="govuk-date-input__item">
                                 <div class="govuk-form-group">
-                                  <label class="govuk-label govuk-date-input__label" for="gatekeeping-first-hearing-day">
+                                  <label class="govuk-label govuk-date-input__label" for="gatekeeping-la-1-day">
                                     Day
                                   </label>
-                                  <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="gatekeeping-first-hearing-day" name="gatekeeping-first-hearing-day" type="text" inputmode="numeric">
+                                  <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="gatekeeping-la-1-day" name="gatekeeping-la-1-day" type="text" inputmode="numeric" value="{{ data['gatekeeping-la-1-day'] }}">
                                 </div>
                               </div>
                               
                               <div class="govuk-date-input__item">
                                 <div class="govuk-form-group">
-                                  <label class="govuk-label govuk-date-input__label" for="gatekeeping-first-hearing-month">
+                                  <label class="govuk-label govuk-date-input__label" for="gatekeeping-la-1-month">
                                     Month
                                   </label>
-                                  <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="gatekeeping-first-hearing-month" name="gatekeeping-first-hearing-month" type="text" inputmode="numeric">
+                                  <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="gatekeeping-la-1-month" name="gatekeeping-la-1-month" type="text" inputmode="numeric" value="{{ data['gatekeeping-la-1-month'] }}">
                                 </div>
                               </div>
                               
                               <div class="govuk-date-input__item">
                                 <div class="govuk-form-group">
-                                  <label class="govuk-label govuk-date-input__label" for="gatekeeping-first-hearing-year">
+                                  <label class="govuk-label govuk-date-input__label" for="gatekeeping-la-1-year">
                                     Year
                                   </label>
-                                  <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="gatekeeping-first-hearing-year" name="gatekeeping-first-hearing-year" type="text" inputmode="numeric">
+                                  <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="gatekeeping-la-1-year" name="gatekeeping-la-1-year" type="text" inputmode="numeric" value="{{ data['gatekeeping-la-1-year'] }}">
                                 </div>
                               </div>
                               
                                 <div class="govuk-date-input__item">
                                   <div class="govuk-form-group">
-                                    <label class="govuk-label govuk-date-input__label" for="gatekeeping-first-hearing-hour">
+                                    <label class="govuk-label govuk-date-input__label" for="gatekeeping-la-1-hour">
                                       Hour
                                     </label>
-                                    <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="gatekeeping-first-hearing-hour" name="gatekeeping-first-hearing-hour" type="text" inputmode="numeric">
+                                    <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="gatekeeping-la-1-hour" name="gatekeeping-la-1-hour" type="text" inputmode="numeric" value="{{ data['gatekeeping-la-1-hour'] }}">
                                   </div>
                                 </div>
                                 
                                 <div class="govuk-date-input__item">
                                   <div class="govuk-form-group">
-                                    <label class="govuk-label govuk-date-input__label" for="gatekeeping-first-hearing-minute">
+                                    <label class="govuk-label govuk-date-input__label" for="gatekeeping-la-1-minute">
                                       Minute
                                     </label>
-                                    <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="gatekeeping-first-hearing-minute" name="gatekeeping-first-hearing-minute" type="text" inputmode="numeric">
+                                    <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="gatekeeping-la-1-minute" name="gatekeeping-la-1-minute" type="text" inputmode="numeric" value="{{ data['gatekeeping-la-1-minute'] }}">
                                   </div>
                                 </div>
                                 
                                 <div class="govuk-date-input__item">
                                   <div class="govuk-form-group">
-                                    <label class="govuk-label govuk-date-input__label" for="gatekeeping-first-hearing-second">
+                                    <label class="govuk-label govuk-date-input__label" for="gatekeeping-la-1-second">
                                       Second
                                     </label>
-                                    <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="gatekeeping-first-hearing-second" name="gatekeeping-first-hearing-second" type="text" inputmode="numeric">
+                                    <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="gatekeeping-la-1-second" name="gatekeeping-la-1-second" type="text" inputmode="numeric" value="00">
                                   </div>
                                 </div>
                             </div>     
@@ -223,55 +223,55 @@
                             <div class="govuk-date-input" id="report-date">
                               <div class="govuk-date-input__item">
                                 <div class="govuk-form-group">
-                                  <label class="govuk-label govuk-date-input__label" for="gatekeeping-first-hearing-day">
+                                  <label class="govuk-label govuk-date-input__label" for="gatekeeping-la-2-day">
                                     Day
                                   </label>
-                                  <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="gatekeeping-first-hearing-day" name="gatekeeping-first-hearing-day" type="text" inputmode="numeric">
+                                  <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="gatekeeping-la-2-day" name="gatekeeping-la-2-day" type="text" inputmode="numeric" value="{{ data['gatekeeping-la-2-day'] }}">
                                 </div>
                               </div>
                               
                               <div class="govuk-date-input__item">
                                 <div class="govuk-form-group">
-                                  <label class="govuk-label govuk-date-input__label" for="gatekeeping-first-hearing-month">
+                                  <label class="govuk-label govuk-date-input__label" for="gatekeeping-la-2-month">
                                     Month
                                   </label>
-                                  <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="gatekeeping-first-hearing-month" name="gatekeeping-first-hearing-month" type="text" inputmode="numeric">
+                                  <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="gatekeeping-la-2-month" name="gatekeeping-la-2-month" type="text" inputmode="numeric" value="{{ data['gatekeeping-la-2-month'] }}">
                                 </div>
                               </div>
                               
                               <div class="govuk-date-input__item">
                                 <div class="govuk-form-group">
-                                  <label class="govuk-label govuk-date-input__label" for="gatekeeping-first-hearing-year">
+                                  <label class="govuk-label govuk-date-input__label" for="gatekeeping-la-2-year">
                                     Year
                                   </label>
-                                  <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="gatekeeping-first-hearing-year" name="gatekeeping-first-hearing-year" type="text" inputmode="numeric">
+                                  <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="gatekeeping-la-2-year" name="gatekeeping-la-2-year" type="text" inputmode="numeric" value="{{ data['gatekeeping-la-2-year'] }}">
                                 </div>
                               </div>
                               
                                 <div class="govuk-date-input__item">
                                   <div class="govuk-form-group">
-                                    <label class="govuk-label govuk-date-input__label" for="gatekeeping-first-hearing-hour">
+                                    <label class="govuk-label govuk-date-input__label" for="gatekeeping-la-2-hour">
                                       Hour
                                     </label>
-                                    <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="gatekeeping-first-hearing-hour" name="gatekeeping-first-hearing-hour" type="text" inputmode="numeric">
+                                    <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="gatekeeping-la-2-hour" name="gatekeeping-la-2-hour" type="text" inputmode="numeric" value="{{ data['gatekeeping-la-2-hour'] }}">
                                   </div>
                                 </div>
                                 
                                 <div class="govuk-date-input__item">
                                   <div class="govuk-form-group">
-                                    <label class="govuk-label govuk-date-input__label" for="gatekeeping-first-hearing-minute">
+                                    <label class="govuk-label govuk-date-input__label" for="gatekeeping-la-2-minute">
                                       Minute
                                     </label>
-                                    <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="gatekeeping-first-hearing-minute" name="gatekeeping-first-hearing-minute" type="text" inputmode="numeric">
+                                    <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="gatekeeping-la-2-minute" name="gatekeeping-la-2-minute" type="text" inputmode="numeric" value="{{ data['gatekeeping-la-2-minute'] }}">
                                   </div>
                                 </div>
                                 
                                 <div class="govuk-date-input__item">
                                   <div class="govuk-form-group">
-                                    <label class="govuk-label govuk-date-input__label" for="gatekeeping-first-hearing-second">
+                                    <label class="govuk-label govuk-date-input__label" for="gatekeeping-la-2-second">
                                       Second
                                     </label>
-                                    <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="gatekeeping-first-hearing-second" name="gatekeeping-first-hearing-second" type="text" inputmode="numeric">
+                                    <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="gatekeeping-la-2-second" name="gatekeeping-la-2-second" type="text" inputmode="numeric" value="00">
                                   </div>
                                 </div>
                             </div>     
