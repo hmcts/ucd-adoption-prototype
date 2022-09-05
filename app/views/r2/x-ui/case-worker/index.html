@@ -32,7 +32,7 @@
                                     <option value="amend-case">Amend case details</option>
                                     <option value="manage-documents">Manage documents</option>
                                     <option value="manage-orders">Manage orders</option>
-                                    <option value="info">Need further info</option>
+                                    <option value="info">Seek further information</option>
                                     <option value="send-a-message">Send or reply to messages</option>
                                         <!-- <option value="summary">Summary</option>
                                     <option value="prospective-parents">Prospective Parents</option>
@@ -82,19 +82,34 @@
                           </li>
 
                           <li class="govuk-tabs__list-item">
+                            <a class="govuk-tabs__tab" href="index.html">
+                              Respondents
+                            </a>
+                          </li>
+
+                          <li class="govuk-tabs__list-item">
                             <a class="govuk-tabs__tab" href="case-worker-documents.html">
                                 Documents
                             </a>
                         </li>
 
-                        {% if data['correspondenceStatus'] === 1 %}
                         <li class="govuk-tabs__list-item">
                             <a class="govuk-tabs__tab" href="case-worker-correspondence.html">
                                 Correspondence
                             </a>
                           </li>
-                        {% endif %}
 
+                        <li class="govuk-tabs__list-item">
+                            <a class="govuk-tabs__tab" href="index.html">
+                                Hearings
+                            </a>
+                        </li>
+
+                        <li class="govuk-tabs__list-item">
+                            <a class="govuk-tabs__tab" href="case-worker-gatekeeping-order-creation-manage-orders.html">
+                                Orders
+                            </a>
+                        </li>
                         <li class="govuk-tabs__list-item">
                             <a class="govuk-tabs__tab" href="case-worker-messages.html">
                                 Messages
@@ -119,17 +134,6 @@
                             </a>
                         </li>
 
-                        <!-- <li class="govuk-tabs__list-item">
-                            <a class="govuk-tabs__tab" href="case-worker-payments.html">
-                                Hearings
-                            </a>
-                        </li>
-
-                        <li class="govuk-tabs__list-item">
-                            <a class="govuk-tabs__tab" href="case-worker-payments.html">
-                                Orders
-                            </a>
-                        </li> -->
 
                     </ul>
 
