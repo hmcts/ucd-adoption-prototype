@@ -165,7 +165,7 @@ module.exports = {
 "solicitorApplicantEmail" : "dodoinfo@law.com",
 "solicitorApplicantPhone" : "07766554433",
 
-"adoptionType" : "Placement",
+"adoptionType" : "Post-placement",
 "dateSubmittedDay" : "11",
 "dateSubmittedMonth" : 8,
 "dateSubmittedYear" : "2022",

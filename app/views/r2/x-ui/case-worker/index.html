@@ -152,7 +152,23 @@
                                     Messages
                                 </dt>
                                 <dd class="govuk-summary-list__value">
-                                    You have <a href="case-worker-messages.html">3 outstanding messages</a>
+                                    You have <a href="case-worker-messages.html">1 outstanding message</a>
+                                </dd>
+                            </div>
+                            <div class="govuk-summary-list__row">
+                                <dt class="govuk-summary-list__key">
+                                    Documents
+                                </dt>
+                                <dd class="govuk-summary-list__value">
+                                    You have <a href="case-worker-documents.html">3 documents to review</a>
+                                </dd>
+                            </div>
+                            <div class="govuk-summary-list__row">
+                                <dt class="govuk-summary-list__key">
+                                    Hearing date
+                                </dt>
+                                <dd class="govuk-summary-list__value">
+                                    20 October 2022 at 11:30:00
                                 </dd>
                             </div>
                         </dl>
@@ -174,7 +190,7 @@
                                 </dt>
                                 <dd class="govuk-summary-list__value">
                                   {{ data['dateSubmittedDay'] }}
-                                    {{ data['dateSubmittedMonth'] }}
+                                    {{ data['monthName'][data['dateSubmittedMonth']] }}
                                       {{ data['dateSubmittedYear'] }}
                                 </dd>
                             </div>
@@ -194,7 +210,7 @@
                                 </dt>
                                 <dd class="govuk-summary-list__value">
                                   {{ data['dateChildMovedInDay'] }}
-                                    {{ data['dateChildMovedInMonth'] }}
+                                    {{ data['monthName'][data['dateChildMovedInMonth']] }}
                                       {{ data['dateChildMovedInYear'] }}
                                 </dd>
                             </div>

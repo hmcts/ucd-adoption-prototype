@@ -151,6 +151,26 @@
                               <dl class="govuk-summary-list">
                                 <div class="govuk-summary-list__row">
                                   <dt class="govuk-summary-list__key">
+                                    Annex A to be submitted
+                                  </dt>
+                                  {% if data['gatekeeping-local-authority-checkboxes'] != undefined %}
+                                  <dd class="govuk-summary-list__value">
+                                    Yes
+                                  </dd>
+                                  {% else %}
+                                  <dd class="govuk-summary-list__value">
+                                    No
+                                  </dd>
+                                  {% endif %}
+                                  <dd class="govuk-summary-list__actions">
+                                    <a class="govuk-link" href="case-worker-gatekeeping-order-1.html">
+                                      Change<span class="govuk-visually-hidden"> submit annex a</span>
+                                    </a>
+                                  </dd>
+                                </div>
+                                {% if data['gatekeeping-local-authority-checkboxes'] != undefined %}
+                                <div class="govuk-summary-list__row">
+                                  <dt class="govuk-summary-list__key">
                                     Annex A filed by
                                   </dt>
                                   <dd class="govuk-summary-list__value">
@@ -176,6 +196,7 @@
                                     </a>
                                   </dd>
                                 </div>
+                                {% endif %}
                               </dl>
 
                               <h3 class="govuk-heading-s govuk-!-margin-top-9">5. Attendance</h3>
@@ -280,6 +301,94 @@
                               
                               </dl>
 
+                              <h3 class="govuk-heading-s govuk-!-margin-top-9">6. Leave to oppose</h3>
+                      
+                              <dl class="govuk-summary-list">
+                                <div class="govuk-summary-list__row">
+                                  <dt class="govuk-summary-list__key">
+                                    Filed leave to oppose
+                                  </dt>
+                                  {% if data['gatekeeping-leave-oppose-checkbox'] != undefined %}
+                                  <dd class="govuk-summary-list__value">
+                                    Yes
+                                  </dd>
+                                  {% else %}
+                                  <dd class="govuk-summary-list__value">
+                                    No
+                                  </dd>
+                                  {% endif %}
+                                  <dd class="govuk-summary-list__actions">
+                                    <a class="govuk-link" href="case-worker-gatekeeping-order-1.html">
+                                      Change<span class="govuk-visually-hidden"> leave to oppose</span>
+                                    </a>
+                                  </dd>
+                                </div>
+                              </dl>
+
+                              <h3 class="govuk-heading-s govuk-!-margin-top-9">7. Additional orders</h3>
+                              <dl class="govuk-summary-list">
+                                <div class="govuk-summary-list__row">
+                                  <dt class="govuk-summary-list__key">
+                                    Additional orders
+                                  </dt>
+                                  <dd class="govuk-summary-list__value">
+                                    {% if data['gatekeeping-additional-orders'] %}
+                                      {{ data['gatekeeping-additional-orders'] }}
+                                    {% else %}
+                                      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+                                    {% endif %}
+                                  </dd>
+                                  <dd class="govuk-summary-list__actions">
+                                    <a class="govuk-link" href="case-worker-gatekeeping-order-1.html">
+                                      Change<span class="govuk-visually-hidden"> preamble</span>
+                                    </a>
+                                  </dd>
+                                </div>
+                              </dl>
+
+
+                              <h3 class="govuk-heading-s govuk-!-margin-top-9">8. Cost orders</h3>
+                      
+                              <dl class="govuk-summary-list">
+                                <div class="govuk-summary-list__row">
+                                  <dt class="govuk-summary-list__key">
+                                    Order for costs
+                                  </dt>
+                                  {% if data['gatekeeping-cost-orders-checkboxes'] != undefined %}
+                                  <dd class="govuk-summary-list__value">
+                                    Yes
+                                  </dd>
+                                  {% else %}
+                                  <dd class="govuk-summary-list__value">
+                                    No
+                                  </dd>
+                                  {% endif %}
+                                  <dd class="govuk-summary-list__actions">
+                                    <a class="govuk-link" href="case-worker-gatekeeping-order-1.html">
+                                      Change<span class="govuk-visually-hidden"> order for costs</span>
+                                    </a>
+                                  </dd>
+                                </div>
+                              </dl>
+
+
+                              <h3 class="govuk-heading-s govuk-!-margin-top-9">Recipient</h3>
+                      
+                              <dl class="govuk-summary-list">
+                                <div class="govuk-summary-list__row">
+                                  <dt class="govuk-summary-list__key">
+                                    Recipient for this order
+                                  </dt>
+                                  <dd class="govuk-summary-list__value">
+                                    Applicant: Jane Jones
+                                  </dd>
+                                  <dd class="govuk-summary-list__actions">
+                                    <a class="govuk-link" href="case-worker-gatekeeping-order-1.html">
+                                      Change<span class="govuk-visually-hidden"> recipient</span>
+                                    </a>
+                                  </dd>
+                                </div>
+                              </dl>
 
 
                           </div>
