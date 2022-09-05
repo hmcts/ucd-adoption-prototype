@@ -22,7 +22,7 @@
                         <div id="changed-name-hint" class="govuk-hint">
                           Copy and paste or type directly into the text box
                         </div>                          
-                        <textarea class="govuk-textarea" id="gatekeeping-preamble" name="gatekeeping-preamble" rows="5"></textarea>
+                        <textarea class="govuk-textarea" id="gatekeeping-preamble" name="gatekeeping-preamble" rows="5">{{ data['gatekeeping-preamble'] }}</textarea>
                       </div>
 
                       <div class="govuk-form-group">
@@ -56,9 +56,9 @@
                             <label class="govuk-label govuk-label--s govuk-!-margin-top-4" for="contact-by-email">
                               3. Hearing dates
                             </label>
-                            <div id="changed-name-hint" class="govuk-hint">
+                            <!-- <div id="changed-name-hint" class="govuk-hint">
                               Hint text from hearing dates
-                            </div>                          
+                            </div>                           -->
                           </legend>
                           <div class="govuk-checkboxes" data-module="govuk-checkboxes">
                             <div class="govuk-checkboxes__item">
