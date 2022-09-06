@@ -76,40 +76,24 @@
                         </li>
 
                         <li class="govuk-tabs__list-item">
-                            <a class="govuk-tabs__tab" href="index.html">
-                              Respondents
-                            </a>
-                          </li>
-
-                        <li class="govuk-tabs__list-item">
                             <a class="govuk-tabs__tab" href="case-worker-other-parties.html">
                               Other parties
                             </a>
                           </li>
 
-                        <li class="govuk-tabs__list-item">
+                          <li class="govuk-tabs__list-item">
                             <a class="govuk-tabs__tab" href="case-worker-documents.html">
                                 Documents
                             </a>
                         </li>
 
-                        <li class="govuk-tabs__list-item">
-                            <a class="govuk-tabs__tab" href="case-worker-orders.html">
-                                Orders
-                            </a>
-                        </li>
-                        
-                        <li class="govuk-tabs__list-item">
-                            <a class="govuk-tabs__tab" href="index.html">
-                                Hearings
-                            </a>
-                        </li>
-  
+                        {% if data['correspondenceStatus'] === 1 %}
                         <li class="govuk-tabs__list-item">
                             <a class="govuk-tabs__tab" href="case-worker-correspondence.html">
                                 Correspondence
                             </a>
-                        </li>
+                          </li>
+                        {% endif %}
 
                         <li class="govuk-tabs__list-item">
                             <a class="govuk-tabs__tab" href="case-worker-messages.html">
@@ -119,15 +103,9 @@
 
                         <li class="govuk-tabs__list-item">
                             <a class="govuk-tabs__tab" href="case-worker-notes.html">
-                                --->
+                                  Notes
                             </a>
-                        </li>
-
-                        <!-- <li class="govuk-tabs__list-item">
-                            <a class="govuk-tabs__tab" href="case-worker-notes.html">
-                                Notes
-                            </a>
-                        </li>
+                          </li>
 
                         <li class="govuk-tabs__list-item">
                             <a class="govuk-tabs__tab" href="case-worker-history.html">
@@ -139,7 +117,7 @@
                             <a class="govuk-tabs__tab" href="case-worker-payments.html">
                                 Payments
                             </a>
-                        </li> -->
+                        </li>
 
                     </ul>
 
