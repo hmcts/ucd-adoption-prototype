@@ -9,6 +9,20 @@
           <main class="govuk-main-wrapper " id="main-content" role="main" style="padding-top: 25px;">
               <div class="govuk-width-container">
                 <div class="govuk-grid-row" style="width:1300px; margin-left: -90px;">
+                  
+                  {% if (data['newOrder'] === 1) %}
+                  <div class="govuk-notification-banner govuk-notification-banner--success" role="alert" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
+                    <div class="govuk-notification-banner__header">
+                      <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+                        Success
+                      </h2>
+                    </div>
+                    <div class="govuk-notification-banner__content">
+                      <p class="govuk-body">Order created</p>
+                    </div>
+                  </div>
+                  {% endif %}
+
                     <div class="" style="display: flex; justify-content: space-between; ">
                         <div>
                           <h1 class="govuk-heading-xl govuk-!-margin-bottom-4">#1234-5678-0921-2722</h1>
@@ -129,6 +143,92 @@
                       <div class="govuk-tabs__panel" id="1">
                         <h1 class="govuk-heading-l">Orders</h2>
                           <p><a href="case-worker-gatekeeping-order-creation-type-of-order.html" class="govuk-link govuk-link--no-visited-state">Create new order</a></p>
+                          
+                          {% if (data['newOrder'] === 1) %}
+                          <dt class="complex-panel">
+                            Order 2
+                          </dt>
+                          <dl class="govuk-summary-list">
+                            <div class="govuk-summary-list__row">
+                              <dt class="govuk-summary-list__value">
+                                Order type
+                              </dt>
+                              <dd class="govuk-summary-list__value">
+                                Gatekeeping order
+                              </dd>
+                              <dd class="govuk-summary-list__value">
+                                &nbsp;
+                              </dd>
+                            </div>
+
+                            <div class="govuk-summary-list__row">
+                              <dt class="govuk-summary-list__value">
+                                Date issued
+                              </dt>
+                              <dd class="govuk-summary-list__value">
+                                7 August 2022
+                              </dd>
+                              <dd class="govuk-summary-list__value">
+                                &nbsp;
+                              </dd>
+                            </div>
+
+                            <div class="govuk-summary-list__row">
+                              <dt class="govuk-summary-list__value">
+                                Lorem ipsum
+                              </dt>
+                              <dd class="govuk-summary-list__value">
+                                Lorem ipsum
+                              </dd>
+                              <dd class="govuk-summary-list__value">
+                                &nbsp;
+                              </dd>
+                            </div>
+                          </dl>
+                          {% endif %}
+
+
+                          <dt class="complex-panel">
+                            Order 1
+                          </dt>
+                          <dl class="govuk-summary-list">
+                            <div class="govuk-summary-list__row">
+                              <dt class="govuk-summary-list__value">
+                                Order type
+                              </dt>
+                              <dd class="govuk-summary-list__value">
+                                General directions order
+                              </dd>
+                              <dd class="govuk-summary-list__value">
+                                &nbsp;
+                              </dd>
+                            </div>
+
+                            <div class="govuk-summary-list__row">
+                              <dt class="govuk-summary-list__value">
+                                Date issued
+                              </dt>
+                              <dd class="govuk-summary-list__value">
+                                12 July 2022
+                              </dd>
+                              <dd class="govuk-summary-list__value">
+                                &nbsp;
+                              </dd>
+                            </div>
+
+                            <div class="govuk-summary-list__row">
+                              <dt class="govuk-summary-list__value">
+                                Lorem ipsum
+                              </dt>
+                              <dd class="govuk-summary-list__value">
+                                Lorem ipsum
+                              </dd>
+                              <dd class="govuk-summary-list__value">
+                                &nbsp;
+                              </dd>
+                            </div>
+                          </dl>
+
 
                       </div>
                     </div>
