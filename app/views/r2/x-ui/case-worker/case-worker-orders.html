@@ -18,7 +18,7 @@
                       </h2>
                     </div>
                     <div class="govuk-notification-banner__content">
-                      <p class="govuk-body">Order created</p>
+                      <p class="govuk-body">Order created and sent for checking</p>
                     </div>
                   </div>
                   {% endif %}
@@ -77,12 +77,6 @@
                         </li>
 
                         <li class="govuk-tabs__list-item">
-                          <a class="govuk-tabs__tab" href="index.html">
-                            Respondents
-                          </a>
-                        </li>
-
-                        <li class="govuk-tabs__list-item">
                           <a class="govuk-tabs__tab" href="case-worker-other-parties.html">
                             Other parties
                           </a>
@@ -100,17 +94,19 @@
                           </a>
                         </li>
 
-                        <li class="govuk-tabs__list-item">
+                        <!-- <li class="govuk-tabs__list-item">
                           <a class="govuk-tabs__tab" href="index.html">
                             Hearings
                           </a>
-                        </li>
+                        </li> -->
 
+                        {% if data['correspondenceStatus'] === 1 %}
                         <li class="govuk-tabs__list-item">
-                          <a class="govuk-tabs__tab" href="case-worker-correspondence.html">
-                            Correspondence
-                          </a>
-                        </li>
+                            <a class="govuk-tabs__tab" href="case-worker-correspondence.html">
+                                Correspondence
+                            </a>
+                          </li>
+                        {% endif %}
 
                       <li class="govuk-tabs__list-item">
                           <a class="govuk-tabs__tab" href="case-worker-messages.html">
@@ -118,13 +114,13 @@
                           </a>
                         </li>
 
-                        <li class="govuk-tabs__list-item">
-                          <a class="govuk-tabs__tab" href="case-worker-notes.html">
-                          --->
-                          </a>
-                        </li>
-
                         <!-- <li class="govuk-tabs__list-item">
+                          <a class="govuk-tabs__tab" href="case-worker-notes.html">
+                          ---
+                          </a>
+                        </li> -->
+
+                        <li class="govuk-tabs__list-item">
                           <a class="govuk-tabs__tab" href="case-worker-history.html">
                             History
                           </a>
@@ -134,7 +130,7 @@
                           <a class="govuk-tabs__tab" href="case-worker-payments.html">
                             Payments
                           </a>
-                        </li> -->
+                        </li>
 
                       </ul>
 
@@ -149,6 +145,17 @@
                             Order 2
                           </dt>
                           <dl class="govuk-summary-list">
+                            <div class="govuk-summary-list__row">
+                              <dt class="govuk-summary-list__value">
+                                Order
+                              </dt>
+                              <dd class="govuk-summary-list__value">
+                                <a href="">gatekeepingorder.pdf</a>
+                              </dd>
+                              <dd class="govuk-summary-list__value">
+                                &nbsp;
+                              </dd>
+                            </div>
                             <div class="govuk-summary-list__row">
                               <dt class="govuk-summary-list__value">
                                 Order type
@@ -166,7 +173,7 @@
                                 Date issued
                               </dt>
                               <dd class="govuk-summary-list__value">
-                                7 August 2022
+                                Pending check and send
                               </dd>
                               <dd class="govuk-summary-list__value">
                                 &nbsp;
@@ -175,10 +182,14 @@
 
                             <div class="govuk-summary-list__row">
                               <dt class="govuk-summary-list__value">
-                                Lorem ipsum
+                                Ordered by
                               </dt>
                               <dd class="govuk-summary-list__value">
-                                Lorem ipsum
+                              {% if data['gatekeeping-judge-name'] %}
+                                {{ data['gatekeeping-judge-name'] }}
+                              {% else %}
+                                His Honour Judge Sherlock Holmes
+                              {% endif %}  
                               </dd>
                               <dd class="govuk-summary-list__value">
                                 &nbsp;
@@ -192,6 +203,17 @@
                             Order 1
                           </dt>
                           <dl class="govuk-summary-list">
+                            <div class="govuk-summary-list__row">
+                              <dt class="govuk-summary-list__value">
+                                Order
+                              </dt>
+                              <dd class="govuk-summary-list__value">
+                                <a href="">order123.pdf</a>
+                              </dd>
+                              <dd class="govuk-summary-list__value">
+                                &nbsp;
+                              </dd>
+                            </div>
                             <div class="govuk-summary-list__row">
                               <dt class="govuk-summary-list__value">
                                 Order type
@@ -218,10 +240,10 @@
 
                             <div class="govuk-summary-list__row">
                               <dt class="govuk-summary-list__value">
-                                Lorem ipsum
+                                Ordered by
                               </dt>
                               <dd class="govuk-summary-list__value">
-                                Lorem ipsum
+                                Her Honour Judge Jones
                               </dd>
                               <dd class="govuk-summary-list__value">
                                 &nbsp;
