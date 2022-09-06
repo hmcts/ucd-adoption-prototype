@@ -372,24 +372,63 @@
                               </dl>
 
 
-                              <h3 class="govuk-heading-s govuk-!-margin-top-9">Recipient</h3>
+                              <h3 class="govuk-heading-s govuk-!-margin-top-9">Parties</h3>
                       
                               <dl class="govuk-summary-list">
                                 <div class="govuk-summary-list__row">
                                   <dt class="govuk-summary-list__key">
-                                    Recipient for this order
+                                    Ordered by
                                   </dt>
                                   <dd class="govuk-summary-list__value">
-                                    Applicant: Janet Jones
+                                    {% if data['gatekeeping-judge-name'] %}
+                                      {{ data['gatekeeping-judge-name']}}
+                                    {% else %}
+                                      His Honour Judge Sherlock Holmes
+                                    {% endif %}
                                   </dd>
                                   <dd class="govuk-summary-list__actions">
                                     <a class="govuk-link" href="case-worker-gatekeeping-order-1.html">
-                                      Change<span class="govuk-visually-hidden"> recipient</span>
+                                      Change<span class="govuk-visually-hidden"> judge</span>
+                                    </a>
+                                  </dd>
+                                </div>
+                                <div class="govuk-summary-list__row">
+                                  <dt class="govuk-summary-list__key">
+                                    To be served to
+                                  </dt>
+                                  <dd class="govuk-summary-list__value">
+                                    {% if data['gatekeeping-recipient-birth-mother'] %}
+                                      <p>{{ data['gatekeeping-recipient-birth-mother'] }}</p>
+                                    {% endif %}
+                                    {% if data['gatekeeping-recipient-birth-father'] %}
+                                      <p>{{ data['gatekeeping-recipient-birth-father'] }}</p>
+                                    {% endif %}
+                                    {% if data['gatekeeping-recipient-applicants'] %}
+                                      <p>{{ data['gatekeeping-recipient-applicants'] }}</p>
+                                    {% endif %}
+                                    {% if data['gatekeeping-recipient-child-la'] %}
+                                      <p>{{ data['gatekeeping-recipient-child-la'] }}</p>
+                                    {% endif %}
+                                    {% if data['gatekeeping-recipient-applicants-la'] %}
+                                      <p>{{ data['gatekeeping-recipient-applicants-la'] }}</p>
+                                    {% endif %}
+                                    {% if data['gatekeeping-recipient-other-adoption-agency'] %}
+                                      <p>{{ data['gatekeeping-recipient-other-adoption-agency'] }}</p>
+                                    {% endif %}
+                                    {% if data['gatekeeping-recipient-other-party-pr'] %}
+                                      <p>{{ data['gatekeeping-recipient-other-party-pr'] }}</p>
+                                    {% endif %}
+                                    {% if data['gatekeeping-recipient-cafcass'] %}
+                                      <p>{{ data['gatekeeping-recipient-cafcass'] }}</p>
+                                    {% endif %}
+                                  </dd>
+                                  <dd class="govuk-summary-list__actions">
+                                    <a class="govuk-link" href="case-worker-gatekeeping-order-4-select-recipient.html">
+                                      Change<span class="govuk-visually-hidden"> served to recipient</span>
                                     </a>
                                   </dd>
                                 </div>
                               </dl>
-
 
                           </div>
                         </main>
