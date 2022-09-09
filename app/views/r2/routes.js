@@ -2344,6 +2344,9 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
       else if (req.body['xui-type-order'] === 'adoption') {
         res.redirect('/r2/x-ui/case-worker/case-worker-gatekeeping-order-creation-final-adoption-1')
       }
+      else if (req.body['xui-type-order'] === 'general') {
+        res.redirect('/r2/x-ui/case-worker/case-worker-general-directions-order-1')
+      }
     }
     else {
       res.redirect('/r2/x-ui/case-worker/case-worker-gatekeeping-order-creation-manage-orders')
@@ -2464,6 +2467,36 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
       res.redirect('/r2/x-ui/case-worker/case-worker-gatekeeping-order-check-your-answers')
     }
   })
+
+
+
+  // ********************************** GENERAL DIRECTIONS ORDER **********************************
+  router.post('/r2/x-ui/case-worker/case-worker-general-directions-order-1', function(req, res) {
+    if (req.body['submit-button'] === 'continue') {
+      req.session.data.generalDirectionsPreamble = req.body['general-directions-preamble']
+      if (req.body['general-directions-order-type-of-order'] !== 'general-no-hearing') {
+        res.redirect('/r2/x-ui/case-worker/case-worker-general-directions-order-2')
+      }
+    }
+    else {
+      res.redirect('/r2/x-ui/case-worker/index')
+    }
+  })
+
+
+  router.post('/r2/x-ui/case-worker/case-worker-general-directions-order-2', function(req, res) {
+    if (req.body['submit-button'] === 'continue') {
+      res.redirect('/r2/x-ui/case-worker/case-worker-general-directions-order-2')
+    }
+    else {
+      res.redirect('/r2/x-ui/case-worker/case-worker-general-directions-order-1')
+    }
+  })
+
+
+
+
+
 
 
   // ********************************** FINAL ADOPTION ORDER **********************************
