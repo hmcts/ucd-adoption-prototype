@@ -2474,6 +2474,7 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
   router.post('/r2/x-ui/case-worker/case-worker-general-directions-order-1', function(req, res) {
     if (req.body['submit-button'] === 'continue') {
       req.session.data.generalDirectionsPreamble = req.body['general-directions-preamble']
+      req.session.data.generalDirectionsTypeOfOrder = req.body['general-directions-order-type-of-order']
       if (req.body['general-directions-order-type-of-order'] !== 'general-no-hearing') {
         res.redirect('/r2/x-ui/case-worker/case-worker-general-directions-order-2')
       }
@@ -2486,10 +2487,49 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
 
   router.post('/r2/x-ui/case-worker/case-worker-general-directions-order-2', function(req, res) {
     if (req.body['submit-button'] === 'continue') {
-      res.redirect('/r2/x-ui/case-worker/case-worker-general-directions-order-2')
+      console.log(req.session.data.generalDirectionsTypeOfOrder)
+      if (req.session.data.generalDirectionsTypeOfOrder === 'general-with-hearing' || req.session.data.generalDirectionsTypeOfOrder === 'general-no-hearing') {
+        res.redirect('/r2/x-ui/case-worker/case-worker-general-directions-order-3-1-general')  
+      }
+      else if (req.session.data.generalDirectionsTypeOfOrder === 'production') {
+        res.redirect('/r2/x-ui/case-worker/case-worker-general-directions-order-3-2-production')  
+      }
+      else {
+        res.redirect('/r2/x-ui/case-worker/case-worker-general-directions-order-3-3-disclosure')  
+      }
     }
     else {
       res.redirect('/r2/x-ui/case-worker/case-worker-general-directions-order-1')
+    }
+  })
+
+
+  router.post('/r2/x-ui/case-worker/case-worker-general-directions-order-3-1-general', function(req, res) {
+    if (req.body['submit-button'] === 'continue') {
+      res.redirect('/r2/x-ui/case-worker/case-worker-general-directions-order-3-1-general')
+    }
+    else {
+      res.redirect('/r2/x-ui/case-worker/case-worker-general-directions-order-2')
+    }
+  })
+
+
+  router.post('/r2/x-ui/case-worker/case-worker-general-directions-order-3-2-production', function(req, res) {
+    if (req.body['submit-button'] === 'continue') {
+      res.redirect('/r2/x-ui/case-worker/case-worker-general-directions-order-3-2-production')
+    }
+    else {
+      res.redirect('/r2/x-ui/case-worker/case-worker-general-directions-order-2')
+    }
+  })
+
+
+  router.post('/r2/x-ui/case-worker/case-worker-general-directions-order-3-3-disclosure', function(req, res) {
+    if (req.body['submit-button'] === 'continue') {
+      res.redirect('/r2/x-ui/case-worker/case-worker-general-directions-order-3-3-disclosure')
+    }
+    else {
+      res.redirect('/r2/x-ui/case-worker/case-worker-general-directions-order-2')
     }
   })
 
