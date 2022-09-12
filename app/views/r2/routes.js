@@ -2478,6 +2478,9 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
       if (req.body['general-directions-order-type-of-order'] !== 'general-no-hearing') {
         res.redirect('/r2/x-ui/case-worker/case-worker-general-directions-order-2')
       }
+      else {
+        res.redirect('/r2/x-ui/case-worker/case-worker-general-directions-order-3-1-general')
+      }
     }
     else {
       res.redirect('/r2/x-ui/case-worker/index')
