@@ -2509,7 +2509,12 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
 
   router.post('/r2/x-ui/case-worker/case-worker-general-directions-order-3-1-general', function(req, res) {
     if (req.body['submit-button'] === 'continue') {
-      res.redirect('/r2/x-ui/case-worker/case-worker-general-directions-order-3-1-general')
+      if (req.body['warning-notices-child'] !== undefined || req.body['warning-notices-penal'] !== undefined) {
+        res.redirect('/r2/x-ui/case-worker/case-worker-general-directions-order-4-1-warning-notices')
+      }
+      else {
+        res.redirect('/r2/x-ui/case-worker/case-worker-general-directions-order-5-1-general-check-your-answers')
+      }
     }
     else {
       res.redirect('/r2/x-ui/case-worker/case-worker-general-directions-order-2')
