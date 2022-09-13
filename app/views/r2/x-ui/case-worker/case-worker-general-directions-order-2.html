@@ -31,25 +31,25 @@
                             </legend>
                             <div class="govuk-radios" data-module="govuk-radios">
                               <div class="govuk-radios__item">
-                                <input class="govuk-radios__input" id="issues-resolution" name="estimated-duration-further-radios" type="radio" value="Issues resolution">
+                                <input class="govuk-radios__input" id="issues-resolution" name="general-directions-listing-type" type="radio" value="Issues resolution" {% if data['general-directions-listing-type'] === 'Issues resolution' %} checked {% endif %}>
                                 <label class="govuk-label govuk-radios__label" for="issues-resolution">
                                   Issues resolution
                                 </label>
                               </div>
                               <div class="govuk-radios__item">
-                                <input class="govuk-radios__input" id="case-management" name="estimated-duration-further-radios" type="radio" value="Case management">
+                                <input class="govuk-radios__input" id="case-management" name="general-directions-listing-type" type="radio" value="Case management" {% if data['general-directions-listing-type'] === 'Case management' %} checked {% endif %}>
                                 <label class="govuk-label govuk-radios__label" for="case-management">
                                   Case management
                                 </label>
                               </div>
                               <div class="govuk-radios__item">
-                                <input class="govuk-radios__input" id="further-directions" name="estimated-duration-further-radios" type="radio" value="Further directions">
+                                <input class="govuk-radios__input" id="further-directions" name="general-directions-listing-type" type="radio" value="Further directions" {% if data['general-directions-listing-type'] === 'Further directions' %} checked {% endif %}>
                                 <label class="govuk-label govuk-radios__label" for="further-directions">
                                   Further directions
                                 </label>
                               </div>
                               <div class="govuk-radios__item">
-                                <input class="govuk-radios__input" id="final-hearing" name="estimated-duration-further-radios" type="radio" value="Final hearing">
+                                <input class="govuk-radios__input" id="final-hearing" name="general-directions-listing-type" type="radio" value="Final hearing" {% if data['general-directions-listing-type'] === 'Final hearing' %} checked {% endif %}>
                                 <label class="govuk-label govuk-radios__label" for="final-hearing">
                                   Final hearing
                                 </label>
