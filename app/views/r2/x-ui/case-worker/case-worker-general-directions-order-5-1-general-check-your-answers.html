@@ -22,7 +22,7 @@
                       
                       
                               <!-- <h3 class="govuk-heading-s">Preamble</h3> -->
-                              <h2 class="govuk-heading-m">General Directions Order</h2>
+                              <h2 class="govuk-heading-m govuk-!-margin-bottom-7">General Directions Order</h2>
                       
                               <dl class="govuk-summary-list">
                                 <div class="govuk-summary-list__row">
@@ -68,7 +68,7 @@
                                 </dl>
 
                                 {% if data['generalDirectionsTypeOfOrder'] !== 'general-no-hearing' %}
-                                <h3 class="govuk-heading-s govuk-!-margin-top-7">Hearing dates</h3>
+                                <h3 class="govuk-heading-s govuk-!-margin-top-9">Hearing dates</h3>
                       
                                 <dl class="govuk-summary-list">
                                   <div class="govuk-summary-list__row">
@@ -142,12 +142,12 @@
                               </dl>
                               {% endif %}
 
-                              <h3 class="govuk-heading-s govuk-!-margin-top-9">Directions you want to include on the order</h3>
+                              <h3 class="govuk-heading-s govuk-!-margin-top-9">Warning notices</h3>
                       
                               <dl class="govuk-summary-list">
                                 <div class="govuk-summary-list__row">
                                   <dt class="govuk-summary-list__key">
-                                    Warning notices
+                                    Child arrangements
                                   </dt>
                                   {% if data['gatekeeping-local-authority-checkboxes'] != undefined %}
                                   <dd class="govuk-summary-list__value">
