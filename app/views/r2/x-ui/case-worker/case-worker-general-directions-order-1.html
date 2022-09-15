@@ -17,7 +17,7 @@
                     <form action="/r2/x-ui/case-worker/case-worker-general-directions-order-1" method="post" class="form">
                       <div class="govuk-form-group">
                         <label class="govuk-label govuk-label--s govuk-!-margin-top-4" for="contact-by-email">
-                          Preamble
+                          1. Preamble
                         </label>
                         <div id="changed-name-hint" class="govuk-hint">
                           Copy and paste or type directly into the text box
@@ -27,7 +27,7 @@
 
                       <div class="govuk-form-group">
                         <label class="govuk-label govuk-label--s govuk-!-margin-top-3" for="contact-by-email">
-                          Ordered by
+                          2. Ordered by
                         </label>
                         <label class="govuk-label govuk-!-margin-top-4" for="contact-by-email">
                           Name and title of judge as it should appear on the order
@@ -39,7 +39,7 @@
                         <fieldset class="govuk-fieldset">
                           <div class="govuk-radios" data-module="govuk-radios">
                             <label class="govuk-label govuk-label--s govuk-!-margin-top-4 govuk-!-margin-bottom-3" for="contact-by-email">
-                              Type of order
+                              3. Type of order
                             </label>
                             <!-- <div id="changed-name-hint" class="govuk-hint">
                               Choose which judge to allocate to
@@ -47,13 +47,13 @@
                             <div class="govuk-radios__item">
                               <input class="govuk-radios__input" id="general-with-hearing" name="general-directions-order-type-of-order" type="radio" value="general-with-hearing" {% if data['general-directions-order-type-of-order'] === 'general-with-hearing' %} checked {% endif %}>
                               <label class="govuk-label govuk-radios__label" for="general-with-hearing">
-                                General order with a hearing
+                                General order with hearing
                               </label>
                             </div>
                             <div class="govuk-radios__item">
                               <input class="govuk-radios__input" id="general-no-hearing" name="general-directions-order-type-of-order" type="radio" value="general-no-hearing" {% if data['general-directions-order-type-of-order'] === 'general-no-hearing' %} checked {% endif %}>
                               <label class="govuk-label govuk-radios__label" for="general-no-hearing">
-                                General order, no hearing required
+                                General order without hearing
                               </label>
                             </div>
                             <div class="govuk-radios__item">
