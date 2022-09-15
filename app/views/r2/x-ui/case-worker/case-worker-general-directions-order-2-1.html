@@ -14,27 +14,24 @@
                   <h2 class="govuk-heading-m govuk-!-margin-top-0 govuk-!-margin-bottom-5">Child's name: Jane Austen</h2>
 
 
-                  <form action="/r2/x-ui/case-worker/case-worker-general-directions-order-2" method="post" class="form">
-                    <h3 class="govuk-heading-s">Existing hearings</h3>
-                    <p class="govuk-!-margin-bottom-1"><span class="govuk-!-font-weight-bold">Hearing 1</span> &ndash; 17 November 2022 9:00:00 &ndash; Initial hearing</p>
-                    <p class="govuk-!-margin-bottom-5"><span class="govuk-!-font-weight-bold">Hearing 2</span> &ndash; 4 December 2022 15:30:00 &ndash; Leave to oppose</p>
+                  <form action="/r2/x-ui/case-worker/case-worker-general-directions-order-2-1" method="post" class="form">
                     <div class="govuk-form-group">
                       <div class="govuk-radios" data-module="govuk-radios">
                         <label class="govuk-label govuk-!-margin-bottom-4 govuk-!-margin-top-7 govuk-!-font-weight-bold" for="sender-email-address">
-                          What do you want to do?
+                          Choose existing hearing
                         </label>
 
                         <div class="govuk-radios__item">
-                          <input class="govuk-radios__input" id="new" name="hearing-new-existing-radios" type="radio" value="Add a new hearing" {% if data['hearing-new-existing-radios'] == "Add a new hearing" %} checked {% endif %}>
-                          <label class="govuk-label govuk-radios__label" for="new">
-                            Add a new hearing
+                          <input class="govuk-radios__input" id="hearing-1" name="existing-hearing-radios" type="radio" value="hearing-1" {% if data['existingHearing'] == "hearing-1" %} checked {% endif %}>
+                          <label class="govuk-label govuk-radios__label" for="hearing-1">
+                            <span class="govuk-!-font-weight-bold">Hearing 1</span> &ndash; 17 November 2022 9:00:00 &ndash; Initial hearing
                           </label>
                         </div>
 
                         <div class="govuk-radios__item">
-                          <input class="govuk-radios__input" id="existing" name="hearing-new-existing-radios" type="radio" value="Use existing hearing" {% if data['hearing-new-existing-radios'] == "Use existing hearing" %} checked {% endif %}>
-                          <label class="govuk-label govuk-radios__label" for="existing">
-                            Use existing hearing
+                          <input class="govuk-radios__input" id="hearing-2" name="existing-hearing-radios" type="radio" value="hearing-2" {% if data['existingHearing'] == "hearing-2" %} checked {% endif %}>
+                          <label class="govuk-label govuk-radios__label" for="hearing-2">
+                            <span class="govuk-!-font-weight-bold">Hearing 2</span> &ndash; 4 December 2022 15:30:00 &ndash; Leave to oppose
                           </label>
                         </div>
                       </div>
