@@ -2490,7 +2490,7 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
 
   router.post('/r2/x-ui/case-worker/case-worker-general-directions-order-2', function(req, res) {
     if (req.body['submit-button'] === 'continue') {
-      if (req.body['hearing-new-existing-radios'] === 'new') {
+      if (req.body['hearing-new-existing-radios'] === 'Add a new hearing') {
         res.redirect('/r2/x-ui/case-worker/case-worker-general-directions-order-3')
       }
       else {
