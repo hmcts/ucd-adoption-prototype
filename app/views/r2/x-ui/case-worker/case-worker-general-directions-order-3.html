@@ -1,5 +1,5 @@
 {% block header %}
-{% include "includes/xui-header.html" %}
+{% include "layout-xui.html" %}
 {% endblock %}
 
 
@@ -56,8 +56,10 @@
                               </div>
                             </div>
                           </fieldset>
-                        </div>    
-
+                        </div> 
+                      </div>   
+                      
+                      <div class="govuk-form-group">
                         <fieldset class="govuk-fieldset" role="group" aria-describedby="date-told-la-hint">
                           <legend class="govuk-fieldset__legend govuk-fieldset__legend--l govuk-!-margin-bottom-1">
                             <label class="govuk-label govuk-label--s govuk-!-margin-top-2" for="LA directions">
@@ -122,6 +124,7 @@
                             </div>     
                           </div>
                         </fieldset>
+                      </div>
                       
                         <label class="govuk-label govuk-label--s govuk-!-margin-top-7" for="contact-by-email">
                           Length of hearing
@@ -161,11 +164,81 @@
                         </div>
                         <!-- <input class="govuk-input govuk-date-input__input govuk-input--width-3" id="general-directions-length-hearing-length" name="general-directions-length-hearing-length" type="text" value="{{ data['general-directions-length-hearing-length'] }}"> -->
                                                                                             
-                        <label class="govuk-label govuk-label--s govuk-!-margin-top-7" for="contact-by-email">
-                          Name of court
-                        </label>
-                        <input class="govuk-input govuk-!-width-two-thirds" id="general-directions-court-name" name="general-directions-court-name" type="text" value="Manchester Family Court">
-                      </div>
+                        <div class="govuk-form-group">
+                          <label class="govuk-label govuk-label--s govuk-!-margin-top-7" for="contact-by-email">
+                            Name of judge
+                          </label>
+                          <input class="govuk-input govuk-!-width-two-thirds" id="general-directions-hearing-judge" name="general-directions-hearing-judge" type="text" value="{{ data['general-directions-hearing-judge'] }}">
+
+                          <label class="govuk-label govuk-label--s govuk-!-margin-top-7" for="contact-by-email">
+                            Name of court
+                          </label>
+                          <input class="govuk-input govuk-!-width-two-thirds" id="general-directions-court-name" name="general-directions-court-name" type="text" value="Manchester Family Court">
+                        </div>
+
+                        <div class="govuk-form-group">
+                          <div class="govuk-radios" data-module="govuk-radios">
+                            <label class="govuk-label govuk-!-margin-bottom-4 govuk-!-margin-top-7 govuk-!-font-weight-bold" for="sender-email-address">
+                              Is an interpreter needed?
+                            </label>
+    
+                            <div class="govuk-radios__item">
+                              <input class="govuk-radios__input" id="Yes" name="interpreter-radios" type="radio" value="Remote" {% if data['interpreter-radios'] == "Yes" %} checked {% endif %} data-aria-controls="conditional-contact">
+                              <label class="govuk-label govuk-radios__label" for="Yes">
+                                Yes
+                              </label>
+                            </div>
+    
+                            <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-contact">
+                              <div class="govuk-form-group">
+                                <label class="govuk-label" for="contact-by-email">
+                                  What language do you need an interpreter for?
+                                </label>
+                                <input class="govuk-input govuk-!-width-two-thirds" id="interpreter-language" name="interpreter-language" type="text" spellcheck="false" value="{{ data['interpreter-language'] }}">
+                              </div>
+                            </div>
+
+                            <div class="govuk-radios__item">
+                              <input class="govuk-radios__input" id="No" name="interpreter-radios" type="radio" value="In person" {% if data['interpreter-radios'] == "No" %} checked {% endif %}>
+                              <label class="govuk-label govuk-radios__label" for="No">
+                                No
+                              </label>
+                            </div>
+                          </div>
+                        </div>
+    
+                        <div class="govuk-form-group">
+                          <div class="govuk-radios" data-module="govuk-radios">
+                            <label class="govuk-label govuk-!-margin-bottom-4 govuk-!-margin-top-7 govuk-!-font-weight-bold" for="sender-email-address">
+                              Method of hearing
+                            </label>
+    
+                            <div class="govuk-radios__item">
+                              <input class="govuk-radios__input" id="remote" name="interpreter-radios" type="radio" value="Remote" {% if data['interpreter-radios'] == "Remote" %} checked {% endif %}>
+                              <label class="govuk-label govuk-radios__label" for="remote">
+                                Remote
+                              </label>
+                            </div>
+    
+                            <div class="govuk-radios__item">
+                              <input class="govuk-radios__input" id="in-person" name="interpreter-radios" type="radio" value="In person" {% if data['interpreter-radios'] == "In person" %} checked {% endif %}>
+                              <label class="govuk-label govuk-radios__label" for="in-person">
+                                In person
+                              </label>
+                            </div>
+                          </div>
+                        </div>
+                      
+                        <div class="govuk-form-group">
+                          <label class="govuk-label govuk-label--s govuk-!-margin-top-4" for="contact-by-email">
+                            Are there accessibility requirements?
+                          </label>
+                          <!-- <div id="changed-name-hint" class="govuk-hint">
+                            Copy and paste or type directly into the text box
+                          </div>                           -->
+                          <textarea class="govuk-textarea" id="hearing-accessibility-requirements" name="hearing-accessibility-requirements" rows="5">{{ data['hearing-accessibility-requirements'] }}</textarea>
+                        </div>
+
                     
                       <!-- Buttons -->
                       {% include "../../../includes/buttons-xui.html" %}
