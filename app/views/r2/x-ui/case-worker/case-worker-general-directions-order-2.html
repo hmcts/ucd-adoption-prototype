@@ -25,14 +25,14 @@
                         </label>
 
                         <div class="govuk-radios__item">
-                          <input class="govuk-radios__input" id="new" name="hearing-new-existing-radios" type="radio" value="Add a new hearing" {% if data['hearing-new-existing-radios'] == "Add a new hearing" %} checked {% endif %}>
+                          <input class="govuk-radios__input" id="new" name="hearing-new-existing-radios" type="radio" value="new" {% if data['hearing-new-existing-radios'] == "new" %} checked {% endif %}>
                           <label class="govuk-label govuk-radios__label" for="new">
                             Add a new hearing
                           </label>
                         </div>
 
                         <div class="govuk-radios__item">
-                          <input class="govuk-radios__input" id="existing" name="hearing-new-existing-radios" type="radio" value="Use existing hearing" {% if data['hearing-new-existing-radios'] == "Use existing hearing" %} checked {% endif %}>
+                          <input class="govuk-radios__input" id="existing" name="hearing-new-existing-radios" type="radio" value="existing" {% if data['hearing-new-existing-radios'] == "existing" %} checked {% endif %}>
                           <label class="govuk-label govuk-radios__label" for="existing">
                             Use existing hearing
                           </label>
