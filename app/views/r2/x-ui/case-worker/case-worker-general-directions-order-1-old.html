@@ -47,15 +47,15 @@
                             <div class="govuk-radios__item">
                               <input class="govuk-radios__input" id="general-with-hearing" name="general-directions-order-type-of-order" type="radio" value="general-with-hearing" {% if data['general-directions-order-type-of-order'] === 'general-with-hearing' %} checked {% endif %}>
                               <label class="govuk-label govuk-radios__label" for="general-with-hearing">
-                                General order
+                                General order with hearing
                               </label>
                             </div>
-                            <!-- <div class="govuk-radios__item">
+                            <div class="govuk-radios__item">
                               <input class="govuk-radios__input" id="general-no-hearing" name="general-directions-order-type-of-order" type="radio" value="general-no-hearing" {% if data['general-directions-order-type-of-order'] === 'general-no-hearing' %} checked {% endif %}>
                               <label class="govuk-label govuk-radios__label" for="general-no-hearing">
                                 General order without hearing
                               </label>
-                            </div> -->
+                            </div>
                             <div class="govuk-radios__item">
                               <input class="govuk-radios__input" id="production" name="general-directions-order-type-of-order" type="radio" value="production" {% if data['general-directions-order-type-of-order'] === 'production' %} checked {% endif %}>
                               <label class="govuk-label govuk-radios__label" for="production">
@@ -72,43 +72,6 @@
                         </fieldset>
                       </div>
 
-                      <div class="govuk-form-group">
-                        <div class="govuk-radios" data-module="govuk-radios">
-                          <label class="govuk-label govuk-!-margin-bottom-4 govuk-!-margin-top-7 govuk-!-font-weight-bold" for="sender-email-address">
-                            4. Hearing options
-                          </label>
-  
-                          <div class="govuk-radios__item">
-                            <input class="govuk-radios__input" id="new" name="hearing-new-existing-radios" type="radio" value="Add a new hearing" {% if data['hearing-new-existing-radios'] == "Add a new hearing" %} checked {% endif %}>
-                            <label class="govuk-label govuk-radios__label" for="new">
-                              Add a new hearing
-                            </label>
-                          </div>
-  
-                          <div class="govuk-radios__item">
-                            <input class="govuk-radios__input" id="existing" name="hearing-new-existing-radios" type="radio" value="Use existing hearing" {% if data['hearing-new-existing-radios'] == "Use existing hearing" %} checked {% endif %}>
-                            <label class="govuk-label govuk-radios__label" for="existing">
-                              Use existing hearing 1 - 17 November 2022 9:00:00 - initial hearing
-                            </label>
-                          </div>
-  
-                          <div class="govuk-radios__item">
-                            <input class="govuk-radios__input" id="existing" name="hearing-new-existing-radios" type="radio" value="Use existing hearing" {% if data['hearing-new-existing-radios'] == "Use existing hearing" %} checked {% endif %}>
-                            <label class="govuk-label govuk-radios__label" for="existing">
-                              Use existing hearing 2 - 4 December 2022 15:30:00 - leave to oppose
-                            </label>
-                          </div>
-
-                          <div class="govuk-radios__item">
-                            <input class="govuk-radios__input" id="without" name="hearing-new-existing-radios" type="radio" value="No hearing needed" {% if data['hearing-new-existing-radios'] == "No hearing needed" %} checked {% endif %}>
-                            <label class="govuk-label govuk-radios__label" for="without">
-                              No hearing needed
-                            </label>
-                          </div>
-
-                        </div>
-                      </div>
-  
                         
                       <!-- Buttons -->
                       {% include "../../../includes/buttons-xui.html" %}
