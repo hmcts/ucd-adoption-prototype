@@ -41,7 +41,7 @@
                             <div class="govuk-radios__item">
                               <input class="govuk-radios__input" id="disclosure-of-address" name="general-directions-order-type-of-order" type="radio" value="disclosure-of-address" {% if data['general-directions-order-type-of-order'] === 'disclosure-of-address' %} checked {% endif %}>
                               <label class="govuk-label govuk-radios__label" for="disclosure-of-address">
-                                Disclosure or address
+                                Disclosure of address
                               </label>
                             </div>
                           </div>                        
@@ -49,9 +49,29 @@
                       </div>
 
                       <div class="govuk-form-group">
+                        <label class="govuk-label govuk-label--s govuk-!-margin-top-3" for="contact-by-email">
+                          Ordered by
+                        </label>
+                        <label class="govuk-label" for="contact-by-email">
+                          Enter the name of the person issuing this order
+                        </label>
+                        <input class="govuk-input govuk-!-width-two-thirds" id="general-directions-judge-name" name="general-directions-judge-name" type="text" value="{{ data['general-directions-judge-name'] }}">
+                      </div>                      
+
+                      <div class="govuk-form-group">
+                        <label class="govuk-label govuk-label--s govuk-!-margin-top-7" for="contact-by-email">
+                          1. Preamble
+                        </label>
+                        <div id="changed-name-hint" class="govuk-hint">
+                          Copy and paste or type directly into the text box
+                        </div>                          
+                        <textarea class="govuk-textarea" id="general-directions-preamble" name="general-directions-preamble" rows="5">{{ data['general-directions-preamble'] }}</textarea>
+                      </div>
+
+                      <div class="govuk-form-group">
                         <div class="govuk-radios" data-module="govuk-radios">
                           <label class="govuk-label govuk-!-margin-bottom-4 govuk-!-margin-top-7 govuk-!-font-weight-bold" for="sender-email-address">
-                            Hearing options
+                            2. Hearing options
                           </label>
   
                           <div class="govuk-radios__item">
@@ -81,28 +101,8 @@
                               No hearing needed
                             </label>
                           </div>
-
                         </div>
                       </div>
-                      <div class="govuk-form-group">
-                        <label class="govuk-label govuk-label--s govuk-!-margin-top-7" for="contact-by-email">
-                          Preamble
-                        </label>
-                        <div id="changed-name-hint" class="govuk-hint">
-                          Copy and paste or type directly into the text box
-                        </div>                          
-                        <textarea class="govuk-textarea" id="general-directions-preamble" name="general-directions-preamble" rows="5">{{ data['general-directions-preamble'] }}</textarea>
-                      </div>
-
-                      <div class="govuk-form-group">
-                        <label class="govuk-label govuk-label--s govuk-!-margin-top-3" for="contact-by-email">
-                          Ordered by
-                        </label>
-                        <label class="govuk-label govuk-!-margin-top-4" for="contact-by-email">
-                          Name and title of judge as it should appear on the order
-                        </label>
-                        <input class="govuk-input govuk-!-width-two-thirds" id="general-directions-judge-name" name="general-directions-judge-name" type="text" value="{{ data['general-directions-judge-name'] }}">
-                      </div>                      
 
   
                         

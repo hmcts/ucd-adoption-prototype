@@ -14,7 +14,7 @@
                     <h2 class="govuk-heading-l govuk-!-margin-bottom-3">#1234-5678-0921-2722</h2>
                     <h2 class="govuk-heading-m govuk-!-margin-top-0 govuk-!-margin-bottom-7">Child's name: Jane Austen</h2>
 
-                    <form action="/r2/x-ui/case-worker/case-worker-general-directions-order-4-1-general" method="post" class="form">
+                    <form action="/r2/x-ui/case-worker/case-worker-general-directions-order-3-1-general" method="post" class="form">
                       <div id="changed-name-hint" class="govuk-hint">
                         Select all directions you want to include on the order
                       </div>  
@@ -23,7 +23,7 @@
                         <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
                           <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
                             <label class="govuk-label govuk-label--s" for="warning-notices">
-                              Warning notices
+                              4. Warning notices
                             </label>
                           </legend>
                           <div class="govuk-checkboxes" data-module="govuk-checkboxes">
@@ -47,7 +47,7 @@
                         <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
                           <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
                             <label class="govuk-label govuk-label--s" for="hearings">
-                              Hearings
+                              5. Hearings
                             </label>
                           </legend>
                           <div class="govuk-checkboxes" data-module="govuk-checkboxes">
@@ -71,7 +71,7 @@
                         <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
                           <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
                             <label class="govuk-label govuk-label--s" for="filing-documents">
-                              Filing of documents
+                              6. Filing of documents
                             </label>
                           </legend>
                           <div class="govuk-checkboxes" data-module="govuk-checkboxes">
@@ -93,15 +93,13 @@
                       
                       <div class="govuk-form-group">
                         <label class="govuk-label govuk-label--s govuk-!-margin-top-4" for="contact-by-email">
-                          Additional orders
+                          7. Additional paragraphs
                         </label>
                         <div id="changed-name-hint" class="govuk-hint">
-                          You can copy and paste directly into the text box
+                          Copy and paste or type any additional paragraphs or orders directly into the text box. 
                         </div>                          
                         <textarea class="govuk-textarea" id="general-directions-additional-orders" name="general-directions-additional-orders" rows="5">{{ data['general-directions-additional-orders'] }}</textarea>
                       </div>
-
-
                         
                       <!-- Buttons -->
                       {% include "../../../includes/buttons-xui.html" %}
