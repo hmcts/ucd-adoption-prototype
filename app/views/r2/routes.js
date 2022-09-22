@@ -2475,11 +2475,20 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
     if (req.body['submit-button'] === 'continue') {
       req.session.data.generalDirectionsPreamble = req.body['general-directions-preamble']
       req.session.data.generalDirectionsTypeOfOrder = req.body['general-directions-order-type-of-order']
-      if (req.body['general-directions-order-type-of-order'] !== 'general-no-hearing') {
-        res.redirect('/r2/x-ui/case-worker/case-worker-general-directions-order-2')
+      console.log(req.body['hearing-new-existing-radios'])
+      if (req.body['hearing-new-existing-radios'] === 'new') {
+        res.redirect('/r2/x-ui/case-worker/case-worker-general-directions-order-3')
       }
       else {
-        res.redirect('/r2/x-ui/case-worker/case-worker-general-directions-order-4-1-general')
+        if (req.body['general-directions-order-type-of-order'] == 'general') {
+          res.redirect('/r2/x-ui/case-worker/case-worker-general-directions-order-4-1-general')
+        }
+        else if (req.body['general-directions-order-type-of-order'] == 'production') {
+          res.redirect('/r2/x-ui/case-worker/case-worker-general-directions-order-4-2-production')
+        }
+        else {
+          res.redirect('/r2/x-ui/case-worker/case-worker-general-directions-order-4-3-disclosure')
+        }
       }
     }
     else {
