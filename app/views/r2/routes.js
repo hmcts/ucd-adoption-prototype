@@ -2475,19 +2475,20 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
     if (req.body['submit-button'] === 'continue') {
       req.session.data.generalDirectionsPreamble = req.body['general-directions-preamble']
       req.session.data.generalDirectionsTypeOfOrder = req.body['general-directions-order-type-of-order']
+      req.session.data.generalDirectionsHearing = req.body['hearing-new-existing-radios']
       console.log(req.body['hearing-new-existing-radios'])
       if (req.body['hearing-new-existing-radios'] === 'new') {
-        res.redirect('/r2/x-ui/case-worker/case-worker-general-directions-order-3')
+        res.redirect('/r2/x-ui/case-worker/case-worker-general-directions-order-2')
       }
       else {
         if (req.body['general-directions-order-type-of-order'] == 'general') {
-          res.redirect('/r2/x-ui/case-worker/case-worker-general-directions-order-4-1-general')
+          res.redirect('/r2/x-ui/case-worker/case-worker-general-directions-order-3-1-general')
         }
         else if (req.body['general-directions-order-type-of-order'] == 'production') {
-          res.redirect('/r2/x-ui/case-worker/case-worker-general-directions-order-4-2-production')
+          res.redirect('/r2/x-ui/case-worker/case-worker-general-directions-order-3-2-production')
         }
         else {
-          res.redirect('/r2/x-ui/case-worker/case-worker-general-directions-order-4-3-disclosure')
+          res.redirect('/r2/x-ui/case-worker/case-worker-general-directions-order-3-3-disclosure')
         }
       }
     }
@@ -2497,10 +2498,10 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
   })
 
 
-  router.post('/r2/x-ui/case-worker/case-worker-general-directions-order-2', function(req, res) {
+  router.post('/r2/x-ui/case-worker/case-worker-general-directions-order-2-old', function(req, res) {
     if (req.body['submit-button'] === 'continue') {
       if (req.body['hearing-new-existing-radios'] === 'new') {
-        res.redirect('/r2/x-ui/case-worker/case-worker-general-directions-order-3')
+        res.redirect('/r2/x-ui/case-worker/case-worker-general-directions-order-2')
       }
       else {
         res.redirect('/r2/x-ui/case-worker/case-worker-general-directions-order-2-1')
@@ -2516,36 +2517,51 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
     if (req.body['submit-button'] === 'continue') {
       console.log(req.session.data.generalDirectionsTypeOfOrder)
       if (req.session.data.generalDirectionsTypeOfOrder === 'general-with-hearing' || req.session.data.generalDirectionsTypeOfOrder === 'general-no-hearing') {
-        res.redirect('/r2/x-ui/case-worker/case-worker-general-directions-order-4-1-general')  
+        res.redirect('/r2/x-ui/case-worker/case-worker-general-directions-order-3-1-general')  
       }
       else if (req.session.data.generalDirectionsTypeOfOrder === 'production') {
-        res.redirect('/r2/x-ui/case-worker/case-worker-general-directions-order-4-2-production')  
+        res.redirect('/r2/x-ui/case-worker/case-worker-general-directions-order-3-2-production')  
       }
       else {
-        res.redirect('/r2/x-ui/case-worker/case-worker-general-directions-order-4-3-disclosure')  
+        res.redirect('/r2/x-ui/case-worker/case-worker-general-directions-order-3-3-disclosure')  
       }
     }
     else {
-      res.redirect('/r2/x-ui/case-worker/case-worker-general-directions-order-2')
+      res.redirect('/r2/x-ui/case-worker/case-worker-general-directions-order-2-old')
     }
   })
 
 
-  router.post('/r2/x-ui/case-worker/case-worker-general-directions-order-3', function(req, res) {
+  router.post('/r2/x-ui/case-worker/case-worker-general-directions-order-2', function(req, res) {
     if (req.body['submit-button'] === 'continue') {
       console.log(req.session.data.generalDirectionsTypeOfOrder)
-      if (req.session.data.generalDirectionsTypeOfOrder === 'general-with-hearing' || req.session.data.generalDirectionsTypeOfOrder === 'general-no-hearing') {
-        res.redirect('/r2/x-ui/case-worker/case-worker-general-directions-order-4-1-general')  
+      if (req.session.data.generalDirectionsTypeOfOrder === 'general') {
+        res.redirect('/r2/x-ui/case-worker/case-worker-general-directions-order-3-1-general')  
       }
       else if (req.session.data.generalDirectionsTypeOfOrder === 'production') {
-        res.redirect('/r2/x-ui/case-worker/case-worker-general-directions-order-4-2-production')  
+        res.redirect('/r2/x-ui/case-worker/case-worker-general-directions-order-3-2-production')  
       }
       else {
-        res.redirect('/r2/x-ui/case-worker/case-worker-general-directions-order-4-3-disclosure')  
+        res.redirect('/r2/x-ui/case-worker/case-worker-general-directions-order-3-3-disclosure')  
       }
     }
     else {
-      if (req.session.data.generalDirectionsTypeOfOrder !== 'general-no-hearing') {
+      res.redirect('/r2/x-ui/case-worker/case-worker-general-directions-order-1')
+    }
+  })
+
+
+  router.post('/r2/x-ui/case-worker/case-worker-general-directions-order-3-1-general', function(req, res) {
+    if (req.body['submit-button'] === 'continue') {
+      if (req.body['warning-notices-child'] !== undefined || req.body['warning-notices-penal'] !== undefined) {
+        res.redirect('/r2/x-ui/case-worker/case-worker-general-directions-order-3-1-1-warning-notices')
+      }
+      else {
+        res.redirect('/r2/x-ui/case-worker/case-worker-general-directions-order-4-1-general-check-your-answers')
+      }
+    }
+    else {
+      if (req.session.data.generalDirectionsHearing === 'new') {
         res.redirect('/r2/x-ui/case-worker/case-worker-general-directions-order-2')
       }
       else {
@@ -2555,57 +2571,52 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
   })
 
 
-  router.post('/r2/x-ui/case-worker/case-worker-general-directions-order-4-1-general', function(req, res) {
+  router.post('/r2/x-ui/case-worker/case-worker-general-directions-order-3-2-production', function(req, res) {
     if (req.body['submit-button'] === 'continue') {
-      if (req.body['warning-notices-child'] !== undefined || req.body['warning-notices-penal'] !== undefined) {
-        res.redirect('/r2/x-ui/case-worker/case-worker-general-directions-order-4-1-1-warning-notices')
+      res.redirect('/r2/x-ui/case-worker/case-worker-general-directions-order-3-2-production')
+    }
+    else {
+      if (req.session.data.generalDirectionsHearing === 'new') {
+        res.redirect('/r2/x-ui/case-worker/case-worker-general-directions-order-2')
       }
       else {
-        res.redirect('/r2/x-ui/case-worker/case-worker-general-directions-order-5-1-general-check-your-answers')
+        res.redirect('/r2/x-ui/case-worker/case-worker-general-directions-order-1')
       }
     }
+  })
+
+
+  router.post('/r2/x-ui/case-worker/case-worker-general-directions-order-3-3-disclosure', function(req, res) {
+    if (req.body['submit-button'] === 'continue') {
+      res.redirect('/r2/x-ui/case-worker/case-worker-general-directions-order-3-3-disclosure')
+    }
     else {
-      res.redirect('/r2/x-ui/case-worker/case-worker-general-directions-order-3')
+      if (req.session.data.generalDirectionsHearing === 'new') {
+        res.redirect('/r2/x-ui/case-worker/case-worker-general-directions-order-2')
+      }
+      else {
+        res.redirect('/r2/x-ui/case-worker/case-worker-general-directions-order-1')
+      }
     }
   })
 
 
-  router.post('/r2/x-ui/case-worker/case-worker-general-directions-order-4-2-production', function(req, res) {
+  router.post('/r2/x-ui/case-worker/case-worker-general-directions-order-3-1-1-warning-notices', function(req, res) {
     if (req.body['submit-button'] === 'continue') {
-      res.redirect('/r2/x-ui/case-worker/case-worker-general-directions-order-4-2-production')
+      res.redirect('/r2/x-ui/case-worker/case-worker-general-directions-order-4-1-general-check-your-answers')
     }
     else {
-      res.redirect('/r2/x-ui/case-worker/case-worker-general-directions-order-3')
+      res.redirect('/r2/x-ui/case-worker/case-worker-general-directions-order-3-1-general')
     }
   })
 
 
-  router.post('/r2/x-ui/case-worker/case-worker-general-directions-order-4-3-disclosure', function(req, res) {
+  router.post('/r2/x-ui/case-worker/case-worker-general-directions-order-4-1-general-check-your-answers', function(req, res) {
     if (req.body['submit-button'] === 'continue') {
-      res.redirect('/r2/x-ui/case-worker/case-worker-general-directions-order-4-3-disclosure')
+      res.redirect('/r2/x-ui/case-worker/case-worker-general-directions-order-4-1-general-check-your-answers')
     }
     else {
-      res.redirect('/r2/x-ui/case-worker/case-worker-general-directions-order-3')
-    }
-  })
-
-
-  router.post('/r2/x-ui/case-worker/case-worker-general-directions-order-4-1-1-warning-notices', function(req, res) {
-    if (req.body['submit-button'] === 'continue') {
-      res.redirect('/r2/x-ui/case-worker/case-worker-general-directions-order-5-1-general-check-your-answers')
-    }
-    else {
-      res.redirect('/r2/x-ui/case-worker/case-worker-general-directions-order-4-1-general')
-    }
-  })
-
-
-  router.post('/r2/x-ui/case-worker/case-worker-general-directions-order-5-1-general-check-your-answers', function(req, res) {
-    if (req.body['submit-button'] === 'continue') {
-      res.redirect('/r2/x-ui/case-worker/case-worker-general-directions-order-5-1-general-check-your-answers')
-    }
-    else {
-      res.redirect('/r2/x-ui/case-worker/case-worker-general-directions-order-4-1-1-warning-notices')
+      res.redirect('/r2/x-ui/case-worker/case-worker-general-directions-order-3-1-1-warning-notices')
     }
   })
 

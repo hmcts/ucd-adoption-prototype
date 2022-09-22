@@ -1,0 +1,571 @@
+{% block header %}
+{% include "includes/xui-header.html" %}
+{% endblock %}
+
+
+<html lang="en" class="govuk-template ">
+  <div style=" max-width:1300px; margin: 0 auto;">
+      <div style=" max-width:1300px;  min-width:1300px;  margin: 20px 0px 0px 0px;  ">
+          <main class="govuk-main-wrapper " id="main-content" role="main" style="padding-top: 25px;">
+              <div class="govuk-width-container">
+                <div class="govuk-grid-row" style="width:1300px; margin-left: -90px;">
+                  <div class="govuk-grid-column-two-thirds">
+                    <h1 class="govuk-heading-xl">Check your answers</h1>
+                    <h2 class="govuk-heading-l govuk-!-margin-bottom-3">#1234-5678-0921-2722</h2>
+                    <h2 class="govuk-heading-m govuk-!-margin-top-0 govuk-!-margin-bottom-2">Child's name: Jane Austen</h2>
+
+                    <form action="/r2/x-ui/case-worker/case-worker-general-directions-order-4-1-general-check-your-answers" method="post" class="form">
+                      <div class="govuk-width-container">
+                        <!-- <h3 class="govuk-heading-s">Preamble</h3> -->
+                        <h2 class="govuk-heading-m govuk-!-margin-bottom-7 govuk-!-margin-top-8">General directions order</h2>
+                
+                        <dl class="govuk-summary-list">
+                          <div class="govuk-summary-list__row">
+                            <dt class="govuk-summary-list__key">
+                              Type of order
+                            </dt>
+                            <dd class="govuk-summary-list__value">
+                            {% if data['general-directions-order-type-of-order'] === 'general' %}
+                              General order
+                            {% elseif data['general-directions-order-type-of-order'] === 'production' %}
+                              Production order
+                            {% else %} 
+                              Disclosure of address
+                            {% endif %}
+                          </dd>
+                            <dd class="govuk-summary-list__actions">
+                              <a class="govuk-link" href="case-worker-general-directions-order-1.html">
+                                Change<span class="govuk-visually-hidden"> type of order</span>
+                              </a>
+                            </dd>
+                          </div>
+
+                          <div class="govuk-summary-list__row">
+                            <dt class="govuk-summary-list__key">
+                              Ordered by
+                            </dt>
+                            <dd class="govuk-summary-list__value">
+                            {% if data['general-directions-judge-name'] %}
+                              {{ data['general-directions-judge-name'] }}
+                            {% else %}
+                              His Honour Judge Sherlock Holmes
+                            {% endif %}
+                          </dd>
+                            <dd class="govuk-summary-list__actions">
+                              <a class="govuk-link" href="case-worker-general-directions-order-1.html">
+                                Change<span class="govuk-visually-hidden"> ordered by</span>
+                              </a>
+                            </dd>
+                          </div>
+                        </dl>
+
+                        <h3 class="govuk-heading-s govuk-!-margin-top-9">1. Preamble</h3>
+                        <dl class="govuk-summary-list">
+                          <div class="govuk-summary-list__row">
+                            <dt class="govuk-summary-list__key">
+                              Preamble
+                            </dt>
+                            <dd class="govuk-summary-list__value">
+                              {% if data['generalDirectionsPreamble'] %}
+                                {{ data['generalDirectionsPreamble'] }}
+                              {% else %}
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+                              {% endif %}
+                            </dd>
+                            <dd class="govuk-summary-list__actions">
+                              <a class="govuk-link" href="case-worker-general-directions-order-1.html">
+                                Change<span class="govuk-visually-hidden"> preamble</span>
+                              </a>
+                            </dd>
+                          </div>                
+                        </dl>
+
+                        <h3 class="govuk-heading-s govuk-!-margin-top-9">2. Hearing details</h3>
+                        <dl class="govuk-summary-list">
+                          <div class="govuk-summary-list__row">
+                            <dt class="govuk-summary-list__key">
+                              Hearing condition
+                            </dt>
+                            <dd class="govuk-summary-list__value">
+                              {% if data['hearing-new-existing-radios'] == 'new' %}
+                                New hearing
+                              {% elseif (data['hearing-new-existing-radios'] == 'existing1' or data['hearing-new-existing-radios'] == 'existing2') %}
+                                Existing hearing
+                              {% else %}
+                                No hearing required
+                              {% endif %} 
+                            </dd>
+                            <dd class="govuk-summary-list__actions">
+                              <a class="govuk-link" href="case-worker-general-directions-order-1.html">
+                                Change<span class="govuk-visually-hidden"> hearing condition</span>
+                              </a>
+                            </dd>
+                          </div>
+
+                          {% if (data['hearing-new-existing-radios'] == 'new' or data['hearing-new-existing-radios'] == 'existing1') or data['hearing-new-existing-radios'] == 'existing2'  %}
+                            <div class="govuk-summary-list__row">
+                              <dt class="govuk-summary-list__key">
+                                Details
+                              </dt>
+                              <dd class="govuk-summary-list__value">
+                                The application is listed for a [listing type] on [date] at [time] with a time estimate of [length of hearing] at [name of court]                                  
+                              </dd>
+                              <dd class="govuk-summary-list__actions">
+                                <a class="govuk-link" href="case-worker-general-directions-order-2.html">
+                                  Change<span class="govuk-visually-hidden"> hearing details</span>
+                                </a>
+                              </dd>
+                            </div>
+
+                            <div class="govuk-summary-list__row">
+                              <dt class="govuk-summary-list__key">
+                                Listing type
+                              </dt>
+                              <dd class="govuk-summary-list__value">
+                              {% if data['general-directions-listing-type'] %}
+                                {{ data['general-directions-listing-type'] }}
+                              {% else %}
+                                Issues resolution
+                              {% endif %}
+                              </dd>
+                              <dd class="govuk-summary-list__actions">
+                                <a class="govuk-link" href="case-worker-general-directions-order-2.html">
+                                  Change<span class="govuk-visually-hidden"> hearing date</span>
+                                </a>
+                              </dd>
+                            </div>
+
+                            <div class="govuk-summary-list__row">
+                              <dt class="govuk-summary-list__key">
+                                Hearing date and time
+                              </dt>
+                              <dd class="govuk-summary-list__value">
+                              {% if data['general-directions-hearing-day'] %}
+                                {{ data['general-directions-hearing-day'] }} {{ data['monthName'][data['general-directions-hearing-month']] }} {{ data['general-directions-hearing-year'] }} at {{ data['general-directions-hearing-hour'] }}:{{ data['general-directions-hearing-minute'] }}:{{ data['general-directions-hearing-second'] }}
+                              {% else %}
+                                23 November 2022 at 12:30:00
+                              {% endif %}
+                              </dd>
+                              <dd class="govuk-summary-list__actions">
+                                <a class="govuk-link" href="case-worker-general-directions-order-2.html">
+                                  Change<span class="govuk-visually-hidden"> hearing date and time</span>
+                                </a>
+                              </dd>
+                            </div>
+                            
+                            <div class="govuk-summary-list__row">
+                              <dt class="govuk-summary-list__key">
+                                Length of hearing
+                              </dt>
+                              <dd class="govuk-summary-list__value">
+                              {% if data['general-directions-length-hearing-days'] %}
+                                {{ data['general-directions-length-hearing-days'] }} days, {{ data['general-directions-length-hearing-hours'] }} hours, {{ data['general-directions-length-hearing-minutes'] }} minutes
+                              {% else %}
+                                30 minutes
+                              {% endif %}
+                              </dd>
+                              <dd class="govuk-summary-list__actions">
+                                <a class="govuk-link" href="case-worker-general-directions-order-2.html">
+                                  Change<span class="govuk-visually-hidden"> length of hearing</span>
+                                </a>
+                              </dd>
+                            </div>
+                            
+                            <div class="govuk-summary-list__row">
+                              <dt class="govuk-summary-list__key">
+                                Name of judge
+                              </dt>
+                              <dd class="govuk-summary-list__value">
+                              {% if data['general-directions-judge-name'] %}
+                                {{ data['general-directions-judge-name'] }}
+                              {% else %}
+                                His Honour Judge Sherlock Holmes
+                              {% endif %}
+                              </dd>
+                              <dd class="govuk-summary-list__actions">
+                                <a class="govuk-link" href="case-worker-general-directions-order-2.html">
+                                  Change<span class="govuk-visually-hidden"> judge name</span>
+                                </a>
+                              </dd>
+                            </div>
+
+                            <div class="govuk-summary-list__row">
+                              <dt class="govuk-summary-list__key">
+                                Name of court
+                              </dt>
+                              <dd class="govuk-summary-list__value">
+                                {% if data['general-directions-court-name'] %}
+                                  {{ data['general-directions-court-name'] }}
+                                {% else %}
+                                  Manchester Family Court
+                                {% endif %}
+                                </dd>
+                                <dd class="govuk-summary-list__actions">
+                                <a class="govuk-link" href="case-worker-general-directions-order-2.html">
+                                  Change<span class="govuk-visually-hidden"> hearing date</span>
+                                </a>
+                              </dd>
+                            </div>
+
+                            <div class="govuk-summary-list__row">
+                              <dt class="govuk-summary-list__key">
+                                Interpreter required
+                              </dt>
+                              <dd class="govuk-summary-list__value">
+                                {% if (data['interpreter-radios']  == 'Yes') %}
+                                  Yes
+                                {% else %} 
+                                  No
+                                {% endif %}                                   
+                              </dd>
+                              <dd class="govuk-summary-list__actions">
+                                <a class="govuk-link" href="case-worker-general-directions-order-2.html">
+                                  Change<span class="govuk-visually-hidden"> hearing date</span>
+                                </a>
+                              </dd>
+                            </div>
+
+                            {% if (data['interpreter-radios']  == 'Yes') %}
+                            <div class="govuk-summary-list__row">
+                              <dt class="govuk-summary-list__key">
+                                Interpretation needed
+                              </dt>
+                              <dd class="govuk-summary-list__value">
+                                {% if (data['interpreter-language']) %}
+                                  {{ data['interpreter-language'] }}
+                                {% else %} 
+                                  French
+                                {% endif %}                                   
+                              </dd>
+                              <dd class="govuk-summary-list__actions">
+                                <a class="govuk-link" href="case-worker-general-directions-order-2.html">
+                                  Change<span class="govuk-visually-hidden"> language</span>
+                                </a>
+                              </dd>
+                            </div>
+                            {% endif %}   
+                            
+                            <div class="govuk-summary-list__row">
+                              <dt class="govuk-summary-list__key">
+                                Method of hearing
+                              </dt>
+                              <dd class="govuk-summary-list__value">
+                                {% if (data['method-hearing-radios']) %}
+                                  {{ data['method-hearing-radios'] }}
+                                {% else %} 
+                                  In person
+                                {% endif %}                                   
+                              </dd>
+                              <dd class="govuk-summary-list__actions">
+                                <a class="govuk-link" href="case-worker-general-directions-order-2.html">
+                                  Change<span class="govuk-visually-hidden"> hearing date</span>
+                                </a>
+                              </dd>
+                            </div>
+
+                            <div class="govuk-summary-list__row">
+                              <dt class="govuk-summary-list__key">
+                                Accessibility requirements
+                              </dt>
+                              <dd class="govuk-summary-list__value">
+                                {% if (data['hearing-accessibility-requirements']) %}
+                                  {{ data['hearing-accessibility-requirements'] }}
+                                {% else %} 
+                                  None
+                                {% endif %}                                   
+                              </dd>
+                              <dd class="govuk-summary-list__actions">
+                                <a class="govuk-link" href="case-worker-general-directions-order-2.html">
+                                  Change<span class="govuk-visually-hidden"> hearing date</span>
+                                </a>
+                              </dd>
+                            </div>
+                          {% endif %}                                                                 
+                        </dl>
+
+                        <h3 class="govuk-heading-s govuk-!-margin-top-9">3. Warning notices</h3>
+                        <dl class="govuk-summary-list">
+                          <div class="govuk-summary-list__row">
+                            <dt class="govuk-summary-list__key">
+                              Child arrangements
+                            </dt>
+                            {% if data['warning-notices-child'] != undefined %}
+                            <dd class="govuk-summary-list__value">
+                              Yes
+                            </dd>
+                            {% else %}
+                            <dd class="govuk-summary-list__value">
+                              No
+                            </dd>
+                            {% endif %}
+                            <dd class="govuk-summary-list__actions">
+                              <a class="govuk-link" href="case-worker-general-directions-order-3-1-1-warning-notices.html">
+                                Change<span class="govuk-visually-hidden"> warning notices for child arrangements</span>
+                              </a>
+                            </dd>
+                          </div>
+                        
+                          <div class="govuk-summary-list__row">
+                            <dt class="govuk-summary-list__key">
+                              Name of person for child arrangements
+                            </dt>
+                            {% if data['child-arrangements-name'] %}
+                            <dd class="govuk-summary-list__value">
+                              {{ data['child-arrangements-name'] }}
+                            </dd>
+                            {% else %}
+                            <dd class="govuk-summary-list__value">
+                              Jane Jones
+                            </dd>
+                            {% endif %}
+                            <dd class="govuk-summary-list__actions">
+                              <a class="govuk-link" href="case-worker-general-directions-order-3-1-1-warning-notices.html">
+                                Change<span class="govuk-visually-hidden"> names of person for child arrangements</span>
+                              </a>
+                            </dd>
+                          </div>
+                        
+                          <div class="govuk-summary-list__row">
+                            <dt class="govuk-summary-list__key">
+                              Additional person for child arrangements
+                            </dt>
+                            {% if data['child-arrangements-second-name'] %}
+                            <dd class="govuk-summary-list__value">
+                              {{ data['child-arrangements-second-name'] }}
+                            </dd>
+                            {% else %}
+                            <dd class="govuk-summary-list__value">
+                              None
+                            </dd>
+                            {% endif %}
+                            <dd class="govuk-summary-list__actions">
+                              <a class="govuk-link" href="case-worker-general-directions-order-3-1-1-warning-notices.html">
+                                Change<span class="govuk-visually-hidden"> second person for child arrangements</span>
+                              </a>
+                            </dd>
+                          </div>
+                        
+                          <div class="govuk-summary-list__row">
+                            <dt class="govuk-summary-list__key">
+                              Paragraph number to be complied with for child arrangements
+                            </dt>
+                            {% if data['child-arrangements-paragraph'] %}
+                            <dd class="govuk-summary-list__value">
+                              {{ data['child-arrangements-paragraph'] }}
+                            </dd>
+                            {% else %}
+                            <dd class="govuk-summary-list__value">
+                              13
+                            </dd>
+                            {% endif %}
+                            <dd class="govuk-summary-list__actions">
+                              <a class="govuk-link" href="case-worker-general-directions-order-3-1-1-warning-notices.html">
+                                Change<span class="govuk-visually-hidden"> paragraph number to be complied with for child arrangements</span>
+                              </a>
+                            </dd>
+                          </div>
+                        
+                          <div class="govuk-summary-list__row">
+                            <dt class="govuk-summary-list__key">
+                              Penal notice
+                            </dt>
+                            {% if data['warning-notices-penal'] != undefined %}
+                            <dd class="govuk-summary-list__value">
+                              Yes
+                            </dd>
+                            {% else %}
+                            <dd class="govuk-summary-list__value">
+                              No
+                            </dd>
+                            {% endif %}
+                            <dd class="govuk-summary-list__actions">
+                              <a class="govuk-link" href="case-worker-general-directions-order-3-1-1-warning-notices.html">
+                                Change<span class="govuk-visually-hidden"> warning notices for penal notice</span>
+                              </a>
+                            </dd>
+                          </div>
+                        
+                          <div class="govuk-summary-list__row">
+                            <dt class="govuk-summary-list__key">
+                              Name of person for penal notice
+                            </dt>
+                            {% if data['penal-notice-name'] %}
+                            <dd class="govuk-summary-list__value">
+                              {{ data['penal-notice-name'] }}
+                            </dd>
+                            {% else %}
+                            <dd class="govuk-summary-list__value">
+                              Jane Jones
+                            </dd>
+                            {% endif %}
+                            <dd class="govuk-summary-list__actions">
+                              <a class="govuk-link" href="case-worker-general-directions-order-3-1-1-warning-notices.html">
+                                Change<span class="govuk-visually-hidden"> name of person for penal notice</span>
+                              </a>
+                            </dd>
+                          </div>
+                        
+                          <div class="govuk-summary-list__row">
+                            <dt class="govuk-summary-list__key">
+                              Additional person for penal notice
+                            </dt>
+                            {% if data['penal-notice-second-name'] %}
+                            <dd class="govuk-summary-list__value">
+                              {{ data['penal-notice-second-name'] }}
+                            </dd>
+                            {% else %}
+                            <dd class="govuk-summary-list__value">
+                              None
+                            </dd>
+                            {% endif %}
+                            <dd class="govuk-summary-list__actions">
+                              <a class="govuk-link" href="case-worker-general-directions-order-3-1-1-warning-notices.html">
+                                Change<span class="govuk-visually-hidden"> second person for penal notice</span>
+                              </a>
+                            </dd>
+                          </div>
+                        
+                          <div class="govuk-summary-list__row">
+                            <dt class="govuk-summary-list__key">
+                              Paragraph number to be complied with for penal notice
+                            </dt>
+                            {% if data['penal-notice-paragraph'] %}
+                            <dd class="govuk-summary-list__value">
+                              {{ data['penal-notice-paragraph'] }}
+                            </dd>
+                            {% else %}
+                            <dd class="govuk-summary-list__value">
+                              17b
+                            </dd>
+                            {% endif %}
+                            <dd class="govuk-summary-list__actions">
+                              <a class="govuk-link" href="case-worker-general-directions-order-3-1-1-warning-notices.html">
+                                Change<span class="govuk-visually-hidden"> paragraph number to be complied with for penal notice</span>
+                              </a>
+                            </dd>
+                          </div>
+                        
+                        </dl>
+
+                        <h3 class="govuk-heading-s govuk-!-margin-top-9">4. Hearings</h3>
+                
+                        <dl class="govuk-summary-list">
+                          <div class="govuk-summary-list__row">
+                            <dt class="govuk-summary-list__key">
+                              Healing delay warning
+                            </dt>
+                            {% if data['hearings-delay'] != undefined %}
+                            <dd class="govuk-summary-list__value">
+                              Yes
+                            </dd>
+                            {% else %}
+                            <dd class="govuk-summary-list__value">
+                              No
+                            </dd>
+                            {% endif %}
+                            <dd class="govuk-summary-list__actions">
+                              <a class="govuk-link" href="case-worker-general-directions-order-3-1-general.html">
+                                Change<span class="govuk-visually-hidden"> hearings</span>
+                              </a>
+                            </dd>
+                          </div>
+                        
+                          <div class="govuk-summary-list__row">
+                            <dt class="govuk-summary-list__key">
+                              Backup notice
+                            </dt>
+                            {% if data['hearings-backup'] != undefined %}
+                            <dd class="govuk-summary-list__value">
+                              Yes
+                            </dd>
+                            {% else %}
+                            <dd class="govuk-summary-list__value">
+                              No
+                            </dd>
+                            {% endif %}
+                            <dd class="govuk-summary-list__actions">
+                              <a class="govuk-link" href="case-worker-general-directions-order-3-1-general.html">
+                                Change<span class="govuk-visually-hidden"> hearings</span>
+                              </a>
+                            </dd>
+                          </div>
+                        </dl>
+                        
+                        <h3 class="govuk-heading-s govuk-!-margin-top-9">5. Filing of documents</h3>
+                        <dl class="govuk-summary-list">
+                          <div class="govuk-summary-list__row">
+                            <dt class="govuk-summary-list__key">
+                              Bundles
+                            </dt>
+                            {% if data['filing-documents-bundles'] != undefined %}
+                            <dd class="govuk-summary-list__value">
+                              Yes
+                            </dd>
+                            {% else %}
+                            <dd class="govuk-summary-list__value">
+                              No
+                            </dd>
+                            {% endif %}
+                            <dd class="govuk-summary-list__actions">
+                              <a class="govuk-link" href="case-worker-general-directions-order-3-1-general.html">
+                                Change<span class="govuk-visually-hidden"> filing documents</span>
+                              </a>
+                            </dd>
+                          </div>
+                        
+                          <div class="govuk-summary-list__row">
+                            <dt class="govuk-summary-list__key">
+                              Filing PD documents
+                            </dt>
+                            {% if data['filing-documents-pd'] != undefined %}
+                            <dd class="govuk-summary-list__value">
+                              Yes
+                            </dd>
+                            {% else %}
+                            <dd class="govuk-summary-list__value">
+                              No
+                            </dd>
+                            {% endif %}
+                            <dd class="govuk-summary-list__actions">
+                              <a class="govuk-link" href="case-worker-general-directions-order-3-1-general.html">
+                                Change<span class="govuk-visually-hidden"> filing documents</span>
+                              </a>
+                            </dd>
+                          </div>
+                        </dl>
+
+                        <h3 class="govuk-heading-s govuk-!-margin-top-9">6. Additional paragraphs</h3>
+                        <dl class="govuk-summary-list">
+                          <div class="govuk-summary-list__row">
+                            <dt class="govuk-summary-list__key">
+                              Additional paragraphs
+                            </dt>
+                            <dd class="govuk-summary-list__value">
+                              {% if data['general-directions-additional-orders'] %}
+                                {{ data['general-directions-additional-orders'] }}
+                              {% else %}
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+                              {% endif %}
+                            </dd>
+                            <dd class="govuk-summary-list__actions">
+                              <a class="govuk-link" href="case-worker-general-directions-order-1.html">
+                                Change<span class="govuk-visually-hidden"> preamble</span>
+                              </a>
+                            </dd>
+                          </div>
+                        </dl>                                                
+                        <!-- Buttons -->
+                        {% include "../../../includes/buttons-xui.html" %}
+                        </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+          </main>
+      </div>      
+  </div>
+</html>
+
+{% block footer %}
+{% include "includes/newfooter.html" %}
+{% endblock %}
