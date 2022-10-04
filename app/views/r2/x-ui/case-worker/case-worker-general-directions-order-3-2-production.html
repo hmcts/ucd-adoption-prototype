@@ -17,8 +17,14 @@
                     <form action="/r2/x-ui/case-worker/case-worker-general-directions-order-3-2-production" method="post" class="form">
                       <p class="govuk-!-margin-bottom-0">To the Governor</p>
                       <p class="govuk-!-margin-top-0">[address of prison]</p>
-                      <p>Please arrange for the prisoner [prisoner name] (Prisoner number: [prisoner number]) to attend at [name of court] on [hearing date] at [hearing time] for a hearing on the above case.</p>
+                      <p>Please arrange for the prisoner [prisoner name] (prisoner number: [prisoner number]) to attend at [name of court] on [hearing date] at [hearing time] with a time estimate of [length of hearing] for a hearing on the above case.</p>
 
+                      <div class="govuk-form-group">
+                        <label class="govuk-label govuk-label--s govuk-!-margin-top-4" for="contact-by-email">
+                          Name of prison
+                        </label>
+                        <input class="govuk-input govuk-!-width-two-thirds" id="production-prison-name" name="production-prison-name" type="text" value="{{ data['production-prison-name'] }}">
+                      </div>
                       <div class="govuk-form-group">
                         <label class="govuk-label govuk-label--s govuk-!-margin-top-4" for="contact-by-email">
                           Address of prison
@@ -42,6 +48,11 @@
 
                       <p>You specified the hearing details on the previous screen:</p>
                       <label class="govuk-label govuk-label--s govuk-!-margin-top-4" for="contact-by-email">
+                        Ordered by
+                      </label>
+                      <p>{% if data['general-directions-judge-name'] %} {{data['general-directions-judge-name']}} {% else %} His Honour Judge Sherlock Holmes {% endif %}</p>
+                      
+                      <label class="govuk-label govuk-label--s govuk-!-margin-top-4" for="contact-by-email">
                         Date and time
                       </label>
                       <p>
@@ -56,6 +67,11 @@
                         Name of court
                       </label>
                       <p>{% if data['general-directions-court-name'] %} {{data['general-directions-court-name']}} {% else %} Manchester Crown Court {% endif %}</p>
+                      
+                      <label class="govuk-label govuk-label--s govuk-!-margin-top-4" for="contact-by-email">
+                        Length of hearing
+                      </label>
+                      <p>2 hours</p>
                       
                         
                       <!-- Buttons -->

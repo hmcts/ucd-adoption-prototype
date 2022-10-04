@@ -2573,7 +2573,7 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
 
   router.post('/r2/x-ui/case-worker/case-worker-general-directions-order-3-2-production', function(req, res) {
     if (req.body['submit-button'] === 'continue') {
-      res.redirect('/r2/x-ui/case-worker/case-worker-general-directions-order-3-2-production')
+      res.redirect('/r2/x-ui/case-worker/case-worker-general-directions-order-4-2-production-check-your-answers')
     }
     else {
       if (req.session.data.generalDirectionsHearing === 'new') {
@@ -2617,6 +2617,16 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
     }
     else {
       res.redirect('/r2/x-ui/case-worker/case-worker-general-directions-order-3-1-1-warning-notices')
+    }
+  })
+
+
+  router.post('/r2/x-ui/case-worker/case-worker-general-directions-order-4-2-production-check-your-answers', function(req, res) {
+    if (req.body['submit-button'] === 'continue') {
+      res.redirect('/r2/x-ui/case-worker/case-worker-general-directions-order-4-2-production-check-your-answers')
+    }
+    else {
+      res.redirect('/r2/x-ui/case-worker/case-worker-general-directions-order-3-2-production')
     }
   })
 
