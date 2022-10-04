@@ -168,12 +168,69 @@
                       </div>                      
 
                       {% if data['gatekeeping-leave-oppose-checkbox'] != undefined %}
+
                       <div class="govuk-form-group">
-                        <label class="govuk-label govuk-label--s govuk-!-margin-top-3" for="contact-by-email">
-                          5. Leave to oppose
-                        </label>
-                        <p class="govuk-body govuk-!-margin-top-3">A birth parent wishing to seek permission to oppose the making of an adoption order or seek contact with the child is invited to notify the court in writing by (14 days from the date of this order). [if no such application is made the case may proceed to a final hearing which may be dealt with without attendance of the parties unless such an attendance is requested by any of the parties. If such a request is made, the hearing may be conducted remotely unless this cannot be fairly undertaken.]</p>
-                      </div>
+                        <fieldset class="govuk-fieldset" aria-describedby="contact-hint">
+                          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                            <label class="govuk-label govuk-label--s govuk-!-margin-top-3" for="contact-by-email">
+                              5. Leave to oppose
+                            </label>
+                          </legend>
+                          <div class="govuk-radios" data-module="govuk-radios">
+                            <div class="govuk-radios__item">
+                              <input class="govuk-radios__input" id="seek-permission" name="gatekeeping-leave-to-oppose-radios" type="radio" value="seek-permission" data-aria-controls="conditional-contact-2">
+                              <label class="govuk-label govuk-radios__label" for="seek-permission">
+                                A birth parent wishing to seek permission to oppose the making of an adoption order or seek contact with the child is invited to notify the court in writing by [date]. 
+                              </label>
+                            </div>
+                            <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-contact-2">
+                              <div class="govuk-form-group">
+                                <label class="govuk-label govuk-label--s" for="contact-by-phone">
+                                  Date
+                                </label>
+                                <div class="govuk-form-group">
+                                  <div class="govuk-date-input" id="report-date">
+                                    <div class="govuk-date-input__item">
+                                      <div class="govuk-form-group">
+                                        <label class="govuk-label govuk-date-input__label" for="gatekeeping-leave-to-oppose-day">
+                                          Day
+                                        </label>
+                                        <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="gatekeeping-leave-to-oppose-day" name="gatekeeping-leave-to-oppose-day" type="text" inputmode="numeric" value="{{ data['gatekeeping-leave-to-oppose-day'] }}">
+                                      </div>
+                                    </div>
+                                    
+                                    <div class="govuk-date-input__item">
+                                      <div class="govuk-form-group">
+                                        <label class="govuk-label govuk-date-input__label" for="gatekeeping-leave-to-oppose-month">
+                                          Month
+                                        </label>
+                                        <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="gatekeeping-leave-to-oppose-month" name="gatekeeping-leave-to-oppose-month" type="text" inputmode="numeric" value="{{ data['gatekeeping-leave-to-oppose-month'] }}"">
+                                      </div>
+                                    </div>
+                                    
+                                    <div class="govuk-date-input__item">
+                                      <div class="govuk-form-group">
+                                        <label class="govuk-label govuk-date-input__label" for="gatekeeping-leave-to-oppose-year">
+                                          Year
+                                        </label>
+                                        <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="gatekeeping-leave-to-oppose-year" name="gatekeeping-leave-to-oppose-year" type="text" inputmode="numeric" value="{{ data['gatekeeping-leave-to-oppose-year'] }}"">
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+
+                            <div class="govuk-radios__item">
+                              <input class="govuk-radios__input" id="proceed" name="gatekeeping-leave-to-oppose-radios" type="radio" value="proceed">
+                              <label class="govuk-label govuk-radios__label" for="proceed">
+                                If no such application is made the case may proceed to a final hearing which may be dealt with without attendance of the parties unless such an attendance is requested by any of the parties. If such a request is made, the hearing may be conducted remotely unless this cannot be fairly undertaken.
+                              </label>
+                            </div>
+                          </div>
+                      
+                        </fieldset>
+                      </div>                      
                       {% endif %}
 
                       <div class="govuk-form-group">
@@ -206,6 +263,10 @@
                       <label class="govuk-label govuk-label--s govuk-!-margin-top-4" for="contact-by-email">
                         Ordered by
                       </label>
+                      <div id="changed-name-hint" class="govuk-hint">
+                        Enter the name of the person issuing this order
+                      </div>                          
+
                       <input class="govuk-input govuk-!-width-two-thirds govuk-!-margin-bottom-8" id="gatekeeping-ordered-by" name="gatekeeping-ordered-by" type="text" value="{{data['gatekeeping-ordered-by']}}">
 
                       <!-- Buttons -->
