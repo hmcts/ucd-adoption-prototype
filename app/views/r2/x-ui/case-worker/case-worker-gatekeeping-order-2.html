@@ -128,6 +128,7 @@
                         </div>                          
                       {% endif %}
 
+                      {% if (data['gatekeeping-submit-annex-a'] !== undefined) %}
                       <div class="govuk-form-group">
                         <label class="govuk-label govuk-label--s govuk-!-margin-top-8" for="LA directions">
                           4. Local authority
@@ -146,7 +147,6 @@
                             </ul>                                
                           </li>
                         </ol>
-                          
 
                         <fieldset class="govuk-fieldset" role="group" aria-describedby="date-told-la-hint">
                           <legend class="govuk-fieldset__legend govuk-fieldset__legend--l govuk-!-margin-bottom-1">
@@ -278,7 +278,7 @@
                           </div>
                         </fieldset>
                       </div>                          
-
+                      {% endif %}
 
                                               
                         
