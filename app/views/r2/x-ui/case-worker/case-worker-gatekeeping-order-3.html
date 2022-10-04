@@ -10,14 +10,14 @@
               <div class="govuk-width-container">
                 <div class="govuk-grid-row" style="width:1300px; margin-left: -90px;">
                   <div class="govuk-grid-column-two-thirds">
-                    <h1 class="govuk-heading-xl">Case management order (gatekeeping order)</h1>
+                    <h1 class="govuk-heading-xl">Case management order second directions</h1>
                     <h2 class="govuk-heading-l govuk-!-margin-bottom-3">#1234-5678-0921-2722</h2>
                     <h2 class="govuk-heading-m govuk-!-margin-top-0 govuk-!-margin-bottom-7">Child's name: Jane Austen</h2>
 
                     <form action="/r2/x-ui/case-worker/case-worker-gatekeeping-order-3" method="post" class="form">
                       <div class="govuk-form-group">
                         <label class="govuk-label govuk-label--s govuk-!-margin-top-3" for="contact-by-email">
-                          5. Attendance
+                          4. Attendance
                         </label>
 
                         <label class="govuk-label" for="event-name">
@@ -63,7 +63,7 @@
                               <div class="govuk-radios__item">
                                 <input class="govuk-radios__input" id="child-cannot-attend" name="gatekeeping-attendance-child-radios" type="radio" value="child-cannot-attend" {% if data['gatekeeping-attendance-child-radios'] === 'child-cannot-attend' %} checked {% endif %}>
                                 <label class="govuk-label govuk-radios__label" for="applicants-cannot-attend">
-                                  The child shall not be brought to the hearing.
+                                  The child will not be brought to this hearing.
                                 </label>
                               </div>
                             </div>                        
@@ -79,15 +79,21 @@
                                 Local authority
                               </label>
                               <div class="govuk-radios__item">
-                                <input class="govuk-radios__input" id="local-authority-excused" name="gatekeeping-attendance-local-authority-radios" type="radio" value="local-authority-excused" {% if data['gatekeeping-attendance-local-authority-radios'] === 'local-authority-excused' %} checked {% endif %}>
-                                <label class="govuk-label govuk-radios__label" for="local-authority-excused">
-                                  The local authority shall attend the next hearing.
+                                <input class="govuk-radios__input" id="gatekeeping-child-la" name="gatekeeping-attendance-local-authority-radios" type="radio" value="gatekeeping-child-la" {% if data['gatekeeping-attendance-local-authority-radios'] === 'gatekeeping-child-la' %} checked {% endif %}>
+                                <label class="govuk-label govuk-radios__label" for="gatekeeping-child-la">
+                                  The child's local authority (social worker) must attend the hearing.
                                 </label>
                               </div>
                               <div class="govuk-radios__item">
-                                <input class="govuk-radios__input" id="local-authority-must-attend" name="gatekeeping-attendance-local-authority-radios" type="radio" value="local-authority-must-attend" {% if data['gatekeeping-attendance-local-authority-radios'] === 'local-authority-must-attend' %} checked {% endif %}>
-                                <label class="govuk-label govuk-radios__label" for="local-authority-must">
-                                  The local authority and the Annex A reporter must attend the hearing. 
+                                <input class="govuk-radios__input" id="gatekeeping-applicants-la" name="gatekeeping-attendance-local-authority-radios" type="radio" value="gatekeeping-applicants-la" {% if data['gatekeeping-attendance-local-authority-radios'] === 'gatekeeping-applicants-la' %} checked {% endif %}>
+                                <label class="govuk-label govuk-radios__label" for="gatekeeping-applicants-la">
+                                  The applicant's local authority (social worker) must attend the hearing. 
+                                </label>
+                              </div>
+                              <div class="govuk-radios__item">
+                                <input class="govuk-radios__input" id="gatekeeping-annex-a-author" name="gatekeeping-attendance-local-authority-radios" type="radio" value="gatekeeping-annex-a-author" {% if data['gatekeeping-attendance-local-authority-radios'] === 'gatekeeping-annex-a-author' %} checked {% endif %}>
+                                <label class="govuk-label govuk-radios__label" for="gatekeeping-annex-a-author">
+                                  The author of the Annex A report must attend the hearing. 
                                 </label>
                               </div>
                             </div>                        
@@ -100,7 +106,7 @@
                           <fieldset class="govuk-fieldset">
                             <div class="govuk-radios" data-module="govuk-radios">
                               <label class="govuk-label govuk-label--s govuk-!-margin-top-4 govuk-!-margin-bottom-4" for="contact-by-email">
-                                Birth parents
+                                Respondents
                               </label>
                                 <div id="gatekeeping-attendance-birth-parents-hint" class="govuk-hint">
                                   Choose all that are relevant.
@@ -164,7 +170,7 @@
                       {% if data['gatekeeping-leave-oppose-checkbox'] != undefined %}
                       <div class="govuk-form-group">
                         <label class="govuk-label govuk-label--s govuk-!-margin-top-3" for="contact-by-email">
-                          6. Leave to oppose
+                          5. Leave to oppose
                         </label>
                         <p class="govuk-body govuk-!-margin-top-3">A birth parent wishing to seek permission to oppose the making of an adoption order or seek contact with the child is invited to notify the court in writing by (14 days from the date of this order). [if no such application is made the case may proceed to a final hearing which may be dealt with without attendance of the parties unless such an attendance is requested by any of the parties. If such a request is made, the hearing may be conducted remotely unless this cannot be fairly undertaken.]</p>
                       </div>
@@ -172,17 +178,17 @@
 
                       <div class="govuk-form-group">
                         <label class="govuk-label govuk-label--s govuk-!-margin-top-3" for="contact-by-email">
-                          7. Additional orders
+                          6. Additional paragraphs
                         </label>
                         <div id="changed-name-hint" class="govuk-hint">
-                          Copy and paste or type directly into the text box
+                          Copy and paste or type any additional orders directly into the text box. You can include any orders for step parents, for example, or inclusion of other parties to attend. 
                         </div>                          
                         <textarea class="govuk-textarea" id="gatekeeping-additional-orders" name="gatekeeping-additional-orders" rows="5">{{ data['gatekeepingAdditionalOrders'] }}</textarea>
                       </div>
 
                       <div class="govuk-form-group">
                         <label class="govuk-label govuk-label--s govuk-!-margin-top-3" for="contact-by-email">
-                          8. Cost orders
+                          Cost orders
                         </label>
                         <label class="govuk-label" for="event-name">
                           No order for costs.
@@ -197,6 +203,11 @@
                           </div> -->
                       </div>
   
+                      <label class="govuk-label govuk-label--s govuk-!-margin-top-4" for="contact-by-email">
+                        Ordered by
+                      </label>
+                      <input class="govuk-input govuk-!-width-two-thirds govuk-!-margin-bottom-8" id="gatekeeping-ordered-by" name="gatekeeping-ordered-by" type="text" value="{{data['gatekeeping-ordered-by']}}">
+
                       <!-- Buttons -->
                       {% include "../../../includes/buttons-xui.html" %}
                     </form>
