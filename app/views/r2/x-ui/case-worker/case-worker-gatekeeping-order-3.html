@@ -71,29 +71,32 @@
                         </div>
                         {% endif %}     
                         
+                        <!-- Local authority -->
                         {% if data['gatekeeping-attendance-local-authority'] != undefined %}
                         <div class="govuk-form-group">
-                          <fieldset class="govuk-fieldset">
-                            <div class="govuk-radios" data-module="govuk-radios">
+                          <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
+                            <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
                               <label class="govuk-label govuk-label--s govuk-!-margin-top-4 govuk-!-margin-bottom-4" for="contact-by-email">
                                 Local authority
                               </label>
-                              <div class="govuk-radios__item">
-                                <input class="govuk-radios__input" id="gatekeeping-child-la" name="gatekeeping-attendance-local-authority-radios" type="radio" value="gatekeeping-child-la" {% if data['gatekeeping-attendance-local-authority-radios'] === 'gatekeeping-child-la' %} checked {% endif %}>
-                                <label class="govuk-label govuk-radios__label" for="gatekeeping-child-la">
+                            </legend>
+                            <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+                              <div class="govuk-checkboxes__item">
+                                <input class="govuk-checkboxes__input" id="child-la" name="child-la-checkbox" type="checkbox" value="The child's local authority (social worker) must attend the hearing." {% if data['child-la-checkbox'] === 'The child\'s local authority (social worker) must attend the hearing.' %} checked {% endif %}>
+                                <label class="govuk-label govuk-checkboxes__label" for="child-la">
                                   The child's local authority (social worker) must attend the hearing.
                                 </label>
                               </div>
-                              <div class="govuk-radios__item">
-                                <input class="govuk-radios__input" id="gatekeeping-applicants-la" name="gatekeeping-attendance-local-authority-radios" type="radio" value="gatekeeping-applicants-la" {% if data['gatekeeping-attendance-local-authority-radios'] === 'gatekeeping-applicants-la' %} checked {% endif %}>
-                                <label class="govuk-label govuk-radios__label" for="gatekeeping-applicants-la">
+                              <div class="govuk-checkboxes__item">
+                                <input class="govuk-checkboxes__input" id="applicant-la" name="applicant-la-checkbox" type="checkbox" value="The applicant's local authority (social worker) must attend the hearing." {% if data['applicant-la-checkbox'] === 'The applicant\'s local authority (social worker) must attend the hearing.' %} checked {% endif %}>
+                                <label class="govuk-label govuk-checkboxes__label" for="applicant-la">
                                   The applicant's local authority (social worker) must attend the hearing. 
                                 </label>
                               </div>
-                              <div class="govuk-radios__item">
-                                <input class="govuk-radios__input" id="gatekeeping-annex-a-author" name="gatekeeping-attendance-local-authority-radios" type="radio" value="gatekeeping-annex-a-author" {% if data['gatekeeping-attendance-local-authority-radios'] === 'gatekeeping-annex-a-author' %} checked {% endif %}>
-                                <label class="govuk-label govuk-radios__label" for="gatekeeping-annex-a-author">
-                                  The author of the Annex A report must attend the hearing. 
+                              <div class="govuk-checkboxes__item">
+                                <input class="govuk-checkboxes__input" id="annex-a-author" name="annex-a-author-checkbox" type="checkbox" value="The author of the Annex A report must attend the hearing." {% if data['annex-a-author-checkbox'] === 'The author of the Annex A report must attend the hearing.' %} checked {% endif %}>
+                                <label class="govuk-label govuk-checkboxes__label" for="annex-a-author">
+                                  The author of the Annex A report must attend the hearing.
                                 </label>
                               </div>
                             </div>                        
@@ -167,80 +170,61 @@
                         
                       </div>                      
 
-                      {% if data['gatekeeping-leave-oppose-checkbox'] != undefined %}
+                      <p class="govuk-!-font-weight-bold govuk-!-margin-bottom-2">5. Leave to oppose</p>
 
-                      <div class="govuk-form-group">
-                        <fieldset class="govuk-fieldset" aria-describedby="contact-hint">
-                          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
-                            <label class="govuk-label govuk-label--s govuk-!-margin-top-3" for="contact-by-email">
-                              5. Leave to oppose
-                            </label>
-                          </legend>
-                          <div class="govuk-radios" data-module="govuk-radios">
-                            <div class="govuk-radios__item">
-                              <input class="govuk-radios__input" id="seek-permission" name="gatekeeping-leave-to-oppose-radios" type="radio" value="seek-permission" data-aria-controls="conditional-contact-2">
-                              <label class="govuk-label govuk-radios__label" for="seek-permission">
-                                A birth parent wishing to seek permission to oppose the making of an adoption order or seek contact with the child is invited to notify the court in writing by [date]. 
-                              </label>
-                            </div>
-                            <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-contact-2">
-                              <div class="govuk-form-group">
-                                <label class="govuk-label govuk-label--s" for="contact-by-phone">
-                                  Date
-                                </label>
+                      {% if data['gatekeeping-leave-oppose-checkbox'] != undefined %}
+                        <p class=" govuk-!-margin-bottom-1">A birth parent wishing to seek permission to oppose the making of an adoption order or seek contact with the child is invited to notify the court in writing by [date].</p>
+                        <div class="govuk-form-group">
+                          <label class="govuk-label govuk-label--s" for="contact-by-phone">
+                            Date
+                          </label>
+                          <div class="govuk-form-group">
+                            <div class="govuk-date-input" id="report-date">
+                              <div class="govuk-date-input__item">
                                 <div class="govuk-form-group">
-                                  <div class="govuk-date-input" id="report-date">
-                                    <div class="govuk-date-input__item">
-                                      <div class="govuk-form-group">
-                                        <label class="govuk-label govuk-date-input__label" for="gatekeeping-leave-to-oppose-day">
-                                          Day
-                                        </label>
-                                        <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="gatekeeping-leave-to-oppose-day" name="gatekeeping-leave-to-oppose-day" type="text" inputmode="numeric" value="{{ data['gatekeeping-leave-to-oppose-day'] }}">
-                                      </div>
-                                    </div>
-                                    
-                                    <div class="govuk-date-input__item">
-                                      <div class="govuk-form-group">
-                                        <label class="govuk-label govuk-date-input__label" for="gatekeeping-leave-to-oppose-month">
-                                          Month
-                                        </label>
-                                        <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="gatekeeping-leave-to-oppose-month" name="gatekeeping-leave-to-oppose-month" type="text" inputmode="numeric" value="{{ data['gatekeeping-leave-to-oppose-month'] }}"">
-                                      </div>
-                                    </div>
-                                    
-                                    <div class="govuk-date-input__item">
-                                      <div class="govuk-form-group">
-                                        <label class="govuk-label govuk-date-input__label" for="gatekeeping-leave-to-oppose-year">
-                                          Year
-                                        </label>
-                                        <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="gatekeeping-leave-to-oppose-year" name="gatekeeping-leave-to-oppose-year" type="text" inputmode="numeric" value="{{ data['gatekeeping-leave-to-oppose-year'] }}"">
-                                      </div>
-                                    </div>
-                                  </div>
+                                  <label class="govuk-label govuk-date-input__label" for="gatekeeping-leave-to-oppose-day">
+                                    Day
+                                  </label>
+                                  <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="gatekeeping-leave-to-oppose-day" name="gatekeeping-leave-to-oppose-day" type="text" inputmode="numeric" value="{{ data['gatekeeping-leave-to-oppose-day'] }}">
+                                </div>
+                              </div>
+                              
+                              <div class="govuk-date-input__item">
+                                <div class="govuk-form-group">
+                                  <label class="govuk-label govuk-date-input__label" for="gatekeeping-leave-to-oppose-month">
+                                    Month
+                                  </label>
+                                  <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="gatekeeping-leave-to-oppose-month" name="gatekeeping-leave-to-oppose-month" type="text" inputmode="numeric" value="{{ data['gatekeeping-leave-to-oppose-month'] }}"">
+                                </div>
+                              </div>
+                              
+                              <div class="govuk-date-input__item">
+                                <div class="govuk-form-group">
+                                  <label class="govuk-label govuk-date-input__label" for="gatekeeping-leave-to-oppose-year">
+                                    Year
+                                  </label>
+                                  <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="gatekeeping-leave-to-oppose-year" name="gatekeeping-leave-to-oppose-year" type="text" inputmode="numeric" value="{{ data['gatekeeping-leave-to-oppose-year'] }}"">
                                 </div>
                               </div>
                             </div>
-
-                            <div class="govuk-radios__item">
-                              <input class="govuk-radios__input" id="proceed" name="gatekeeping-leave-to-oppose-radios" type="radio" value="proceed">
-                              <label class="govuk-label govuk-radios__label" for="proceed">
-                                If no such application is made the case may proceed to a final hearing which may be dealt with without attendance of the parties unless such an attendance is requested by any of the parties. If such a request is made, the hearing may be conducted remotely unless this cannot be fairly undertaken.
-                              </label>
-                            </div>
                           </div>
+                        </div>
                       
-                        </fieldset>
-                      </div>                      
+                      {% else %}
+
+                        <p>If no such application is made the case may proceed to a final hearing which may be dealt with without attendance of the parties unless such an attendance is requested by any of the parties. If such a request is made, the hearing may be conducted remotely unless this cannot be fairly undertaken.</p>
+
                       {% endif %}
 
                       <div class="govuk-form-group">
-                        <label class="govuk-label govuk-label--s govuk-!-margin-top-3" for="contact-by-email">
+                        <label class="govuk-label govuk-label--s govuk-!-margin-top-6" for="contact-by-email">
                           6. Additional paragraphs
                         </label>
                         <div id="changed-name-hint" class="govuk-hint">
                           Copy and paste or type any additional orders directly into the text box. You can include any orders for step parents, for example, or inclusion of other parties to attend. 
                         </div>                          
-                        <textarea class="govuk-textarea" id="gatekeeping-additional-orders" name="gatekeeping-additional-orders" rows="5">{{ data['gatekeepingAdditionalOrders'] }}</textarea>
+                        <textarea class="govuk-textarea govuk-!-margin-bottom-2" id="gatekeeping-additional-orders" name="gatekeeping-additional-orders" rows="5">{{ data['gatekeepingAdditionalOrders'] }}</textarea>
+                        <p><a href="" class="govuk-!-margin-top-1">Add another paragraph</a></p>
                       </div>
 
                       <div class="govuk-form-group">

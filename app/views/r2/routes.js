@@ -2342,7 +2342,7 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
         res.redirect('/r2/x-ui/case-worker/case-worker-gatekeeping-order-1')
       }
       else if (req.body['xui-type-order'] === 'adoption') {
-        res.redirect('/r2/x-ui/case-worker/case-worker-gatekeeping-order-creation-final-adoption-1')
+        res.redirect('/r2/x-ui/case-worker/case-worker-final-adoption-order-1')
       }
       else if (req.body['xui-type-order'] === 'general') {
         res.redirect('/r2/x-ui/case-worker/case-worker-general-directions-order-1')
@@ -2419,6 +2419,25 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
 
   router.post('/r2/x-ui/case-worker/case-worker-gatekeeping-order-2', function(req, res) {
     if (req.body['submit-button'] === 'continue') {
+      if (req.body['gatekeeping-length-first-days']) {
+        req.session.data.gatekeepingFirstHearingLengthDays = req.body['gatekeeping-length-first-days']
+      }
+      if (req.body['gatekeeping-length-first-hours']) {
+        req.session.data.gatekeepingFirstHearingLengthHours = req.body['gatekeeping-length-first-hours']
+      }
+      if (req.body['gatekeeping-length-first-minutes']) {
+        req.session.data.gatekeepingFirstHearingLengthMinutes = req.body['gatekeeping-length-first-minutes']
+      }
+      if (req.body['gatekeeping-length-further-days']) {
+        req.session.data.gatekeepingFurtherHearingLengthDays = req.body['gatekeeping-length-further-days']
+      }
+      if (req.body['gatekeeping-length-further-hours']) {
+        req.session.data.gatekeepingFurtherHearingLengthHours = req.body['gatekeeping-length-further-hours']
+      }
+      if (req.body['gatekeeping-length-further-minutes']) {
+        req.session.data.gatekeepingFurtherHearingLengthMinutes = req.body['gatekeeping-length-further-minutes']
+      }
+
       res.redirect('/r2/x-ui/case-worker/case-worker-gatekeeping-order-3')
     }
     else {
@@ -2637,9 +2656,9 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
 
 
   // ********************************** FINAL ADOPTION ORDER **********************************
-  router.post('/r2/x-ui/case-worker/case-worker-gatekeeping-order-creation-final-adoption-1', function(req, res) {
+  router.post('/r2/x-ui/case-worker/case-worker-final-adoption-order-1', function(req, res) {
     if (req.body['submit-button'] === 'continue') {
-      res.redirect('/r2/x-ui/case-worker/case-worker-gatekeeping-order-creation-final-adoption-2')
+      res.redirect('/r2/x-ui/case-worker/case-worker-final-adoption-order-2')
     }
     else {
       res.redirect('/r2/x-ui/case-worker/index')
@@ -2647,80 +2666,80 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
   })
 
 
-  router.post('/r2/x-ui/case-worker/case-worker-gatekeeping-order-creation-final-adoption-2', function(req, res) {
+  router.post('/r2/x-ui/case-worker/case-worker-final-adoption-order-2', function(req, res) {
     if (req.body['submit-button'] === 'continue') {
-      res.redirect('/r2/x-ui/case-worker/case-worker-gatekeeping-order-creation-final-adoption-3')
+      res.redirect('/r2/x-ui/case-worker/case-worker-final-adoption-order-3')
     }
     else {
-      res.redirect('/r2/x-ui/case-worker/case-worker-gatekeeping-order-creation-final-adoption-1')
+      res.redirect('/r2/x-ui/case-worker/case-worker-final-adoption-order-1')
     }
   })
 
 
-  router.post('/r2/x-ui/case-worker/case-worker-gatekeeping-order-creation-final-adoption-3', function(req, res) {
+  router.post('/r2/x-ui/case-worker/case-worker-final-adoption-order-3', function(req, res) {
     if (req.body['submit-button'] === 'continue') {
       if (req.body['date-and-place-of-birth'] === 'date-and-time') {
-        res.redirect('/r2/x-ui/case-worker/case-worker-gatekeeping-order-creation-final-adoption-4-1')
+        res.redirect('/r2/x-ui/case-worker/case-worker-final-adoption-order-4-1')
       }
       else if (req.body['date-and-place-of-birth'] === 'place-of-birth-unknown') {
-        res.redirect('/r2/x-ui/case-worker/case-worker-gatekeeping-order-creation-final-adoption-4-3')
+        res.redirect('/r2/x-ui/case-worker/case-worker-final-adoption-order-4-3')
       }
       else {
-        res.redirect('/r2/x-ui/case-worker/case-worker-gatekeeping-order-creation-final-adoption-4-2')
+        res.redirect('/r2/x-ui/case-worker/case-worker-final-adoption-order-4-2')
       }
     }
     else {
-      res.redirect('/r2/x-ui/case-worker/case-worker-gatekeeping-order-creation-final-adoption-2')
+      res.redirect('/r2/x-ui/case-worker/case-worker-final-adoption-order-2')
     }
   })
 
 
-  router.post('/r2/x-ui/case-worker/case-worker-gatekeeping-order-creation-final-adoption-4-1', function(req, res) {
+  router.post('/r2/x-ui/case-worker/case-worker-final-adoption-order-4-1', function(req, res) {
     if (req.body['submit-button'] === 'continue') {
       req.session.data.pathFinalOrder = 1
-      res.redirect('/r2/x-ui/case-worker/case-worker-gatekeeping-order-creation-final-adoption-5')
+      res.redirect('/r2/x-ui/case-worker/case-worker-final-adoption-order-5')
     }
     else {
-      res.redirect('/r2/x-ui/case-worker/case-worker-gatekeeping-order-creation-final-adoption-3')
+      res.redirect('/r2/x-ui/case-worker/case-worker-final-adoption-order-3')
     }
   })
 
 
-  router.post('/r2/x-ui/case-worker/case-worker-gatekeeping-order-creation-final-adoption-4-2', function(req, res) {
+  router.post('/r2/x-ui/case-worker/case-worker-final-adoption-order-4-2', function(req, res) {
     if (req.body['submit-button'] === 'continue') {
       req.session.data.pathFinalOrder = 2
-      res.redirect('/r2/x-ui/case-worker/case-worker-gatekeeping-order-creation-final-adoption-5')
+      res.redirect('/r2/x-ui/case-worker/case-worker-final-adoption-order-5')
     }
     else {
-      res.redirect('/r2/x-ui/case-worker/case-worker-gatekeeping-order-creation-final-adoption-3')
+      res.redirect('/r2/x-ui/case-worker/case-worker-final-adoption-order-3')
     }
   })
 
 
-  router.post('/r2/x-ui/case-worker/case-worker-gatekeeping-order-creation-final-adoption-4-3', function(req, res) {
+  router.post('/r2/x-ui/case-worker/case-worker-final-adoption-order-4-3', function(req, res) {
     if (req.body['submit-button'] === 'continue') {
       req.session.data.pathFinalOrder = 3
-      res.redirect('/r2/x-ui/case-worker/case-worker-gatekeeping-order-creation-final-adoption-5')
+      res.redirect('/r2/x-ui/case-worker/case-worker-final-adoption-order-5')
     }
     else {
-      res.redirect('/r2/x-ui/case-worker/case-worker-gatekeeping-order-creation-final-adoption-3')
+      res.redirect('/r2/x-ui/case-worker/case-worker-final-adoption-order-3')
     }
   })
 
 
-  router.post('/r2/x-ui/case-worker/case-worker-gatekeeping-order-creation-final-adoption-5', function(req, res) {
+  router.post('/r2/x-ui/case-worker/case-worker-final-adoption-order-5', function(req, res) {
     if (req.body['submit-button'] === 'continue') {
       res.redirect('/r2/x-ui/case-worker/')
     }
     else {
       if (req.session.data.pathFinalOrder === 1) {
-        res.redirect('/r2/x-ui/case-worker/case-worker-gatekeeping-order-creation-final-adoption-4-1')
+        res.redirect('/r2/x-ui/case-worker/case-worker-final-adoption-order-4-1')
       }
       else if (req.session.data.pathFinalOrder === 2) {
-        res.redirect('/r2/x-ui/case-worker/case-worker-gatekeeping-order-creation-final-adoption-4-2')
+        res.redirect('/r2/x-ui/case-worker/case-worker-final-adoption-order-4-2')
       }
       else {
-        res.redirect('/r2/x-ui/case-worker/case-worker-gatekeeping-order-creation-final-adoption-4-3')
+        res.redirect('/r2/x-ui/case-worker/case-worker-final-adoption-order-4-3')
       }
     }
   })

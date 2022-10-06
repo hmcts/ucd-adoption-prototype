@@ -186,7 +186,14 @@ module.exports = {
 "sameJudge": "Pursuant to the Family Court (Composition and Distribution of Business) Rules 2014, given the original care proceedings were concluded by His Honour Judge Sherlock Holmes, the case is allocated to His Honour Judge Sherlock Holmes.",
 "differentJudge": "Upon consideration of the papers and in order to make the most effective and efficient use of local judicial resources, the proceedings are reallocated to ",
 
-"newOrder": 0
+"newOrder": 0,
+
+"gatekeepingFirstHearingLengthDays": 0,
+"gatekeepingFirstHearingLengthHours": 0,
+"gatekeepingFirstHearingLengthMinutes": 0,
+"gatekeepingFurtherHearingLengthDays": 0,
+"gatekeepingFurtherHearingLengthHours": 0,
+"gatekeepingFurtherHearingLengthMinutes": 0
 
 
 
