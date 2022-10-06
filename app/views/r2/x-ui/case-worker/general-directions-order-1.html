@@ -1,0 +1,122 @@
+{% block header %}
+{% include "includes/xui-header.html" %}
+{% endblock %}
+
+
+<html lang="en" class="govuk-template ">
+  <div style=" max-width:1300px; margin: 0 auto;">
+      <div style=" max-width:1300px;  min-width:1300px;  margin: 20px 0px 0px 0px;  ">
+          <main class="govuk-main-wrapper " id="main-content" role="main" style="padding-top: 25px;">
+              <div class="govuk-width-container">
+                <div class="govuk-grid-row" style="width:1300px; margin-left: -90px;">
+                  <div class="govuk-grid-column-two-thirds">
+                    <h1 class="govuk-heading-xl">General directions order</h1>
+                    <h2 class="govuk-heading-l govuk-!-margin-bottom-3">#1234-5678-0921-2722</h2>
+                    <h2 class="govuk-heading-m govuk-!-margin-top-0 govuk-!-margin-bottom-7">Child's name: Jane Austen</h2>
+
+                    <form action="/r2/x-ui/case-worker/general-directions-order-1" method="post" class="form">
+                      <div class="govuk-form-group">
+                        <fieldset class="govuk-fieldset">
+                          <div class="govuk-radios" data-module="govuk-radios">
+                            <label class="govuk-label govuk-label--s govuk-!-margin-top-4 govuk-!-margin-bottom-3" for="contact-by-email">
+                              Type of order
+                            </label>
+                            <!-- <div id="changed-name-hint" class="govuk-hint">
+                              Choose which judge to allocate to
+                            </div>                           -->
+                            <div class="govuk-radios__item">
+                              <input class="govuk-radios__input" id="general" name="general-directions-order-type-of-order" type="radio" value="general" {% if data['general-directions-order-type-of-order'] === 'general' %} checked {% endif %}>
+                              <label class="govuk-label govuk-radios__label" for="general">
+                                General order
+                              </label>
+                            </div>
+
+                            <div class="govuk-radios__item">
+                              <input class="govuk-radios__input" id="production" name="general-directions-order-type-of-order" type="radio" value="production" {% if data['general-directions-order-type-of-order'] === 'production' %} checked {% endif %}>
+                              <label class="govuk-label govuk-radios__label" for="production">
+                                Production order
+                              </label>
+                            </div>
+
+                            <div class="govuk-radios__item">
+                              <input class="govuk-radios__input" id="disclosure-of-address" name="general-directions-order-type-of-order" type="radio" value="disclosure-of-address" {% if data['general-directions-order-type-of-order'] === 'disclosure-of-address' %} checked {% endif %}>
+                              <label class="govuk-label govuk-radios__label" for="disclosure-of-address">
+                                Disclosure of address
+                              </label>
+                            </div>
+                          </div>                        
+                        </fieldset>
+                      </div>
+
+                      <div class="govuk-form-group">
+                        <label class="govuk-label govuk-label--s govuk-!-margin-top-3" for="contact-by-email">
+                          Ordered by
+                        </label>
+                        <label class="govuk-label" for="contact-by-email">
+                          Enter the name of the person issuing this order
+                        </label>
+                        <input class="govuk-input govuk-!-width-two-thirds" id="general-directions-judge-name" name="general-directions-judge-name" type="text" value="{{ data['general-directions-judge-name'] }}">
+                      </div>                      
+
+                      <div class="govuk-form-group">
+                        <label class="govuk-label govuk-label--s govuk-!-margin-top-7" for="contact-by-email">
+                          1. Preamble
+                        </label>
+                        <div id="changed-name-hint" class="govuk-hint">
+                          Copy and paste or type directly into the text box
+                        </div>                          
+                        <textarea class="govuk-textarea" id="general-directions-preamble" name="general-directions-preamble" rows="5">{{ data['general-directions-preamble'] }}</textarea>
+                      </div>
+
+                      <div class="govuk-form-group">
+                        <div class="govuk-radios" data-module="govuk-radios">
+                          <label class="govuk-label govuk-!-margin-bottom-4 govuk-!-margin-top-7 govuk-!-font-weight-bold" for="sender-email-address">
+                            2. Hearing options
+                          </label>
+  
+                          <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="new" name="hearing-new-existing-radios" type="radio" value="new" {% if data['hearing-new-existing-radios'] == "new" %} checked {% endif %}>
+                            <label class="govuk-label govuk-radios__label" for="new">
+                              Add a new hearing
+                            </label>
+                          </div>
+  
+                          <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="existing" name="hearing-new-existing-radios" type="radio" value="existing1" {% if data['hearing-new-existing-radios'] == "existing1" %} checked {% endif %}>
+                            <label class="govuk-label govuk-radios__label" for="existing">
+                              Use existing hearing 1 &mdash; 17 November 2022 9:00:00 &ndash; initial hearing
+                            </label>
+                          </div>
+  
+                          <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="existing2" name="hearing-new-existing-radios" type="radio" value="existing2" {% if data['hearing-new-existing-radios'] == "existing2" %} checked {% endif %}>
+                            <label class="govuk-label govuk-radios__label" for="existing">
+                              Use existing hearing 2 &mdash; 4 December 2022 15:30:00 &ndash; leave to oppose
+                            </label>
+                          </div>
+
+                          <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="without" name="hearing-new-existing-radios" type="radio" value="without" {% if data['hearing-new-existing-radios'] == "without" %} checked {% endif %}>
+                            <label class="govuk-label govuk-radios__label" for="without">
+                              No hearing needed
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+
+  
+                        
+                      <!-- Buttons -->
+                      {% include "../../../includes/buttons-xui.html" %}
+                    </form>
+                  </div>
+                </div>
+              </div>
+          </main>
+      </div>      
+  </div>
+</html>
+
+{% block footer %}
+{% include "includes/newfooter.html" %}
+{% endblock %}

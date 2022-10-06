@@ -1,0 +1,90 @@
+{% block header %}
+{% include "includes/xui-header.html" %}
+{% endblock %}
+
+
+<html lang="en" class="govuk-template ">
+  <div style=" max-width:1300px; margin: 0 auto;">
+      <div style=" max-width:1300px;  min-width:1300px;  margin: 20px 0px 0px 0px;  ">
+          <main class="govuk-main-wrapper " id="main-content" role="main" style="padding-top: 25px;">
+              <div class="govuk-width-container">
+                <div class="govuk-grid-row" style="width:1300px; margin-left: -90px;">
+                  <div class="govuk-grid-column-two-thirds">
+                    <h1 class="govuk-heading-xl">Production order</h1>
+                    <h2 class="govuk-heading-l govuk-!-margin-bottom-3">#1234-5678-0921-2722</h2>
+                    <h2 class="govuk-heading-m govuk-!-margin-top-0 govuk-!-margin-bottom-7">Child's name: Jane Austen</h2>
+
+                    <form action="/r2/x-ui/case-worker/general-directions-order-3-2-production" method="post" class="form">
+                      <p class="govuk-!-margin-bottom-0">To the Governor</p>
+                      <p class="govuk-!-margin-top-0">[address of prison]</p>
+                      <p>Please arrange for the prisoner [prisoner name] (prisoner number: [prisoner number]) to attend at [name of court] on [hearing date] at [hearing time] with a time estimate of [length of hearing] for a hearing on the above case.</p>
+
+                      <div class="govuk-form-group">
+                        <label class="govuk-label govuk-label--s govuk-!-margin-top-4" for="contact-by-email">
+                          Name of prison
+                        </label>
+                        <input class="govuk-input govuk-!-width-two-thirds" id="production-prison-name" name="production-prison-name" type="text" value="{{ data['production-prison-name'] }}">
+                      </div>
+                      <div class="govuk-form-group">
+                        <label class="govuk-label govuk-label--s govuk-!-margin-top-4" for="contact-by-email">
+                          Address of prison
+                        </label>
+                        <textarea class="govuk-textarea govuk-!-width-two-thirds" id="production-prison-address" name="production-prison-address" rows="3">{{ data['production-prison-address'] }}</textarea>
+                      </div>
+
+                      <div class="govuk-form-group">
+                        <label class="govuk-label govuk-label--s govuk-!-margin-top-4" for="contact-by-email">
+                          Name of prisoner
+                        </label>
+                        <input class="govuk-input govuk-!-width-two-thirds" id="production-prisoner-name" name="production-prisoner-name" type="text" value="{{ data['production-prisoner-name'] }}">
+                      </div>
+
+                      <div class="govuk-form-group">
+                        <label class="govuk-label govuk-label--s govuk-!-margin-top-4" for="contact-by-email">
+                          Prisoner number
+                        </label>
+                        <input class="govuk-input govuk-!-width-two-thirds" id="production-prisoner-number" name="production-prisoner-number" type="text" value="{{ data['production-prisoner-number'] }}">
+                      </div>
+
+                      <p>You specified the hearing details on the previous screen:</p>
+                      <label class="govuk-label govuk-label--s govuk-!-margin-top-4" for="contact-by-email">
+                        Ordered by
+                      </label>
+                      <p>{% if data['general-directions-judge-name'] %} {{data['general-directions-judge-name']}} {% else %} His Honour Judge Sherlock Holmes {% endif %}</p>
+                      
+                      <label class="govuk-label govuk-label--s govuk-!-margin-top-4" for="contact-by-email">
+                        Date and time
+                      </label>
+                      <p>
+                        {% if data['general-directions-hearing-day'] %} 
+                          {{ data['general-directions-hearing-day'] }} {{ data['monthName'][data['general-directions-hearing-month']] }} {{ data['general-directions-hearing-year'] }} at {{ data['general-directions-hearing-hour'] }}:{{ data['general-directions-hearing-minute'] }}:{{ data['general-directions-hearing-second'] }}
+                        {% else %} 
+                          23 October 2022 at 14:30:00 
+                        {% endif %}
+                      </p>
+                      
+                      <label class="govuk-label govuk-label--s govuk-!-margin-top-4" for="contact-by-email">
+                        Name of court
+                      </label>
+                      <p>{% if data['general-directions-court-name'] %} {{data['general-directions-court-name']}} {% else %} Manchester Crown Court {% endif %}</p>
+                      
+                      <label class="govuk-label govuk-label--s govuk-!-margin-top-4" for="contact-by-email">
+                        Length of hearing
+                      </label>
+                      <p>2 hours</p>
+                      
+                        
+                      <!-- Buttons -->
+                      {% include "../../../includes/buttons-xui.html" %}
+                    </form>
+                  </div>
+                </div>
+              </div>
+          </main>
+      </div>      
+  </div>
+</html>
+
+{% block footer %}
+{% include "includes/newfooter.html" %}
+{% endblock %}

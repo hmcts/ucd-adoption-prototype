@@ -1,0 +1,256 @@
+{% block header %}
+{% include "layout-xui.html" %}
+{% endblock %}
+
+
+<html lang="en" class="govuk-template ">
+  <div style=" max-width:1300px; margin: 0 auto;">
+      <div style=" max-width:1300px;  min-width:1300px;  margin: 20px 0px 0px 0px;  ">
+          <main class="govuk-main-wrapper " id="main-content" role="main" style="padding-top: 25px;">
+              <div class="govuk-width-container">
+                <div class="govuk-grid-row" style="width:1300px; margin-left: -90px;">
+                  <div class="govuk-grid-column-two-thirds">
+                    <h1 class="govuk-heading-xl">Order hearing details</h1>
+                    <h2 class="govuk-heading-l govuk-!-margin-bottom-3">#1234-5678-0921-2722</h2>
+                    <h2 class="govuk-heading-m govuk-!-margin-top-0 govuk-!-margin-bottom-7">Child's name: Jane Austen</h2>
+
+                    <form action="/r2/x-ui/case-worker/general-directions-order-2" method="post" class="form">
+                      <div class="govuk-form-group">
+                        <label class="govuk-label govuk-label--s govuk-!-margin-top-8" for="LA directions">
+                          2. Hearing details
+                        </label>
+                        <label class="govuk-label govuk-!-margin-top-5" for="event-name">
+                          The application is listed for a [listing type] on [date] at [time] with a time estimate of [length of hearing] at [name of court]
+                        </label> 
+                        <div class="govuk-form-group">
+                          <fieldset class="govuk-fieldset">
+                            <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                              <label class="govuk-label govuk-label--s govuk-!-margin-top-3" for="contact-by-email">
+                                Listing type
+                              </label>
+                            </legend>
+                            <div class="govuk-radios" data-module="govuk-radios">
+                              <div class="govuk-radios__item">
+                                <input class="govuk-radios__input" id="issues-resolution" name="general-directions-listing-type" type="radio" value="Issues resolution" {% if data['general-directions-listing-type'] === 'Issues resolution' %} checked {% endif %}>
+                                <label class="govuk-label govuk-radios__label" for="issues-resolution">
+                                  Issues resolution
+                                </label>
+                              </div>
+                              <div class="govuk-radios__item">
+                                <input class="govuk-radios__input" id="case-management" name="general-directions-listing-type" type="radio" value="Case management" {% if data['general-directions-listing-type'] === 'Case management' %} checked {% endif %}>
+                                <label class="govuk-label govuk-radios__label" for="case-management">
+                                  Case management
+                                </label>
+                              </div>
+                              <div class="govuk-radios__item">
+                                <input class="govuk-radios__input" id="further-directions" name="general-directions-listing-type" type="radio" value="Further directions" {% if data['general-directions-listing-type'] === 'Further directions' %} checked {% endif %}>
+                                <label class="govuk-label govuk-radios__label" for="further-directions">
+                                  Further directions
+                                </label>
+                              </div>
+                              <div class="govuk-radios__item">
+                                <input class="govuk-radios__input" id="final-hearing" name="general-directions-listing-type" type="radio" value="Final hearing" {% if data['general-directions-listing-type'] === 'Final hearing' %} checked {% endif %}>
+                                <label class="govuk-label govuk-radios__label" for="final-hearing">
+                                  Final hearing
+                                </label>
+                              </div>
+                            </div>
+                          </fieldset>
+                        </div> 
+                      </div>   
+                      
+                      <div class="govuk-form-group">
+                        <fieldset class="govuk-fieldset" role="group" aria-describedby="date-told-la-hint">
+                          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l govuk-!-margin-bottom-1">
+                            <label class="govuk-label govuk-label--s govuk-!-margin-top-2" for="LA directions">
+                              Date and time
+                            </label>
+                          </legend>
+                          <div class="govuk-form-group">
+                            <div class="govuk-date-input" id="report-date">
+                              <div class="govuk-date-input__item">
+                                <div class="govuk-form-group">
+                                  <label class="govuk-label govuk-date-input__label" for="general-directions-hearing-day">
+                                    Day
+                                  </label>
+                                  <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="general-directions-hearing-day" name="general-directions-hearing-day" type="text" inputmode="numeric" value="{{ data['general-directions-hearing-day'] }}">
+                                </div>
+                              </div>
+                              
+                              <div class="govuk-date-input__item">
+                                <div class="govuk-form-group">
+                                  <label class="govuk-label govuk-date-input__label" for="general-directions-hearing-month">
+                                    Month
+                                  </label>
+                                  <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="general-directions-hearing-month" name="general-directions-hearing-month" type="text" inputmode="numeric" value="{{ data['general-directions-hearing-month'] }}"">
+                                </div>
+                              </div>
+                              
+                              <div class="govuk-date-input__item">
+                                <div class="govuk-form-group">
+                                  <label class="govuk-label govuk-date-input__label" for="general-directions-hearing-year">
+                                    Year
+                                  </label>
+                                  <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="general-directions-hearing-year" name="general-directions-hearing-year" type="text" inputmode="numeric" value="{{ data['general-directions-hearing-year'] }}"">
+                                </div>
+                              </div>
+                              
+                              <div class="govuk-date-input__item">
+                                <div class="govuk-form-group">
+                                  <label class="govuk-label govuk-date-input__label" for="general-directions-hearing-hour">
+                                    Hour
+                                  </label>
+                                  <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="general-directions-hearing-hour" name="general-directions-hearing-hour" type="text" inputmode="numeric" value="{{ data['general-directions-hearing-hour'] }}"">
+                                </div>
+                              </div>
+                              
+                              <div class="govuk-date-input__item">
+                                <div class="govuk-form-group">
+                                  <label class="govuk-label govuk-date-input__label" for="general-directions-hearing-minute">
+                                    Minute
+                                  </label>
+                                  <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="general-directions-hearing-minute" name="general-directions-hearing-minute" type="text" inputmode="numeric" value="{{ data['general-directions-hearing-minute'] }}"">
+                                </div>
+                              </div>
+                              
+                              <div class="govuk-date-input__item">
+                                <div class="govuk-form-group">
+                                  <label class="govuk-label govuk-date-input__label" for="general-directions-hearing-second">
+                                    Second
+                                  </label>
+                                  <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="general-directions-hearing-second" name="general-directions-hearing-second" type="text" inputmode="numeric" value="00">
+                                </div>
+                              </div>
+                            </div>     
+                          </div>
+                        </fieldset>
+                      </div>
+                      
+                        <label class="govuk-label govuk-label--s govuk-!-margin-top-7" for="contact-by-email">
+                          Length of hearing
+                        </label>
+                        <!-- <div id="changed-name-hint" class="govuk-hint">
+                          Choose the length of the hearing, for example, 60 minutes.
+                        </div>      -->
+                        <div class="govuk-form-group">
+                          <div class="govuk-date-input" id="report-date">
+                            <div class="govuk-date-input__item">
+                              <div class="govuk-form-group">
+                                <label class="govuk-label govuk-date-input__label" for="general-directions-length-hearing-days">
+                                  Days
+                                </label>
+                                <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="general-directions-length-hearing-days" name="general-directions-length-hearing-days" type="text" inputmode="numeric" value="{{ data['general-directions-length-hearing-days'] }}">
+                              </div>
+                            </div>
+                            
+                            <div class="govuk-date-input__item">
+                              <div class="govuk-form-group">
+                                <label class="govuk-label govuk-date-input__label" for="general-directions-length-hearing-hours">
+                                  Hours
+                                </label>
+                                <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="general-directions-length-hearing-hours" name="general-directions-length-hearing-hours" type="text" inputmode="numeric" value="{{ data['general-directions-length-hearing-hours'] }}"">
+                              </div>
+                            </div>
+                            
+                            <div class="govuk-date-input__item">
+                              <div class="govuk-form-group">
+                                <label class="govuk-label govuk-date-input__label" for="general-directions-length-hearing-minutes">
+                                  Minutes
+                                </label>
+                                <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="general-directions-length-hearing-minutes" name="general-directions-length-hearing-minutes" type="text" inputmode="numeric" value="{{ data['general-directions-length-hearing-minutes'] }}"">
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <!-- <input class="govuk-input govuk-date-input__input govuk-input--width-3" id="general-directions-length-hearing-length" name="general-directions-length-hearing-length" type="text" value="{{ data['general-directions-length-hearing-length'] }}"> -->
+                                                                                            
+                        <div class="govuk-form-group">
+                          <label class="govuk-label govuk-label--s govuk-!-margin-top-7" for="contact-by-email">
+                            Name of judge
+                          </label>
+                          <input class="govuk-input govuk-!-width-two-thirds" id="general-directions-hearing-judge" name="general-directions-hearing-judge" type="text" value="{{ data['general-directions-hearing-judge'] }}">
+
+                          <label class="govuk-label govuk-label--s govuk-!-margin-top-7" for="contact-by-email">
+                            Name of court
+                          </label>
+                          <input class="govuk-input govuk-!-width-two-thirds" id="general-directions-court-name" name="general-directions-court-name" type="text" value="Manchester Family Court">
+                        </div>
+
+                        <div class="govuk-form-group">
+                          <div class="govuk-radios" data-module="govuk-radios">
+                            <label class="govuk-label govuk-!-margin-bottom-4 govuk-!-margin-top-7 govuk-!-font-weight-bold" for="sender-email-address">
+                              Is an interpreter needed?
+                            </label>
+    
+                            <div class="govuk-radios__item">
+                              <input class="govuk-radios__input" id="Yes" name="interpreter-radios" type="radio" value="Yes" {% if data['interpreter-radios'] == "Yes" %} checked {% endif %} data-aria-controls="conditional-contact">
+                              <label class="govuk-label govuk-radios__label" for="Yes">
+                                Yes
+                              </label>
+                            </div>
+    
+                            <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-contact">
+                              <div class="govuk-form-group">
+                                <label class="govuk-label" for="contact-by-email">
+                                  Give details of the interpretation needed for example, sign language or Hindu translator.
+                                </label>
+                                <input class="govuk-input govuk-!-width-two-thirds" id="interpreter-language" name="interpreter-language" type="text" spellcheck="false" value="{{ data['interpreter-language'] }}">
+                              </div>
+                            </div>
+
+                            <div class="govuk-radios__item">
+                              <input class="govuk-radios__input" id="No" name="interpreter-radios" type="radio" value="No" {% if data['interpreter-radios'] == "No" %} checked {% endif %}>
+                              <label class="govuk-label govuk-radios__label" for="No">
+                                No
+                              </label>
+                            </div>
+                          </div>
+                        </div>
+    
+                        <div class="govuk-form-group">
+                          <div class="govuk-radios" data-module="govuk-radios">
+                            <label class="govuk-label govuk-!-margin-bottom-4 govuk-!-margin-top-7 govuk-!-font-weight-bold" for="sender-email-address">
+                              Method of hearing
+                            </label>
+    
+                            <div class="govuk-radios__item">
+                              <input class="govuk-radios__input" id="remote" name="method-hearing-radios" type="radio" value="Remote (via video hearing)" {% if data['method-hearing-radios'] == "Remote (via video hearing)" %} checked {% endif %}>
+                              <label class="govuk-label govuk-radios__label" for="remote">
+                                Remote (via video hearing)
+                              </label>
+                            </div>
+    
+                            <div class="govuk-radios__item">
+                              <input class="govuk-radios__input" id="in-person" name="method-hearing-radios" type="radio" value="In person" {% if data['method-hearing-radios'] == "In person" %} checked {% endif %}>
+                              <label class="govuk-label govuk-radios__label" for="in-person">
+                                In person
+                              </label>
+                            </div>
+                          </div>
+                        </div>
+                      
+                        <div class="govuk-form-group">
+                          <label class="govuk-label govuk-label--s govuk-!-margin-top-4" for="contact-by-email">
+                            Are there accessibility requirements?
+                          </label>
+                          <div id="changed-name-hint" class="govuk-hint">
+                            List any accessibility requirements needed such as disabled access
+                          </div>                          
+                          <textarea class="govuk-textarea" id="hearing-accessibility-requirements" name="hearing-accessibility-requirements" rows="5">{{ data['hearing-accessibility-requirements'] }}</textarea>
+                        </div>
+
+                    
+                      <!-- Buttons -->
+                      {% include "../../../includes/buttons-xui.html" %}
+                    </form>
+                  </div>
+                </div>
+              </div>
+          </main>
+      </div>      
+  </div>
+</html>
+
+{% block footer %}
+{% include "includes/newfooter.html" %}
+{% endblock %}
