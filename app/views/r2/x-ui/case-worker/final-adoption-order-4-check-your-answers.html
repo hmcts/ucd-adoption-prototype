@@ -1,0 +1,132 @@
+{% block header %}
+{% include "includes/xui-header.html" %}
+{% endblock %}
+
+
+<html lang="en" class="govuk-template ">
+  <div style=" max-width:1300px; margin: 0 auto;">
+      <div style=" max-width:1300px;  min-width:1300px;  margin: 20px 0px 0px 0px;  ">
+          <main class="govuk-main-wrapper " id="main-content" role="main" style="padding-top: 25px;">
+              <div class="govuk-width-container">
+                <div class="govuk-grid-row" style="width:1300px; margin-left: -90px;">
+                  <div class="govuk-grid-column-two-thirds">
+                    <h1 class="govuk-heading-xl">Check your answers</h1>
+                    <h2 class="govuk-heading-l govuk-!-margin-bottom-3">#1234-5678-0921-2722</h2>
+                    <h2 class="govuk-heading-m govuk-!-margin-top-0 govuk-!-margin-bottom-2">Child's name: Jane Austen</h2>
+
+                    <form action="/r2/x-ui/case-worker/general-directions-order-4-check-your-answers" method="post" class="form">
+                      <div class="govuk-width-container">
+                        <!-- <h3 class="govuk-heading-s">Preamble</h3> -->
+                        <h2 class="govuk-heading-m govuk-!-margin-bottom-7 govuk-!-margin-top-8">Final adoption order</h2>
+                
+                        <!-- <h3 class="govuk-heading-s govuk-!-margin-top-9">Preamble</h3> -->
+                        <dl class="govuk-summary-list">
+                          <div class="govuk-summary-list__row">
+                            <dt class="govuk-summary-list__key">
+                              Preamble
+                            </dt>
+                            <dd class="govuk-summary-list__value">
+                              {% if data['final-adoption-preamble'] %}
+                                {{ data['final-adoption-preamble'] }}
+                              {% else %}
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+                              {% endif %}
+                            </dd>
+                            <dd class="govuk-summary-list__actions">
+                              <a class="govuk-link" href="final-adoption-order-1.html">
+                                Change<span class="govuk-visually-hidden"> preamble</span>
+                              </a>
+                            </dd>
+                          </div>
+
+                          <div class="govuk-summary-list__row">
+                            <dt class="govuk-summary-list__key">
+                              Ordered by
+                            </dt>
+                            <dd class="govuk-summary-list__value">
+                              {% if data['gatekeeping-ordered-by'] %}
+                                {{ data['gatekeeping-ordered-by']}}
+                              {% else %}
+                                Jane Kent
+                              {% endif %}
+                            </dd>
+                            <dd class="govuk-summary-list__actions">
+                              <a class="govuk-link" href="final-adoption-order-1.html">
+                                Change<span class="govuk-visually-hidden"> ordered by</span>
+                              </a>
+                            </dd>
+                          </div>
+
+                          <div class="govuk-summary-list__row">
+                            <dt class="govuk-summary-list__key">
+                              The court orders that
+                            </dt>
+                            <dd class="govuk-summary-list__value">
+                              The child is adopted by Agatha Christie and Arthur Conan Doyle.                          
+                            </dd>
+                            <dd class="govuk-summary-list__actions">
+                              <!-- <a class="govuk-link" href="gatekeeping-order-1.html">
+                                Change<span class="govuk-visually-hidden"> judge</span>
+                              </a> -->
+                            </dd>
+                          </div>
+
+                          <div class="govuk-summary-list__row">
+                            <dt class="govuk-summary-list__key">
+                              Placement of the child
+                            </dt>
+                            <dd class="govuk-summary-list__value">
+                              The child was placed for adoption by an adoption agency/local authority (to be specified).                            
+                            </dd>
+                            <dd class="govuk-summary-list__actions">
+                              <a class="govuk-link" href="final-adoption-order-1.html">
+                                Change<span class="govuk-visually-hidden"> placement of the child</span>
+                              </a>
+                            </dd>
+                          </div>
+
+                          <div class="govuk-summary-list__row">
+                            <dt class="govuk-summary-list__key">
+                              Child's full name after adoption
+                            </dt>
+                            <dd class="govuk-summary-list__value">
+                              {% if data['final-adoption-child-full-name-after-adoption'] %}
+                                {{ data['final-adoption-child-full-name-after-adoption'] }}
+                              {% else %}
+                                Jane Christie Doyle
+                              {% endif %}
+                            </dd>
+                            <dd class="govuk-summary-list__actions">
+                              <a class="govuk-link" href="final-adoption-order-1.html">
+                                Change<span class="govuk-visually-hidden"> placement of the child</span>
+                              </a>
+                            </dd>
+                          </div>
+
+                          
+                        </dl>
+<!-- 
+                              <dd class="govuk-summary-list__value">
+                              {% if data['general-directions-hearing-day'] %}
+                                {{ data['general-directions-hearing-day'] }} {{ data['monthName'][data['general-directions-hearing-month']] }} {{ data['general-directions-hearing-year'] }} at {{ data['general-directions-hearing-hour'] }}:{{ data['general-directions-hearing-minute'] }}:{{ data['general-directions-hearing-second'] }}
+                              {% else %}
+                                23 November 2022 at 12:30:00
+                              {% endif %}
+                              </dd> -->
+                            
+                          
+                        <!-- Buttons -->
+                        {% include "../../../includes/buttons-xui.html" %}
+                        </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+          </main>
+      </div>      
+  </div>
+</html>
+
+{% block footer %}
+{% include "includes/newfooter.html" %}
+{% endblock %}
