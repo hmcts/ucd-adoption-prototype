@@ -72,60 +72,102 @@
                       </div>    
 
                       <div class="govuk-form-group">
-                        <fieldset class="govuk-fieldset" role="group" aria-describedby="birth-adoption-date-hint">
+                        <fieldset class="govuk-fieldset" aria-describedby="place-birth-proved-radio-hint">
                           <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
-                            <label class="govuk-label govuk-label--s govuk-!-margin-bottom-0" for="LA directions">
-                                Birth adoption date
+                            <label class="govuk-label govuk-!-font-weight-bold" for="sender-email-address">
+                              Is time of birth known?
                             </label>
                           </legend>
-                          <div class="govuk-date-input" id="date-told-la">
-                            <div class="govuk-date-input__item">
+                          <div class="govuk-radios" data-module="govuk-radios">
+                            <div class="govuk-radios__item">
+                              <input class="govuk-radios__input" id="Yes" name="time-birth-known-radio" type="radio" value="Yes" data-aria-controls="conditional-time-birth-known-radio-3" {% if data['time-birth-known-radio'] == "Yes" %} checked {% endif %}>
+                              <label class="govuk-label govuk-radios__label" for="Yes">
+                                Yes
+                              </label>
+                            </div>
+                            <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-time-birth-known-radio-3">
                               <div class="govuk-form-group">
-                                <label class="govuk-label govuk-date-input__label" for="birth-adoption-date-day">
-                                  Day
-                                </label>
-                                <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="birth-adoption-date-day" name="birth-adoption-date-day" type="text" inputmode="numeric">
+                                <fieldset class="govuk-fieldset" role="group" aria-describedby="time-birth-hint">
+                                  <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                                    <label class="govuk-label govuk-label--s govuk-!-margin-bottom-0" for="LA directions">
+                                        Time of birth
+                                    </label>
+                                  </legend>
+                                  <div class="govuk-date-input" id="date-told-la">
+                                    <div class="govuk-date-input__item">
+                                      <div class="govuk-form-group">
+                                        <label class="govuk-label govuk-date-input__label" for="time-birth-hour">
+                                          Hour
+                                        </label>
+                                        <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="time-birth-hour" name="time-birth-hour" type="text" inputmode="numeric">
+                                      </div>
+                                    </div>
+                                    
+                                    <div class="govuk-date-input__item">
+                                      <div class="govuk-form-group">
+                                        <label class="govuk-label govuk-date-input__label" for="time-birth-minutes">
+                                          Minute
+                                        </label>
+                                        <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="time-birth-minutes" name="time-birth-minutes" type="text" inputmode="numeric">
+                                      </div>
+                                    </div>
+                                    
+                                    <div class="govuk-date-input__item">
+                                      <div class="govuk-form-group">
+                                        <label class="govuk-label govuk-date-input__label" for="time-birth-seconds">
+                                          Second
+                                        </label>
+                                        <input class="govuk-input govuk-date-input__input govuk-input--width-2 govuk-!-margin-bottom-3" id="time-birth-seconds" name="time-birth-seconds" type="text" inputmode="numeric">
+                                      </div>
+                                    </div>
+                                  </div>
+                                </fieldset>
                               </div>
                             </div>
-                            
-                            <div class="govuk-date-input__item">
-                              <div class="govuk-form-group">
-                                <label class="govuk-label govuk-date-input__label" for="birth-adoption-date-month">
-                                  Month
-                                </label>
-                                <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="birth-adoption-date-month" name="birth-adoption-date-month" type="text" inputmode="numeric">
-                              </div>
-                            </div>
-                            
-                            <div class="govuk-date-input__item">
-                              <div class="govuk-form-group">
-                                <label class="govuk-label govuk-date-input__label" for="birth-adoption-date-year">
-                                  Year
-                                </label>
-                                <input class="govuk-input govuk-date-input__input govuk-input--width-4 govuk-!-margin-bottom-3" id="birth-adoption-date-year" name="birth-adoption-date-year" type="text" inputmode="numeric">
-                              </div>
+
+                            <div class="govuk-radios__item">
+                              <input class="govuk-radios__input" id="No" name="time-birth-known-radio" type="radio" value="No" data-aria-controls="conditional-time-birth-known-radio-2" {% if data['time-birth-known-radio'] == "No" %} checked {% endif %}>
+                              <label class="govuk-label govuk-radios__label" for="No">
+                                No
+                              </label>
                             </div>
                           </div>
                         </fieldset>
                       </div>
 
+
                       <div class="govuk-form-group">
-                        <label class="govuk-label govuk-label--s govuk-!-margin-bottom-0" for="final-adoption-child-name">
-                          Birth adoption registration number
+                        <label class="govuk-label govuk-label--s" for="final-adoption-child-name">
+                          Birth/Adoption registration number
                         </label>
-                        <div id="name-hint" class="govuk-hint">
-                          If known.
-                        </div>                        
                         <input class="govuk-input govuk-input--width-20 govuk-!-margin-bottom-3" id="final-adoption-registration-number" name="final-adoption-registration-number" type="text">                        
                       </div>                    
 
                       <div class="govuk-form-group">
-                        <label class="govuk-label govuk-label--s govuk-!-margin-bottom-0" for="final-adoption-child-name">
-                          Child's country of birth
+                        <label class="govuk-label govuk-label--s" for="final-adoption-child-name">
+                          Birth/Adoption registration date
                         </label>
-                        <div id="name-hint" class="govuk-hint">
-                          If known.
-                        </div>                        
+                        <input class="govuk-input govuk-input--width-20 govuk-!-margin-bottom-3" id="final-adoption-registration-date" name="final-adoption-registration-date" type="text">                        
+                      </div>                    
+
+                      <div class="govuk-form-group">
+                        <label class="govuk-label govuk-label--s" for="final-adoption-child-name">
+                          Registration district
+                        </label>
+                        <input class="govuk-input govuk-input--width-20 govuk-!-margin-bottom-3" id="final-adoption-child-district" name="final-adoption-child-district" type="text">                        
+                      </div>                    
+
+                      <div class="govuk-form-group">
+                        <label class="govuk-label govuk-label--s" for="final-adoption-child-name">
+                          Registration sub-district
+                        </label>
+                        <input class="govuk-input govuk-input--width-20 govuk-!-margin-bottom-3" id="final-adoption-child-sub-district" name="final-adoption-child-sub-district" type="text">                        
+                      </div>                    
+
+                      <div class="govuk-form-group">
+                        <label class="govuk-label govuk-label--s" for="final-adoption-child-name">
+                          Registration country
+                        </label>
                         <input class="govuk-input govuk-input--width-20 govuk-!-margin-bottom-3" id="final-adoption-child-country" name="final-adoption-child-country" type="text">                        
                       </div>                    
 
