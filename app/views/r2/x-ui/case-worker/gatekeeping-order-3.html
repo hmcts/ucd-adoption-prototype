@@ -227,6 +227,7 @@
                         <p><a href="" class="govuk-!-margin-top-1">Add another paragraph</a></p>
                       </div>
 
+                      {% if data['gatekeeping-cost-orders-checkboxes'] != undefined %}
                       <div class="govuk-form-group">
                         <label class="govuk-label govuk-label--s govuk-!-margin-top-3" for="contact-by-email">
                           Cost orders
@@ -234,15 +235,8 @@
                         <label class="govuk-label" for="event-name">
                           No order for costs.
                         </label>       
-
-                        <!-- <div class="govuk-checkboxes" data-module="govuk-checkboxes">
-                          <div class="govuk-checkboxes__item">
-                            <input class="govuk-checkboxes__input" id="gatekeeping-no-order-for-costs" name="gatekeeping-no-order-for-costs-checkbox" type="checkbox" value="gatekeeping-submit-annex-a" {% if (data['gatekeeping-no-order-for-costs'] != undefined) %} checked {% endif %}>
-                            <label class="govuk-label govuk-checkboxes__label" for="gatekeeping-submit-annex-a">
-                              No order for costs
-                            </label>
-                          </div> -->
                       </div>
+                      {% endif %}
   
                       <label class="govuk-label govuk-label--s govuk-!-margin-top-4" for="contact-by-email">
                         Ordered by
