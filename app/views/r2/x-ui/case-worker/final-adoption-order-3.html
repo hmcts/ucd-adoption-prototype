@@ -144,11 +144,43 @@
                       </div>                    
 
                       <div class="govuk-form-group">
-                        <label class="govuk-label govuk-label--s" for="final-adoption-child-name">
-                          Birth/Adoption registration date
-                        </label>
-                        <input class="govuk-input govuk-input--width-20 govuk-!-margin-bottom-3" id="final-adoption-registration-date" name="final-adoption-registration-date" type="text">                        
-                      </div>                    
+                        <fieldset class="govuk-fieldset" role="group" aria-describedby="date-told-la-hint">
+                          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l govuk-!-margin-bottom-1">
+                            <label class="govuk-label govuk-label--s" for="LA directions">
+                              Birth/Adoption registration date
+                            </label>
+                          </legend>
+
+                          <div class="govuk-date-input" id="report-date">
+                            <div class="govuk-date-input__item">
+                              <div class="govuk-form-group">
+                                <label class="govuk-label govuk-date-input__label" for="final-adoption-registration-date-day">
+                                  Day
+                                </label>
+                                <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="final-adoption-registration-date-day" name="final-adoption-registration-date-day" type="text" inputmode="numeric" value="{{ data['final-adoption-registration-date-day'] }}">
+                              </div>
+                            </div>
+                            
+                            <div class="govuk-date-input__item">
+                              <div class="govuk-form-group">
+                                <label class="govuk-label govuk-date-input__label" for="final-adoption-registration-date-month">
+                                  Month
+                                </label>
+                                <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="final-adoption-registration-date-month" name="final-adoption-registration-date-month" type="text" inputmode="numeric" value="{{ data['final-adoption-registration-date-month'] }}">
+                              </div>
+                            </div>
+                            
+                            <div class="govuk-date-input__item">
+                              <div class="govuk-form-group">
+                                <label class="govuk-label govuk-date-input__label" for="final-adoption-registration-date-year">
+                                  Year
+                                </label>
+                                <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="final-adoption-registration-date-year" name="final-adoption-registration-date-year" type="text" inputmode="numeric" value="{{ data['final-adoption-registration-date-year'] }}">
+                              </div>
+                            </div>
+                          </div>
+                        </fieldset>
+                      </div>
 
                       <div class="govuk-form-group">
                         <label class="govuk-label govuk-label--s" for="final-adoption-child-name">
