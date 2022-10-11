@@ -37,13 +37,13 @@
                             <div class="govuk-radios__item">
                               <input class="govuk-radios__input" id="previous-judge" name="gatekeeping-order-allocate-judge" type="radio" value="previous-judge" {% if data['gatekeeping-order-allocate-judge'] === 'previous-judge' %} checked {% endif %}>
                               <label class="govuk-label govuk-radios__label" for="previous-judge">
-                                Allocate previous placement judge
+                                Allocate previous proceedings judge
                               </label>
                             </div>
                             <div class="govuk-radios__item">
                               <input class="govuk-radios__input" id="different-judge" name="gatekeeping-order-allocate-judge" type="radio" value="different-judge" {% if data['gatekeeping-order-allocate-judge'] === 'different-judge' %} checked {% endif %}>
                               <label class="govuk-label govuk-radios__label" for="different-judge">
-                                Allocate different judge
+                                Reallocate judge
                               </label>
                             </div>
                           </div>                        
@@ -85,6 +85,28 @@
                       </div>    
                                               
                       <div class="govuk-form-group">
+                        <fieldset class="govuk-fieldset">
+                          <div class="govuk-radios" data-module="govuk-radios">
+                            <label class="govuk-label govuk-label--s govuk-!-margin-top-4 govuk-!-margin-bottom-3" for="contact-by-email">
+                              The application will be heard
+                            </label>
+                            <div class="govuk-radios__item">
+                              <input class="govuk-radios__input" id="remotely" name="gatekeeping-application-heard-radios" type="radio" value="remotely" {% if data['gatekeeping-application-heard-radios'] === 'remotely' %} checked {% endif %}>
+                              <label class="govuk-label govuk-radios__label" for="remotely">
+                                Remotely
+                              </label>
+                            </div>
+                            <div class="govuk-radios__item">
+                              <input class="govuk-radios__input" id="in-person" name="gatekeeping-application-heard-radios" type="radio" value="in-person" {% if data['gatekeeping-application-heard-radios'] === 'in-person' %} checked {% endif %}>
+                              <label class="govuk-label govuk-radios__label" for="in-person">
+                                In person
+                              </label>
+                            </div>
+                          </div>                        
+                        </fieldset>
+                      </div>
+
+                      <div class="govuk-form-group">
                         <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
                           <label class="govuk-label govuk-label--s govuk-!-margin-top-4" for="contact-by-email">
                             Local authority
@@ -97,7 +119,7 @@
                           <div class="govuk-checkboxes__item">
                             <input class="govuk-checkboxes__input" id="gatekeeping-submit-annex-a" name="gatekeeping-submit-annex-a" type="checkbox" value="gatekeeping-submit-annex-a" {% if (data['gatekeeping-submit-annex-a'] != undefined) %} checked {% endif %}>
                             <label class="govuk-label govuk-checkboxes__label" for="gatekeeping-submit-annex-a">
-                              Submit Annex A
+                              File adoption agency report
                             </label>
                           </div>
                         </div>

@@ -52,7 +52,7 @@
 
                       <div class="govuk-form-group">
                         <label class="govuk-label govuk-label--s govuk-!-margin-top-7 govuk-!-margin-bottom-3" for="LA directions">
-                          Hearing details
+                          Hearing date
                         </label>
 
                         {% if data['gatekeeping-hearing-date-future-checkbox'] !== undefined %}
@@ -102,6 +102,12 @@
                               The application is listed for a first hearing on [date] at [time] (with a time estimate of [length]) at [court name].                      
                             </label>    
 
+                            
+                            <p class="govuk-!-margin-top-4">The application will be heard 
+                              {% if data['gatekeeping-application-heard-radios'] === 'remotely' %} remotely.
+                              {% else %} in person. {% endif %}
+                            </p>
+                            
                             <fieldset class="govuk-fieldset" role="group" aria-describedby="date-told-la-hint">
                               <legend class="govuk-fieldset__legend govuk-fieldset__legend--l govuk-!-margin-bottom-1">
                                 <label class="govuk-label govuk-label--s  govuk-!-margin-top-4" for="LA directions">
@@ -215,6 +221,11 @@
                             <label class="govuk-label" for="event-name">
                               The application is listed for a [listing type] on [date] at [time] with a time estimate of [length] at [court name].                
                             </label>       
+
+                            <p class="govuk-!-margin-top-4">The application will be heard 
+                              {% if data['gatekeeping-application-heard-radios'] === 'remotely' %} remotely.
+                              {% else %} in person. {% endif %}
+                            </p>
 
                             <div class="govuk-form-group">
                               <fieldset class="govuk-fieldset">
