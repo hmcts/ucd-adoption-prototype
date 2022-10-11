@@ -33,13 +33,13 @@
                               <div class="govuk-radios__item">
                                 <input class="govuk-radios__input" id="applicants-may-not-attend" name="gatekeeping-attendance-applicant-radios" type="radio" value="applicants-may-not-attend" {% if data['gatekeeping-attendance-applicant-radios'] === 'applicants-may-not-attend' %} checked {% endif %}>
                                 <label class="govuk-label govuk-radios__label" for="applicants-may-not-attend">
-                                  The applicants may but need not attend the hearing but if they wish to do so, they are requested to advise the court giving not less than 7 days' notice so that arrangements can be made to protect the confidentiality of the placement.
+                                  The applicants are not required to attend the hearing but if they wish to do so, they are requested to advise the Court giving not less than 7 days' notice so that arrangements can be made to protect the confidentiality of the placement.
                                 </label>
                               </div>
                               <div class="govuk-radios__item">
                                 <input class="govuk-radios__input" id="applicants-cannot-attend" name="gatekeeping-attendance-applicant-radios" type="radio" value="applicants-cannot-attend" {% if data['gatekeeping-attendance-applicant-radios'] === 'applicants-cannot-attend' %} checked {% endif %}>
                                 <label class="govuk-label govuk-radios__label" for="applicants-cannot-attend">
-                                  The applicant(s) is/are <span class="govuk-!-font-weight-bold">NOT</span> to attend the next hearing.
+                                  The applicants are <span class="govuk-!-font-weight-bold">NOT</span> to attend the next hearing.
                                 </label>
                               </div>
                             </div>                        
@@ -109,7 +109,7 @@
                           <fieldset class="govuk-fieldset">
                             <div class="govuk-radios" data-module="govuk-radios">
                               <label class="govuk-label govuk-label--s govuk-!-margin-top-4 govuk-!-margin-bottom-4" for="contact-by-email">
-                                Respondents
+                                Birth parents
                               </label>
                                 <div id="gatekeeping-attendance-birth-parents-hint" class="govuk-hint">
                                   Choose all that are relevant.
@@ -173,7 +173,10 @@
                       <p class="govuk-!-font-weight-bold govuk-!-margin-bottom-2">Leave to oppose</p>
 
                       {% if data['gatekeeping-leave-oppose-checkbox'] != undefined %}
-                        <p class=" govuk-!-margin-bottom-1">A birth parent wishing to seek permission to oppose the making of an adoption order or seek contact with the child is invited to notify the court in writing by [date].</p>
+                        <p>A birth parent who wants to oppose the making of an adoption order or seek contact with the child is invited to notify the court in writing by [date].</p>
+                        <p>A birth parent can only oppose the making of an Adoption Order if they have first been given permission to do so by the Court.</p>
+                        <p>A birth parent who wishes to apply to the court for permission to oppose the making of an adoption order must send a statement to the court setting out how circumstances have changed since the date when the Placement Order was made. If you have any certificates or other documents of courses completed or work, you have done these should be attached to the statement.</p> 
+                        <p>The statement should then also explain to the court why it would be in the best interests of the child for you to be given permission to oppose the adoption.
                         <div class="govuk-form-group">
                           <label class="govuk-label govuk-label--s" for="contact-by-phone">
                             Date
