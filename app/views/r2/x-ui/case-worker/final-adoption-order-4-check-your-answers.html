@@ -14,7 +14,7 @@
                     <h2 class="govuk-heading-l govuk-!-margin-bottom-3">#1234-5678-0921-2722</h2>
                     <h2 class="govuk-heading-m govuk-!-margin-top-0 govuk-!-margin-bottom-2">Child's name: Jane Austen</h2>
 
-                    <form action="/r2/x-ui/case-worker/general-directions-order-4-check-your-answers" method="post" class="form">
+                    <form action="/r2/x-ui/case-worker/final-adoption-order-4-check-your-answers" method="post" class="form">
                       <div class="govuk-width-container">
                         <!-- <h3 class="govuk-heading-s">Preamble</h3> -->
                         <h2 class="govuk-heading-m govuk-!-margin-bottom-7 govuk-!-margin-top-8">Final adoption order</h2>
@@ -76,7 +76,25 @@
                               Placement of the child
                             </dt>
                             <dd class="govuk-summary-list__value">
-                              The child was placed for adoption by an adoption agency/local authority (to be specified).                            
+                              The child was placed for adoption by an adoption agency/local authority.                            
+                            </dd>
+                            <dd class="govuk-summary-list__actions">
+                              <a class="govuk-link" href="final-adoption-order-1.html">
+                                Change<span class="govuk-visually-hidden"> placement of the child</span>
+                              </a>
+                            </dd>
+                          </div>
+
+                          <div class="govuk-summary-list__row">
+                            <dt class="govuk-summary-list__key">
+                              Adoption agency / local authority
+                            </dt>
+                            <dd class="govuk-summary-list__value">
+                              {% if data['final-adoption-adoption-agency-radio'] %}                            
+                                {{ data['final-adoption-adoption-agency-radio'] }}
+                              {% else %}
+                                Kay's Ltd, Greenwich, SE18 2TY
+                              {% endif %}                              
                             </dd>
                             <dd class="govuk-summary-list__actions">
                               <a class="govuk-link" href="final-adoption-order-1.html">
