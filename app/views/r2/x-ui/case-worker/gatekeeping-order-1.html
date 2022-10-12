@@ -54,7 +54,7 @@
                         <fieldset class="govuk-fieldset" aria-describedby="gatekeeping-hearing-checkboxes-hint">
                           <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
                             <label class="govuk-label govuk-label--s govuk-!-margin-top-4" for="contact-by-email">
-                              Hearing dates
+                              Hearing notices
                             </label>
                             <div id="changed-name-hint" class="govuk-hint">
                               You can choose one or 2 options here
@@ -73,6 +73,12 @@
                                 List for further hearings
                               </label>
                             </div>
+                            <div class="govuk-checkboxes__item">
+                              <input class="govuk-checkboxes__input" id="gatekeeping-mode-of-hearing" name="gatekeeping-mode-of-hearing-checkbox" type="checkbox" value="gatekeeping-mode-of-hearing" {% if (data['gatekeeping-mode-of-hearing-checkbox'] != undefined) %} checked {% endif %}>
+                              <label class="govuk-label govuk-checkboxes__label" for="gatekeeping-mode-of-hearing">
+                                Mode of hearing
+                              </label>
+                            </div>
                             <!-- <div class="govuk-checkboxes__divider">or</div> -->
                             <div class="govuk-checkboxes__item">
                               <input class="govuk-checkboxes__input" id="gatekeeping-hearing-date-future" name="gatekeeping-hearing-date-future-checkbox" type="checkbox" value="gatekeeping-hearing-date-future" {% if (data['gatekeeping-hearing-date-future-checkbox'] != undefined) %} checked {% endif %}>
@@ -84,28 +90,6 @@
                         </fieldset>
                       </div>    
                                               
-                      <div class="govuk-form-group">
-                        <fieldset class="govuk-fieldset">
-                          <div class="govuk-radios" data-module="govuk-radios">
-                            <label class="govuk-label govuk-label--s govuk-!-margin-top-4 govuk-!-margin-bottom-3" for="contact-by-email">
-                              The application will be heard
-                            </label>
-                            <div class="govuk-radios__item">
-                              <input class="govuk-radios__input" id="remotely" name="gatekeeping-application-heard-radios" type="radio" value="remotely" {% if data['gatekeeping-application-heard-radios'] === 'remotely' %} checked {% endif %}>
-                              <label class="govuk-label govuk-radios__label" for="remotely">
-                                Remotely
-                              </label>
-                            </div>
-                            <div class="govuk-radios__item">
-                              <input class="govuk-radios__input" id="in-person" name="gatekeeping-application-heard-radios" type="radio" value="in-person" {% if data['gatekeeping-application-heard-radios'] === 'in-person' %} checked {% endif %}>
-                              <label class="govuk-label govuk-radios__label" for="in-person">
-                                In person
-                              </label>
-                            </div>
-                          </div>                        
-                        </fieldset>
-                      </div>
-
                       <div class="govuk-form-group">
                         <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
                           <label class="govuk-label govuk-label--s govuk-!-margin-top-4" for="contact-by-email">
@@ -129,6 +113,34 @@
                         <fieldset class="govuk-fieldset" aria-describedby="gatekeeping-attendance-checkboxes-hint">
                           <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
                             <label class="govuk-label govuk-label--s govuk-!-margin-top-4" for="contact-by-email">
+                              CAFCASS
+                            </label>
+                            <!-- <div id="changed-name-hint" class="govuk-hint">
+                              You are choosing which parties are issued with a direction on whether or not they can attend the hearing. You can choose more than one option.
+                            </div>                           -->
+                          </legend>
+                          <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+                            <div class="govuk-checkboxes__item">
+                              <input class="govuk-checkboxes__input" id="gatekeeping-cafcass-reporting-officer" name="gatekeeping-cafcass-reporting-officer" type="checkbox" value="gatekeeping-cafcass-reporting-officer" {% if (data['gatekeeping-cafcass-reporting-officer'] != undefined) %} checked {% endif %}>
+                              <label class="govuk-label govuk-checkboxes__label" for="gatekeeping-cafcass-reporting-officer">
+                                Reporting officer
+                              </label>
+                            </div>
+
+                            <div class="govuk-checkboxes__item">
+                              <input class="govuk-checkboxes__input" id="gatekeeping-cafcass-guardian" name="gatekeeping-cafcass-guardian" type="checkbox" value="gatekeeping-cafcass-guardian" {% if (data['gatekeeping-cafcass-guardian'] != undefined) %} checked {% endif %}>
+                              <label class="govuk-label govuk-checkboxes__label" for="gatekeeping-cafcass-guardian">
+                                Child or children's guardian
+                              </label>
+                            </div>
+                          </div>
+                        </fieldset>
+                      </div>
+
+                      <div class="govuk-form-group">
+                        <fieldset class="govuk-fieldset" aria-describedby="gatekeeping-attendance-checkboxes-hint">
+                          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                            <label class="govuk-label govuk-label--s govuk-!-margin-top-4" for="contact-by-email">
                               Attendance
                             </label>
                             <div id="changed-name-hint" class="govuk-hint">
@@ -139,28 +151,28 @@
                             <div class="govuk-checkboxes__item">
                               <input class="govuk-checkboxes__input" id="gatekeeping-applicants" name="gatekeeping-attendance-applicants" type="checkbox" value="gatekeeping-applicants" {% if (data['gatekeeping-attendance-applicants'] != undefined) %} checked {% endif %}>
                               <label class="govuk-label govuk-checkboxes__label" for="gatekeeping-applicants">
-                                Applicants
+                                Applicants attendance
                               </label>
                             </div>
 
                             <div class="govuk-checkboxes__item">
                               <input class="govuk-checkboxes__input" id="gatekeeping-child" name="gatekeeping-attendance-child" type="checkbox" value="gatekeeping-child" {% if (data['gatekeeping-attendance-child'] != undefined) %} checked {% endif %}>
                               <label class="govuk-label govuk-checkboxes__label" for="gatekeeping-child">
-                                Child
+                                Child attendance
                               </label>
                             </div>
 
                             <div class="govuk-checkboxes__item">
                               <input class="govuk-checkboxes__input" id="gatekeeping-local-authority" name="gatekeeping-attendance-local-authority" type="checkbox" value="gatekeeping-local-authority" {% if (data['gatekeeping-attendance-local-authority'] != undefined) %} checked {% endif %}>
                               <label class="govuk-label govuk-checkboxes__label" for="gatekeeping-local-authority">
-                                Local authority
+                                Local authority attendance
                               </label>
                             </div>
 
                             <div class="govuk-checkboxes__item">
                               <input class="govuk-checkboxes__input" id="gatekeeping-birth-parents" name="gatekeeping-attendance-birth-parents" type="checkbox" value="gatekeeping-birth-parents" {% if (data['gatekeeping-attendance-birth-parents'] != undefined) %} checked {% endif %}>
                               <label class="govuk-label govuk-checkboxes__label" for="gatekeeping-birth-parents">
-                                Respondents (for example, birth parents)
+                                Birth parents attendance
                               </label>
                             </div>
                           </div>                        
@@ -180,7 +192,7 @@
                           <div class="govuk-checkboxes__item">
                             <input class="govuk-checkboxes__input" id="gatekeeping-leave-oppose" name="gatekeeping-leave-oppose-checkbox" type="checkbox" value="gatekeeping-leave-oppose">
                             <label class="govuk-label govuk-checkboxes__label" for="gatekeeping-leave-oppose">
-                              File leave to oppose
+                              Leave to oppose
                             </label>
                           </div>
                         </div>

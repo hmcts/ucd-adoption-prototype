@@ -97,16 +97,41 @@
                           </div> 
 
                         {% else %}
+                          {% if data['gatekeeping-mode-of-hearing-checkbox'] !== undefined %}
+
+                            <div class="govuk-form-group">
+                              <fieldset class="govuk-fieldset">
+                                <div class="govuk-radios" data-module="govuk-radios">
+                                  <label class="govuk-label govuk-label--s govuk-!-margin-top-4 govuk-!-margin-bottom-3" for="contact-by-email">
+                                    Mode of hearing
+                                  </label>
+                                  <div class="govuk-radios__item">
+                                    <input class="govuk-radios__input" id="remotely" name="gatekeeping-application-heard-radios" type="radio" value="remotely" {% if data['gatekeeping-application-heard-radios'] === 'remotely' %} checked {% endif %}>
+                                    <label class="govuk-label govuk-radios__label" for="remotely">
+                                      Remotely
+                                    </label>
+                                  </div>
+                                  <div class="govuk-radios__item">
+                                    <input class="govuk-radios__input" id="in-person" name="gatekeeping-application-heard-radios" type="radio" value="in-person" {% if data['gatekeeping-application-heard-radios'] === 'in-person' %} checked {% endif %}>
+                                    <label class="govuk-label govuk-radios__label" for="in-person">
+                                      In person
+                                    </label>
+                                  </div>
+                                </div>                        
+                              </fieldset>
+                            </div>
+                          {% endif %}
+                            
                           {% if data['gatekeeping-first-hearing-checkbox'] !== undefined %}
                             <label class="govuk-label" for="event-name">
                               The application is listed for a first hearing on [date] at [time] (with a time estimate of [length]) at [court name].                      
                             </label>    
 
                             
-                            <p class="govuk-!-margin-top-4">The application will be heard 
+                            <!-- <p class="govuk-!-margin-top-4">The application will be heard 
                               {% if data['gatekeeping-application-heard-radios'] === 'remotely' %} remotely.
                               {% else %} in person. {% endif %}
-                            </p>
+                            </p> -->
                             
                             <fieldset class="govuk-fieldset" role="group" aria-describedby="date-told-la-hint">
                               <legend class="govuk-fieldset__legend govuk-fieldset__legend--l govuk-!-margin-bottom-1">
@@ -222,10 +247,10 @@
                               The application is listed for a [listing type] on [date] at [time] with a time estimate of [length] at [court name].                
                             </label>       
 
-                            <p class="govuk-!-margin-top-4">The application will be heard 
+                            <!-- <p class="govuk-!-margin-top-4">The application will be heard 
                               {% if data['gatekeeping-application-heard-radios'] === 'remotely' %} remotely.
                               {% else %} in person. {% endif %}
-                            </p>
+                            </p> -->
 
                             <div class="govuk-form-group">
                               <fieldset class="govuk-fieldset">
