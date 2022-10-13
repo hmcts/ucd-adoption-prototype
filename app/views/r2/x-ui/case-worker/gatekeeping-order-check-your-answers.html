@@ -85,7 +85,7 @@
                                 {% endif %}
                                 </dl>
 
-                                <h3 class="govuk-heading-s govuk-!-margin-top-9">Hearing dates</h3>
+                                <h3 class="govuk-heading-s govuk-!-margin-top-9">Hearings</h3>
                       
                                 <dl class="govuk-summary-list">
                                   {% if data['gatekeeping-hearing-date-future-checkbox'] !== undefined %}
@@ -164,63 +164,100 @@
                                     {% endif %}
 
                                     {% if data['gatekeeping-further-hearings-checkbox'] !== undefined %}
+                                      <div class="govuk-summary-list__row">
+                                        <dt class="govuk-summary-list__key">
+                                          Further hearings
+                                        </dt>
+                                        <dd class="govuk-summary-list__value">
+                                          The application is listed for a [listing type] on [date] at [time] with a time estimate of [length] at [court name].
+                                        </dd>
+                                        <dd class="govuk-summary-list__actions">
+                                          <a class="govuk-link" href="gatekeeping-order-1.html">
+                                            Change<span class="govuk-visually-hidden"> hearing details</span>
+                                          </a>
+                                        </dd>
+                                      </div>
+
+                                      <div class="govuk-summary-list__row">
+                                        <dt class="govuk-summary-list__key">
+                                          Hearing date
+                                        </dt>
+                                        <dd class="govuk-summary-list__value">
+                                          {{ data['gatekeeping-first-hearing-day'] }} {{ data['monthName'][data['gatekeeping-first-hearing-month']] }} {{ data['gatekeeping-first-hearing-year'] }} at {{ data['gatekeeping-first-hearing-hour'] }}:{{ data['gatekeeping-first-hearing-minute'] }}:{{ data['gatekeeping-first-hearing-second'] }}
+                                        </dd>
+                                        <dd class="govuk-summary-list__actions">
+                                          <a class="govuk-link" href="gatekeeping-order-2.html">
+                                            Change<span class="govuk-visually-hidden"> hearing date</span>
+                                          </a>
+                                        </dd>
+                                      </div>
+                                      
+                                      <div class="govuk-summary-list__row">
+                                        <dt class="govuk-summary-list__key">
+                                          Length
+                                        </dt>
+                                        <dd class="govuk-summary-list__value">
+                                          {{ data['gatekeepingFurtherHearingLengthDays']}} days, {{ data['gatekeepingFurtherHearingLengthHours']}} hours, {{ data['gatekeepingFurtherHearingLengthMinutes']}} minutes 
+                                        </dd>
+                                        <dd class="govuk-summary-list__actions">
+                                          <a class="govuk-link" href="gatekeeping-order-2.html">
+                                            Change<span class="govuk-visually-hidden"> hearing length</span>
+                                          </a>
+                                        </dd>
+                                      </div>
+
+                                      <div class="govuk-summary-list__row">
+                                        <dt class="govuk-summary-list__key">
+                                          Name of court
+                                        </dt>
+                                        <dd class="govuk-summary-list__value">
+                                          {{ data['gatekeeping-court-further-name'] }}                                    
+                                        </dd>
+                                        <dd class="govuk-summary-list__actions">
+                                          <a class="govuk-link" href="gatekeeping-order-2.html">
+                                            Change<span class="govuk-visually-hidden"> hearing date</span>
+                                          </a>
+                                        </dd>
+                                      </div>                        
+                                    {% endif %}
                                     <div class="govuk-summary-list__row">
                                       <dt class="govuk-summary-list__key">
-                                        Further hearings
+                                        Mode of hearing set
                                       </dt>
                                       <dd class="govuk-summary-list__value">
-                                        The application is listed for a [listing type] on [date] at [time] with a time estimate of [length] at [court name].
+                                        {% if data['gatekeeping-mode-of-hearing-checkbox'] !== undefined %}
+                                          Yes
+                                        {% else %}
+                                          No
+                                        {% endif %}
                                       </dd>
                                       <dd class="govuk-summary-list__actions">
                                         <a class="govuk-link" href="gatekeeping-order-1.html">
-                                          Change<span class="govuk-visually-hidden"> hearing details</span>
+                                          Change<span class="govuk-visually-hidden"> set mode of hearing</span>
                                         </a>
                                       </dd>
                                     </div>
 
-                                    <div class="govuk-summary-list__row">
-                                      <dt class="govuk-summary-list__key">
-                                        Hearing date
-                                      </dt>
-                                      <dd class="govuk-summary-list__value">
-                                        {{ data['gatekeeping-first-hearing-day'] }} {{ data['monthName'][data['gatekeeping-first-hearing-month']] }} {{ data['gatekeeping-first-hearing-year'] }} at {{ data['gatekeeping-first-hearing-hour'] }}:{{ data['gatekeeping-first-hearing-minute'] }}:{{ data['gatekeeping-first-hearing-second'] }}
-                                      </dd>
-                                      <dd class="govuk-summary-list__actions">
-                                        <a class="govuk-link" href="gatekeeping-order-2.html">
-                                          Change<span class="govuk-visually-hidden"> hearing date</span>
-                                        </a>
-                                      </dd>
-                                    </div>
-                                    
-                                    <div class="govuk-summary-list__row">
-                                      <dt class="govuk-summary-list__key">
-                                        Length
-                                      </dt>
-                                      <dd class="govuk-summary-list__value">
-                                        {{ data['gatekeepingFurtherHearingLengthDays']}} days, {{ data['gatekeepingFurtherHearingLengthHours']}} hours, {{ data['gatekeepingFurtherHearingLengthMinutes']}} minutes 
-                                      </dd>
-                                      <dd class="govuk-summary-list__actions">
-                                        <a class="govuk-link" href="gatekeeping-order-2.html">
-                                          Change<span class="govuk-visually-hidden"> hearing length</span>
-                                        </a>
-                                      </dd>
-                                    </div>
-
-                                  <div class="govuk-summary-list__row">
-                                      <dt class="govuk-summary-list__key">
-                                        Name of court
-                                      </dt>
-                                      <dd class="govuk-summary-list__value">
-                                        {{ data['gatekeeping-court-further-name'] }}                                    
-                                      </dd>
-                                      <dd class="govuk-summary-list__actions">
-                                        <a class="govuk-link" href="gatekeeping-order-2.html">
-                                          Change<span class="govuk-visually-hidden"> hearing date</span>
-                                        </a>
-                                      </dd>
-                                    </div>
-                        
+                                    {% if data['gatekeeping-mode-of-hearing-checkbox'] !== undefined %}
+                                      <div class="govuk-summary-list__row">
+                                        <dt class="govuk-summary-list__key">
+                                          Mode of hearing
+                                        </dt>
+                                        <dd class="govuk-summary-list__value">
+                                          {% if data['gatekeeping-application-heard-radios'] %}
+                                            {{ data['gatekeeping-application-heard-radios'] }}
+                                          {% else %}
+                                            Remotely
+                                          {% endif %}
+                                        </dd>
+                                        <dd class="govuk-summary-list__actions">
+                                          <a class="govuk-link" href="gatekeeping-order-1.html">
+                                            Change<span class="govuk-visually-hidden"> mode of hearing</span>
+                                          </a>
+                                        </dd>
+                                      </div>
                                     {% endif %}
+
                                   {% endif %}
                                 </dl>
 
@@ -229,7 +266,7 @@
                               <dl class="govuk-summary-list">
                                 <div class="govuk-summary-list__row">
                                   <dt class="govuk-summary-list__key">
-                                    Annex A to be submitted
+                                    Adoption agency report to be filed
                                   </dt>
                                   {% if data['gatekeeping-local-authority-checkboxes'] != undefined %}
                                   <dd class="govuk-summary-list__value">
@@ -277,8 +314,47 @@
                                 {% endif %}
                               </dl>
 
+                              <h3 class="govuk-heading-s govuk-!-margin-top-9">CAFCASS</h3>                      
+                              <dl class="govuk-summary-list">                                
+                                <div class="govuk-summary-list__row">
+                                  <dt class="govuk-summary-list__key">
+                                    Reporting officer
+                                  </dt>
+                                  <dd class="govuk-summary-list__value">
+                                    {% if (data['gatekeeping-cafcass-reporting-officer'] != undefined) %}                                
+                                      Yes
+                                    {% else %}
+                                      No
+                                    {% endif %}
+                                  </dd>
+                                  <dd class="govuk-summary-list__actions">
+                                    <a class="govuk-link" href="gatekeeping-order-1.html">
+                                      Change<span class="govuk-visually-hidden"> CAFCASS reporting officer</span>
+                                    </a>
+                                  </dd>
+                                </div>
+                                <div class="govuk-summary-list__row">
+                                  <dt class="govuk-summary-list__key">
+                                    Child or children's guardian
+                                  </dt>
+                                  <dd class="govuk-summary-list__value">
+                                    {% if (data['gatekeeping-cafcass-guardian'] != undefined) %}                                
+                                      Yes
+                                    {% else %}
+                                      No
+                                    {% endif %}
+                                  </dd>
+                                  <dd class="govuk-summary-list__actions">
+                                    <a class="govuk-link" href="gatekeeping-order-1.html">
+                                      Change<span class="govuk-visually-hidden"> CAFCASS child or children's guardian</span>
+                                    </a>
+                                  </dd>
+                                </div>
+                              </dl>
+
+
+
                               <h3 class="govuk-heading-s govuk-!-margin-top-9">Attendance</h3>
-                      
                               <dl class="govuk-summary-list">
                                 
                                 {% if data['gatekeeping-attendance-applicants'] !== undefined %}
