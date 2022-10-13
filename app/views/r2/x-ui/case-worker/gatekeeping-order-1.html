@@ -20,7 +20,7 @@
                           Preamble
                         </label>
                         <div id="changed-name-hint" class="govuk-hint">
-                          Copy and paste or type directly into the text box
+                          Copy and paste or type directly into the text box.
                         </div>                          
                         <textarea class="govuk-textarea" id="gatekeeping-preamble" name="gatekeeping-preamble" rows="5">{{ data['gatekeeping-preamble'] }}</textarea>
                       </div>
@@ -32,7 +32,7 @@
                               Allocation
                             </label>
                             <div id="changed-name-hint" class="govuk-hint">
-                              Choose which judge to allocate to
+                              Choose which judge to allocate to.
                             </div>                          
                             <div class="govuk-radios__item">
                               <input class="govuk-radios__input" id="previous-judge" name="gatekeeping-order-allocate-judge" type="radio" value="previous-judge" {% if data['gatekeeping-order-allocate-judge'] === 'previous-judge' %} checked {% endif %}>
@@ -54,10 +54,10 @@
                         <fieldset class="govuk-fieldset" aria-describedby="gatekeeping-hearing-checkboxes-hint">
                           <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
                             <label class="govuk-label govuk-label--s govuk-!-margin-top-4" for="contact-by-email">
-                              Hearing notices
+                              Hearings
                             </label>
                             <div id="changed-name-hint" class="govuk-hint">
-                              You can choose one or 2 options here
+                              You can choose one or 2 options here.
                             </div>                          
                           </legend>
                           <div class="govuk-checkboxes" data-module="govuk-checkboxes">
@@ -71,12 +71,6 @@
                               <input class="govuk-checkboxes__input" id="gatekeeping-further-hearings" name="gatekeeping-further-hearings-checkbox" type="checkbox" value="gatekeeping-further-hearings" {% if (data['gatekeeping-further-hearings-checkbox'] != undefined) %} checked {% endif %}>
                               <label class="govuk-label govuk-checkboxes__label" for="gatekeeping-further-hearings">
                                 List for further hearings
-                              </label>
-                            </div>
-                            <div class="govuk-checkboxes__item">
-                              <input class="govuk-checkboxes__input" id="gatekeeping-mode-of-hearing" name="gatekeeping-mode-of-hearing-checkbox" type="checkbox" value="gatekeeping-mode-of-hearing" {% if (data['gatekeeping-mode-of-hearing-checkbox'] != undefined) %} checked {% endif %}>
-                              <label class="govuk-label govuk-checkboxes__label" for="gatekeeping-mode-of-hearing">
-                                Mode of hearing
                               </label>
                             </div>
                             <!-- <div class="govuk-checkboxes__divider">or</div> -->
@@ -93,10 +87,27 @@
                       <div class="govuk-form-group">
                         <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
                           <label class="govuk-label govuk-label--s govuk-!-margin-top-4" for="contact-by-email">
+                            Mode of hearing
+                          </label>
+                          <div id="changed-name-hint" class="govuk-hint">
+                            Select mode of hearing to choose between in-person or remote hearings.
+                          </div>                          
+                        </legend>
+                        <div class="govuk-checkboxes__item">
+                          <input class="govuk-checkboxes__input" id="gatekeeping-mode-of-hearing" name="gatekeeping-mode-of-hearing-checkbox" type="checkbox" value="gatekeeping-mode-of-hearing" {% if (data['gatekeeping-mode-of-hearing-checkbox'] != undefined) %} checked {% endif %}>
+                          <label class="govuk-label govuk-checkboxes__label" for="gatekeeping-mode-of-hearing">
+                            Set mode of hearing
+                          </label>
+                        </div>
+                      </div>
+
+                      <div class="govuk-form-group">
+                        <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                          <label class="govuk-label govuk-label--s govuk-!-margin-top-4" for="contact-by-email">
                             Local authority
                           </label>
                           <div id="changed-name-hint" class="govuk-hint">
-                            If relevant
+                            If relevant.
                           </div>                          
                         </legend>
                         <div class="govuk-checkboxes" data-module="govuk-checkboxes">
@@ -185,7 +196,7 @@
                             Leave to oppose
                           </label>
                           <div id="changed-name-hint" class="govuk-hint">
-                            If relevant
+                            If relevant.
                           </div>                          
                         </legend>
                         <div class="govuk-checkboxes" data-module="govuk-checkboxes">
