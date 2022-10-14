@@ -19,10 +19,10 @@
                     <form action="/r2/x-ui/case-worker/final-adoption-order-1" method="post" class="form">
                       <div class="govuk-form-group">
                         <label class="govuk-label govuk-label--s govuk-!-margin-top-4" for="contact-by-email">
-                          1. Preamble
+                          Preamble
                         </label>
                         <div id="changed-name-hint" class="govuk-hint">
-                          Copy and paste or type directly into the text box
+                          Copy and paste or type directly into the text box.
                         </div>                          
                         <textarea class="govuk-textarea" id="final-adoption-preamble" name="final-adoption-preamble" rows="5">{{ data['final-adoption-preamble'] }}</textarea>
                       </div>
@@ -32,16 +32,9 @@
                           Ordered by
                         </label>
                         <div id="changed-name-hint" class="govuk-hint">
-                          Enter the name of the person issuing this order
+                          Enter the name of the person issuing this order.
                         </div>                          
-                        <input class="govuk-input govuk-!-width-two-thirds govuk-!-margin-bottom-4" id="gatekeeping-ordered-by" name="gatekeeping-ordered-by" type="text" value="{{data['gatekeeping-ordered-by']}}">
-                      </div>
-
-                      <div class="govuk-form-group">
-                        <label class="govuk-label govuk-label--s" for="contact-by-email">
-                          2. The court orders that
-                        </label>
-                        <p>The child is adopted by Agatha Christie and Arthur Conan Doyle.</p>
+                        <input class="govuk-input govuk-!-width-two-thirds" id="gatekeeping-ordered-by" name="gatekeeping-ordered-by" type="text" value="{{data['gatekeeping-ordered-by']}}">
                       </div>
 
                       <div class="govuk-form-group">
@@ -49,9 +42,6 @@
                           <label class="govuk-label govuk-label--s govuk-!-margin-top-4" for="contact-by-email">
                             Placement of the child
                           </label>
-                          <div id="changed-name-hint" class="govuk-hint">
-                            Select if appropriate or leave empty
-                          </div>                          
                         </legend>
                         <div class="govuk-checkboxes" data-module="govuk-checkboxes">
                           <div class="govuk-checkboxes__item">
@@ -64,9 +54,25 @@
                       </div>
                       
                       <div class="govuk-form-group">
+                        <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                          <label class="govuk-label govuk-label--s govuk-!-margin-top-4" for="contact-by-email">
+                            This is a step-parent order
+                          </label>
+                        </legend>
+                        <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+                          <div class="govuk-checkboxes__item">
+                            <input class="govuk-checkboxes__input" id="full-adoption-placement" name="full-adoption-placement-checkbox" type="checkbox" value="gatekeeping-leave-oppose">
+                            <label class="govuk-label govuk-checkboxes__label" for="full-adoption-placement">
+                              There is a parent whose whole status is unaffected by this order.
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                      
+                      <div class="govuk-form-group">
                         <h3 class="govuk-heading-s govuk-!-margin-top-8 govuk-!-margin-bottom-1">Child's full name after adoption</h3>
                         <div id="name-hint" class="govuk-hint">
-                          Enter the full names and surname stated in the application which the child is to be known by
+                          Enter the full names and surname stated in the application which the child is to be known by.
                         </div>                        
                         <input class="govuk-input govuk-!-width-two-thirds govuk-!-margin-bottom-5" id="final-adoption-child-full-name-after-adoption" name="final-adoption-child-full-name-after-adoption" type="text">
                         
