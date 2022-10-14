@@ -1,5 +1,5 @@
 {% block header %}
-{% include "includes/xui-header.html" %}
+{% include "layout-xui.html" %}
 {% endblock %}
 
 
@@ -34,7 +34,7 @@
                         <div id="changed-name-hint" class="govuk-hint">
                           Enter the name of the person issuing this order.
                         </div>                          
-                        <input class="govuk-input govuk-!-width-two-thirds" id="gatekeeping-ordered-by" name="gatekeeping-ordered-by" type="text" value="{{data['gatekeeping-ordered-by']}}">
+                        <input class="govuk-input govuk-!-width-two-thirds" id="final-adoption-ordered-by" name="final-adoption-ordered-by" type="text" value="{{data['final-adoption-ordered-by']}}">
                       </div>
 
                       <div class="govuk-form-group">
@@ -45,8 +45,8 @@
                         </legend>
                         <div class="govuk-checkboxes" data-module="govuk-checkboxes">
                           <div class="govuk-checkboxes__item">
-                            <input class="govuk-checkboxes__input" id="full-adoption-placement" name="full-adoption-placement-checkbox" type="checkbox" value="gatekeeping-leave-oppose">
-                            <label class="govuk-label govuk-checkboxes__label" for="full-adoption-placement">
+                            <input class="govuk-checkboxes__input" id="final-adoption-placement" name="final-adoption-placement-checkbox" type="checkbox" value="final-adoption-leave-oppose">
+                            <label class="govuk-label govuk-checkboxes__label" for="final-adoption-placement">
                               The child was placed for adoption by an adoption agency/local authority (to be specified).
                             </label>
                           </div>
@@ -61,26 +61,45 @@
                         </legend>
                         <div class="govuk-checkboxes" data-module="govuk-checkboxes">
                           <div class="govuk-checkboxes__item">
-                            <input class="govuk-checkboxes__input" id="full-adoption-placement" name="full-adoption-placement-checkbox" type="checkbox" value="gatekeeping-leave-oppose">
-                            <label class="govuk-label govuk-checkboxes__label" for="full-adoption-placement">
+                            <input class="govuk-checkboxes__input" id="final-adoption-step-parent" name="final-adoption-step-parent-checkbox" type="checkbox" value="final-adoption-step-parent" data-aria-controls="conditional-contact">
+                            <label class="govuk-label govuk-checkboxes__label" for="final-adoption-step-parent">
                               There is a parent whose whole status is unaffected by this order.
                             </label>
                           </div>
                         </div>
+                        <div class="govuk-checkboxes__conditional govuk-checkboxes__conditional--hidden" id="conditional-contact">
+                          <div class="govuk-form-group">
+                            <label class="govuk-label govuk-!-margin-top-3" for="contact-by-email">
+                              Name the parent whose status is unaffected by this order
+                            </label>
+                            <input class="govuk-input govuk-!-width-two-thirds" id="final-adoption-parent-unaffected" name="final-adoption-parent-unaffected" type="text" spellcheck="false">
+                          </div>                            
+                        </div>
                       </div>
-                      
+                    
                       <div class="govuk-form-group">
                         <h3 class="govuk-heading-s govuk-!-margin-top-8 govuk-!-margin-bottom-1">Child's full name after adoption</h3>
                         <div id="name-hint" class="govuk-hint">
                           Enter the full names and surname stated in the application which the child is to be known by.
                         </div>                        
-                        <input class="govuk-input govuk-!-width-two-thirds govuk-!-margin-bottom-5" id="final-adoption-child-full-name-after-adoption" name="final-adoption-child-full-name-after-adoption" type="text">
-                        
-                        <!-- <label class="govuk-label govuk-label--s" for="final-adoption-child-name">
-                          Last names
-                        </label>
-                        <input class="govuk-input govuk-input--width-20 govuk-!-margin-bottom-5" id="child-last-names" name="final-adoption-child-last-names" type="text"> -->
+                        <input class="govuk-input govuk-!-width-two-thirds" id="final-adoption-child-full-name-after-adoption" name="final-adoption-child-full-name-after-adoption" type="text">
                       </div>                    
+
+                      <div class="govuk-form-group">
+                        <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                          <label class="govuk-label govuk-label--s" for="contact-by-email">
+                            Cost orders
+                          </label>
+                        </legend>
+                        <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+                          <div class="govuk-checkboxes__item">
+                            <input class="govuk-checkboxes__input" id="final-adoption-cost-orders" name="final-adoption-cost-orders-checkboxes" type="checkbox" value="final-adoption-cost-orders">
+                            <label class="govuk-label govuk-checkboxes__label" for="final-adoption-cost-orders">
+                              No order for costs
+                            </label>
+                          </div>
+                        </div>
+                      </div>
 
 
                       <!-- Buttons -->
