@@ -397,21 +397,17 @@
                                 </div>
                                 {% endif %}
                               
-                                {% if data['gatekeeping-attendance-child'] !== undefined %}
+                                {% if data['la-representative-checkbox'] !== undefined %}
                                 <div class="govuk-summary-list__row">
                                   <dt class="govuk-summary-list__key">
                                     Local authority
                                   </dt>
                                   <dd class="govuk-summary-list__value">
-                                    {% if data['gatekeeping-attendance-local-authority-radios'] === "local-authority-excused" %}
-                                      The local authority shall attend the next hearing.
-                                    {% else %}
-                                      The local authority and the Annex A reporter must attend the hearing. 
-                                    {% endif %}
+                                    {{ data['la-representative-checkbox'] }}
                                   </dd>
                                   <dd class="govuk-summary-list__actions">
                                     <a class="govuk-link" href="gatekeeping-order-1.html">
-                                      Change<span class="govuk-visually-hidden"> child attendance</span>
+                                      Change<span class="govuk-visually-hidden"> local authority attendance</span>
                                     </a>
                                   </dd>
                                 </div>
@@ -425,13 +421,14 @@
                                   <dd class="govuk-summary-list__value">
                                     {% if data['gatekeeping-attendance-birth-parents-required'] !== undefined %}
                                       <p>1. The birth parents are required to attend the next hearing if they wish to make any representations as to why the court should not make an adoption order in respect of the child.</p>
+                                      <br>&nbsp;&nbsp;&nbsp;a. the court/ the local authority shall arrange personal service of notice of the hearing/this order on the respondent parents.
                                     {% endif %}
                                     {% if data['gatekeeping-attendance-birth-parents-address'] !== undefined %}
                                       <p>2. The court will serve notice of the hearing listed above on the birth mother and birth father at their last known address(es) specified in the application/covering letter.</p>
                                     {% endif %}
                                     {% if data['gatekeeping-attendance-birth-parents-acknowledgement'] !== undefined %}
                                       <p>3. Upon receipt of this order the birth mother and father must complete the acknowledgement, or email the court quoting the case number to (PO BOX ADDRESS)  or speak to the social worker <span class="govuk-!-font-weight-bold">to confirm receipt of this order</span>. Failing that the court may order that they are personally served with this order.</p>
-                                      <p><span class="govuk-!-font-weight-bold">Court email address: </span>{{ data['gatekeeping-attendance-court-email-address'] }}</p>
+                                      <!-- <p><span class="govuk-!-font-weight-bold">Court email address: </span>{{ data['gatekeeping-attendance-court-email-address'] }}</p> -->
                                     {% endif %}
                                     {% if data['gatekeeping-attendance-birth-parents-directions'] !== undefined %}
                                       <p>4. The purpose of the first hearing listed above is to consider any representations made by or on behalf of the birth parents and to give any consequential directions or orders. </p>
