@@ -82,6 +82,12 @@
                             </legend>
                             <div class="govuk-checkboxes" data-module="govuk-checkboxes">
                               <div class="govuk-checkboxes__item">
+                                <input class="govuk-checkboxes__input" id="la-representative" name="la-representative-checkbox" type="checkbox" value="A representative of the Local Authority shall attend the next hearing." {% if data['child-la-checkbox'] === 'A representative of the Local Authority shall attend the next hearing.' %} checked {% endif %}>
+                                <label class="govuk-label govuk-checkboxes__label" for="la-representative">
+                                  A representative of the Local Authority shall attend the next hearing.
+                                </label>
+                              </div>
+                              <!-- <div class="govuk-checkboxes__item">
                                 <input class="govuk-checkboxes__input" id="child-la" name="child-la-checkbox" type="checkbox" value="The child's local authority (social worker) must attend the hearing." {% if data['child-la-checkbox'] === 'The child\'s local authority (social worker) must attend the hearing.' %} checked {% endif %}>
                                 <label class="govuk-label govuk-checkboxes__label" for="child-la">
                                   The child's local authority (social worker) must attend the hearing.
@@ -98,7 +104,7 @@
                                 <label class="govuk-label govuk-checkboxes__label" for="annex-a-author">
                                   The author of the Annex A report must attend the hearing.
                                 </label>
-                              </div>
+                              </div> -->
                             </div>                        
                           </fieldset>
                         </div>
@@ -118,29 +124,30 @@
                                   <div class="govuk-checkboxes__item">
                                     <input class="govuk-checkboxes__input" id="gatekeeping-attendance-birth-parents" name="gatekeeping-attendance-birth-parents-required" type="checkbox" value="required">
                                     <label class="govuk-label govuk-checkboxes__label" for="gatekeeping-attendance-birth-parents">
-                                      1. The birth parents are required to attend the next hearing if they wish to make any representations as to why the court should not make an adoption order in respect of the child.
+                                      1. The birth parents are required to attend the next hearing <span class="govuk-!-font-weight-bold">IF</span> they wish to make any representations as to why the court should not make an adoption order in respect of the child.
                                     </label>
                                   </div>
                                   <div class="govuk-checkboxes__item">
                                     <input class="govuk-checkboxes__input" id="gatekeeping-attendance-birth-parents-2" name="gatekeeping-attendance-birth-parents-address" type="checkbox" value="address">
                                     <label class="govuk-label govuk-checkboxes__label" for="gatekeeping-attendance-birth-parents-2">
                                       2. The court will serve notice of the hearing listed above on the birth mother and birth father at their last known address(es) specified in the application/covering letter.
+                                      <br>&nbsp;&nbsp;&nbsp;a. the court/ the local authority shall arrange personal service of notice of the hearing/this order on the respondent parents.
                                     </label>
                                   </div>
                                   <div class="govuk-checkboxes__item">
                                     <input class="govuk-checkboxes__input" id="gatekeeping-attendance-birth-parents-3" name="gatekeeping-attendance-birth-parents-acknowledgement" type="checkbox" value="acknowledgement" data-aria-controls="conditional-contact">
                                     <label class="govuk-label govuk-checkboxes__label" for="gatekeeping-attendance-birth-parents-3">
-                                      3. Upon receipt of this order the birth mother and father must complete the acknowledgement, or email the court quoting the case number to (PO BOX ADDRESS)  or speak to the social worker <span class="govuk-!-font-weight-bold">to confirm receipt of this order</span>. Failing that the court may order that they are personally served with this order.
+                                      3. Upon receipt of this order the birth mother and father must complete the acknowledgement quoting the case number to (PO BOX ADDRESS) or speak to the social worker <span class="govuk-!-font-weight-bold">to confirm receipt of this order</span>.  Failing that the court may order that they are personally served with this order.
                                     </label>
                                   </div>
-                                  <div class="govuk-checkboxes__conditional govuk-checkboxes__conditional--hidden" id="conditional-contact">
+                                  <!-- <div class="govuk-checkboxes__conditional govuk-checkboxes__conditional--hidden" id="conditional-contact">
                                     <div class="govuk-form-group">
                                       <label class="govuk-label" for="contact-by-email">
                                         Provide the court email address
                                       </label>
                                       <input class="govuk-input govuk-!-width-two-thirds" id="gatekeeping-attendance-court-email-address" name="gatekeeping-attendance-court-email-address" type="email" spellcheck="false">
                                     </div>                            
-                                  </div>
+                                  </div> -->
                                   <div class="govuk-checkboxes__item">
                                     <input class="govuk-checkboxes__input" id="gatekeeping-attendance-birth-parents-4" name="gatekeeping-attendance-birth-parents-directions" type="checkbox" value="directions">
                                     <label class="govuk-label govuk-checkboxes__label" for="gatekeeping-attendance-birth-parents-4">
@@ -155,12 +162,12 @@
                                       <br>&nbsp;&nbsp;&nbsp;b. consider whether a final order should be made at that hearing
                                     </label>
                                   </div>
-                                  <!-- <div class="govuk-checkboxes__item">
+                                  <div class="govuk-checkboxes__item">
                                     <input class="govuk-checkboxes__input" id="gatekeeping-attendance-birth-parents-6" name="gatekeeping-attendance-birth-parents-final-hearing" type="checkbox" value="final-hearing">
                                     <label class="govuk-label govuk-checkboxes__label" for="gatekeeping-attendance-birth-parents-6">
-                                      6. If having considered the matters set out in paragraph (4) above the court considers that a final order should be made the first hearing shall be treated as a final hearing and an adoption order shall be made.
+                                      6. If the court considers that a final order should be made the first hearing shall be treated as a final hearing and an adoption order shall be made.
                                     </label>
-                                  </div> -->
+                                  </div>
 
                                 </div>   
                             </div>                           
