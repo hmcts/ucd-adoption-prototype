@@ -2658,7 +2658,7 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
   // ********************************** FINAL ADOPTION ORDER **********************************
   router.post('/r2/x-ui/case-worker/final-adoption-order-1', function(req, res) {
     if (req.body['submit-button'] === 'continue') {
-      res.redirect('/r2/x-ui/case-worker/final-adoption-order-3')
+      res.redirect('/r2/x-ui/case-worker/final-adoption-order-2')
     }
     else {
       res.redirect('/r2/x-ui/case-worker/index')
@@ -2668,7 +2668,7 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
 
   router.post('/r2/x-ui/case-worker/final-adoption-order-2', function(req, res) {
     if (req.body['submit-button'] === 'continue') {
-      res.redirect('/r2/x-ui/case-worker/final-adoption-order-3')
+      res.redirect('/r2/x-ui/case-worker/final-adoption-order-3-check-your-answers')
     }
     else {
       res.redirect('/r2/x-ui/case-worker/final-adoption-order-1')
@@ -2676,9 +2676,9 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
   })
 
 
-  router.post('/r2/x-ui/case-worker/final-adoption-order-3', function(req, res) {
+  router.post('/r2/x-ui/case-worker/final-adoption-order-2', function(req, res) {
     if (req.body['submit-button'] === 'continue') {
-      res.redirect('/r2/x-ui/case-worker/final-adoption-order-4-check-your-answers')
+      res.redirect('/r2/x-ui/case-worker/final-adoption-order-3-check-your-answers')
     }
     else {
       res.redirect('/r2/x-ui/case-worker/final-adoption-order-2')
@@ -2686,12 +2686,12 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
   })
 
 
-  router.post('/r2/x-ui/case-worker/final-adoption-order-4-check-your-answers', function(req, res) {
+  router.post('/r2/x-ui/case-worker/final-adoption-order-3-check-your-answers', function(req, res) {
     if (req.body['submit-button'] === 'continue') {
-      res.redirect('/r2/x-ui/case-worker/final-adoption-order-4-check-your-answers')
+      res.redirect('/r2/x-ui/case-worker/final-adoption-order-3-check-your-answers')
     }
     else {
-      res.redirect('/r2/x-ui/case-worker/final-adoption-order-3')
+      res.redirect('/r2/x-ui/case-worker/final-adoption-order-2')
     }
   })
 
@@ -2702,7 +2702,7 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
       res.redirect('/r2/x-ui/case-worker/final-adoption-order-5')
     }
     else {
-      res.redirect('/r2/x-ui/case-worker/final-adoption-order-3')
+      res.redirect('/r2/x-ui/case-worker/final-adoption-order-2')
     }
   })
 
@@ -2713,7 +2713,7 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
       res.redirect('/r2/x-ui/case-worker/final-adoption-order-5')
     }
     else {
-      res.redirect('/r2/x-ui/case-worker/final-adoption-order-3')
+      res.redirect('/r2/x-ui/case-worker/final-adoption-order-2')
     }
   })
 
@@ -2724,7 +2724,7 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
       res.redirect('/r2/x-ui/case-worker/final-adoption-order-5')
     }
     else {
-      res.redirect('/r2/x-ui/case-worker/final-adoption-order-3')
+      res.redirect('/r2/x-ui/case-worker/final-adoption-order-2')
     }
   })
 

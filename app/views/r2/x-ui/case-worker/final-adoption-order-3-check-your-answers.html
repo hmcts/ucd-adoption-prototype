@@ -1,0 +1,334 @@
+{% block header %}
+{% include "includes/xui-header.html" %}
+{% endblock %}
+
+
+<html lang="en" class="govuk-template ">
+  <div style=" max-width:1300px; margin: 0 auto;">
+      <div style=" max-width:1300px;  min-width:1300px;  margin: 20px 0px 0px 0px;  ">
+          <main class="govuk-main-wrapper " id="main-content" role="main" style="padding-top: 25px;">
+              <div class="govuk-width-container">
+                <div class="govuk-grid-row" style="width:1300px; margin-left: -90px;">
+                  <div class="govuk-grid-column-two-thirds">
+                    <h1 class="govuk-heading-xl">Check your answers</h1>
+                    <h2 class="govuk-heading-l govuk-!-margin-bottom-3">#1234-5678-0921-2722</h2>
+                    <h2 class="govuk-heading-m govuk-!-margin-top-0 govuk-!-margin-bottom-2">Child's name: Jane Austen</h2>
+
+                    <form action="/r2/x-ui/case-worker/final-adoption-order-3-check-your-answers" method="post" class="form">
+                      <div class="govuk-width-container">
+                        <!-- <h3 class="govuk-heading-s">Preamble</h3> -->
+                        <h2 class="govuk-heading-m govuk-!-margin-bottom-3 govuk-!-margin-top-8">Final adoption order</h2>
+                
+                        <!-- <h3 class="govuk-heading-s govuk-!-margin-top-9">Preamble</h3> -->
+                        <dl class="govuk-summary-list">
+                          <div class="govuk-summary-list__row">
+                            <dt class="govuk-summary-list__key">
+                              Preamble
+                            </dt>
+                            <dd class="govuk-summary-list__value">
+                              {% if data['final-adoption-preamble'] %}
+                                {{ data['final-adoption-preamble'] }}
+                              {% else %}
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+                              {% endif %}
+                            </dd>
+                            <dd class="govuk-summary-list__actions">
+                              <a class="govuk-link" href="final-adoption-order-1.html">
+                                Change<span class="govuk-visually-hidden"> preamble</span>
+                              </a>
+                            </dd>
+                          </div>
+
+                          <div class="govuk-summary-list__row">
+                            <dt class="govuk-summary-list__key">
+                              Ordered by
+                            </dt>
+                            <dd class="govuk-summary-list__value">
+                              {% if data['gatekeeping-ordered-by'] %}
+                                {{ data['gatekeeping-ordered-by']}}
+                              {% else %}
+                                Jane Kent
+                              {% endif %}
+                            </dd>
+                            <dd class="govuk-summary-list__actions">
+                              <a class="govuk-link" href="final-adoption-order-1.html">
+                                Change<span class="govuk-visually-hidden"> ordered by</span>
+                              </a>
+                            </dd>
+                          </div>
+
+                          <!-- <div class="govuk-summary-list__row">
+                            <dt class="govuk-summary-list__key">
+                              The court orders that
+                            </dt>
+                            <dd class="govuk-summary-list__value">
+                              The child is adopted by Agatha Christie and Arthur Conan Doyle.                          
+                            </dd>
+                            <dd class="govuk-summary-list__actions">
+                               <a class="govuk-link" href="gatekeeping-order-1.html">
+                                Change<span class="govuk-visually-hidden"> judge</span>
+                              </a> 
+                            </dd>
+                          </div> -->
+
+                          <div class="govuk-summary-list__row">
+                            <dt class="govuk-summary-list__key">
+                              Child placed by
+                            </dt>
+                            <dd class="govuk-summary-list__value">
+                              {% if data['final-adoption-adoption-agency-radio'] %}                            
+                                {{ data['final-adoption-adoption-agency-radio'] }}
+                              {% else %}
+                                Kay's Ltd, Greenwich, SE18 2TY
+                              {% endif %}                              
+                            </dd>
+                            <dd class="govuk-summary-list__actions">
+                              <a class="govuk-link" href="final-adoption-order-1.html">
+                                Change<span class="govuk-visually-hidden"> placement of the child</span>
+                              </a>
+                            </dd>
+                          </div>
+
+                          <div class="govuk-summary-list__row">
+                            <dt class="govuk-summary-list__key">
+                              Child's full name after adoption
+                            </dt>
+                            <dd class="govuk-summary-list__value">
+                              {% if data['final-adoption-child-full-name-after-adoption'] %}
+                                {{ data['final-adoption-child-full-name-after-adoption'] }}
+                              {% else %}
+                                Jane Christie Doyle
+                              {% endif %}
+                            </dd>
+                            <dd class="govuk-summary-list__actions">
+                            </dd>
+                          </div>
+                          
+                          <div class="govuk-summary-list__row">
+                            <dt class="govuk-summary-list__key">
+                              There is a parent whose whole status is unaffected by this order
+                            </dt>
+                            <dd class="govuk-summary-list__value">
+                              {% if data['final-adoption-step-parent-checkbox'] !== undefined %}
+                                Yes
+                              {% else %}
+                                No
+                              {% endif %}
+                            </dd>
+                            <dd class="govuk-summary-list__actions">
+                              <a class="govuk-link" href="final-adoption-order-1.html">
+                                Change<span class="govuk-visually-hidden"> whether there is a parent whose status is unaffected by this order</span>
+                              </a>
+                            </dd>
+                          </div>
+
+                          {% if data['final-adoption-step-parent-checkbox'] !== undefined %}
+                          <div class="govuk-summary-list__row">
+                            <dt class="govuk-summary-list__key">
+                              Name of the parent whose status is unaffected by this order
+                            </dt>
+                            <dd class="govuk-summary-list__value">
+                              {% if data['final-adoption-parent-unaffected'] !== undefined %}
+                                {{ data['final-adoption-parent-unaffected'] }}
+                              {% else %}
+                                Marianne Smith
+                              {% endif %}
+                            </dd>
+                            <dd class="govuk-summary-list__actions">
+                              <a class="govuk-link" href="final-adoption-order-1.html">
+                                Change<span class="govuk-visually-hidden"> name of the parent whose status is unaffected by this order</span>
+                              </a>
+                            </dd>
+                          </div>
+                          {% endif %}
+                          
+                          <div class="govuk-summary-list__row">
+                            <dt class="govuk-summary-list__key">
+                              Cost orders
+                            </dt>
+                            <dd class="govuk-summary-list__value">
+                              {% if data['final-adoption-cost-orders'] !== "" %}
+                                {{ data['final-adoption-cost-orders'] }}
+                              {% endif %}
+                            </dd>
+                            <dd class="govuk-summary-list__actions">
+                              <a class="govuk-link" href="final-adoption-order-1.html">
+                                Change<span class="govuk-visually-hidden"> Cost orders</span>
+                              </a>
+                            </dd>
+                          </div>                          
+                          
+                        </dl>
+
+                        <h2 class="govuk-heading-m govuk-!-margin-bottom-3 govuk-!-margin-top-8">Final adoption order date and place of birth</h2>
+                        <dl class="govuk-summary-list">
+                          <div class="govuk-summary-list__row">
+                            <dt class="govuk-summary-list__key">
+                              Place of birth proved
+                            </dt>
+                            <dd class="govuk-summary-list__value">
+                              {% if data['place-birth-proved-radio'] == "Yes" %}
+                                Yes
+                              {% else %}
+                                No
+                              {% endif %}
+                            </dd>
+                            <dd class="govuk-summary-list__actions">
+                              <a class="govuk-link" href="final-adoption-order-2.html">
+                                Change<span class="govuk-visually-hidden"> place of birth proved</span>
+                              </a>
+                            </dd>
+                          </div>
+
+                          {% if data['place-birth-proved-radio'] == "No" %}
+                          <div class="govuk-summary-list__row">
+                            <dt class="govuk-summary-list__key">
+                              Probable birth location
+                            </dt>
+                            <dd class="govuk-summary-list__value">
+                              {% if data['probable-birth-location-radio'] == "UK" %}
+                                United Kingdom, the Channel Islands or the Isle of Man
+                              {% else %}
+                                {{ data['probable-country-birth'] }}
+                              {% endif %}
+                            </dd>
+                            <dd class="govuk-summary-list__actions">
+                              <a class="govuk-link" href="final-adoption-order-2.html">
+                                Change<span class="govuk-visually-hidden"> probable birth location</span>
+                              </a>
+                            </dd>
+                          </div>
+                          {% endif %}
+
+                          <div class="govuk-summary-list__row">
+                            <dt class="govuk-summary-list__key">
+                              Time of birth known
+                            </dt>
+                            <dd class="govuk-summary-list__value">
+                              {% if data['time-birth-known-radio'] == "Yes" %}
+                                Yes
+                              {% else %}
+                                No
+                              {% endif %}
+                            </dd>
+                            <dd class="govuk-summary-list__actions">
+                              <a class="govuk-link" href="final-adoption-order-2.html">
+                                Change<span class="govuk-visually-hidden"> time of birth known</span>
+                              </a>
+                            </dd>
+                          </div>
+
+                          {% if data['time-birth-known-radio'] == "Yes" %}
+                          <div class="govuk-summary-list__row">
+                            <dt class="govuk-summary-list__key">
+                              Time of birth
+                            </dt>
+                            <dd class="govuk-summary-list__value">
+                              {{ data['time-birth-hour'] }}:{{ data['time-birth-minutes'] }}:{{ data['time-birth-seconds'] }}  
+                            </dd>
+                            <dd class="govuk-summary-list__actions">
+                              <a class="govuk-link" href="final-adoption-order-2.html">
+                                Change<span class="govuk-visually-hidden"> time of birth</span>
+                              </a>
+                            </dd>
+                          </div>
+                          {% endif %}
+
+                          <div class="govuk-summary-list__row">
+                            <dt class="govuk-summary-list__key">
+                              Birth/Adoption registration number
+                            </dt>
+                            <dd class="govuk-summary-list__value">
+                              {{ data['final-adoption-registration-number'] }}
+                            </dd>
+                            <dd class="govuk-summary-list__actions">
+                              <a class="govuk-link" href="final-adoption-order-2.html">
+                                Change<span class="govuk-visually-hidden"> birth/adoption registration number</span>
+                              </a>
+                            </dd>
+                          </div>
+
+                          <div class="govuk-summary-list__row">
+                            <dt class="govuk-summary-list__key">
+                              Birth/Adoption registration date
+                            </dt>
+                            <dd class="govuk-summary-list__value">
+                              {{ data['final-adoption-registration-date-day'] }} {{ data['monthName'][data['final-adoption-registration-date-month']] }} {{ data['final-adoption-registration-date-year'] }}
+                            </dd>
+                            <dd class="govuk-summary-list__actions">
+                              <a class="govuk-link" href="final-adoption-order-2.html">
+                                Change<span class="govuk-visually-hidden"> birth/adoption registration number</span>
+                              </a>
+                            </dd>
+                          </div>
+
+                          <div class="govuk-summary-list__row">
+                            <dt class="govuk-summary-list__key">
+                              Birth/Adoption registration district
+                            </dt>
+                            <dd class="govuk-summary-list__value">
+                              {{ data['final-adoption-child-district'] }}
+                            </dd>
+                            <dd class="govuk-summary-list__actions">
+                              <a class="govuk-link" href="final-adoption-order-2.html">
+                                Change<span class="govuk-visually-hidden"> birth/adoption registration district</span>
+                              </a>
+                            </dd>
+                          </div>
+
+                          <div class="govuk-summary-list__row">
+                            <dt class="govuk-summary-list__key">
+                              Birth/Adoption registration sub-district
+                            </dt>
+                            <dd class="govuk-summary-list__value">
+                              {{ data['final-adoption-child-sub-district'] }}
+                            </dd>
+                            <dd class="govuk-summary-list__actions">
+                              <a class="govuk-link" href="final-adoption-order-2.html">
+                                Change<span class="govuk-visually-hidden"> birth/adoption registration sub-district</span>
+                              </a>
+                            </dd>
+                          </div>
+
+                          <div class="govuk-summary-list__row">
+                            <dt class="govuk-summary-list__key">
+                              Birth/Adoption registration country
+                            </dt>
+                            <dd class="govuk-summary-list__value">
+                              {{ data['final-adoption-child-country'] }}
+                            </dd>
+                            <dd class="govuk-summary-list__actions">
+                              <a class="govuk-link" href="final-adoption-order-2.html">
+                                Change<span class="govuk-visually-hidden"> birth/adoption registration country</span>
+                              </a>
+                            </dd>
+                          </div>
+                        </dl>
+
+
+<!-- 
+  
+                              <dd class="govuk-summary-list__value">
+                              {% if data['general-directions-hearing-day'] %}
+                                {{ data['general-directions-hearing-day'] }} {{ data['monthName'][data['general-directions-hearing-month']] }} {{ data['general-directions-hearing-year'] }} at {{ data['general-directions-hearing-hour'] }}:{{ data['general-directions-hearing-minute'] }}:{{ data['general-directions-hearing-second'] }}
+                              {% else %}
+                                23 November 2022 at 12:30:00
+                              {% endif %}
+                              </dd> -->
+                            
+                          
+                        <!-- Buttons -->
+                        {% include "../../../includes/buttons-xui.html" %}
+                        </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+          </main>
+      </div>      
+  </div>
+</html>
+
+{% block footer %}
+{% include "includes/newfooter.html" %}
+{% endblock %}

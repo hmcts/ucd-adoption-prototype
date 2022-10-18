@@ -72,7 +72,7 @@
                         </legend>
                         <div class="govuk-checkboxes" data-module="govuk-checkboxes">
                           <div class="govuk-checkboxes__item">
-                            <input class="govuk-checkboxes__input" id="final-adoption-step-parent" name="final-adoption-step-parent-checkbox" type="checkbox" value="final-adoption-step-parent" data-aria-controls="conditional-contact">
+                            <input class="govuk-checkboxes__input" id="final-adoption-step-parent" name="final-adoption-step-parent-checkbox" type="checkbox" value="final-adoption-step-parent" data-aria-controls="conditional-contact" {% if data['final-adoption-step-parent-checkbox'] !== undefined %} checked {% endif %}>
                             <label class="govuk-label govuk-checkboxes__label" for="final-adoption-step-parent">
                               There is a parent whose whole status is unaffected by this order.
                             </label>
@@ -83,7 +83,7 @@
                             <label class="govuk-label govuk-!-margin-top-3" for="contact-by-email">
                               Name the parent whose status is unaffected by this order
                             </label>
-                            <input class="govuk-input govuk-!-width-two-thirds" id="final-adoption-parent-unaffected" name="final-adoption-parent-unaffected" type="text" spellcheck="false">
+                            <input class="govuk-input govuk-!-width-two-thirds" id="final-adoption-parent-unaffected" name="final-adoption-parent-unaffected" type="text" spellcheck="false" value="{{data['final-adoption-parent-unaffected']}}">
                           </div>                            
                         </div>
                       </div>
