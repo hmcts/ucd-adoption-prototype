@@ -38,21 +38,32 @@
                       </div>
 
                       <div class="govuk-form-group">
-                        <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
-                          <label class="govuk-label govuk-label--s govuk-!-margin-top-4" for="contact-by-email">
-                            Placement of the child
+                        <div class="govuk-radios govuk-radios--conditional" data-module="govuk-radios">
+                          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                            <label class="govuk-label govuk-label--s govuk-!-margin-top-4" for="contact-by-email">
+                              Placement of the child
+                            </label>
+                          </legend>
+                          <label class="govuk-label govuk-!-margin-bottom-3" for="contact-by-email">
+                            Agency or local authority which placed the child for adoption
                           </label>
-                        </legend>
-                        <div class="govuk-checkboxes" data-module="govuk-checkboxes">
-                          <div class="govuk-checkboxes__item">
-                            <input class="govuk-checkboxes__input" id="final-adoption-placement" name="final-adoption-placement-checkbox" type="checkbox" value="final-adoption-leave-oppose">
-                            <label class="govuk-label govuk-checkboxes__label" for="final-adoption-placement">
-                              The child was placed for adoption by an adoption agency/local authority (to be specified).
+                        
+                          <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="agency1" name="final-adoption-adoption-agency-radio" type="radio" value="Smith and Jones, Purley, CR8 4AG" {% if data['final-adoption-adoption-agency-radio'] == "Smith and Jones, Purley, CR8 4AG" %} checked {% endif %}>
+                            <label class="govuk-label govuk-radios__label" for="agency1">
+                              Smith and Jones, Purley, CR8 4AG
+                            </label>
+                          </div>
+  
+                          <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="agency2" name="final-adoption-adoption-agency-radio" type="radio" value="Kay's Ltd, Greenwich, SE18 2TY" {% if data['final-adoption-adoption-agency-radio'] == "Kay's Ltd, Greenwich, SE18 2TY" %} checked {% endif %}>
+                            <label class="govuk-label govuk-radios__label" for="agency2">
+                              Kay's Ltd, Greenwich, SE18 2TY
                             </label>
                           </div>
                         </div>
                       </div>
-                      
+
                       <div class="govuk-form-group">
                         <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
                           <label class="govuk-label govuk-label--s govuk-!-margin-top-4" for="contact-by-email">
@@ -79,10 +90,7 @@
                     
                       <div class="govuk-form-group">
                         <h3 class="govuk-heading-s govuk-!-margin-top-8 govuk-!-margin-bottom-1">Child's full name after adoption</h3>
-                        <div id="name-hint" class="govuk-hint">
-                          Enter the full names and surname stated in the application which the child is to be known by.
-                        </div>                        
-                        <input class="govuk-input govuk-!-width-two-thirds" id="final-adoption-child-full-name-after-adoption" name="final-adoption-child-full-name-after-adoption" type="text">
+                        <p>Jane Christie Doyle</p>
                       </div>                    
 
                       <div class="govuk-form-group">

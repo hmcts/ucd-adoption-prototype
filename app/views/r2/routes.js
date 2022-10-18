@@ -2658,12 +2658,7 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
   // ********************************** FINAL ADOPTION ORDER **********************************
   router.post('/r2/x-ui/case-worker/final-adoption-order-1', function(req, res) {
     if (req.body['submit-button'] === 'continue') {
-      if (req.body['final-adoption-placement-checkbox'] !== undefined) {
-        res.redirect('/r2/x-ui/case-worker/final-adoption-order-2')
-      }
-      else {
-        res.redirect('/r2/x-ui/case-worker/final-adoption-order-3')
-      }
+      res.redirect('/r2/x-ui/case-worker/final-adoption-order-3')
     }
     else {
       res.redirect('/r2/x-ui/case-worker/index')
