@@ -1,5 +1,5 @@
 {% block header %}
-{% include "includes/xui-header.html" %}
+{% include "layout-xui.html" %}
 {% endblock %}
 
 
@@ -9,40 +9,209 @@
           <main class="govuk-main-wrapper " id="main-content" role="main" style="padding-top: 25px;">
               <div class="govuk-width-container">
                 <div class="govuk-grid-row" style="width:1300px; margin-left: -90px;">
-                  <h1 class="govuk-heading-xl">Final adoption order placement of child</h1>
-                  <h2 class="govuk-heading-l govuk-!-margin-bottom-3">#1234-5678-0921-2722</h2>
-                  <h2 class="govuk-heading-m govuk-!-margin-top-0 govuk-!-margin-bottom-7">Child's name: Jane Austen</h2>
+                  <div class="govuk-grid-column-two-thirds">
+                    <h1 class="govuk-heading-xl">Final adoption order date and place of birth</h1>
+                    <h2 class="govuk-heading-l govuk-!-margin-bottom-3">#1234-5678-0921-2722</h2>
+                    <h2 class="govuk-heading-m govuk-!-margin-top-0 govuk-!-margin-bottom-7">Child's name: Jane Austen</h2>
 
+                    <form action="/r2/x-ui/case-worker/final-adoption-order-2" method="post" class="form">
+                      <!-- <h3 class="govuk-heading-m govuk-!-margin-bottom-6">Registration details</h3> -->
+  
+                      <div class="govuk-form-group">
+                        <fieldset class="govuk-fieldset" aria-describedby="place-birth-proved-radio-hint">
+                          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                            <label class="govuk-label govuk-!-font-weight-bold" for="sender-email-address">
+                              Has place of birth been proved?
+                            </label>
+                          </legend>
+                          <div class="govuk-radios" data-module="govuk-radios">
+                            <div class="govuk-radios__item">
+                              <input class="govuk-radios__input" id="Yes" name="place-birth-proved-radio" type="radio" value="Yes" data-aria-controls="conditional-place-birth-proved-radio-2" {% if data['place-birth-proved-radio'] == "Yes" %} checked {% endif %}>
+                              <label class="govuk-label govuk-radios__label" for="Yes">
+                                Yes
+                              </label>
+                            </div>
 
-                  <form action="/r2/x-ui/case-worker/final-adoption-order-2" method="post" class="form">
-                    <div class="govuk-form-group">
-                      <div class="govuk-radios govuk-radios--conditional" data-module="govuk-radios">
-                        <label class="govuk-label govuk-!-margin-bottom-4 govuk-!-font-weight-bold" for="sender-email-address">
-                          Agency or local authority which placed the child for adoption
-                        </label>
+                            <div class="govuk-radios__item">
+                              <input class="govuk-radios__input" id="No" name="place-birth-proved-radio" type="radio" value="No" data-aria-controls="conditional-place-birth-proved-radio-3" {% if data['place-birth-proved-radio'] == "No" %} checked {% endif %}>
+                              <label class="govuk-label govuk-radios__label" for="No">
+                                No
+                              </label>
+                            </div>
+                            <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-place-birth-proved-radio-3">
+                              <div class="govuk-form-group">
+                                <label class="govuk-label" for="place-birth-proved-radio-by-text">
+                                  Choose a probable birth location
+                                </label>
+                                <div class="govuk-radios" data-module="govuk-radios">
+                                  <div class="govuk-radios__item">
+                                    <input class="govuk-radios__input" id="UK" name="probable-birth-location-radio" type="radio" value="UK" data-aria-controls="conditional-place-birth-proved-radio-2" {% if data['probable-birth-location-radio'] == "UK" %} checked {% endif %}>
+                                    <label class="govuk-label govuk-radios__label" for="Yes">
+                                      United Kingdom, the Channel Islands or the Isle of Man
+                                    </label>
+                                  </div>                                      
+                                  <div class="govuk-radios__item">
+                                    <input class="govuk-radios__input" id="Outside" name="probable-birth-location-radio" type="radio" value="Outside" data-aria-controls="conditional-probable-birth" {% if data['probable-birth-location-radio'] == "Outside" %} checked {% endif %}>
+                                    <label class="govuk-label govuk-radios__label" for="Yes">
+                                      Outside the UK
+                                    </label>
+                                  </div> 
+                                  <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-probable-birth">
+                                    <div class="govuk-form-group">
+                                      <label class="govuk-label" for="contact-by-text">
+                                        Enter the probable country of birth
+                                      </label>
+                                      <input class="govuk-input govuk-!-width-two-thirds" id="probable-country-birth" name="probable-country-birth" type="text" value="{{ data['probable-country-birth'] }}">
+                                    </div>
+                            
+                                  </div>                                                                       
+                                </div>                      
+                              </div>
+                          </div>                      
+                        </fieldset>
+                      </div>    
 
-                        <div class="govuk-radios__item">
-                          <input class="govuk-radios__input" id="agency1" name="final-adoption-adoption-agency-radio" type="radio" value="Smith and Jones, Purley, CR8 4AG" {% if data['final-adoption-adoption-agency-radio'] == "Smith and Jones, Purley, CR8 4AG" %} checked {% endif %}>
-                          <label class="govuk-label govuk-radios__label" for="agency1">
-                            Smith and Jones, Purley, CR8 4AG
-                          </label>
-                        </div>
+                      <div class="govuk-form-group">
+                        <fieldset class="govuk-fieldset" aria-describedby="place-birth-proved-radio-hint">
+                          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                            <label class="govuk-label govuk-!-font-weight-bold" for="sender-email-address">
+                              Is time of birth known?
+                            </label>
+                          </legend>
+                          <div class="govuk-radios" data-module="govuk-radios">
+                            <div class="govuk-radios__item">
+                              <input class="govuk-radios__input" id="Yes" name="time-birth-known-radio" type="radio" value="Yes" data-aria-controls="conditional-time-birth-known-radio-3" {% if data['time-birth-known-radio'] == "Yes" %} checked {% endif %}>
+                              <label class="govuk-label govuk-radios__label" for="Yes">
+                                Yes
+                              </label>
+                            </div>
+                            <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-time-birth-known-radio-3">
+                              <div class="govuk-form-group">
+                                <fieldset class="govuk-fieldset" role="group" aria-describedby="time-birth-hint">
+                                  <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                                    <label class="govuk-label govuk-label--s govuk-!-margin-bottom-0" for="LA directions">
+                                        Time of birth
+                                    </label>
+                                  </legend>
+                                  <div class="govuk-date-input" id="date-told-la">
+                                    <div class="govuk-date-input__item">
+                                      <div class="govuk-form-group">
+                                        <label class="govuk-label govuk-date-input__label" for="time-birth-hour">
+                                          Hour
+                                        </label>
+                                        <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="time-birth-hour" name="time-birth-hour" type="text" inputmode="numeric" value="{{data['time-birth-hour']}}">
+                                      </div>
+                                    </div>
+                                    
+                                    <div class="govuk-date-input__item">
+                                      <div class="govuk-form-group">
+                                        <label class="govuk-label govuk-date-input__label" for="time-birth-minutes">
+                                          Minute
+                                        </label>
+                                        <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="time-birth-minutes" name="time-birth-minutes" type="text" inputmode="numeric" value="{{data['time-birth-minutes']}}">
+                                      </div>
+                                    </div>
+                                    
+                                    <div class="govuk-date-input__item">
+                                      <div class="govuk-form-group">
+                                        <label class="govuk-label govuk-date-input__label" for="time-birth-seconds">
+                                          Second
+                                        </label>
+                                        <input class="govuk-input govuk-date-input__input govuk-input--width-2 govuk-!-margin-bottom-3" id="time-birth-seconds" name="time-birth-seconds" type="text" inputmode="numeric" value="{{data['time-birth-seconds']}}">
+                                      </div>
+                                    </div>
+                                  </div>
+                                </fieldset>
+                              </div>
+                            </div>
 
-                        <div class="govuk-radios__item">
-                          <input class="govuk-radios__input" id="agency2" name="final-adoption-adoption-agency-radio" type="radio" value="Kay's Ltd, Greenwich, SE18 2TY" {% if data['final-adoption-adoption-agency-radio'] == "Kay's Ltd, Greenwich, SE18 2TY" %} checked {% endif %}>
-                          <label class="govuk-label govuk-radios__label" for="agency2">
-                            Kay's Ltd, Greenwich, SE18 2TY
-                          </label>
-                        </div>
+                            <div class="govuk-radios__item">
+                              <input class="govuk-radios__input" id="No" name="time-birth-known-radio" type="radio" value="No" data-aria-controls="conditional-time-birth-known-radio-2" {% if data['time-birth-known-radio'] == "No" %} checked {% endif %}>
+                              <label class="govuk-label govuk-radios__label" for="No">
+                                No
+                              </label>
+                            </div>
+                          </div>
+                        </fieldset>
                       </div>
-                    </div>
-                    <!-- Buttons -->
-                    {% include "../../../includes/buttons-xui.html" %}
-                  </form>
+
+
+                      <div class="govuk-form-group">
+                        <label class="govuk-label govuk-label--s" for="final-adoption-child-name">
+                          Birth/Adoption registration number
+                        </label>
+                        <input class="govuk-input govuk-input--width-20 govuk-!-margin-bottom-3" id="final-adoption-registration-number" name="final-adoption-registration-number" type="text" value="{{data['final-adoption-registration-number']}}">                        
+                      </div>                    
+
+                      <div class="govuk-form-group">
+                        <fieldset class="govuk-fieldset" role="group" aria-describedby="date-told-la-hint">
+                          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l govuk-!-margin-bottom-1">
+                            <label class="govuk-label govuk-label--s" for="LA directions">
+                              Birth/Adoption registration date
+                            </label>
+                          </legend>
+
+                          <div class="govuk-date-input" id="report-date">
+                            <div class="govuk-date-input__item">
+                              <div class="govuk-form-group">
+                                <label class="govuk-label govuk-date-input__label" for="final-adoption-registration-date-day">
+                                  Day
+                                </label>
+                                <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="final-adoption-registration-date-day" name="final-adoption-registration-date-day" type="text" inputmode="numeric" value="{{ data['final-adoption-registration-date-day'] }}">
+                              </div>
+                            </div>
+                            
+                            <div class="govuk-date-input__item">
+                              <div class="govuk-form-group">
+                                <label class="govuk-label govuk-date-input__label" for="final-adoption-registration-date-month">
+                                  Month
+                                </label>
+                                <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="final-adoption-registration-date-month" name="final-adoption-registration-date-month" type="text" inputmode="numeric" value="{{ data['final-adoption-registration-date-month'] }}">
+                              </div>
+                            </div>
+                            
+                            <div class="govuk-date-input__item">
+                              <div class="govuk-form-group">
+                                <label class="govuk-label govuk-date-input__label" for="final-adoption-registration-date-year">
+                                  Year
+                                </label>
+                                <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="final-adoption-registration-date-year" name="final-adoption-registration-date-year" type="text" inputmode="numeric" value="{{ data['final-adoption-registration-date-year'] }}">
+                              </div>
+                            </div>
+                          </div>
+                        </fieldset>
+                      </div>
+
+                      <div class="govuk-form-group">
+                        <label class="govuk-label govuk-label--s" for="final-adoption-child-name">
+                          Registration district
+                        </label>
+                        <input class="govuk-input govuk-input--width-20 govuk-!-margin-bottom-3" id="final-adoption-child-district" name="final-adoption-child-district" type="text" value="{{data['final-adoption-child-district']}}">                        
+                      </div>                    
+
+                      <div class="govuk-form-group">
+                        <label class="govuk-label govuk-label--s" for="final-adoption-child-name">
+                          Registration sub-district
+                        </label>
+                        <input class="govuk-input govuk-input--width-20 govuk-!-margin-bottom-3" id="final-adoption-child-sub-district" name="final-adoption-child-sub-district" type="text" value="{{data['final-adoption-child-sub-district']}}">                        
+                      </div>                    
+
+                      <div class="govuk-form-group">
+                        <label class="govuk-label govuk-label--s" for="final-adoption-child-name">
+                          Registration country
+                        </label>
+                        <input class="govuk-input govuk-input--width-20 govuk-!-margin-bottom-3" id="final-adoption-child-country" name="final-adoption-child-country" type="text" value="{{data['final-adoption-child-country']}}">                        
+                      </div>                    
+
+
+                      <!-- Buttons -->
+                      {% include "../../../includes/buttons-xui.html" %}
+                    </form>
+                  </div>
                 </div>
               </div>
           </main>
-      </div>
+      </div>      
   </div>
 </html>
 
