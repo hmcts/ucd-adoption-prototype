@@ -105,7 +105,7 @@
                                   
                                   {% else %}
 
-                                    {% if data['final-adoption-registration-date-checkbox'] !== undefined %}
+                                    {% if data['gatekeeping-first-hearing-checkbox'] !== undefined %}
                                       <div class="govuk-summary-list__row">
                                         <dt class="govuk-summary-list__key">
                                           First hearing
@@ -125,7 +125,7 @@
                                           Hearing date
                                         </dt>
                                         <dd class="govuk-summary-list__value">
-                                          {{ data['final-adoption-registration-date-day'] }} {{ data['monthName'][data['final-adoption-registration-date-month']] }} {{ data['final-adoption-registration-date-year'] }} 
+                                          {{ data['gatekeeping-first-hearing-day'] }} {{ data['monthName'][data['gatekeeping-first-hearing-month']] }} {{ data['gatekeeping-first-hearing-year'] }} at {{ data['gatekeeping-first-hearing-hour'] }}:{{ data['gatekeeping-first-hearing-minute'] }}:{{ data['gatekeeping-first-hearing-second'] }}
                                         </dd>
                                         <dd class="govuk-summary-list__actions">
                                           <a class="govuk-link" href="gatekeeping-order-2.html">
@@ -133,7 +133,7 @@
                                           </a>
                                         </dd>
                                       </div>
-                                      final-adoption-registration-date-day
+
                                       <div class="govuk-summary-list__row">
                                         <dt class="govuk-summary-list__key">
                                           Length
@@ -183,7 +183,7 @@
                                           Hearing date
                                         </dt>
                                         <dd class="govuk-summary-list__value">
-                                          {{ data['final-adoption-registration-date-day'] }} {{ data['monthName'][data['final-adoption-registration-date-month']] }} {{ data['final-adoption-registration-date-year'] }} at {{ data['final-adoption-registration-date-hour'] }}:{{ data['final-adoption-registration-date-minute'] }}:{{ data['final-adoption-registration-date-second'] }}
+                                          {{ data['gatekeeping-first-hearing-day'] }} {{ data['monthName'][data['gatekeeping-first-hearing-month']] }} {{ data['gatekeeping-first-hearing-year'] }} at {{ data['gatekeeping-first-hearing-hour'] }}:{{ data['gatekeeping-first-hearing-minute'] }}:{{ data['gatekeeping-first-hearing-second'] }}
                                         </dd>
                                         <dd class="govuk-summary-list__actions">
                                           <a class="govuk-link" href="gatekeeping-order-2.html">
@@ -314,7 +314,7 @@
                                 {% endif %}
                               </dl>
 
-                              <h3 class="govuk-heading-m govuk-!-margin-top-9">CAFCASS</h3>                      
+                              <h3 class="govuk-heading-m govuk-!-margin-top-9">Cafcass</h3>                      
                               <dl class="govuk-summary-list">                                
                                 <div class="govuk-summary-list__row">
                                   <dt class="govuk-summary-list__key">
@@ -329,7 +329,7 @@
                                   </dd>
                                   <dd class="govuk-summary-list__actions">
                                     <a class="govuk-link" href="gatekeeping-order-1.html">
-                                      Change<span class="govuk-visually-hidden"> CAFCASS reporting officer</span>
+                                      Change<span class="govuk-visually-hidden"> Cafcass reporting officer</span>
                                     </a>
                                   </dd>
                                 </div>
@@ -346,7 +346,7 @@
                                   </dd>
                                   <dd class="govuk-summary-list__actions">
                                     <a class="govuk-link" href="gatekeeping-order-1.html">
-                                      Change<span class="govuk-visually-hidden"> CAFCASS child or children's guardian</span>
+                                      Change<span class="govuk-visually-hidden"> Cafcass child or children's guardian</span>
                                     </a>
                                   </dd>
                                 </div>
