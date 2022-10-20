@@ -1,0 +1,139 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Child arrangement respondent
+{% endblock %}
+
+{% block header %}
+  <!-- Blank header with no service name for the start page -->
+
+{{ govukHeader({
+    homepageUrl: "/",
+    serviceName: serviceName,
+    serviceUrl: "/",
+    containerClasses: "govuk-width-container"
+}) }}
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+   <div class="govuk-grid-column-two-thirds">
+    <div class="govuk-width-container">
+     <a href="#" onclick="history.back(-1)" class="govuk-back-link">Back</a>
+
+      <main class="govuk-main-wrapper " id="main-content" role="main">
+
+           <h1 class="govuk-heading-xl">Check your answers </h1>
+
+           <h2 class="govuk-heading-l">Support you need during your case</h2>
+
+           <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+             <div class="govuk-summary-list__row">
+               <dt class="govuk-summary-list__key govuk-!-width-one-half">
+                 Would you be able to take part in hearings by video and phone?
+               </dt>
+               <dd class="govuk-summary-list__value">
+                 {{ data['remotehearing'] }}
+                <p> {{ data['nophoneorvideo-details'] }}</p>
+               </dd>
+               <dd class="govuk-summary-list__actions">
+                 <a class="govuk-link" href="remotehearing">
+                   Edit<span class="govuk-visually-hidden">remotehearing</span>
+                 </a>
+               </dd>
+             </div>
+
+             <div class="govuk-summary-list__row">
+               <dt class="govuk-summary-list__key govuk-!-width-one-half">
+                 Do you have any language requirements?
+               </dt>
+               <dd class="govuk-summary-list__value">
+                 {{ data['languagerequirements'] }}
+                <p> {{ data['languagerequirements-textarea'] }}</p>
+               </dd>
+               <dd class="govuk-summary-list__actions">
+                 <a class="govuk-link" href="languagerequirements">
+                   Edit<span class="govuk-visually-hidden">languagerequirements</span>
+                 </a>
+               </dd>
+             </div>
+             <div class="govuk-summary-list__row">
+               <dt class="govuk-summary-list__key govuk-!-width-one-half">
+                Do you or the children need special safety arrangements at court?
+               </dt>
+               <dd class="govuk-summary-list__value">
+                 {{ data['safetyrequirements'] }}
+                <p> {{ data['safetyrequirements-textarea'] }}</p>
+               </dd>
+               <dd class="govuk-summary-list__actions govuk-!-width-one-half">
+                 <a class="govuk-link" href="safetyrequirements">
+                   Edit<span class="govuk-visually-hidden">safetyrequirements</span>
+                 </a>
+               </dd>
+             </div>
+             <div class="govuk-summary-list__row">
+               <dt class="govuk-summary-list__key govuk-!-width-one-half">
+                Do you have a physical, mental or learning disability or health condition that means you need support during your case?
+               </dt>
+               <dd class="govuk-summary-list__value">
+                 {{ data['reasonableadjustments'] }}
+
+               </dd>
+               <dd class="govuk-summary-list__actions govuk-!-width-one-half">
+                 <a class="govuk-link" href="start">
+                   Edit<span class="govuk-visually-hidden">MIAM-willing</span>
+                 </a>
+               </dd>
+             </div>
+
+
+
+
+
+           </dl>
+
+         <div>
+
+
+       <form action="../../startreply" method="post" novalidate>
+
+         <input type="hidden" name="answers-checked" value="true">
+
+         <button class="govuk-button" data-module="govuk-button">
+           Save and continue
+         </button>
+
+       </form>
+
+     </div>
+      </main>
+    </div>
+  </div>
+  <div class="govuk-grid-column-one-third">
+
+      <details class="govuk-details" data-module="govuk-details">
+          <summary class="govuk-details__summary">
+           <span class="govuk-details__summary-text">
+            Contacts for help
+            </span>
+          </summary>
+      <div class="govuk-details__text">
+       Ask a question or get any help in any language
+       <p class="govuk-body govuk-!-font-weight-bold">Telephone</p>
+
+       <p class="govuk-body govuk-!-font-weight-regular">0300 303 0742</p>
+       <p class="govuk-body govuk-!-font-weight-regular">Monday to Friday, 8am to 8pm</p>
+       <a href="#" class="govuk-link">Find out about call charges</a>
+       <p class="govuk-body govuk-!-font-weight-regular">(opens in a new window)</p>
+
+      </div>
+    </details>
+  </div>
+</div>
+
+
+
+
+{% endblock %}
