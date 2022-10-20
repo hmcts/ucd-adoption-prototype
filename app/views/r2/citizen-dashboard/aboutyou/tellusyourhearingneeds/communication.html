@@ -4,6 +4,10 @@
   Child arrangement respondent
 {% endblock %}
 
+{% block beforeContent %}
+<a class="govuk-back-link" href="javascript:history.back()">Back</a>
+{% endblock %}
+
 {% block header %}
   <!-- Blank header with no service name for the start page -->
 
@@ -21,8 +25,6 @@
     <div class="govuk-grid-column-two-thirds">
 
       <div class="govuk-width-container">
-
-        <a href="#" onclick="history.back(-1)" class="govuk-back-link">Back</a>
 
         <main class="govuk-main-wrapper govuk-main-wrapper--auto-spacing" id="main-content" role="main">
 
