@@ -134,9 +134,9 @@ Hearings management
                                             Your personal details
                                         </a>
                                         </a></span>
-                                        {% if data['firstApplicantPersonalDetailsStatus'] === 'completed' %}
+                                        {% if data['firstApplicantpersonal-detailsStatus'] === 'completed' %}
                                             <strong class="govuk-tag  app-task-list__tag" id="eligibility-completed">Completed</strong>
-                                        {% elseif data['firstApplicantPersonalDetailsStatus'] === 'in progress' %}
+                                        {% elseif data['firstApplicantpersonal-detailsStatus'] === 'in progress' %}
                                             <strong class="govuk-tag govuk-tag--blue app-task-list__tag">in progress</strong>
                                         {% else %}
                                             <strong class="govuk-tag govuk-tag--grey app-task-list__tag">not started</strong>
@@ -167,9 +167,9 @@ Hearings management
                                             Your personal details
                                         </a>
                                         </a></span>
-                                        {% if data['secondApplicantPersonalDetailsStatus'] === 'completed' %}
+                                        {% if data['secondApplicantpersonal-detailsStatus'] === 'completed' %}
                                             <strong class="govuk-tag  app-task-list__tag" id="eligibility-completed">Completed</strong>
-                                        {% elseif data['secondApplicantPersonalDetailsStatus'] === 'in progress' %}
+                                        {% elseif data['secondApplicantpersonal-detailsStatus'] === 'in progress' %}
                                             <strong class="govuk-tag govuk-tag--blue app-task-list__tag">in progress</strong>
                                         {% else %}
                                             <strong class="govuk-tag govuk-tag--grey app-task-list__tag">not started</strong>
@@ -201,9 +201,9 @@ Hearings management
                                             Your personal details
                                         </a>
                                         </a></span>
-                                        {% if data['firstApplicantPersonalDetailsStatus'] === 'completed' %}
+                                        {% if data['firstApplicantpersonal-detailsStatus'] === 'completed' %}
                                             <strong class="govuk-tag  app-task-list__tag" id="eligibility-completed">Completed</strong>
-                                        {% elseif data['firstApplicantPersonalDetailsStatus'] === 'in progress' %}
+                                        {% elseif data['firstApplicantpersonal-detailsStatus'] === 'in progress' %}
                                             <strong class="govuk-tag govuk-tag--blue app-task-list__tag">in progress</strong>
                                         {% else %}
                                             <strong class="govuk-tag govuk-tag--grey app-task-list__tag">not started</strong>
@@ -420,9 +420,9 @@ Hearings management
                                     </span>
                                     {% if data['applicantsUpload'] %}
                                         <strong class="govuk-tag  app-task-list__tag" id="eligibility-completed">Completed</strong>
-                                    {% elseif data['numberApplicants'] === '1' and data['number-of-applicants'] and data['dateMovedIn'] and data['firstApplicantPersonalDetailsStatus'] === 'completed' and data['firstApplicantContactDetailsStatus'] === 'completed'%}
+                                    {% elseif data['numberApplicants'] === '1' and data['number-of-applicants'] and data['dateMovedIn'] and data['firstApplicantpersonal-detailsStatus'] === 'completed' and data['firstApplicantContactDetailsStatus'] === 'completed'%}
                                         <strong class="govuk-tag govuk-tag--grey app-task-list__tag">not started</strong>
-                                    {% elseif data['numberApplicants'] !== '1' and data['number-of-applicants'] and data['dateMovedIn'] and data['firstApplicantPersonalDetailsStatus'] === 'completed' and data['firstApplicantContactDetailsStatus'] === 'completed' and data['secondApplicantPersonalDetailsStatus'] === 'completed' and data['secondApplicantContactDetailsStatus'] === 'completed'%}
+                                    {% elseif data['numberApplicants'] !== '1' and data['number-of-applicants'] and data['dateMovedIn'] and data['firstApplicantpersonal-detailsStatus'] === 'completed' and data['firstApplicantContactDetailsStatus'] === 'completed' and data['secondApplicantpersonal-detailsStatus'] === 'completed' and data['secondApplicantContactDetailsStatus'] === 'completed'%}
                                         <strong class="govuk-tag govuk-tag--grey app-task-list__tag">not started</strong>
                                     {% else %}
                                         <strong class="govuk-tag govuk-tag--grey app-task-list__tag">cannot start yet</strong>
