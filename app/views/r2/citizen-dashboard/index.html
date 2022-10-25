@@ -34,6 +34,8 @@
 }
 .hmcts-progress-bar__list-item:first-child::before, .hmcts-progress-bar__list-item:last-child::before  { border-top: 4px solid #fff; margin-top: 7px }
 
+.govuk-tag { text-transform:none }
+
 body {
         font-family: "GDS Transport",arial,sans-serif;
     }
@@ -297,9 +299,10 @@ body {
       <ol class="app-task-list">
         <li>
           <h2 class="app-task-list__section">
-             About you
+             Applicants details
           </h2>
           <ul class="app-task-list__items">
+            <h3 class="govuk-heading-s govuk-!-margin-bottom-1">{{ data['firstApplicant'] }}</h3>
             <li class="app-task-list__item">
               <span class="app-task-list__task-name">
                 <a href="about-you/confirm-contact-details/check-your-answers" aria-describedby="read-declaration-status">
@@ -310,7 +313,27 @@ body {
             </li>
             <li class="app-task-list__item">
               <span class="app-task-list__task-name">
-                <a href="about-you/tell-us-your-hearing-needs/remotehearing" aria-describedby="read-declaration-status">
+                <a href="about-you/tell-us-your-hearing-needs/remote-hearing" aria-describedby="read-declaration-status">
+                Provide or review your support needs
+                </a>
+              </span>
+              <strong class="govuk-tag app-task-list__tag govuk-tag govuk-tag--blue" id="eligibility-status">Optional</strong>
+            </li>
+          </ul>
+          <ul class="app-task-list__items">
+            <!-- <p class="govuk-!-font-weight-bold govuk-!-margin-bottom-2">{{ data['secondApplicant'] }}</p> -->
+            <h3 class="govuk-heading-s govuk-!-margin-bottom-1">{{ data['secondApplicant'] }}</h3>
+            <li class="app-task-list__item">
+              <span class="app-task-list__task-name">
+                <a href="about-you/confirm-contact-details/check-your-answers" aria-describedby="read-declaration-status">
+                  Manage your contact details
+                </a>
+              </span>
+              <strong class="govuk-tag app-task-list__tag govuk-tag govuk-tag--blue" id="eligibility-status">Optional</strong>
+            </li>
+            <li class="app-task-list__item">
+              <span class="app-task-list__task-name">
+                <a href="about-you/tell-us-your-hearing-needs/remote-hearing" aria-describedby="read-declaration-status">
                 Provide or review your support needs
                 </a>
               </span>
