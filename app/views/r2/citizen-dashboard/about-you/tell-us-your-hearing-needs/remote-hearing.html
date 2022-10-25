@@ -28,10 +28,11 @@
 
         <main class="govuk-main-wrapper govuk-main-wrapper--auto-spacing" id="main-content" role="main">
 
-               <form action="languagerequirements" method="post" novalidate>
+               <form action="language-requirements" method="post" novalidate>
 
-                 <span class="govuk-caption-l">Attending the court</span>
-                 <h1 class="govuk-heading-xl">Would you be able to take part in hearings by video and phone?</h1>
+                <!-- <span class="govuk-caption-l">{{ data['firstApplicant'] }} &ndash; attending the court</span> -->
+                <span class="govuk-caption-l">{{ data['firstApplicant'] }}<br>Attending the court</span>
+                <h1 class="govuk-heading-xl">Would you be able to take part in hearings by video and phone?</h1>
 
                  <p class="govuk-body">If your case goes to a hearing, it can take place either:
                    <ul class="govuk-list govuk-list--bullet govuk-!-margin-left-7 govuk-!-margin-bottom-6">
@@ -47,19 +48,19 @@
 
                <div class="govuk-form-group">
                  <fieldset class="govuk-fieldset">
-                   <div id="remotehearing-hint" class="govuk-hint">
+                   <div id="remote-hearing-hint" class="govuk-hint">
                      Select all that apply
                    </div>
                    <div class="govuk-checkboxes" data-module="govuk-checkboxes">
                      <div class="govuk-checkboxes__item">
-                       <input class="govuk-checkboxes__input" id="videohearing" name="remotehearing" type="checkbox" value="Yes, I can take part in video hearings">
+                       <input class="govuk-checkboxes__input" id="videohearing" name="remote-hearing" type="checkbox" value="Yes, I can take part in video hearings">
                        <label class="govuk-label govuk-checkboxes__label" for="videohearing">
                          Yes, I can take part in video hearings
 
                        </label>
                      </div>
                      <div class="govuk-checkboxes__item">
-                       <input class="govuk-checkboxes__input" id="phonehearing" name="remotehearing" type="checkbox" value="Yes, I can take part in phone hearings">
+                       <input class="govuk-checkboxes__input" id="phonehearing" name="remote-hearing" type="checkbox" value="Yes, I can take part in phone hearings">
                        <label class="govuk-label govuk-checkboxes__label" for="phonehearing">
                          Yes, I can take part in phone hearings
 
@@ -69,11 +70,11 @@
 
                      <div class="govuk-checkboxes__divider">or</div>
                      <div class="govuk-checkboxes__item">
-                       <input class="govuk-checkboxes__input" id="nophoneorvideo" name="remotehearing" type="checkbox" value="No, I cannot take part in either video or phone hearings because" data-behaviour="exclusive" aria-controls="nophoneorvideo-conditional">
+                       <input class="govuk-checkboxes__input" id="nophoneorvideo" name="remote-hearing" type="checkbox" value="No, I cannot take part in either video or phone hearings because" data-behaviour="exclusive" aria-controls="nophoneorvideo-conditional">
                        <label class="govuk-label govuk-checkboxes__label" for="nophoneorvideo">
                          No, I cannot take part in either video or phone hearings
 
-                       <div id="remotehearing4-hint" class="govuk-hint">
+                       <div id="remote-hearing4-hint" class="govuk-hint">
                          If you choose this option please tell us why in case we can assist you
                        </div>
                        </label>

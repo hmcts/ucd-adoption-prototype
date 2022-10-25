@@ -28,7 +28,8 @@
 
       <main class="govuk-main-wrapper " id="main-content" role="main">
 
-           <h1 class="govuk-heading-xl">Check your answers </h1>
+        <span class="govuk-caption-l">{{ data['firstApplicant'] }}</span>
+        <h1 class="govuk-heading-xl">Check your answers </h1>
 
            <h2 class="govuk-heading-l">Support you need during your case</h2>
 
@@ -38,12 +39,12 @@
                  Would you be able to take part in hearings by video and phone?
                </dt>
                <dd class="govuk-summary-list__value">
-                 {{ data['remotehearing'] }}
+                 {{ data['remote-hearing'] }}
                 <p> {{ data['nophoneorvideo-details'] }}</p>
                </dd>
                <dd class="govuk-summary-list__actions">
-                 <a class="govuk-link" href="remotehearing">
-                   Edit<span class="govuk-visually-hidden">remotehearing</span>
+                 <a class="govuk-link" href="remote-hearing">
+                   Edit<span class="govuk-visually-hidden">remote-hearing</span>
                  </a>
                </dd>
              </div>
@@ -53,12 +54,12 @@
                  Do you have any language requirements?
                </dt>
                <dd class="govuk-summary-list__value">
-                 {{ data['languagerequirements'] }}
-                <p> {{ data['languagerequirements-textarea'] }}</p>
+                 {{ data['language-requirements'] }}
+                <p> {{ data['language-requirements-textarea'] }}</p>
                </dd>
                <dd class="govuk-summary-list__actions">
-                 <a class="govuk-link" href="languagerequirements">
-                   Edit<span class="govuk-visually-hidden">languagerequirements</span>
+                 <a class="govuk-link" href="language-requirements">
+                   Edit<span class="govuk-visually-hidden">language-requirements</span>
                  </a>
                </dd>
              </div>
@@ -67,12 +68,12 @@
                 Do you or the children need special safety arrangements at court?
                </dt>
                <dd class="govuk-summary-list__value">
-                 {{ data['safetyrequirements'] }}
-                <p> {{ data['safetyrequirements-textarea'] }}</p>
+                 {{ data['safety-requirements'] }}
+                <p> {{ data['safety-requirements-textarea'] }}</p>
                </dd>
                <dd class="govuk-summary-list__actions govuk-!-width-one-half">
-                 <a class="govuk-link" href="safetyrequirements">
-                   Edit<span class="govuk-visually-hidden">safetyrequirements</span>
+                 <a class="govuk-link" href="safety-requirements">
+                   Edit<span class="govuk-visually-hidden">safety-requirements</span>
                  </a>
                </dd>
              </div>

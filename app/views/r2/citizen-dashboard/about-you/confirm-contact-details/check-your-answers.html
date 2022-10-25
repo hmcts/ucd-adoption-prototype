@@ -28,54 +28,26 @@
 
         <main class="govuk-main-wrapper " id="main-content" role="main">
 
+          <span class="govuk-caption-l">{{ data['firstApplicant'] }}</span>
           <h1 class="govuk-heading-xl">Check your details</h1>
 
 
           <dl class="govuk-summary-list govuk-!-margin-bottom-9">
             <div class="govuk-summary-list__row">
-              <dt class="govuk-summary-list__key govuk-!-width-one-half">
+              <dt class="govuk-summary-list__key">
                 Name
               </dt>
               <dd class="govuk-summary-list__value">
   <!--this will be prepopulated from the C100 but overwritten by user's input. If no input from C100, it will highlight that it needs to be filled-->
                 <!--{{ data['first-name'] }} {{ data['last-name'] }} {{ data['previous-name'] }}-->
-                Sam Richards
+                Agatha Mary Clarissa Christie
               </dd>
               <dd class="govuk-summary-list__actions">
                 <a class="govuk-link" href="personal-details">Edit<span class="govuk-visually-hidden">name</span>
                 </a>
               </dd>
             </div>
-            <div class="govuk-summary-list__row">
-              <dt class="govuk-summary-list__key">
-                Date of birth
-              </dt>
-              <dd class="govuk-summary-list__value">
-  <!--this will be prepopulated from the C100 but overwritten by user's input. If no input from C100, it will highlight that it needs to be filled-->
-                <!--{{ data['dob-day'] }} {{ data['dob-month'] }} {{ data['dob-year'] }}-->
-                12 April 1980
-              </dd>
-              <dd class="govuk-summary-list__actions">
-                <a class="govuk-link" href="personal-details">Edit<span class="govuk-visually-hidden">date of birth</span>
-                </a>
-              </dd>
-            </div>
-            <!-- <div class="govuk-summary-list__row">
-              <dt class="govuk-summary-list__key">
-                Place of birth
-              </dt>
-              <dd class="govuk-summary-list__value"> -->
-  <!--this will be prepopulated from the C100 but overwritten by user's input. If no input from C100, it will highlight that it needs to be filled-->
-                <!--{{ data['pob'] }}-->
-                <!-- <p id="event-name-error" class="govuk-error-message">
-                  <span class="govuk-visually-hidden">Error:</span>Complete this section
-                </p>
-              </dd>
-              <dd class="govuk-summary-list__actions">
-                <a class="govuk-link" href="personal-details">Edit<span class="govuk-visually-hidden">place of birth</span>
-                </a>
-              </dd>
-            </div> -->
+
             <div class="govuk-summary-list__row">
               <dt class="govuk-summary-list__key">
                 Address
@@ -83,12 +55,11 @@
               <dd class="govuk-summary-list__value">
   <!--this will be prepopulated from the C100 but overwritten by user's input. If no input from C100, it will highlight that it needs to be filled-->
                 <!--{{ data['address-line-1'] }} {{ data['address-line-2'] }} {{ data['address-town'] }} {{ data['address-postcode'] }}-->
-                24 Happy Hill
-                <br>Happy End
-                <br>H24 HE
+                Buckingham Palace
+                <br>London SW1A 1AA
               </dd>
               <dd class="govuk-summary-list__actions">
-                <a class="govuk-link" href="addressdetails">Edit<span class="govuk-visually-hidden">address</span>
+                <a class="govuk-link" href="address-details">Edit<span class="govuk-visually-hidden">address</span>
                 </a>
               </dd>
             </div>
@@ -144,7 +115,6 @@
 
           </dl>
 
-          <div id="prepopulated-hint" class="govuk-hint govuk-!-margin-top-1 govuk-!-margin-bottom-6">If you do not want to share your contact details with the other person in the case, update the section <a href="../confidentiality/detailsknown">Keeping your contact details private</a></div>
       <div>
 
         <form action="../../" method="post" novalidate>
