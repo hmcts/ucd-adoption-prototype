@@ -38,7 +38,7 @@
                           </label>  
                           {% else %}     
                           <label class="govuk-label" for="event-name">
-                            {{ data['differentJudge'] }}  [Name of Judge].               
+                            {{ data['differentJudge'] }}  [name of judge].               
                           </label>       
                           <label class="govuk-label govuk-label--s govuk-!-margin-top-4" for="contact-by-email">
                             Name of judge
@@ -104,7 +104,7 @@
                                       <label class="govuk-label govuk-date-input__label" for="gatekeeping-first-hearing-month">
                                         Month
                                       </label>
-                                      <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="gatekeeping-first-hearing-month" name="gatekeeping-first-hearing-month" type="text" inputmode="numeric" value="{{ data['gatekeeping-first-hearing-month'] }}"">
+                                      <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="gatekeeping-first-hearing-month" name="gatekeeping-first-hearing-month" type="text" inputmode="numeric" value="{{ data['gatekeeping-first-hearing-month'] }}">
                                     </div>
                                   </div>
                                   
@@ -113,7 +113,7 @@
                                       <label class="govuk-label govuk-date-input__label" for="gatekeeping-first-hearing-year">
                                         Year
                                       </label>
-                                      <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="gatekeeping-first-hearing-year" name="gatekeeping-first-hearing-year" type="text" inputmode="numeric" value="{{ data['gatekeeping-first-hearing-year'] }}"">
+                                      <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="gatekeeping-first-hearing-year" name="gatekeeping-first-hearing-year" type="text" inputmode="numeric" value="{{ data['gatekeeping-first-hearing-year'] }}">
                                     </div>
                                   </div>
                                   
@@ -122,7 +122,7 @@
                                         <label class="govuk-label govuk-date-input__label" for="gatekeeping-first-hearing-hour">
                                           Hour
                                         </label>
-                                        <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="gatekeeping-first-hearing-hour" name="gatekeeping-first-hearing-hour" type="text" inputmode="numeric" value="{{ data['gatekeeping-first-hearing-hour'] }}"">
+                                        <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="gatekeeping-first-hearing-hour" name="gatekeeping-first-hearing-hour" type="text" inputmode="numeric" value="{{ data['gatekeeping-first-hearing-hour'] }}">
                                       </div>
                                     </div>
                                     
@@ -131,7 +131,7 @@
                                         <label class="govuk-label govuk-date-input__label" for="gatekeeping-first-hearing-minute">
                                           Minute
                                         </label>
-                                        <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="gatekeeping-first-hearing-minute" name="gatekeeping-first-hearing-minute" type="text" inputmode="numeric" value="{{ data['gatekeeping-first-hearing-minute'] }}"">
+                                        <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="gatekeeping-first-hearing-minute" name="gatekeeping-first-hearing-minute" type="text" inputmode="numeric" value="{{ data['gatekeeping-first-hearing-minute'] }}">
                                       </div>
                                     </div>
                                     
@@ -140,7 +140,7 @@
                                         <label class="govuk-label govuk-date-input__label" for="gatekeeping-first-hearing-second">
                                           Second
                                         </label>
-                                        <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="gatekeeping-first-hearing-second" name="gatekeeping-first-hearing-second" type="text" inputmode="numeric" value="00">
+                                        <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="gatekeeping-first-hearing-second" name="gatekeeping-first-hearing-second" type="text" inputmode="numeric" value="{{ data['gatekeeping-first-hearing-second'] }}">
                                       </div>
                                     </div>
                                 </div>     
@@ -239,7 +239,7 @@
                                         <label class="govuk-label govuk-date-input__label" for="gatekeeping-further-hearing-second">
                                           Second
                                         </label>
-                                        <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="gatekeeping-further-hearing-second" name="gatekeeping-further-hearing-second" type="text" inputmode="numeric" value="00">
+                                        <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="gatekeeping-further-hearing-second" name="gatekeeping-further-hearing-second" type="text" inputmode="numeric" value="{{ data['gatekeeping-further-hearing-second'] }}">
                                       </div>
                                     </div>
                                 </div>     
@@ -364,7 +364,7 @@
                                     <label class="govuk-label govuk-date-input__label" for="gatekeeping-la-1-second">
                                       Second
                                     </label>
-                                    <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="gatekeeping-la-1-second" name="gatekeeping-la-1-second" type="text" inputmode="numeric" value="00">
+                                    <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="gatekeeping-la-1-second" name="gatekeeping-la-1-second" type="text" inputmode="numeric" value="{{ data['gatekeeping-la-1-second'] }}">
                                   </div>
                                 </div>
                             </div>     
@@ -402,7 +402,7 @@
                                     <label class="govuk-label govuk-date-input__label" for="gatekeeping-la-2-second">
                                       Second
                                     </label>
-                                    <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="gatekeeping-la-2-second" name="gatekeeping-la-2-second" type="text" inputmode="numeric" value="00">
+                                    <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="gatekeeping-la-2-second" name="gatekeeping-la-2-second" type="text" inputmode="numeric" value="{{ data['gatekeeping-la-2-second'] }}">
                                   </div>
                                 </div>
                             </div>     
@@ -411,7 +411,137 @@
                       </div>                          
                       {% endif %}
 
-                                              
+                      <!-- CAFCASS -->
+                      {% if (data['gatekeeping-cafcass-reporting-officer'] != undefined or data['gatekeeping-cafcass-guardian'] != undefined) %}
+                        <div class="govuk-form-group">
+                          <label class="govuk-label govuk-label--s govuk-!-margin-top-8" for="LA directions">
+                            Cafcass
+                          </label>
+
+                          {% if data['gatekeeping-cafcass-reporting-officer'] != undefined %}
+                          <p class="govuk-body govuk-!-margin-top-3">Cafcass/Cafcass Cymru are directed to appoint a reporting officer. The reporting officer is requested to file a brief report together with the relevant consent forms witnessing the consent of the birth parents by [time] on [date].</p>
+                          <p class="govuk-body">The Adoption Agency (Annex A) report may be disclosed to the reporting officer.</p>
+
+                          <div class="govuk-form-group">
+                            <fieldset class="govuk-fieldset">
+                              <div class="govuk-radios" data-module="govuk-radios">
+                                <div class="govuk-radios__item">
+                                  <input class="govuk-radios__input" id="cafacass" name="cafacass-reporting-officer-radios" type="radio" value="Cafcass">
+                                  <label class="govuk-label govuk-radios__label" for="cafacass">
+                                    Cafcass
+                                  </label>
+                                </div>
+                                <div class="govuk-radios__item">
+                                  <input class="govuk-radios__input" id="cafacass-cympru" name="cafacass-reporting-officer-radios" type="radio" value="Cafcass Cymru">
+                                  <label class="govuk-label govuk-radios__label" for="cafacass-cympru">
+                                    Cafcass Cymru
+                                  </label>
+                                </div>
+                              </div>                          
+                            </fieldset>
+                          </div>
+
+                          <div class="govuk-form-group">
+                            <fieldset class="govuk-fieldset" role="group" aria-describedby="date-told-la-hint">
+                              <legend class="govuk-fieldset__legend govuk-fieldset__legend--l govuk-!-margin-bottom-1">
+                                <label class="govuk-label govuk-label--s" for="LA directions">
+                                    Date and time
+                                </label>
+                              </legend>
+                              <div class="govuk-form-group">
+                                <div class="govuk-date-input" id="report-date">
+                                  <div class="govuk-date-input__item">
+                                    <div class="govuk-form-group">
+                                      <label class="govuk-label govuk-date-input__label" for="cafacass-reporting-officer-day">
+                                        Day
+                                      </label>
+                                      <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="cafacass-reporting-officer-day" name="cafacass-reporting-officer-day" type="text" inputmode="numeric" value="{{ data['cafacass-reporting-officer-day'] }}">
+                                    </div>
+                                  </div>
+                                  
+                                  <div class="govuk-date-input__item">
+                                    <div class="govuk-form-group">
+                                      <label class="govuk-label govuk-date-input__label" for="cafacass-reporting-officer-month">
+                                        Month
+                                      </label>
+                                      <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="cafacass-reporting-officer-month" name="cafacass-reporting-officer-month" type="text" inputmode="numeric" value="{{ data['cafacass-reporting-officer-month'] }}">
+                                    </div>
+                                  </div>
+                                  
+                                  <div class="govuk-date-input__item">
+                                    <div class="govuk-form-group">
+                                      <label class="govuk-label govuk-date-input__label" for="cafacass-reporting-officer-year">
+                                        Year
+                                      </label>
+                                      <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="cafacass-reporting-officer-year" name="cafacass-reporting-officer-year" type="text" inputmode="numeric" value="{{ data['cafacass-reporting-officer-year'] }}">
+                                    </div>
+                                  </div>
+                                  
+                                    <div class="govuk-date-input__item">
+                                      <div class="govuk-form-group">
+                                        <label class="govuk-label govuk-date-input__label" for="cafacass-reporting-officer-hour">
+                                          Hour
+                                        </label>
+                                        <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="cafacass-reporting-officer-hour" name="cafacass-reporting-officer-hour" type="text" inputmode="numeric" value="{{ data['cafacass-reporting-officer-hour'] }}">
+                                      </div>
+                                    </div>
+                                    
+                                    <div class="govuk-date-input__item">
+                                      <div class="govuk-form-group">
+                                        <label class="govuk-label govuk-date-input__label" for="cafacass-reporting-officer-minute">
+                                          Minute
+                                        </label>
+                                        <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="cafacass-reporting-officer-minute" name="cafacass-reporting-officer-minute" type="text" inputmode="numeric" value="{{ data['cafacass-reporting-officer-minute'] }}">
+                                      </div>
+                                    </div>
+                                    
+                                    <div class="govuk-date-input__item">
+                                      <div class="govuk-form-group">
+                                        <label class="govuk-label govuk-date-input__label" for="cafacass-reporting-officer-second">
+                                          Second
+                                        </label>
+                                        <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="cafacass-reporting-officer-second" name="cafacass-reporting-officer-second" type="text" inputmode="numeric" value="{{ data['cafacass-reporting-officer-second'] }}">
+                                      </div>
+                                    </div>
+                                </div>     
+                              </div>
+                            </fieldset>
+                          </div>                          
+                          {% endif %}
+
+                          {% if data['gatekeeping-cafcass-guardian'] != undefined %}
+                          <p class="govuk-body {% if data['gatekeeping-cafcass-reporting-officer'] != undefined %} govuk-!-margin-top-9 {% else %} govuk-!-margin-top-3 {% endif %}">The child is made a respondent to the application and a children's guardian is appointed and Cafcass/Cafcass Cymru shall use their best endeavours to appoint the same guardian appointed within the previous proceedings case number [case number]</p>
+
+                          <div class="govuk-form-group">
+                            <fieldset class="govuk-fieldset">
+                              <div class="govuk-radios" data-module="govuk-radios">
+                                <div class="govuk-radios__item">
+                                  <input class="govuk-radios__input" id="cafacass" name="cafacass-guardian-radios" type="radio" value="Cafcass">
+                                  <label class="govuk-label govuk-radios__label" for="cafacass">
+                                    Cafcass
+                                  </label>
+                                </div>
+                                <div class="govuk-radios__item">
+                                  <input class="govuk-radios__input" id="cafacass-cympru" name="cafacass-guardian-radios" type="radio" value="Cafcass Cymru">
+                                  <label class="govuk-label govuk-radios__label" for="cafacass-cympru">
+                                    Cafcass Cymru
+                                  </label>
+                                </div>
+                              </div>                          
+                            </fieldset>   
+                          </div>
+
+                          <div class=""govuk-form-group">
+                            <label class="govuk-label govuk-label--s govuk-!-margin-top-4" for="contact-by-email">
+                              Case number
+                            </label>
+                            <input class="govuk-input govuk-!-width-two-thirds" id="cafcass-case-number" name="cafcass-case-number" type="text" value="{{ data['cafcass-case-number'] }}">
+  
+                          </div>
+
+                          {% endif %}                         
+                        </div>
+                      {% endif %}
                         
                       <!-- Buttons -->
                       {% include "../../../includes/buttons-xui.html" %}
