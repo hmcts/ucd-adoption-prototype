@@ -131,24 +131,13 @@
                                     <input class="govuk-checkboxes__input" id="gatekeeping-attendance-birth-parents-2" name="gatekeeping-attendance-birth-parents-address" type="checkbox" value="address">
                                     <label class="govuk-label govuk-checkboxes__label" for="gatekeeping-attendance-birth-parents-2">
                                       2. The court will serve notice of the hearing listed above on the birth mother and birth father at their last known address(es) specified in the application/covering letter.
+                                      <br>&nbsp;&nbsp;&nbsp;a. the court/ the local authority shall arrange personal service of notice of the hearing/this order on the respondent parents.
                                     </label>
                                   </div>
                                   <div class="govuk-checkboxes__item">
-                                    <input class="govuk-checkboxes__input" id="gatekeeping-attendance-birth-parents-3" name="gatekeeping-attendance-court-notice" type="checkbox" value="acknowledgement" data-aria-controls="conditional-contact">
+                                    <input class="govuk-checkboxes__input" id="gatekeeping-attendance-birth-parents-3" name="gatekeeping-attendance-birth-parents-acknowledgement" type="checkbox" value="acknowledgement" data-aria-controls="conditional-contact">
                                     <label class="govuk-label govuk-checkboxes__label" for="gatekeeping-attendance-birth-parents-3">
-                                      3. The court shall arrange personal service of notice of the hearing/this order on the respondent parents.
-                                    </label>
-                                  </div>
-                                  <div class="govuk-checkboxes__item">
-                                    <input class="govuk-checkboxes__input" id="gatekeeping-attendance-birth-parents-4" name="gatekeeping-attendance-local-authority-notice" type="checkbox" value="acknowledgement" data-aria-controls="conditional-contact">
-                                    <label class="govuk-label govuk-checkboxes__label" for="gatekeeping-attendance-birth-parents-4">
-                                      4. The local authority shall arrange personal service of notice of the hearing/this order on the respondent parents.
-                                    </label>
-                                  </div>
-                                  <div class="govuk-checkboxes__item">
-                                    <input class="govuk-checkboxes__input" id="gatekeeping-attendance-birth-parents-5" name="gatekeeping-attendance-birth-parents-acknowledgement" type="checkbox" value="acknowledgement" data-aria-controls="conditional-contact">
-                                    <label class="govuk-label govuk-checkboxes__label" for="gatekeeping-attendance-birth-parents-5">
-                                      5. Upon receipt of this order the birth mother and father must complete the acknowledgement quoting the case number to (PO BOX ADDRESS) or speak to the social worker <span class="govuk-!-font-weight-bold">to confirm receipt of this order</span>. Failing that the court may order that they are personally served with this order.
+                                      3. Upon receipt of this order the birth mother and father must complete the acknowledgement quoting the case number to (PO BOX ADDRESS) or speak to the social worker <span class="govuk-!-font-weight-bold">to confirm receipt of this order</span>.  Failing that the court may order that they are personally served with this order.
                                     </label>
                                   </div>
                                   <!-- <div class="govuk-checkboxes__conditional govuk-checkboxes__conditional--hidden" id="conditional-contact">
@@ -160,23 +149,23 @@
                                     </div>                            
                                   </div> -->
                                   <div class="govuk-checkboxes__item">
-                                    <input class="govuk-checkboxes__input" id="gatekeeping-attendance-birth-parents-6" name="gatekeeping-attendance-birth-parents-directions" type="checkbox" value="directions">
-                                    <label class="govuk-label govuk-checkboxes__label" for="gatekeeping-attendance-birth-parents-6">
-                                      6. The purpose of the first hearing listed above is to consider any representations made by or on behalf of the birth parents and to give any consequential directions or orders. 
+                                    <input class="govuk-checkboxes__input" id="gatekeeping-attendance-birth-parents-4" name="gatekeeping-attendance-birth-parents-directions" type="checkbox" value="directions">
+                                    <label class="govuk-label govuk-checkboxes__label" for="gatekeeping-attendance-birth-parents-4">
+                                      4. The purpose of the first hearing listed above is to consider any representations made by or on behalf of the birth parents and to give any consequential directions or orders. 
                                     </label>
                                   </div>
                                   <div class="govuk-checkboxes__item">
-                                    <input class="govuk-checkboxes__input" id="gatekeeping-attendance-birth-parents-7" name="gatekeeping-attendance-birth-parents-copy" type="checkbox">
-                                    <label class="govuk-label govuk-checkboxes__label" for="gatekeeping-attendance-birth-parents-7">
-                                      7. In the event that the birth parents do not attend or otherwise make representations as to why an order should not be made the court shall:
+                                    <input class="govuk-checkboxes__input" id="gatekeeping-attendance-birth-parents-5" name="gatekeeping-attendance-birth-parents-copy" type="checkbox">
+                                    <label class="govuk-label govuk-checkboxes__label" for="gatekeeping-attendance-birth-parents-5">
+                                      5. In the event that the birth parents do not attend or otherwise make representations as to why an order should not be made the court shall:
                                       <br>&nbsp;&nbsp;&nbsp;a. determine whether it is satisfied that the birth parents were each served with a copy of this order; and, if so
                                       <br>&nbsp;&nbsp;&nbsp;b. consider whether a final order should be made at that hearing
                                     </label>
                                   </div>
                                   <div class="govuk-checkboxes__item">
-                                    <input class="govuk-checkboxes__input" id="gatekeeping-attendance-birth-parents-8" name="gatekeeping-attendance-birth-parents-final-hearing" type="checkbox" value="final-hearing">
-                                    <label class="govuk-label govuk-checkboxes__label" for="gatekeeping-attendance-birth-parents-8">
-                                      8. If the court considers that a final order should be made the first hearing shall be treated as a final hearing and an adoption order shall be made.
+                                    <input class="govuk-checkboxes__input" id="gatekeeping-attendance-birth-parents-6" name="gatekeeping-attendance-birth-parents-final-hearing" type="checkbox" value="final-hearing">
+                                    <label class="govuk-label govuk-checkboxes__label" for="gatekeeping-attendance-birth-parents-6">
+                                      6. If the court considers that a final order should be made the first hearing shall be treated as a final hearing and an adoption order shall be made.
                                     </label>
                                   </div>
 
@@ -188,15 +177,53 @@
                         
                       </div>                      
 
-                      {% if data['gatekeeping-leave-oppose-checkbox'] != undefined %}
-                        <p class="govuk-!-font-weight-bold govuk-!-margin-bottom-2">Leave to oppose</p>
+                      <p class="govuk-!-font-weight-bold govuk-!-margin-bottom-2">Leave to oppose</p>
 
+                      {% if data['gatekeeping-leave-oppose-checkbox'] != undefined %}
                         <p>A birth parent who wants to oppose the making of an adoption order or seek contact with the child is invited to notify the court in writing by (14 days from the date of this order).</p>
                         <p>A birth parent can only oppose the making of an Adoption Order if they have first been given permission to do so by the Court.</p>
                         <p>A birth parent who wishes to apply to the court for permission to oppose the making of an adoption order must send a statement to the court setting out how circumstances have changed since the date when the Placement Order was made. If you have any certificates or other documents of courses completed or work, you have done these should be attached to the statement.</p> 
-                        <p>The statement should then also explain to the court why it would be in the best interests of the child for you to be given permission to oppose the adoption.</p>
-                        <p>If no such application is made the case may proceed to a final hearing which may be dealt with without attendance of the parties unless such an attendance is requested by any of the parties. If such a request is made, the hearing may be conducted remotely unless this cannot be fairly undertaken.</p>
+                        <p>The statement should then also explain to the court why it would be in the best interests of the child for you to be given permission to oppose the adoption.
+                        <!-- <div class="govuk-form-group">
+                          <label class="govuk-label govuk-label--s" for="contact-by-phone">
+                            Date
+                          </label>
+                          <div class="govuk-form-group">
+                            <div class="govuk-date-input" id="report-date">
+                              <div class="govuk-date-input__item">
+                                <div class="govuk-form-group">
+                                  <label class="govuk-label govuk-date-input__label" for="gatekeeping-leave-to-oppose-day">
+                                    Day
+                                  </label>
+                                  <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="gatekeeping-leave-to-oppose-day" name="gatekeeping-leave-to-oppose-day" type="text" inputmode="numeric" value="{{ data['gatekeeping-leave-to-oppose-day'] }}">
+                                </div>
+                              </div>
+                              
+                              <div class="govuk-date-input__item">
+                                <div class="govuk-form-group">
+                                  <label class="govuk-label govuk-date-input__label" for="gatekeeping-leave-to-oppose-month">
+                                    Month
+                                  </label>
+                                  <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="gatekeeping-leave-to-oppose-month" name="gatekeeping-leave-to-oppose-month" type="text" inputmode="numeric" value="{{ data['gatekeeping-leave-to-oppose-month'] }}"">
+                                </div>
+                              </div>
+                              
+                              <div class="govuk-date-input__item">
+                                <div class="govuk-form-group">
+                                  <label class="govuk-label govuk-date-input__label" for="gatekeeping-leave-to-oppose-year">
+                                    Year
+                                  </label>
+                                  <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="gatekeeping-leave-to-oppose-year" name="gatekeeping-leave-to-oppose-year" type="text" inputmode="numeric" value="{{ data['gatekeeping-leave-to-oppose-year'] }}"">
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div> -->
                       
+                      {% else %}
+
+                        <p>If no such application is made the case may proceed to a final hearing which may be dealt with without attendance of the parties unless such an attendance is requested by any of the parties. If such a request is made, the hearing may be conducted remotely unless this cannot be fairly undertaken.</p>
+
                       {% endif %}
 
                       <div class="govuk-form-group">
