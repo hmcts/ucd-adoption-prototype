@@ -10,7 +10,7 @@
               <div class="govuk-width-container">
                 <div class="govuk-grid-row" style="width:1300px; margin-left: -90px;">
                   <div class="govuk-grid-column-two-thirds">
-                    <h1 class="govuk-heading-xl">Check your answers</h1>
+                    <h1 class="govuk-heading-xl">Check your answers - CURRENTLY ON HOLD</h1>
                     <h2 class="govuk-heading-l govuk-!-margin-bottom-3">#1234-5678-0921-2722</h2>
                     <h2 class="govuk-heading-m govuk-!-margin-top-0 govuk-!-margin-bottom-2">Child's name: Jane Austen</h2>
 
@@ -122,7 +122,7 @@
 
                                       <div class="govuk-summary-list__row">
                                         <dt class="govuk-summary-list__key">
-                                          Hearing date
+                                          First hearing date
                                         </dt>
                                         <dd class="govuk-summary-list__value">
                                           {{ data['gatekeeping-first-hearing-day'] }} {{ data['monthName'][data['gatekeeping-first-hearing-month']] }} {{ data['gatekeeping-first-hearing-year'] }} at {{ data['gatekeeping-first-hearing-hour'] }}:{{ data['gatekeeping-first-hearing-minute'] }}:{{ data['gatekeeping-first-hearing-second'] }}
@@ -136,10 +136,10 @@
 
                                       <div class="govuk-summary-list__row">
                                         <dt class="govuk-summary-list__key">
-                                          Length
+                                          First hearing length
                                         </dt>
                                         <dd class="govuk-summary-list__value">
-                                          {{ data['gatekeepingFirstHearingLengthDays']}} days, {{ data['gatekeepingFirstHearingLengthHours']}} hours, {{ data['gatekeepingFirstHearingLengthMinutes']}} minutes 
+                                          {{ data['gatekeeping-first-hearing-length']}}
                                         </dd>
                                         <dd class="govuk-summary-list__actions">
                                           <a class="govuk-link" href="gatekeeping-order-2.html">
@@ -150,7 +150,7 @@
 
                                       <div class="govuk-summary-list__row">
                                         <dt class="govuk-summary-list__key">
-                                          Name of court
+                                          First hearing name of court
                                         </dt>
                                         <dd class="govuk-summary-list__value">
                                           {{ data['gatekeeping-court-name'] }}                                    
@@ -164,23 +164,38 @@
                                     {% endif %}
 
                                     {% if data['gatekeeping-further-hearings-checkbox'] !== undefined %}
-                                      <div class="govuk-summary-list__row">
-                                        <dt class="govuk-summary-list__key">
-                                          Further hearings
-                                        </dt>
-                                        <dd class="govuk-summary-list__value">
-                                          The application is listed for a [listing type] on [date] at [time] with a time estimate of [length] at [court name].
-                                        </dd>
-                                        <dd class="govuk-summary-list__actions">
-                                          <a class="govuk-link" href="gatekeeping-order-1.html">
-                                            Change<span class="govuk-visually-hidden"> hearing details</span>
-                                          </a>
-                                        </dd>
-                                      </div>
+                                    <div class="govuk-summary-list__row">
+                                      <dt class="govuk-summary-list__key">
+                                        Further hearings
+                                      </dt>
+                                      <dd class="govuk-summary-list__value">
+                                        The application is listed for a [listing type] on [date] at [time] with a time estimate of [length] at [court name].
+                                      </dd>
+                                      <dd class="govuk-summary-list__actions">
+                                        <a class="govuk-link" href="gatekeeping-order-1.html">
+                                          Change<span class="govuk-visually-hidden"> hearing details</span>
+                                        </a>
+                                      </dd>
+                                    </div>
+
+                                    <div class="govuk-summary-list__row">
+                                      <dt class="govuk-summary-list__key">
+                                        Listing type
+                                      </dt>
+                                      <dd class="govuk-summary-list__value">
+                                        {{ data['gatekeeping-listing-type'] }}
+                                      </dd>
+                                      <dd class="govuk-summary-list__actions">
+                                        <a class="govuk-link" href="gatekeeping-order-2.html">
+                                          Change<span class="govuk-visually-hidden"> listing type</span>
+                                        </a>
+                                      </dd>
+                                    </div>
+                                  
 
                                       <div class="govuk-summary-list__row">
                                         <dt class="govuk-summary-list__key">
-                                          Hearing date
+                                          Furher hearing date
                                         </dt>
                                         <dd class="govuk-summary-list__value">
                                           {{ data['gatekeeping-first-hearing-day'] }} {{ data['monthName'][data['gatekeeping-first-hearing-month']] }} {{ data['gatekeeping-first-hearing-year'] }} at {{ data['gatekeeping-first-hearing-hour'] }}:{{ data['gatekeeping-first-hearing-minute'] }}:{{ data['gatekeeping-first-hearing-second'] }}
@@ -194,10 +209,10 @@
                                       
                                       <div class="govuk-summary-list__row">
                                         <dt class="govuk-summary-list__key">
-                                          Length
+                                          Further hearing length
                                         </dt>
                                         <dd class="govuk-summary-list__value">
-                                          {{ data['gatekeepingFurtherHearingLengthDays']}} days, {{ data['gatekeepingFurtherHearingLengthHours']}} hours, {{ data['gatekeepingFurtherHearingLengthMinutes']}} minutes 
+                                          {{ data['gatekeeping-further-hearing-length']}} 
                                         </dd>
                                         <dd class="govuk-summary-list__actions">
                                           <a class="govuk-link" href="gatekeeping-order-2.html">
@@ -208,7 +223,7 @@
 
                                       <div class="govuk-summary-list__row">
                                         <dt class="govuk-summary-list__key">
-                                          Name of court
+                                          Further hearing name of court
                                         </dt>
                                         <dd class="govuk-summary-list__value">
                                           {{ data['gatekeeping-court-further-name'] }}                                    
@@ -320,36 +335,55 @@
                                   <dt class="govuk-summary-list__key">
                                     Reporting officer
                                   </dt>
+                                  {% if (data['gatekeeping-cafcass-reporting-officer'] != undefined) %}                                
                                   <dd class="govuk-summary-list__value">
-                                    {% if (data['gatekeeping-cafcass-reporting-officer'] != undefined) %}                                
-                                      Yes
-                                    {% else %}
-                                      No
-                                    {% endif %}
+                                      [Cafcass/Cafcass Cymru] are directed to appoint a reporting officer. The reporting officer is requested to file a brief report together with the relevant consent forms witnessing the consent of the birth parents by [time] on [date].
+                                    <p class="govuk-!-margin-top-2">The Adoption Agency (Annex A) report may be disclosed to the reporting officer.</p>
                                   </dd>
                                   <dd class="govuk-summary-list__actions">
                                     <a class="govuk-link" href="gatekeeping-order-1.html">
                                       Change<span class="govuk-visually-hidden"> Cafcass reporting officer</span>
                                     </a>
                                   </dd>
+                                {% else %}
+                                  <dd class="govuk-summary-list__value">
+                                    No
+                                  </dd>
+                                  <dd class="govuk-summary-list__actions">
+                                    <a class="govuk-link" href="gatekeeping-order-1.html">
+                                      Change<span class="govuk-visually-hidden"> Cafcass reporting officer</span>
+                                    </a>
+                                  </dd>
+                                {% endif %}
                                 </div>
+
                                 <div class="govuk-summary-list__row">
                                   <dt class="govuk-summary-list__key">
                                     Child or children's guardian
                                   </dt>
+                                  {% if (data['gatekeeping-cafcass-guardian'] != undefined) %}                                
                                   <dd class="govuk-summary-list__value">
-                                    {% if (data['gatekeeping-cafcass-guardian'] != undefined) %}                                
-                                      Yes
-                                    {% else %}
-                                      No
-                                    {% endif %}
+                                    The child is made a respondent to the application and a children's guardian is appointed and [Cafcass/Cafcass Cymru] shall use their best endeavours to appoint the same guardian appointed within the previous proceedings case number [case number].
                                   </dd>
                                   <dd class="govuk-summary-list__actions">
                                     <a class="govuk-link" href="gatekeeping-order-1.html">
                                       Change<span class="govuk-visually-hidden"> Cafcass child or children's guardian</span>
                                     </a>
                                   </dd>
+                                  {% else %}
+                                  <dd class="govuk-summary-list__value">
+                                    No
+                                  </dd>
+                                  <dd class="govuk-summary-list__actions">
+                                    <a class="govuk-link" href="gatekeeping-order-1.html">
+                                      Change<span class="govuk-visually-hidden"> Cafcass reporting officer</span>
+                                    </a>
+                                  </dd>
+                                {% endif %}
                                 </div>
+
+                                cafacass-reporting-officer-radios
+
                               </dl>
 
 
