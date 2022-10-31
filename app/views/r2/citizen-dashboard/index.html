@@ -1,23 +1,14 @@
-{% extends "layout.html" %}
+{% extends "layout-signed-in.html" %}
 
 {% block pageTitle %}
-  Progress bars
+Apply to adopt a child
 {% endblock %}
 
-{% block header %}
-  <!-- Blank header with no service name for the start page -->
-
-{{ govukHeader({
-    homepageUrl: "/",
-    serviceName: serviceName,
-    serviceUrl: "/",
-    containerClasses: "govuk-width-container"
-}) }}
-
+{% block beforeContent %}
+<a class="govuk-back-link" href="javascript:history.back()">Back</a>
 {% endblock %}
 
 {% block content %}
-
 
 <style>
 .hmcts-progress-bar-vertical .hmcts-progress-bar__icon {
@@ -290,7 +281,7 @@ body {
           <p class="govuk-body">Court address: Taylor House, Vauxhall, London SW1A 2PQ</p>
 
           <p class="govuk-notification-banner__heading">
-            <a class="govuk-notification-banner__link" href="" target="_blank">View all details of the hearing</a>
+            <a class="govuk-notification-banner__link" href="respond-to-question/have-you-been-asked-to-submit-document.html">View all details of the hearing</a>
           </p>
         </div>
 
@@ -417,6 +408,22 @@ body {
               <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="submit-pay-status">Not available yet</strong>
             </li>
 
+          </ul>
+        </li>
+
+        <li>
+          <h2 class="app-task-list__section">
+             Temporary section
+          </h2>
+          <ul class="app-task-list__items">
+            <li class="app-task-list__item">
+              <span class="app-task-list__task-name">
+                <a href="respond-to-question/are-you-responding-to-query-from-court.html" aria-describedby="risk-of-harm-or-violence">
+                  Ask the court a query or something like this
+                </a>
+              </span>
+              <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="submit-pay-status">Not available yet</strong>
+            </li>
           </ul>
         </li>
 
