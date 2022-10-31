@@ -4966,6 +4966,21 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
 
 
 
+    router.post('/r2/citizen-dashboard/respond-to-question/are-you-responding-to-query-from-court', function(req, res) {
+      if (req.body['responding-query-court-radios'] === 'Yes') {
+        res.redirect('/r2/citizen-dashboard/respond-to-question/responding-to-query')
+      }
+      else {
+        res.redirect('/r2/citizen-dashboard/')
+      }
+    })
+  
+
+    router.post('/r2/citizen-dashboard/respond-to-question/responding-to-query', function(req, res) {
+      res.redirect('/r2/citizen-dashboard/respond-to-question/have-you-been-asked-to-submit-document')
+    })
+  
+  
 
 
 
