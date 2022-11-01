@@ -14,44 +14,44 @@ Apply to adopt a child
     <div class="govuk-grid-column-two-thirds">
       <div class="govuk-width-container">
 
-        <form action="/r2/citizen-dashboard/respond-to-question/are-you-responding-to-query-from-court" method="post" class="form">
 
-          <div class="govuk-form-group">
-            <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
-            <!-- <span class="govuk-caption-l">Eligibility to apply to adopt</span> -->
-            <h1 class="govuk-fieldset__heading">
-              Have you been asked to submit a document by the court?
-            </h1>
+          <form action="/r2/citizen-dashboard/respond-to-query/are-you-responding-to-query-from-court" method="post" class="form">
+
+            <div class="govuk-form-group">
+              <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+              <!-- <span class="govuk-caption-l">Eligibility to apply to adopt</span> -->
+              <h1 class="govuk-fieldset__heading">
+                Are you responding to a query from the court?
+              </h1>
             </legend>
-
-            <fieldset class="govuk-fieldset" role="group" aria-describedby="submit-document-radios-radios">
-
-              <div class="govuk-radios govuk-radios--conditional" data-module="govuk-radios">
-                <div class="govuk-radios__item">
-                  <input class="govuk-radios__input" id="yes" name="submit-document-radios-radios" type="radio"
-                    value="Yes">
-                  <label class="govuk-label govuk-radios__label" for="yes">
-                    Yes
-                  </label>
-                </div>
-
+  
+              <fieldset class="govuk-fieldset" role="group" aria-describedby="responding-query-court-radios">
+  
                 <div class="govuk-radios govuk-radios--conditional" data-module="govuk-radios">
                   <div class="govuk-radios__item">
-                    <input class="govuk-radios__input" id="no" name="submit-document-radios-radios" type="radio" value="No" data-aria-controls="conditional-contact">
-                    <label class="govuk-label govuk-radios__label" for="submit-document-radios-radios">
-                      No
+                    <input class="govuk-radios__input" id="yes" name="responding-query-court-radios" type="radio"
+                      value="Yes">
+                    <label class="govuk-label govuk-radios__label" for="yes">
+                      Yes
                     </label>
                   </div>
-                </div>
-
+  
+                  <div class="govuk-radios govuk-radios--conditional" data-module="govuk-radios">
+                    <div class="govuk-radios__item">
+                      <input class="govuk-radios__input" id="no" name="responding-query-court-radios" type="radio" value="No" data-aria-controls="conditional-contact">
+                      <label class="govuk-label govuk-radios__label" for="responding-query-court-radios">
+                        No
+                      </label>
+                    </div>
+                  </div>
+  
               </fieldset>
             </div>
-
+  
             <button class="govuk-button" data-module="govuk-button">
               Continue
             </button>
-
-        </form>
+          </form>
       </div>
     </div>
     <div class="govuk-grid-column-one-third">
