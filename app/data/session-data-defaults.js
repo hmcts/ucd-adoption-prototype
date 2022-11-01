@@ -193,7 +193,9 @@ module.exports = {
 "gatekeepingFirstHearingLengthMinutes": 0,
 "gatekeepingFurtherHearingLengthDays": 0,
 "gatekeepingFurtherHearingLengthHours": 0,
-"gatekeepingFurtherHearingLengthMinutes": 0
+"gatekeepingFurtherHearingLengthMinutes": 0,
+
+"dashboardQuestion": undefined
 
 
 
