@@ -4972,12 +4972,18 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
   
 
     router.post('/r2/citizen-dashboard/respond-to-query/what-has-court-requested', function(req, res) {
+      req.session.data.dashboardUpload = req.body['dashboard-upload-document-checkbox']
       req.session.data.dashboardQuestion = req.body['dashboard-respond-question-checkbox']
+      console.log("Upload: ", req.session.data.dashboardUpload)
+      console.log("Question: ", req.session.data.dashboardQuestion)
       if (req.body['dashboard-upload-document-checkbox'] !== undefined) {
         res.redirect('/r2/citizen-dashboard/respond-to-query/upload')
       }
-      else {
+      else if (req.body['dashboard-respond-question-checkbox'] !== undefined) {
         res.redirect('/r2/citizen-dashboard/respond-to-query/question')
+      }
+      else {
+        res.render('./r2/citizen-dashboard/respond-to-query/what-has-court-requested', { errors: errors })
       }
     })
   
@@ -4989,6 +4995,10 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
       else {
         res.redirect('/r2/citizen-dashboard/respond-to-query/check-your-answers')
       }
+    })
+  
+    router.post('/r2/citizen-dashboard/respond-to-query/question', function(req, res) {
+        res.redirect('/r2/citizen-dashboard/respond-to-query/check-your-answers')
     })
   
 
