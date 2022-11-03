@@ -11,50 +11,56 @@ Apply to adopt a child
 {% block content %}
 
 <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
-      <div class="govuk-width-container">
+  <div class="govuk-grid-column-two-thirds">
+    <div class="govuk-width-container">
 
-        <form action="/r2/citizen-dashboard/respond-to-query/query" method="post" class="form">
+      <form action="/r2/citizen-dashboard/respond-to-query/query" method="post" class="form">
 
-          <div class="govuk-form-group">
-            <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
-              <!-- <span class="govuk-caption-l">Eligibility to apply to adopt</span> -->
-              <h1 class="govuk-fieldset__heading">
-                Responding to a query
-              </h1>
-            </legend>
+        <div class="govuk-form-group">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+            <!-- <span class="govuk-caption-l">Eligibility to apply to adopt</span> -->
+            <h1 class="govuk-fieldset__heading">
+              Responding to a query
+            </h1>
+          </legend>
 
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-            
-          </div>
+          <p>The court has asked you to:</p>
+          <ul class="govuk-list govuk-list--bullet">
+            <li>
+              Upload an identification document.
+            </li>
+            <li>
+              Answer the question 'Can you please clarify the date your divorce was finalised?'
+            </li>
+          </ul>
+        </div>
 
-          <button class="govuk-button" data-module="govuk-button">
-            Continue
-          </button>
-          
-        </form>
+        <button class="govuk-button" data-module="govuk-button">
+          Continue
+        </button>
+        
+      </form>
+    </div>
+  </div>
+  <div class="govuk-grid-column-one-third">
+    <details class="govuk-details" data-module="govuk-details">
+      <summary class="govuk-details__summary">
+        <span class="govuk-details__summary-text">
+        Contacts for help
+        </span>
+      </summary>
+      <div class="govuk-details__text">
+        Ask a question or get any help in any language
+        <p class="govuk-body govuk-!-font-weight-bold">Telephone</p>
+
+        <p class="govuk-body govuk-!-font-weight-regular">0300 303 0742</p>
+        <p class="govuk-body govuk-!-font-weight-regular">Monday to Friday, 8am to 8pm</p>
+        <a href="#" class="govuk-link">Find out about call charges</a>
+        <p class="govuk-body govuk-!-font-weight-regular">(opens in a new window)</p>
       </div>
-    </div>
-    <div class="govuk-grid-column-one-third">
 
-    		<details class="govuk-details" data-module="govuk-details">
- 			      <summary class="govuk-details__summary">
-       			 <span class="govuk-details__summary-text">
-        		  Contacts for help
-      			  </span>
-  			    </summary>
-  			<div class="govuk-details__text">
-   			 Ask a question or get any help in any language
-   			 <p class="govuk-body govuk-!-font-weight-bold">Telephone</p>
-
-   			 <p class="govuk-body govuk-!-font-weight-regular">0300 303 0742</p>
-   			 <p class="govuk-body govuk-!-font-weight-regular">Monday to Friday, 8am to 8pm</p>
-   			 <a href="#" class="govuk-link">Find out about call charges</a>
-   			 <p class="govuk-body govuk-!-font-weight-regular">(opens in a new window)</p>
-
-			  </div>
-			</details>
-    </div>
+    </details>
+  </div>
 </div>
 
 
