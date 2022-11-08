@@ -283,7 +283,7 @@
                                   <dt class="govuk-summary-list__key">
                                     Adoption agency report to be filed
                                   </dt>
-                                  {% if data['gatekeeping-local-authority-checkboxes'] != undefined %}
+                                  {% if data['gatekeeping-submit-annex-a'] != undefined %}
                                   <dd class="govuk-summary-list__value">
                                     Yes
                                   </dd>
@@ -298,7 +298,7 @@
                                     </a>
                                   </dd>
                                 </div>
-                                {% if data['gatekeeping-local-authority-checkboxes'] != undefined %}
+                                {% if data['gatekeeping-submit-annex-a'] != undefined %}
                                 <div class="govuk-summary-list__row">
                                   <dt class="govuk-summary-list__key">
                                     Annex A filed by
@@ -333,19 +333,19 @@
                               <dl class="govuk-summary-list">                                
                                 <div class="govuk-summary-list__row">
                                   <dt class="govuk-summary-list__key">
-                                    Reporting officer
+                                    Appoint a reporting officer
                                   </dt>
                                   {% if (data['gatekeeping-cafcass-reporting-officer'] != undefined) %}                                
                                   <dd class="govuk-summary-list__value">
-                                      [Cafcass/Cafcass Cymru] are directed to appoint a reporting officer. The reporting officer is requested to file a brief report together with the relevant consent forms witnessing the consent of the birth parents by [time] on [date].
-                                    <p class="govuk-!-margin-top-2">The Adoption Agency (Annex A) report may be disclosed to the reporting officer.</p>
+                                    [Cafcass/Cafcass Cymru] are directed to appoint a reporting officer. The reporting officer is requested to file a brief report together with the relevant consent forms witnessing the consent of the birth parents by [time] on [date].
+                                  <p class="govuk-!-margin-top-2">The Adoption Agency (Annex A) report may be disclosed to the reporting officer.</p>
                                   </dd>
                                   <dd class="govuk-summary-list__actions">
                                     <a class="govuk-link" href="gatekeeping-order-1.html">
                                       Change<span class="govuk-visually-hidden"> Cafcass reporting officer</span>
                                     </a>
-                                  </dd>
-                                {% else %}
+                                  </dd>                                  
+                                  {% else %}
                                   <dd class="govuk-summary-list__value">
                                     No
                                   </dd>
@@ -357,9 +357,40 @@
                                 {% endif %}
                                 </div>
 
+                                {% if (data['gatekeeping-cafcass-reporting-officer'] != undefined) %}                                
                                 <div class="govuk-summary-list__row">
                                   <dt class="govuk-summary-list__key">
-                                    Child or children's guardian
+                                    Reporting officer
+                                  </dt>
+                                  <dd class="govuk-summary-list__value">
+                                    {{ data['cafcass-reporting-officer-radios'] }}
+                                  </dd>
+                                  <dd class="govuk-summary-list__actions">
+                                    <a class="govuk-link" href="gatekeeping-order-1.html">
+                                      Change<span class="govuk-visually-hidden"> reporting officer</span>
+                                    </a>
+                                  </dd>                                  
+                                </div>
+
+                                <div class="govuk-summary-list__row">
+                                  <dt class="govuk-summary-list__key">
+                                    Date and time
+                                  </dt>
+                                  <dd class="govuk-summary-list__value">
+                                    {{ data['cafcass-reporting-officer-day'] }} {{ data['monthName'][data['cafcass-reporting-officer-month']] }} {{ data['cafcass-reporting-officer-year'] }} at {{ data['cafcass-reporting-officer-hour'] }}:{{ data['cafcass-reporting-officer-minute'] }}:{{ data['cafcass-reporting-officer-second'] }}
+                                  </dd>
+                                  <dd class="govuk-summary-list__actions">
+                                    <a class="govuk-link" href="gatekeeping-order-1.html">
+                                      Change<span class="govuk-visually-hidden"> additional details</span>
+                                    </a>
+                                  </dd>
+                                </div>
+
+                                {% endif %}
+
+                                <div class="govuk-summary-list__row">
+                                  <dt class="govuk-summary-list__key">
+                                    Appoint child or children's guardian
                                   </dt>
                                   {% if (data['gatekeeping-cafcass-guardian'] != undefined) %}                                
                                   <dd class="govuk-summary-list__value">
@@ -382,7 +413,38 @@
                                 {% endif %}
                                 </div>
 
-                                cafacass-reporting-officer-radios
+                                {% if (data['gatekeeping-cafcass-guardian'] != undefined) %}                                
+                                <div class="govuk-summary-list__row">
+                                  <dt class="govuk-summary-list__key">
+                                    Reporting officer
+                                  </dt>
+                                  <dd class="govuk-summary-list__value">
+                                    {{ data['cafcass-guardian-radios'] }}
+                                  </dd>
+                                  <dd class="govuk-summary-list__actions">
+                                    <a class="govuk-link" href="gatekeeping-order-1.html">
+                                      Change<span class="govuk-visually-hidden"> reporting officer</span>
+                                    </a>
+                                  </dd>                                  
+                                </div>
+
+                                <div class="govuk-summary-list__row">
+                                  <dt class="govuk-summary-list__key">
+                                    Case number
+                                  </dt>
+                                  <dd class="govuk-summary-list__value">
+                                    {{ data['cafcass-case-number'] }}
+                                  </dd>
+                                  <dd class="govuk-summary-list__actions">
+                                    <a class="govuk-link" href="gatekeeping-order-1.html">
+                                      Change<span class="govuk-visually-hidden"> case number</span>
+                                    </a>
+                                  </dd>                                  
+                                </div>
+                                {% endif %}
+
+
+                                
 
                               </dl>
 
