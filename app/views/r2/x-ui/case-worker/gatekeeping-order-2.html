@@ -271,9 +271,9 @@
                               Mode of hearing
                             </label>
                             <div class="govuk-radios__item">
-                              <input class="govuk-radios__input" id="remotely" name="gatekeeping-application-heard-radios" type="radio" value="Remotely" {% if data['gatekeeping-application-heard-radios'] === 'Remotely' %} checked {% endif %}>
+                              <input class="govuk-radios__input" id="remotely" name="gatekeeping-application-heard-radios" type="radio" value="Remotely (online)" {% if data['gatekeeping-application-heard-radios'] === 'Remotely (online)' %} checked {% endif %}>
                               <label class="govuk-label govuk-radios__label" for="remotely">
-                                Remotely
+                                Remotely (online)
                               </label>
                             </div>
                             <div class="govuk-radios__item">
@@ -429,14 +429,14 @@
                           <fieldset class="govuk-fieldset">
                               <div class="govuk-radios" data-module="govuk-radios">
                                 <div class="govuk-radios__item">
-                                  <input class="govuk-radios__input" id="cafacass" name="cafacass-reporting-officer-radios" type="radio" value="Cafcass">
-                                  <label class="govuk-label govuk-radios__label" for="cafacass">
+                                  <input class="govuk-radios__input" id="cafcass" name="cafcass-reporting-officer-radios" type="radio" value="Cafcass" {% if data['cafcass-reporting-officer-radios'] === 'Cafcass' %} checked {% endif %}>
+                                  <label class="govuk-label govuk-radios__label" for="cafcass">
                                     Cafcass
                                   </label>
                                 </div>
                                 <div class="govuk-radios__item">
-                                  <input class="govuk-radios__input" id="cafacass-cympru" name="cafacass-reporting-officer-radios" type="radio" value="Cafcass Cymru">
-                                  <label class="govuk-label govuk-radios__label" for="cafacass-cympru">
+                                  <input class="govuk-radios__input" id="cafcass-cympru" name="cafcass-reporting-officer-radios" type="radio" value="Cafcass Cymru" {% if data['cafcass-reporting-officer-radios'] === 'Cafcass Cymru' %} checked {% endif %}>
+                                  <label class="govuk-label govuk-radios__label" for="cafcass-cympru">
                                     Cafcass Cymru
                                   </label>
                                 </div>
@@ -455,55 +455,55 @@
                                 <div class="govuk-date-input" id="report-date">
                                   <div class="govuk-date-input__item">
                                     <div class="govuk-form-group">
-                                      <label class="govuk-label govuk-date-input__label" for="cafacass-reporting-officer-day">
+                                      <label class="govuk-label govuk-date-input__label" for="cafcass-reporting-officer-day">
                                         Day
                                       </label>
-                                      <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="cafacass-reporting-officer-day" name="cafacass-reporting-officer-day" type="text" inputmode="numeric" value="{{ data['cafacass-reporting-officer-day'] }}">
+                                      <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="cafcass-reporting-officer-day" name="cafcass-reporting-officer-day" type="text" inputmode="numeric" value="{{ data['cafcass-reporting-officer-day'] }}">
                                     </div>
                                   </div>
                                   
                                   <div class="govuk-date-input__item">
                                     <div class="govuk-form-group">
-                                      <label class="govuk-label govuk-date-input__label" for="cafacass-reporting-officer-month">
+                                      <label class="govuk-label govuk-date-input__label" for="cafcass-reporting-officer-month">
                                         Month
                                       </label>
-                                      <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="cafacass-reporting-officer-month" name="cafacass-reporting-officer-month" type="text" inputmode="numeric" value="{{ data['cafacass-reporting-officer-month'] }}">
+                                      <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="cafcass-reporting-officer-month" name="cafcass-reporting-officer-month" type="text" inputmode="numeric" value="{{ data['cafcass-reporting-officer-month'] }}">
                                     </div>
                                   </div>
                                   
                                   <div class="govuk-date-input__item">
                                     <div class="govuk-form-group">
-                                      <label class="govuk-label govuk-date-input__label" for="cafacass-reporting-officer-year">
+                                      <label class="govuk-label govuk-date-input__label" for="cafcass-reporting-officer-year">
                                         Year
                                       </label>
-                                      <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="cafacass-reporting-officer-year" name="cafacass-reporting-officer-year" type="text" inputmode="numeric" value="{{ data['cafacass-reporting-officer-year'] }}">
+                                      <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="cafcass-reporting-officer-year" name="cafcass-reporting-officer-year" type="text" inputmode="numeric" value="{{ data['cafcass-reporting-officer-year'] }}">
                                     </div>
                                   </div>
                                   
                                     <div class="govuk-date-input__item">
                                       <div class="govuk-form-group">
-                                        <label class="govuk-label govuk-date-input__label" for="cafacass-reporting-officer-hour">
+                                        <label class="govuk-label govuk-date-input__label" for="cafcass-reporting-officer-hour">
                                           Hour
                                         </label>
-                                        <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="cafacass-reporting-officer-hour" name="cafacass-reporting-officer-hour" type="text" inputmode="numeric" value="{{ data['cafacass-reporting-officer-hour'] }}">
+                                        <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="cafcass-reporting-officer-hour" name="cafcass-reporting-officer-hour" type="text" inputmode="numeric" value="{{ data['cafcass-reporting-officer-hour'] }}">
                                       </div>
                                     </div>
                                     
                                     <div class="govuk-date-input__item">
                                       <div class="govuk-form-group">
-                                        <label class="govuk-label govuk-date-input__label" for="cafacass-reporting-officer-minute">
+                                        <label class="govuk-label govuk-date-input__label" for="cafcass-reporting-officer-minute">
                                           Minute
                                         </label>
-                                        <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="cafacass-reporting-officer-minute" name="cafacass-reporting-officer-minute" type="text" inputmode="numeric" value="{{ data['cafacass-reporting-officer-minute'] }}">
+                                        <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="cafcass-reporting-officer-minute" name="cafcass-reporting-officer-minute" type="text" inputmode="numeric" value="{{ data['cafcass-reporting-officer-minute'] }}">
                                       </div>
                                     </div>
                                     
                                     <div class="govuk-date-input__item">
                                       <div class="govuk-form-group">
-                                        <label class="govuk-label govuk-date-input__label" for="cafacass-reporting-officer-second">
+                                        <label class="govuk-label govuk-date-input__label" for="cafcass-reporting-officer-second">
                                           Second
                                         </label>
-                                        <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="cafacass-reporting-officer-second" name="cafacass-reporting-officer-second" type="text" inputmode="numeric" value="{{ data['cafacass-reporting-officer-second'] }}">
+                                        <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="cafcass-reporting-officer-second" name="cafcass-reporting-officer-second" type="text" inputmode="numeric" value="{{ data['cafcass-reporting-officer-second'] }}">
                                       </div>
                                     </div>
                                 </div>     
@@ -522,14 +522,14 @@
                               </label>
                                 <div class="govuk-radios" data-module="govuk-radios">
                                 <div class="govuk-radios__item">
-                                  <input class="govuk-radios__input" id="cafacass" name="cafacass-guardian-radios" type="radio" value="Cafcass">
-                                  <label class="govuk-label govuk-radios__label" for="cafacass">
+                                  <input class="govuk-radios__input" id="cafcass" name="cafcass-guardian-radios" type="radio" value="Cafcass" {% if data['cafcass-guardian-radios'] === 'Cafcass' %} checked {% endif %}>
+                                  <label class="govuk-label govuk-radios__label" for="cafcass">
                                     Cafcass
                                   </label>
                                 </div>
                                 <div class="govuk-radios__item">
-                                  <input class="govuk-radios__input" id="cafacass-cympru" name="cafacass-guardian-radios" type="radio" value="Cafcass Cymru">
-                                  <label class="govuk-label govuk-radios__label" for="cafacass-cympru">
+                                  <input class="govuk-radios__input" id="cafcass-cympru" name="cafcass-guardian-radios" type="radio" value="Cafcass Cymru" {% if data['cafcass-guardian-radios'] === 'Cafcass Cymru' %} checked {% endif %}>
+                                  <label class="govuk-label govuk-radios__label" for="cafcass-cympru">
                                     Cafcass Cymru
                                   </label>
                                 </div>
