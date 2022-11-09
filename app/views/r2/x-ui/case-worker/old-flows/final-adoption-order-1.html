@@ -1,0 +1,127 @@
+{% block header %}
+{% include "layout-xui.html" %}
+{% endblock %}
+
+
+<html lang="en" class="govuk-template ">
+  <div style=" max-width:1300px; margin: 0 auto;">
+      <div style=" max-width:1300px;  min-width:1300px;  margin: 20px 0px 0px 0px;  ">
+          <main class="govuk-main-wrapper " id="main-content" role="main" style="padding-top: 25px;">
+              <div class="govuk-width-container">
+                <div class="govuk-grid-row" style="width:1300px; margin-left: -90px;">
+                  <div class="govuk-grid-column-two-thirds">
+                    <h1 class="govuk-heading-xl">Final adoption order</h1>
+                    <h2 class="govuk-heading-l govuk-!-margin-bottom-3">#1234-5678-0921-2722</h2>
+                    <h2 class="govuk-heading-m govuk-!-margin-top-0 govuk-!-margin-bottom-7">Child's name: Jane Austen</h2>
+
+                    <p>Please select all the relevant options for this order. The directions attached to each option can be reviewed on the next screens. You can change your options by returning to the previous screens.</p>
+                    
+                    <form action="/r2/x-ui/case-worker/final-adoption-order-1" method="post" class="form">
+                      <div class="govuk-form-group">
+                        <label class="govuk-label govuk-label--s govuk-!-margin-top-4" for="contact-by-email">
+                          Preamble
+                        </label>
+                        <div id="changed-name-hint" class="govuk-hint">
+                          Copy and paste or type directly into the text box.
+                        </div>                          
+                        <textarea class="govuk-textarea" id="final-adoption-preamble" name="final-adoption-preamble" rows="5">{{ data['final-adoption-preamble'] }}</textarea>
+                      </div>
+                    
+                      <div class="govuk-form-group">
+                        <label class="govuk-label govuk-label--s govuk-!-margin-top-4" for="contact-by-email">
+                          Ordered by
+                        </label>
+                        <div id="changed-name-hint" class="govuk-hint">
+                          Enter the name of the person issuing this order.
+                        </div>                          
+                        <input class="govuk-input govuk-!-width-two-thirds" id="final-adoption-ordered-by" name="final-adoption-ordered-by" type="text" value="{{data['final-adoption-ordered-by']}}">
+                      </div>
+
+                      <div class="govuk-form-group">
+                        <div class="govuk-radios govuk-radios--conditional" data-module="govuk-radios">
+                          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                            <label class="govuk-label govuk-label--s govuk-!-margin-top-4" for="contact-by-email">
+                              Placement of the child
+                            </label>
+                          </legend>
+                          <label class="govuk-label govuk-!-margin-bottom-3" for="contact-by-email">
+                            Agency or local authority which placed the child for adoption
+                          </label>
+                        
+                          <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="agency1" name="final-adoption-adoption-agency-radio" type="radio" value="Smith and Jones, Purley, CR8 4AG" {% if data['final-adoption-adoption-agency-radio'] == "Smith and Jones, Purley, CR8 4AG" %} checked {% endif %}>
+                            <label class="govuk-label govuk-radios__label" for="agency1">
+                              Smith and Jones, Purley, CR8 4AG
+                            </label>
+                          </div>
+  
+                          <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="agency2" name="final-adoption-adoption-agency-radio" type="radio" value="Kay's Ltd, Greenwich, SE18 2TY" {% if data['final-adoption-adoption-agency-radio'] == "Kay's Ltd, Greenwich, SE18 2TY" %} checked {% endif %}>
+                            <label class="govuk-label govuk-radios__label" for="agency2">
+                              Kay's Ltd, Greenwich, SE18 2TY
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="govuk-form-group">
+                        <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                          <label class="govuk-label govuk-label--s govuk-!-margin-top-4" for="contact-by-email">
+                            This is a step-parent order
+                          </label>
+                        </legend>
+                        <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+                          <div class="govuk-checkboxes__item">
+                            <input class="govuk-checkboxes__input" id="final-adoption-step-parent" name="final-adoption-step-parent-checkbox" type="checkbox" value="final-adoption-step-parent" data-aria-controls="conditional-contact" {% if data['final-adoption-step-parent-checkbox'] !== undefined %} checked {% endif %}>
+                            <label class="govuk-label govuk-checkboxes__label" for="final-adoption-step-parent">
+                              There is a parent whose whole status is unaffected by this order.
+                            </label>
+                          </div>
+                        </div>
+                        <div class="govuk-checkboxes__conditional govuk-checkboxes__conditional--hidden" id="conditional-contact">
+                          <div class="govuk-form-group">
+                            <label class="govuk-label govuk-!-margin-top-3" for="contact-by-email">
+                              Name the parent whose status is unaffected by this order
+                            </label>
+                            <input class="govuk-input govuk-!-width-two-thirds" id="final-adoption-parent-unaffected" name="final-adoption-parent-unaffected" type="text" spellcheck="false" value="{{data['final-adoption-parent-unaffected']}}">
+                          </div>                            
+                        </div>
+                      </div>
+                    
+                      <div class="govuk-form-group">
+                        <h3 class="govuk-heading-s govuk-!-margin-top-8 govuk-!-margin-bottom-1">Child's full name after adoption</h3>
+                        <p>Jane Christie Doyle</p>
+                      </div>                    
+
+                      <div class="govuk-form-group">
+                        <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                          <label class="govuk-label govuk-label--s" for="contact-by-email">
+                            Cost orders
+                          </label>
+                        </legend>
+                        <input class="govuk-input govuk-!-width-two-thirds" id="final-adoption-cost-orders" name="final-adoption-cost-orders" type="text">
+                        <!-- <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+                          <div class="govuk-checkboxes__item">
+                            <input class="govuk-checkboxes__input" id="final-adoption-cost-orders" name="final-adoption-cost-orders-checkboxes" type="checkbox" value="final-adoption-cost-orders">
+                            <label class="govuk-label govuk-checkboxes__label" for="final-adoption-cost-orders">
+                              No order for costs
+                            </label>
+                          </div>
+                        </div> -->
+                      </div>
+
+
+                      <!-- Buttons -->
+                      {% include "../../../includes/buttons-xui.html" %}
+                    </form>
+                  </div>
+                </div>
+              </div>
+          </main>
+      </div>      
+  </div>
+</html>
+
+{% block footer %}
+{% include "includes/newfooter.html" %}
+{% endblock %}
