@@ -39,13 +39,13 @@
                                 </label>
                                 <div class="govuk-radios" data-module="govuk-radios">
                                   <div class="govuk-radios__item">
-                                    <input class="govuk-radios__input" id="birth" name="final-order-type-certificate-radio" type="radio" value="Birth certificate" data-aria-controls="conditional-place-birth-proved-radio-2" {% if data['final-order-type-certificate-radio'] == "Birth certificate" %} checked {% endif %}>
+                                    <input class="govuk-radios__input" id="birth" name="final-order-type-certificate-radio" type="radio" value="Birth certificate" {% if data['final-order-type-certificate-radio'] == "Birth certificate" %} checked {% endif %}>
                                     <label class="govuk-label govuk-radios__label" for="birth">
                                       Birth certificate
                                     </label>
                                   </div>                                      
                                   <div class="govuk-radios__item">
-                                    <input class="govuk-radios__input" id="adoption" name="final-order-type-certificate-radio" type="radio" value="Adoption certificate" data-aria-controls="conditional-probable-birth" {% if data['final-order-type-certificate-radio'] == "Adoption certificate" %} checked {% endif %}>
+                                    <input class="govuk-radios__input" id="adoption" name="final-order-type-certificate-radio" type="radio" value="Adoption certificate" {% if data['final-order-type-certificate-radio'] == "Adoption certificate" %} checked {% endif %}>
                                     <label class="govuk-label govuk-radios__label" for="Yes">
                                       Adoption certificate
                                     </label>
@@ -65,7 +65,7 @@
                                     </label>
                                   </div>                                      
                                   <div class="govuk-radios__item">
-                                    <input class="govuk-radios__input" id="Outside" name="final-order-country-birth-radio" type="radio" value="Outside" data-aria-controls="conditional-outside-birth" {% if data['final-order-country-birth-radio'] == "Outside" %} checked {% endif %}>
+                                    <input class="govuk-radios__input" id="Outside" name="final-order-country-birth-radio" type="radio" value="Outside the UK" data-aria-controls="conditional-outside-birth" {% if data['final-order-country-birth-radio'] == "Outside the UK" %} checked {% endif %}>
                                     <label class="govuk-label govuk-radios__label" for="Yes">
                                       Outside the UK
                                     </label>
@@ -89,6 +89,7 @@
                                 No
                               </label>
                             </div>
+
                             <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-place-birth-proved-radio-3">
                               <div class="govuk-form-group">
                                 <label class="govuk-label" for="place-birth-proved-radio-by-text">
@@ -96,7 +97,7 @@
                                 </label>
                                 <div class="govuk-radios" data-module="govuk-radios">
                                   <div class="govuk-radios__item">
-                                    <input class="govuk-radios__input" id="UK" name="probable-birth-location-radio" type="radio" value="UK" data-aria-controls="conditional-place-birth-proved-radio-2" {% if data['probable-birth-location-radio'] == "UK" %} checked {% endif %}>
+                                    <input class="govuk-radios__input" id="UK" name="probable-birth-location-radio" type="radio" value="UK" {% if data['probable-birth-location-radio'] == "UK" %} checked {% endif %}>
                                     <label class="govuk-label govuk-radios__label" for="Yes">
                                       United Kingdom, the Channel Islands or the Isle of Man
                                     </label>
