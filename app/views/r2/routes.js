@@ -2668,7 +2668,7 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
 
   router.post('/r2/x-ui/case-worker/final-adoption-order-2', function(req, res) {
     if (req.body['submit-button'] === 'continue') {
-      res.redirect('/r2/x-ui/case-worker/final-adoption-order-3-check-your-answers')
+      res.redirect('/r2/x-ui/case-worker/final-adoption-order-3-recipients')
     }
     else {
       res.redirect('/r2/x-ui/case-worker/final-adoption-order-1')
@@ -2676,22 +2676,32 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
   })
 
 
-  router.post('/r2/x-ui/case-worker/final-adoption-order-2', function(req, res) {
+  router.post('/r2/x-ui/case-worker/final-adoption-order-3-recipients', function(req, res) {
     if (req.body['submit-button'] === 'continue') {
-      res.redirect('/r2/x-ui/case-worker/final-adoption-order-3-check-your-answers')
+      res.redirect('/r2/x-ui/case-worker/final-adoption-order-4-preview-draft')
     }
     else {
-      res.redirect('/r2/x-ui/case-worker/final-adoption-order-2')
+      res.redirect('/r2/x-ui/case-worker/final-adoption-order-3-recipients')
     }
   })
 
 
-  router.post('/r2/x-ui/case-worker/final-adoption-order-3-check-your-answers', function(req, res) {
+  router.post('/r2/x-ui/case-worker/final-adoption-order-4-preview-draft', function(req, res) {
     if (req.body['submit-button'] === 'continue') {
-      res.redirect('/r2/x-ui/case-worker/final-adoption-order-3-check-your-answers')
+      res.redirect('/r2/x-ui/case-worker/final-adoption-order-5-check-your-answers')
     }
     else {
-      res.redirect('/r2/x-ui/case-worker/final-adoption-order-2')
+      res.redirect('/r2/x-ui/case-worker/final-adoption-order-4-preview-draft')
+    }
+  })
+
+
+  router.post('/r2/x-ui/case-worker/final-adoption-order-5-check-your-answers', function(req, res) {
+    if (req.body['submit-button'] === 'continue') {
+      res.redirect('/r2/x-ui/case-worker/final-adoption-order-5-check-your-answers')
+    }
+    else {
+      res.redirect('/r2/x-ui/case-worker/final-adoption-order-4-preview-draft')
     }
   })
 
