@@ -51,6 +51,45 @@
                       </div>
 
                       <div class="govuk-form-group">
+                        <fieldset class="govuk-fieldset" role="group" aria-describedby="date-told-la-hint">
+                          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l govuk-!-margin-bottom-1">
+                            <label class="govuk-label govuk-label--s" for="LA directions">
+                              Date order made
+                            </label>
+                          </legend>
+
+                          <div class="govuk-date-input" id="report-date">
+                            <div class="govuk-date-input__item">
+                              <div class="govuk-form-group">
+                                <label class="govuk-label govuk-date-input__label" for="gatekeeping-date-order-made-date-day">
+                                  Day
+                                </label>
+                                <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="gatekeeping-date-order-made-date-day" name="gatekeeping-date-order-made-date-day" type="text" inputmode="numeric" value="{{ data['gatekeeping-date-order-made-date-day'] }}">
+                              </div>
+                            </div>
+                            
+                            <div class="govuk-date-input__item">
+                              <div class="govuk-form-group">
+                                <label class="govuk-label govuk-date-input__label" for="gatekeeping-date-order-made-date-month">
+                                  Month
+                                </label>
+                                <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="gatekeeping-date-order-made-date-month" name="gatekeeping-date-order-made-date-month" type="text" inputmode="numeric" value="{{ data['gatekeeping-date-order-made-date-month'] }}">
+                              </div>
+                            </div>
+                            
+                            <div class="govuk-date-input__item">
+                              <div class="govuk-form-group">
+                                <label class="govuk-label govuk-date-input__label" for="gatekeeping-date-order-made-date-year">
+                                  Year
+                                </label>
+                                <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="gatekeeping-date-order-made-date-year" name="gatekeeping-date-order-made-date-year" type="text" inputmode="numeric" value="{{ data['gatekeeping-date-order-made-date-year'] }}">
+                              </div>
+                            </div>
+                          </div>
+                        </fieldset>
+                      </div>
+
+                      <div class="govuk-form-group">
                         <fieldset class="govuk-fieldset" aria-describedby="gatekeeping-hearing-checkboxes-hint">
                           <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
                             <label class="govuk-label govuk-label--s govuk-!-margin-top-4" for="contact-by-email">
