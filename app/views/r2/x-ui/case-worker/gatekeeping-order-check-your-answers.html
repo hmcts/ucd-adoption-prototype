@@ -83,6 +83,21 @@
                                   </dd>
                                 </div>
                                 {% endif %}
+
+                                <div class="govuk-summary-list__row">
+                                  <dt class="govuk-summary-list__key">
+                                    Date order made
+                                  </dt>
+                                  <dd class="govuk-summary-list__value">
+                                    {{ data['gatekeeping-date-order-made-day'] }} {{ data['monthName'][data['gatekeeping-date-order-made-month']] }} {{ data['gatekeeping-date-order-made-year'] }}
+                                  </dd>
+                                  <dd class="govuk-summary-list__actions">
+                                    <a class="govuk-link" href="gatekeeping-order-2.html">
+                                      Change<span class="govuk-visually-hidden"> date order made</span>
+                                    </a>
+                                  </dd>
+                                </div>
+
                                 </dl>
 
                                 <h3 class="govuk-heading-m govuk-!-margin-top-9">Hearings</h3>
