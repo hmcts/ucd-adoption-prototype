@@ -2458,7 +2458,7 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
 
   router.post('/r2/x-ui/case-worker/gatekeeping-order-4-select-recipient', function(req, res) {
     if (req.body['submit-button'] === 'continue') {
-      res.redirect('/r2/x-ui/case-worker/gatekeeping-order-check-your-answers')
+      res.redirect('/r2/x-ui/case-worker/gatekeeping-order-6-order-preview')
     }
     else {
       res.redirect('/r2/x-ui/case-worker/gatekeeping-order-3')
@@ -2469,10 +2469,10 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
   router.post('/r2/x-ui/case-worker/gatekeeping-order-check-your-answers', function(req, res) {
     if (req.body['submit-button'] === 'continue') {
       req.session.data.newOrder = 1
-      res.redirect('/r2/x-ui/case-worker/gatekeeping-order-6-order-preview')
+      res.redirect('/r2/x-ui/case-worker/gatekeeping-order-check-your-answers')
     }
     else {
-      res.redirect('/r2/x-ui/case-worker/gatekeeping-order-4-select-recipient')
+      res.redirect('/r2/x-ui/case-worker/gatekeeping-order-6-order-preview')
     }
   })
 
@@ -2480,10 +2480,10 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
   router.post('/r2/x-ui/case-worker/gatekeeping-order-6-order-preview', function(req, res) {
     if (req.body['submit-button'] === 'continue') {
       req.session.data.newOrder = 1
-      res.redirect('/r2/x-ui/case-worker/orders')
+      res.redirect('/r2/x-ui/case-worker/gatekeeping-order-check-your-answers')
     }
     else {
-      res.redirect('/r2/x-ui/case-worker/gatekeeping-order-check-your-answers')
+      res.redirect('/r2/x-ui/case-worker/gatekeeping-order-4-select-recipient')
     }
   })
 
