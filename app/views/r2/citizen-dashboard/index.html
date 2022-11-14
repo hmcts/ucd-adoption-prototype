@@ -234,7 +234,7 @@ body {
   <div class="govuk-grid-column-full">
 
       <h1 class="govuk-heading-xl govuk-!-margin-bottom-4">
-        Jane Austen
+        <a href="time-passed.html" class="not-underlined">Jane Austen</a>
       </h1>
       <p class="govuk-body">Case number #9344-6223-9535-0099</p>
   </div>
@@ -246,15 +246,15 @@ body {
         <ol class="hmcts-progress-bar__list">
           <li class="hmcts-progress-bar__list-item">
             <span class="hmcts-progress-bar__icon hmcts-progress-bar__icon--complete"></span>
-            <span class="hmcts-progress-bar__label"><span class="govuk-visually-hidden"> Step 1: </span>Processing application</span>
+            <span class="hmcts-progress-bar__label"><span class="govuk-visually-hidden"> Step 1: </span>Application submitted</span>
           </li>
           <li class="hmcts-progress-bar__list-item">
             <span class="hmcts-progress-bar__icon hmcts-progress-bar__icon--in-progress"></span>
-            <span class="hmcts-progress-bar__label"><span class="govuk-visually-hidden">Step 2: </span>Awaiting local authority input</span>
+            <span class="hmcts-progress-bar__label"><span class="govuk-visually-hidden">Step 2: </span>Waiting for local authority report</span>
           </li>
           <li class="hmcts-progress-bar__list-item">
             <span class="hmcts-progress-bar__icon"></span>
-            <span class="hmcts-progress-bar__label"><span class="govuk-visually-hidden">Step 3: </span>Hearings happening</span>
+            <span class="hmcts-progress-bar__label"><span class="govuk-visually-hidden">Step 3: </span>Hearings in progress</span>
           </li>
           <li class="hmcts-progress-bar__list-item">
             <span class="hmcts-progress-bar__icon"></span>
@@ -274,19 +274,23 @@ body {
         </div>
         <div class="govuk-notification-banner__content">
           <p class="govuk-notification-banner__heading">
-            Respond to a query from the court NOTIFICATION
+            You need to respond to a query from the court.
           </p>
-          <p class="govuk-body">Blah blah respond to a query to answer a question or upload documents blah blah blah</p>            
+          <p class="govuk-body">The court has asked you for further information.</p>  
+          <p class="govuk-body">Please read the query first then respond.</p>                      
 
           <p class="govuk-notification-banner__heading">
-            <a class="govuk-notification-banner__link" href="respond-to-query/query.html">Respond to a query from the court</a>
+            <a class="govuk-notification-banner__link" href="../../public/pdf/query.pdf" target="_blank">Read the query (PDF)</a>
+          </p>
+          <p class="govuk-notification-banner__heading">
+            <a class="govuk-notification-banner__link" href="respond-to-query/what-has-court-requested.html">Respond to the query</a>
           </p>
         </div>
 
       </div>
 
       <ol class="app-task-list">
-        <li>
+        <!-- <li>
           <h2 class="app-task-list__section">
              Applicants details
           </h2>
@@ -309,9 +313,9 @@ body {
               <strong class="govuk-tag app-task-list__tag govuk-tag govuk-tag--blue" id="eligibility-status">Optional</strong>
             </li>
           </ul>
-          <ul class="app-task-list__items">
+          <ul class="app-task-list__items"> -->
             <!-- <p class="govuk-!-font-weight-bold govuk-!-margin-bottom-2">{{ data['secondApplicant'] }}</p> -->
-            <h3 class="govuk-heading-s govuk-!-margin-bottom-1">{{ data['secondApplicant'] }}</h3>
+            <!-- <h3 class="govuk-heading-s govuk-!-margin-bottom-1">{{ data['secondApplicant'] }}</h3>
             <li class="app-task-list__item">
               <span class="app-task-list__task-name">
                 <a href="about-you/confirm-contact-details/check-your-answers" aria-describedby="read-declaration-status">
@@ -328,12 +332,55 @@ body {
               </span>
               <strong class="govuk-tag app-task-list__tag govuk-tag govuk-tag--blue" id="eligibility-status">Optional</strong>
             </li>
+ 
+          </ul>
+        </li> -->
+
+        <li>
+          <h2 class="app-task-list__section">
+             Your details
+          </h2>
+          <ul class="app-task-list__items">
+            <!-- <h3 class="govuk-heading-s govuk-!-margin-bottom-1">{{ data['firstApplicant'] }}</h3> -->
+            <li class="app-task-list__item">
+              <span class="app-task-list__task-name">
+                <a href="about-you/confirm-contact-details/check-your-answers" aria-describedby="read-declaration-status">
+                  Manage first applicant's contact details
+                </a>
+              </span>
+              <strong class="govuk-tag app-task-list__tag govuk-tag govuk-tag--blue" id="eligibility-status">Optional</strong>
+            </li>
+            <li class="app-task-list__item">
+              <span class="app-task-list__task-name">
+                <a href="about-you/confirm-contact-details/check-your-answers" aria-describedby="read-declaration-status">
+                  Manage second applicant's contact details
+                </a>
+              </span>
+              <strong class="govuk-tag app-task-list__tag govuk-tag govuk-tag--blue" id="eligibility-status">Optional</strong>
+            </li>
+            <li class="app-task-list__item">
+              <span class="app-task-list__task-name">
+                <a href="about-you/child-name-after-adoption.html" aria-describedby="read-declaration-status">
+                Confirm child's name after adoption
+                </a>
+              </span>
+              <strong class="govuk-tag app-task-list__tag govuk-tag govuk-tag--blue" id="eligibility-status">Optional</strong>
+            </li>
+            <li class="app-task-list__item">
+              <span class="app-task-list__task-name">
+                <a href="about-you/tell-us-your-hearing-needs/remote-hearing" aria-describedby="read-declaration-status">
+                Provide or review your support needs
+                </a>
+              </span>
+              <strong class="govuk-tag app-task-list__tag govuk-tag govuk-tag--blue" id="eligibility-status">Optional</strong>
+            </li>
+
           </ul>
         </li>
 
         <li>
           <h2 class="app-task-list__section">
-             The application
+             Your application
           </h2>
           <ul class="app-task-list__items">
             <li class="app-task-list__item">
@@ -354,13 +401,10 @@ body {
           <ul class="app-task-list__items">
             <li class="app-task-list__item">
               <span class="app-task-list__task-name">
-                <a href="yourhearings/hearings" aria-describedby="application-detail-about-you">
                   Check details of your court hearings
-                </a>
               </span>
               <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="submit-pay-status">Not available yet</strong>
             </li>
-
 
           </ul>
         </li>
@@ -373,7 +417,7 @@ body {
 
             <li class="app-task-list__item">
               <span class="app-task-list__task-name">
-                <a href="your-documents/uploadv1/uploaddocumentsv1" aria-describedby="upload-document">
+                <a href="upload.html" aria-describedby="upload-document">
                   Upload documents
                 </a>
               </span>
@@ -383,7 +427,7 @@ body {
             <li class="app-task-list__item">
               <span class="app-task-list__task-name">
                 <a href="your-documents/alldocuments/alldocuments" aria-describedby="risk-of-harm-or-violence">
-                  View all documents
+                  View documents
                 </a>
               </span>
               <strong class="govuk-tag govuk-tag--blue app-task-list__tag " id="submit-pay-status">Ready to view</strong>
@@ -394,14 +438,12 @@ body {
 
         <li>
           <h2 class="app-task-list__section">
-             Orders from the court
+             Your court orders
           </h2>
           <ul class="app-task-list__items">
             <li class="app-task-list__item">
               <span class="app-task-list__task-name">
-                <a href="your-documents/alldocuments/orders" aria-describedby="risk-of-harm-or-violence">
                   View all orders from the court
-                </a>
               </span>
               <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="submit-pay-status">Not available yet</strong>
             </li>
@@ -411,16 +453,16 @@ body {
 
         <li>
           <h2 class="app-task-list__section">
-             Temporary section
+             Your responses
           </h2>
           <ul class="app-task-list__items">
             <li class="app-task-list__item">
               <span class="app-task-list__task-name">
                 <a href="respond-to-query/are-you-responding-to-query-from-court.html" aria-describedby="risk-of-harm-or-violence">
-                  Ask the court a query or something like this
+                  Respond to the court
                 </a>
               </span>
-              <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="submit-pay-status">Not available yet</strong>
+              <strong class="govuk-tag govuk-tag--red app-task-list__tag" id="submit-pay-status">Not started yet</strong>
             </li>
           </ul>
         </li>
