@@ -4976,10 +4976,6 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
 
 
 
-    router.post('/r2/citizen-dashboard/respond-to-query/query', function(req, res) {
-      res.redirect('/r2/citizen-dashboard/respond-to-query/what-has-court-requested')
-    })
-  
 
     router.post('/r2/citizen-dashboard/respond-to-query/what-has-court-requested', function(req, res) {
       req.session.data.dashboardUpload = req.body['dashboard-upload-document-checkbox']
@@ -5003,13 +4999,80 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
         res.redirect('/r2/citizen-dashboard/respond-to-query/question')
       }
       else {
-        res.redirect('/r2/citizen-dashboard/respond-to-query/check-your-answers')
+        res.redirect('/r2/citizen-dashboard/respond-to-query/confirmation')
       }
     })
   
     router.post('/r2/citizen-dashboard/respond-to-query/question', function(req, res) {
-        res.redirect('/r2/citizen-dashboard/respond-to-query/check-your-answers')
+        res.redirect('/r2/citizen-dashboard/respond-to-query/confirmation')
     })
+  
+    router.post('/r2/citizen-dashboard/respond-to-query/are-you-responding-to-query-from-court', function(req, res) {
+      if (req.body['responding-query-court-radios'] === 'Yes') {
+        res.redirect('/r2/citizen-dashboard/respond-to-query/what-has-court-requested')
+      }
+      else {
+        res.redirect('/r2/citizen-dashboard/respond-to-query/what-do-you-need-help-with')
+      }
+    })
+    
+
+  
+    router.post('/r2/citizen-dashboard/respond-to-query/what-do-you-need-help-with', function(req, res) {
+      res.redirect('/r2/citizen-dashboard/respond-to-query/response-question-1')
+    })
+  
+    router.post('/r2/citizen-dashboard/respond-to-query/response-question-1', function(req, res) {
+      if (req.body['submit-button'] === 'save-and-continue') {
+        res.redirect('/r2/citizen-dashboard/')
+      }
+      else {
+        res.redirect('/r2/citizen-dashboard/respond-to-query/ask-question')
+      }
+    })
+  
+    router.post('/r2/citizen-dashboard/respond-to-query/ask-question', function(req, res) {
+      res.redirect('/r2/citizen-dashboard/respond-to-query/confirmation')
+    })
+  
+
+
+
+
+    // router.post('/r2/citizen-dashboard/respond-to-query/query', function(req, res) {
+    //   res.redirect('/r2/citizen-dashboard/respond-to-query/what-has-court-requested')
+    // })
+  
+
+    // router.post('/r2/citizen-dashboard/respond-to-query/what-has-court-requested', function(req, res) {
+    //   req.session.data.dashboardUpload = req.body['dashboard-upload-document-checkbox']
+    //   req.session.data.dashboardQuestion = req.body['dashboard-respond-question-checkbox']
+    //   console.log("Upload: ", req.session.data.dashboardUpload)
+    //   console.log("Question: ", req.session.data.dashboardQuestion)
+    //   if (req.body['dashboard-upload-document-checkbox'] !== undefined) {
+    //     res.redirect('/r2/citizen-dashboard/respond-to-query/upload')
+    //   }
+    //   else if (req.body['dashboard-respond-question-checkbox'] !== undefined) {
+    //     res.redirect('/r2/citizen-dashboard/respond-to-query/question')
+    //   }
+    //   else {
+    //     res.render('./r2/citizen-dashboard/respond-to-query/what-has-court-requested', { errors: errors })
+    //   }
+    // })
+  
+
+    // router.post('/r2/citizen-dashboard/respond-to-query/upload', function(req, res) {
+    //   if (req.session.data.dashboardQuestion !== undefined) {
+    //     res.redirect('/r2/citizen-dashboard/respond-to-query/question')
+    //   }
+    //   else {
+    //     res.redirect('/r2/citizen-dashboard/respond-to-query/check-your-answers')
+    //   }
+    // })
+  
+    // router.post('/r2/citizen-dashboard/respond-to-query/question', function(req, res) {
+    //     res.redirect('/r2/citizen-dashboard/respond-to-query/check-your-answers')
+    // })
   
 
   
