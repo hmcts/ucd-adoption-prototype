@@ -9,24 +9,17 @@
           <main class="govuk-main-wrapper " id="main-content" role="main" style="padding-top: 25px;">
               <div class="govuk-width-container">
                 <div class="govuk-grid-row" style="width:1300px; margin-left: -90px;">
-                  <h1 class="govuk-heading-xl">Case management order (gatekeeping order)</h1>
+                  <h1 class="govuk-heading-xl">Preview the draft order</h1>
                   <h2 class="govuk-heading-l govuk-!-margin-bottom-3">#1234-5678-0921-2722</h2>
                   <h2 class="govuk-heading-m govuk-!-margin-top-0 govuk-!-margin-bottom-7">Child's name: Jane Austen</h2>
 
                   <form action="/r2/x-ui/case-worker/gatekeeping-order-6-order-preview" method="post" class="form">
 
-                    <h2 class="govuk-heading-l">Preview draft</h2>
-                    <p><a href="">Link to open preview draft PDF (opens in a new tab)</a></p>
+                    <p>Preview and check the order in draft. You can make changes on the next page.</p>
+                    <p><a href="">Preview draft in PDF (opens in a new tab)</a></p>
 
                     <!-- Buttons -->
-                    <div class="govuk-button-group govuk-!-margin-top-6">
-                      <button class="govuk-button govuk-button--secondary" data-module="govuk-button" name="submit-button" value="previous">
-                          Previous
-                      </button>
-                      <button class="govuk-button" data-module="govuk-button" name="submit-button" value="continue">
-                          Send for checking
-                      </button>
-                    </div>
+                    {% include "../../../includes/buttons-xui.html" %}
                   </form>
                 </div>
 
