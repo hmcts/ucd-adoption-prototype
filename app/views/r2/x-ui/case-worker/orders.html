@@ -72,35 +72,29 @@
                         </li>
 
                         <li class="govuk-tabs__list-item">
-                          <a class="govuk-tabs__tab" href="prospective-parents.html">
-                            Applicants
-                          </a>
+                            <a class="govuk-tabs__tab" href="prospective-parents.html">
+                                Applicants
+                            </a>
                         </li>
 
                         <li class="govuk-tabs__list-item">
-                          <a class="govuk-tabs__tab" href="other-parties.html">
-                            Other parties
-                          </a>
-                        </li>
+                            <a class="govuk-tabs__tab" href="other-parties.html">
+                              Other parties
+                            </a>
+                          </li>
 
                         <li class="govuk-tabs__list-item">
                           <a class="govuk-tabs__tab" href="documents.html">
-                            Documents
+                              Documents
                           </a>
                         </li>
 
                         <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
                           <a class="govuk-tabs__tab" href="orders.html">
-                            Orders
+                              Orders
                           </a>
                         </li>
-
-                        <!-- <li class="govuk-tabs__list-item">
-                          <a class="govuk-tabs__tab" href="index.html">
-                            Hearings
-                          </a>
-                        </li> -->
-
+    
                         {% if data['correspondenceStatus'] === 1 %}
                         <li class="govuk-tabs__list-item">
                             <a class="govuk-tabs__tab" href="correspondence.html">
@@ -109,31 +103,31 @@
                           </li>
                         {% endif %}
 
-                      <li class="govuk-tabs__list-item">
-                          <a class="govuk-tabs__tab" href="messages.html">
-                            Messages
-                          </a>
-                        </li>
-
-                        <!-- <li class="govuk-tabs__list-item">
-                          <a class="govuk-tabs__tab" href="notes.html">
-                          ---
-                          </a>
-                        </li> -->
-
                         <li class="govuk-tabs__list-item">
-                          <a class="govuk-tabs__tab" href="history.html">
-                            History
-                          </a>
+                            <a class="govuk-tabs__tab" href="messages.html">
+                                Messages
+                            </a>
                         </li>
 
                         <li class="govuk-tabs__list-item">
-                          <a class="govuk-tabs__tab" href="payments.html">
-                            Payments
-                          </a>
+                            <a class="govuk-tabs__tab" href="notes.html">
+                                  Notes
+                            </a>
+                          </li>
+
+                        <li class="govuk-tabs__list-item">
+                            <a class="govuk-tabs__tab" href="history.html">
+                                History
+                            </a>
                         </li>
 
-                      </ul>
+                        <li class="govuk-tabs__list-item">
+                            <a class="govuk-tabs__tab" href="payments.html">
+                                Payments
+                            </a>
+                        </li>
+
+                    </ul>
 
                       <!-- ****************************** END OF TABS ****************************** -->
 
@@ -162,7 +156,7 @@
                                 Order type
                               </dt>
                               <dd class="govuk-summary-list__value">
-                                Case management (gatekeeping) order
+                                Gatekeeping order
                               </dd>
                               <dd class="govuk-summary-list__value">
                                 &nbsp;
@@ -172,6 +166,18 @@
                             <div class="govuk-summary-list__row">
                               <dt class="govuk-summary-list__value">
                                 Date issued
+                              </dt>
+                              <dd class="govuk-summary-list__value">
+                                7 September 2022
+                              </dd>
+                              <dd class="govuk-summary-list__value">
+                                &nbsp;
+                              </dd>
+                            </div>
+
+                            <div class="govuk-summary-list__row">
+                              <dt class="govuk-summary-list__value">
+                                Date served
                               </dt>
                               <dd class="govuk-summary-list__value">
                                 Pending check and send
@@ -186,10 +192,10 @@
                                 Ordered by
                               </dt>
                               <dd class="govuk-summary-list__value">
-                              {% if data['gatekeeping-ordered-by'] %}
-                                {{ data['gatekeeping-ordered-by'] }}
+                              {% if data['gatekeeping-judge-name'] %}
+                                {{ data['gatekeeping-judge-name'] }}
                               {% else %}
-                                Jane Kent
+                                His Honour Judge Sherlock Holmes
                               {% endif %}  
                               </dd>
                               <dd class="govuk-summary-list__value">
@@ -241,10 +247,22 @@
 
                             <div class="govuk-summary-list__row">
                               <dt class="govuk-summary-list__value">
+                                Date served
+                              </dt>
+                              <dd class="govuk-summary-list__value">
+                                18 July 2022
+                              </dd>
+                              <dd class="govuk-summary-list__value">
+                                &nbsp;
+                              </dd>
+                            </div>
+
+                            <div class="govuk-summary-list__row">
+                              <dt class="govuk-summary-list__value">
                                 Ordered by
                               </dt>
                               <dd class="govuk-summary-list__value">
-                                Joanne Kent
+                                Her Honour Judge Jones
                               </dd>
                               <dd class="govuk-summary-list__value">
                                 &nbsp;
