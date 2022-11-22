@@ -5039,6 +5039,48 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
 
 
 
+/******************************  DSS ******************************/
+router.post('/r2/dss/case-reference-number', function(req, res) {
+  var errors = []
+  if (req.body['case-reference-number'] === '') {
+    errors.push({
+    text: 'Enter the case reference number',
+    href: '#case-reference-number'
+    })
+  }
+
+  if (req.body['submit-button'] === 'continue') {
+    if (req.body['case-reference-number'] === '1') {
+      res.redirect('/r2/dss/problem')
+    }
+    else {
+      if (errors.length === 0) {
+        res.redirect('/r2/dss/child-details')
+      }
+      else {
+          res.render('.//r2/dss/case-reference-number', { errors: errors })
+      }
+    }
+  }
+})
+
+
+router.post('/r2/dss/child-details', function(req, res) {
+  var errors = []
+  // if (req.body['case-reference-number'] === '') {
+  //   errors.push({
+  //   text: 'Enter the case reference number',
+  //   href: '#case-reference-number'
+  //   })
+  // }
+
+  res.redirect('/r2/dss/add-information')
+})
+
+
+
+
+
     // router.post('/r2/citizen-dashboard/respond-to-query/query', function(req, res) {
     //   res.redirect('/r2/citizen-dashboard/respond-to-query/what-has-court-requested')
     // })
