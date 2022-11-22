@@ -1,0 +1,79 @@
+{% extends "layout-la-portal.html" %}
+
+{% block pageTitle %}
+Apply to adopt a child
+{% endblock %}
+
+
+{% block content %}
+
+<div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <h1 class="govuk-heading-l">
+          Add evidence to support the case
+        </h1>
+        <form action="/r2/dss/add-information" method="post" class="form">
+          <h2 class="govuk-heading-m">Add information to an application</h2>
+          <div class="govuk-form-group">
+            <label class="govuk-label" for="firstNames">
+              Provide any additional information relevant to the application. (Optional)
+            </label>
+            <textarea class="govuk-textarea" id="additional-information" name="additional-information" rows="5" aria-describedby="additional-information-hint"></textarea>
+          </div>
+
+          
+          <h2 class="govuk-heading-m">Additional documents</h2>
+          <div class="govuk-form-group">
+            <label class="govuk-label" for="firstNames">
+              You can upload additional documents such as Annex A and other reports. You should make sure the file name reflects what the document is, such as WilliamsAnnexA.doc
+            </label>
+
+
+            <details class="govuk-details" data-module="govuk-details">
+              <summary class="govuk-details__summary govuk-!-margin-top-4">
+                <span class="govuk-details__summary-text">
+                  File upload requirements
+                </span>
+              </summary>
+              <div class="govuk-details__text">
+                <ol class="govuk-list govuk-list--number">
+                  <li>File formats: MS Word, MS Excel, PDF, JPG, GIF, PNG, TXT, RTF, MP4</li>
+                  <li>File size: up to 20 megabytes (MB)</li>
+                  <li>File size per multimedia file: up to 500 megabytes (MB)</li>
+                  <li>Files cannot be password protected</li>
+                </ol>
+                <p>You cannot upload executable (.exe), zip or other archive files due to virus risks.</p>
+              </div>
+            </details>
+
+<!--
+
+                <details class="govuk-details" data-module="govuk-details">
+                  <summary class="govuk-details__summary">
+                    <span class="govuk-details__summary-text">
+                        If you cannot upload your documents
+                    </span>
+                  </summary>
+                  <div class="govuk-details__text">
+                    <p class="govuk-body">Continue with your application. When you’re finished you’ll be given a reference number and the court’s address.</p>
+                   <p class="govuk-body">You can email or post your documents to the court.</p>
+                     <p class="govuk-body">You need to send the original marriage certificate or a certified copy if you’re sending it by post. Do not send a photocopy. Your certificate will be kept and won’t be returned to you.</p>
+
+                  </div>
+                </details>
+
+
+-->
+
+
+          </div>
+          <!-- Buttons -->
+          {% include "../../includes/buttons-laportal.html" %}
+
+        </form>
+      </div>
+    </div>
+
+
+
+{% endblock %}
