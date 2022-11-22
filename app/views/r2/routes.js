@@ -1283,20 +1283,20 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
   router.post('/r2/applicants/first-applicant-nationality', function(req, res) {
     var errors = []
 
-    if (req.body['first-applicant-british'] === undefined && req.body['first-applicant-irish'] === undefined && req.body['first-applicant-other'] === undefined) {
-      // console.log("error")
-      errors.push({
-      text: 'Select if you are British, Irish or a citizen of a different country',
-      href: '#first-applicant-nationality'
-      })
-    }
-    else if (req.body['first-applicant-other'] !== undefined && req.session.data.firstApplicantNationalityCount === 0) {
-      // console.log("no nationality added error: ", req.session.data.firstApplicantNationalities)
-      errors.push({
-      text: 'Select \'Add\' before you continue',
-      href: '#first-applicant-no-nationality'
-      })
-    }
+    // if (req.body['first-applicant-british'] === undefined && req.body['first-applicant-irish'] === undefined && req.body['first-applicant-other'] === undefined) {
+    //   // console.log("error")
+    //   errors.push({
+    //   text: 'Select if you are British, Irish or a citizen of a different country',
+    //   href: '#first-applicant-nationality'
+    //   })
+    // }
+    // else if (req.body['first-applicant-other'] !== undefined && req.session.data.firstApplicantNationalityCount === 0) {
+    //   // console.log("no nationality added error: ", req.session.data.firstApplicantNationalities)
+    //   errors.push({
+    //   text: 'Select \'Add\' before you continue',
+    //   href: '#first-applicant-no-nationality'
+    //   })
+    // }
 
     count = req.session.data.firstApplicantNationalityCount
     if (req.body['submit-button'] === 'save-and-continue') {
@@ -1650,20 +1650,20 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
   router.post('/r2/applicants/second-applicant-nationality', function(req, res) {
     var errors = []
 
-    if (req.body['second-applicant-british'] === undefined && req.body['second-applicant-irish'] === undefined &&req.body['second-applicant-other'] === undefined) {
-      // console.log("error")
-      errors.push({
-      text: 'Select if you are British, Irish or a citizen of a different country',
-      href: '#second-applicant-nationality'
-      })
-    }
-    else if (req.body['second-applicant-other'] !== undefined && req.session.data.secondApplicantNationalityCount === 0) {
-      // console.log("no nationality added error: ", req.session.data.secondApplicantNationalities)
-      errors.push({
-      text: 'Select \'Add\' before you continue',
-      href: '#second-applicant-no-nationality'
-      })
-    }
+    // if (req.body['second-applicant-british'] === undefined && req.body['second-applicant-irish'] === undefined &&req.body['second-applicant-other'] === undefined) {
+    //   // console.log("error")
+    //   errors.push({
+    //   text: 'Select if you are British, Irish or a citizen of a different country',
+    //   href: '#second-applicant-nationality'
+    //   })
+    // }
+    // else if (req.body['second-applicant-other'] !== undefined && req.session.data.secondApplicantNationalityCount === 0) {
+    //   // console.log("no nationality added error: ", req.session.data.secondApplicantNationalities)
+    //   errors.push({
+    //   text: 'Select \'Add\' before you continue',
+    //   href: '#second-applicant-no-nationality'
+    //   })
+    // }
 
     count = req.session.data.secondApplicantNationalityCount
     if (req.body['submit-button'] === 'save-and-continue') {
@@ -3055,27 +3055,27 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
   router.post('/r2/la-portal/child-nationality', function(req, res) {
     var errors = []
 
-    if (req.body['child-british'] === undefined && req.body['child-irish'] === undefined && req.body['child-other'] === undefined && req.body['child-unsure'] === undefined) {
-      // console.log("error")
-      errors.push({
-      text: 'Select a nationality or \'Not sure\'',
-      href: '#checkbox-error'
-      })
-    }
-    else if ((req.body['child-british'] !== undefined || req.body['child-irish'] !== undefined || req.body['child-other'] !== undefined) && req.body['child-unsure'] !== undefined) {
-      // console.log("error")
-      errors.push({
-      text: 'Select a nationality or \'Not sure\'',
-      href: '#checkbox-error'
-      })
-    }
-    else if (req.body['child-other'] !== undefined && req.session.data.childNationalityCount === 0) {
-      // console.log("no nationality added error: ", req.session.data.childNationalities)
-      errors.push({
-      text: 'Select \'Add\' before you continue',
-      href: '#no-country'
-      })
-    }
+    // if (req.body['child-british'] === undefined && req.body['child-irish'] === undefined && req.body['child-other'] === undefined && req.body['child-unsure'] === undefined) {
+    //   // console.log("error")
+    //   errors.push({
+    //   text: 'Select a nationality or \'Not sure\'',
+    //   href: '#checkbox-error'
+    //   })
+    // }
+    // else if ((req.body['child-british'] !== undefined || req.body['child-irish'] !== undefined || req.body['child-other'] !== undefined) && req.body['child-unsure'] !== undefined) {
+    //   // console.log("error")
+    //   errors.push({
+    //   text: 'Select a nationality or \'Not sure\'',
+    //   href: '#checkbox-error'
+    //   })
+    // }
+    // else if (req.body['child-other'] !== undefined && req.session.data.childNationalityCount === 0) {
+    //   // console.log("no nationality added error: ", req.session.data.childNationalities)
+    //   errors.push({
+    //   text: 'Select \'Add\' before you continue',
+    //   href: '#no-country'
+    //   })
+    // }
 
     count = req.session.data.childNationalityCount
     if (req.body['submit-button'] === 'save-and-continue') {
@@ -3174,28 +3174,32 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
 
   router.post('/r2/la-portal/mother-nationality', function(req, res) {
     var errors = []
+    console.log(req.body['mother-british'])
+    console.log(req.body['mother-irish'])
+    console.log(req.body['mother-other'])
+    console.log(req.body['mother-unsure'])
 
-    if (req.body['mother-british'] === undefined && req.body['mother-irish'] === undefined && req.body['mother-other'] === undefined && req.body['mother-unsure'] === undefined) {
-      // console.log("error")
-      errors.push({
-      text: 'Select if they are British, Irish, citizen of a different country or not sure',
-      href: '#checkbox-error'
-      })
-    }
-    else if ((req.body['mother-british'] !== undefined || req.body['mother-irish'] !== undefined || req.body['mother-other'] !== undefined) && req.body['mother-unsure'] !== undefined) {
-      // console.log("error")
-      errors.push({
-      text: 'Select a nationality or \'Not sure\'',
-      href: '#checkbox-error'
-      })
-    }
-    else if (req.body['mother-other'] !== undefined && req.session.data.motherNationalityCount === 0) {
-      // console.log("no nationality added error: ", req.session.data.motherNationalities)
-      errors.push({
-      text: 'Select \'Add\' before you continue',
-      href: '#no-country'
-      })
-    }
+    // if (req.body['mother-british'] == undefined && req.body['mother-irish'] == undefined && req.body['mother-other'] == undefined && req.body['mother-unsure'] == undefined) {
+    //   // console.log("error")
+    //   errors.push({
+    //   text: 'Select if they are British, Irish, citizen of a different country or not sure',
+    //   href: '#checkbox-error'
+    //   })
+    // }
+    // else if ((req.body['mother-british'] !== undefined || req.body['mother-irish'] !== undefined || req.body['mother-other'] !== undefined) && req.body['mother-unsure'] !== undefined) {
+    //   // console.log("error")
+    //   errors.push({
+    //   text: 'Select a nationality or \'Not sure\'',
+    //   href: '#checkbox-error'
+    //   })
+    // }
+    // else if (req.body['mother-other'] !== undefined && req.session.data.motherNationalityCount === 0) {
+    //   // console.log("no nationality added error: ", req.session.data.motherNationalities)
+    //   errors.push({
+    //   text: 'Select \'Add\' before you continue',
+    //   href: '#no-country'
+    //   })
+    // }
 
     count = req.session.data.motherNationalityCount
     if (req.body['submit-button'] === 'save-and-continue') {
