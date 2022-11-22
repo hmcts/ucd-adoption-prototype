@@ -45,31 +45,28 @@ Apply to adopt a child
                 <p>You cannot upload executable (.exe), zip or other archive files due to virus risks.</p>
               </div>
             </details>
-
-<!--
-
-                <details class="govuk-details" data-module="govuk-details">
-                  <summary class="govuk-details__summary">
-                    <span class="govuk-details__summary-text">
-                        If you cannot upload your documents
-                    </span>
-                  </summary>
-                  <div class="govuk-details__text">
-                    <p class="govuk-body">Continue with your application. When you’re finished you’ll be given a reference number and the court’s address.</p>
-                   <p class="govuk-body">You can email or post your documents to the court.</p>
-                     <p class="govuk-body">You need to send the original marriage certificate or a certified copy if you’re sending it by post. Do not send a photocopy. Your certificate will be kept and won’t be returned to you.</p>
-
-                  </div>
-                </details>
-
-
--->
-
-
           </div>
-          <!-- Buttons -->
-          {% include "../../includes/buttons-laportal.html" %}
 
+          <div class="govuk-form-group">
+            <label class="govuk-label" for="file-upload-1">
+              Upload a file
+            </label>
+            <input class="govuk-file-upload" id="file-upload-1" name="file-upload-1" type="file">
+          </div>
+
+          <div class="govuk-form-group">
+            <label class="govuk-label" for="description">
+              Give a brief description of what the document is.
+            </label>
+
+            <input class="govuk-input govuk-input--width-30" id="document-description" name="document-description" type="text" value="{{ data['document-description'] }}">
+          </div>
+
+        
+          <button class="govuk-button" data-module="govuk-button" name="submit-button" value="continue">
+            Continue
+          </button>
+        
         </form>
       </div>
     </div>
