@@ -5082,6 +5082,15 @@ router.post('/r2/dss/child-details', function(req, res) {
 })
 
 
+router.post('/r2/dss/add-information', function(req, res) {
+  res.redirect('/r2/dss/check-your-answers')
+})
+
+router.post('/r2/dss/check-your-answers', function(req, res) {
+  res.redirect('/r2/dss/confirmation')
+})
+
+
 
 
 
