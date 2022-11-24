@@ -14,18 +14,22 @@ Apply to adopt a child
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
+      {% set nameError = '' %}
       {% set dobError = '' %}
 
       {% if errors | length > 0 %}
-      {{ govukErrorSummary({
-        titleText: "There is a problem",
-        errorList: errors
-      }) }}
-      {% for error in errors %}
-        {% if error.href == '#child-date-birth' %}
-          {% set dobError = error.text %}
-        {% endif %}
-      {% endfor %}
+        {{ govukErrorSummary({
+          titleText: "There is a problem",
+          errorList: errors
+        }) }}
+        {% for error in errors %}
+          {% if error.href == '#child-name' %}
+            {% set nameError = error.text %}
+          {% endif %}
+          {% if error.href == '#dss-child-date-birth' %}
+            {% set dobError = error.text %}
+          {% endif %}
+        {% endfor %}
       {% endif %}
 
 
@@ -38,20 +42,17 @@ Apply to adopt a child
             </h1>
           </legend>
 
-          <div class="govuk-form-group">
+          <div class="govuk-form-group {% if (nameError != '') %} govuk-form-group--error{% endif %}">
             <label class="govuk-label govuk-label--s" for="firstNames">
               Enter the child's full name
-              <!-- <div id="namehint" class="govuk-hint">
-                (Include any given or middle names)
-              </div> -->
             </label>
-            <!-- {% if firstNamesError != '' %}
+            {% if nameError != '' %}
             <span id="contact-error" class="govuk-error-message">
-              <span class="govuk-visually-hidden">Error:</span> {{ firstNamesError }}
+              <span class="govuk-visually-hidden">Error:</span> {{ nameError }}
             </span>
-            {% endif %} -->
+            {% endif %}
 
-            <input class="govuk-input govuk-input--width-30" id="child-name" name="child-name" type="text" autocomplete="given-name" value="{{ data['child-name'] }}">
+            <input class="govuk-input govuk-input--width-30 {% if (nameError != '') %} govuk-input--error{% endif %}" id="child-name" name="child-name" type="text" autocomplete="given-name" value="{{ data['child-name'] }}">
           </div>
 
           <div class="govuk-form-group">
