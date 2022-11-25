@@ -1,4 +1,4 @@
-{% extends "layout-la-portal.html" %}
+{% extends "layout-dss.html" %}
 
 {% block pageTitle %}
 Apply to adopt a child
@@ -65,7 +65,12 @@ Apply to adopt a child
             <input class="govuk-input govuk-input--width-30" id="document-description" name="document-description" type="text" value="{{ data['document-description'] }}">
           </div>
 
-        
+
+          <div>
+            <button disabled="disabled" aria-disabled="true" class="govuk-button govuk-button--secondary govuk-button--disabled" data-module="govuk-button">
+              Upload another file
+            </button>
+          </div>
           <button class="govuk-button" data-module="govuk-button" name="submit-button" value="continue">
             Continue
           </button>
