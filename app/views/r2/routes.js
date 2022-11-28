@@ -2783,17 +2783,17 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
       res.redirect('/r2/x-ui/case-worker/gatekeeping-allocate-judge')
     }
     else if (req.body['next-steps'] === 'info') {
-      req.session.data.newNote = 'yes'
       res.redirect('/r2/x-ui/case-worker/seek-further-information')
     }
     else if (req.body['next-steps'] === 'amend-applicant') {
-      req.session.data.newNote = 'yes'
       res.redirect('/r2/x-ui/case-worker/amend-applicant-details')
     }
     else if (req.body['next-steps'] === 'amend-case') {
-    req.session.data.newNote = 'yes'
-    res.redirect('/r2/x-ui/case-worker/amend-case-details')
-  }
+      res.redirect('/r2/x-ui/case-worker/amend-case-details')
+    }
+    else if (req.body['next-steps'] === 'send-blank-letter') {
+      res.redirect('/r2/x-ui/case-worker/blank-letter-content')
+    }
   })
 
   router.post('/r2/x-ui/case-worker/seek-further-information', function(req, res) {
@@ -2819,7 +2819,20 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
     }
   })
 
+
   router.post('/r2/x-ui/case-worker/seek-further-information-reply-by', function(req, res) {
+    if (req.body['submit-button'] === 'continue') {
+      req.session.data.correspondence = 1
+      res.redirect('/r2/x-ui/case-worker/seek-further-information-preview')
+    }
+    // }
+    else if (req.body['submit-button'] === 'previous') {
+      res.redirect('/r2/x-ui/case-worker/seek-further-information-send-message')
+    }
+  })
+
+
+  router.post('/r2/x-ui/case-worker/seek-further-information-preview', function(req, res) {
     if (req.body['submit-button'] === 'continue') {
       req.session.data.correspondence = 1
       res.redirect('/r2/x-ui/case-worker/correspondence')
@@ -2829,8 +2842,6 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
       res.redirect('/r2/x-ui/case-worker/seek-further-information-reply-by')
     }
   })
-
-
 
 
 // ******************************************** X-UI Judge ********************************************

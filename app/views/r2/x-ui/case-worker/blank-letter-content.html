@@ -1,0 +1,51 @@
+{% block header %}
+{% include "includes/xui-header.html" %}
+{% endblock %}
+
+
+<html lang="en" class="govuk-template ">
+  <div style=" max-width:1300px; margin: 0 auto;">
+      <div style=" max-width:1300px;  min-width:1300px;  margin: 20px 0px 0px 0px;  ">
+          <main class="govuk-main-wrapper " id="main-content" role="main" style="padding-top: 25px;">
+              <div class="govuk-width-container">
+                <div class="govuk-grid-row" style="width:1300px; margin-left: -90px;">
+                  <div class="govuk-grid-column-two-thirds">
+                    <h1 class="govuk-heading-xl">Blank letter</h1>
+                    <h2 class="govuk-heading-l govuk-!-margin-bottom-3">#1234-5678-0921-2722</h2>
+                    <h2 class="govuk-heading-m govuk-!-margin-top-0 govuk-!-margin-bottom-7">Child's name: Jane Austen</h2>
+
+                    <form action="/r2/x-ui/case-worker/gatekeeping-allocate-judge" method="post" class="form">
+                      <div class="govuk-form-group">
+                        <h3 class="govuk-heading-s govuk-!-margin-bottom-1">Annotations</h3>
+                        <div id="event-name-hint" class="govuk-hint govuk-!-margin-top-0">
+                          Copy and paste or type directly into the text box.
+                        </div>                    
+                        <textarea class="govuk-textarea" id="more-detail" name="more-detail" rows="5" aria-describedby="more-detail-hint"></textarea>
+                      </div>
+
+                      <div class="govuk-form-group">
+                        <h3 class="govuk-heading-s govuk-!-margin-bottom-1">Attachments</h3>
+                        <div id="event-name-hint" class="govuk-hint govuk-!-margin-top-0">
+                          Upload any further documents
+                        </div>                    
+                        <select class="govuk-select" id="sort" name="sort">
+                          <option value="published">fullapplication1233434.pdf</option>
+                          <option value="updated">annexa.docx</option>
+                          <option value="views">Document name</option>
+                          <option value="comments">Another document name</option>
+                        </select>
+                      </div>                      
+                      <!-- Buttons -->
+                      {% include "../../../includes/buttons-xui.html" %}
+                    </form>
+                  </div>
+                </div>
+              </div>
+          </main>
+      </div>
+  </div>
+</html>
+
+{% block footer %}
+{% include "includes/newfooter.html" %}
+{% endblock %}
