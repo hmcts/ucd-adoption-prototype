@@ -14,7 +14,7 @@
                     <h2 class="govuk-heading-l govuk-!-margin-bottom-3">#1234-5678-0921-2722</h2>
                     <h2 class="govuk-heading-m govuk-!-margin-top-0 govuk-!-margin-bottom-7">Child's name: Jane Austen</h2>
 
-                    <form action="/r2/x-ui/case-worker/gatekeeping-allocate-judge" method="post" class="form">
+                    <form action="/r2/x-ui/case-worker/blank-letter-content" method="post" class="form">
                       <div class="govuk-form-group">
                         <h3 class="govuk-heading-s govuk-!-margin-bottom-1">Annotations</h3>
                         <div id="event-name-hint" class="govuk-hint govuk-!-margin-top-0">
@@ -34,8 +34,13 @@
                           <option value="views">Document name</option>
                           <option value="comments">Another document name</option>
                         </select>
+
                       </div>                      
-                      <!-- Buttons -->
+                      <button class="govuk-button govuk-button--secondary" data-module="govuk-button" name="submit-button" value="save-as-draft">
+                        Upload another file
+                      </button>
+              
+                    <!-- Buttons -->
                       {% include "../../../includes/buttons-xui.html" %}
                     </form>
                   </div>
