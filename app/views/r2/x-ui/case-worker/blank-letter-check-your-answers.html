@@ -1,0 +1,134 @@
+{% block header %}
+{% include "includes/xui-header.html" %}
+{% endblock %}
+
+
+<html lang="en" class="govuk-template ">
+  <div style=" max-width:1300px; margin: 0 auto;">
+      <div style=" max-width:1300px;  min-width:1300px;  margin: 20px 0px 0px 0px;  ">
+          <main class="govuk-main-wrapper " id="main-content" role="main" style="padding-top: 25px;">
+              <div class="govuk-width-container">
+                <div class="govuk-grid-row" style="width:1300px; margin-left: -90px;">
+                  <div class="govuk-grid-column-two-thirds">
+                    <h1 class="govuk-heading-xl">Check your answers</h1>
+                    <h2 class="govuk-heading-l govuk-!-margin-bottom-3">#1234-5678-0921-2722</h2>
+                    <h2 class="govuk-heading-m govuk-!-margin-top-0 govuk-!-margin-bottom-2">Child's name: Jane Austen</h2>
+
+                    <form action="/r2/x-ui/case-worker/blank-letter-check-your-answers" method="post" class="form">
+                      <div class="govuk-width-container">
+                        <!-- <h3 class="govuk-heading-s">Preamble</h3> -->
+                        <h2 class="govuk-heading-m govuk-!-margin-bottom-3 govuk-!-margin-top-8">Blank letter</h2>
+                
+                        <!-- <h3 class="govuk-heading-s govuk-!-margin-top-9">Preamble</h3> -->
+                        <dl class="govuk-summary-list">
+                          <div class="govuk-summary-list__row">
+                            <dt class="govuk-summary-list__key">
+                              Annotations
+                            </dt>
+                            <dd class="govuk-summary-list__value">
+                              {% if data['blank-letter-annotations'] %}
+                                {{ data['blank-letter-annotations'] }}
+                              {% else %}
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+                              {% endif %}
+                            </dd>
+                            <dd class="govuk-summary-list__actions">
+                              <a class="govuk-link" href="blank-letter-content.html">
+                                Change<span class="govuk-visually-hidden"> annotations</span>
+                              </a>
+                            </dd>
+                          </div>
+
+                          <div class="govuk-summary-list__row">
+                            <dt class="govuk-summary-list__key">
+                              Attachments
+                            </dt>
+                            <dd class="govuk-summary-list__value">
+                              {% if data['blank-letter-document'] %}
+                                {{ data['blank-letter-document']}}
+                              {% else %}
+                                annexa.docx
+                              {% endif %}
+                            </dd>
+                            <dd class="govuk-summary-list__actions">
+                              <a class="govuk-link" href="blank-letter-content.html">
+                                Change<span class="govuk-visually-hidden"> attachments</span>
+                              </a>
+                            </dd>
+                          </div>
+
+                          <div class="govuk-summary-list__row">
+                            <dt class="govuk-summary-list__key">
+                              Recipients
+                            </dt>
+                            <dd class="govuk-summary-list__value">
+                              {% if data['blank-letter-recipient-birth-mother'] %}
+                                <p>{{ data['blank-letter-recipient-birth-mother'] }}</p>
+                              {% endif %}
+                              {% if data['blank-letter-recipient-birth-father'] %}
+                                <p>{{ data['blank-letter-recipient-birth-father'] }}</p>
+                              {% endif %}
+                              {% if data['blank-letter-recipient-first-applicant'] %}
+                                <p>{{ data['blank-letter-recipient-first-applicant'] }}</p>
+                              {% endif %}
+                              {% if data['blank-letter-recipient-second-applicant'] %}
+                                <p>{{ data['blank-letter-recipient-second-applicant'] }}</p>
+                              {% endif %}
+                              {% if data['blank-letter-recipient-child'] %}
+                                <p>{{ data['blank-letter-recipient-child'] }}</p>
+                              {% endif %}
+                              {% if data['blank-letter-recipient-applicants-la'] %}
+                                <p>{{ data['blank-letter-recipient-applicants-la'] }}</p>
+                              {% endif %}
+                              {% if data['blank-letter-recipient-other-adoption-agency'] %}
+                                <p>{{ data['blank-letter-recipient-other-adoption-agency'] }}</p>
+                              {% endif %}
+                              {% if data['blank-letter-recipient-other-party'] %}
+                                <p>{{ data['blank-letter-recipient-other-party'] }}</p>
+                              {% endif %}
+                              {% if data['blank-letter-recipient-cafcass'] %}
+                                <p>{{ data['blank-letter-recipient-cafcass'] }}</p>
+                              {% endif %}
+                            </dd>
+                            <dd class="govuk-summary-list__actions">
+                              <a class="govuk-link" href="gatekeeping-order-4-select-recipient.html">
+                                Change<span class="govuk-visually-hidden"> served to recipient</span>
+                              </a>
+                            </dd>
+                          </div>
+                  </dl>
+
+
+<!-- 
+  
+                              <dd class="govuk-summary-list__value">
+                              {% if data['general-directions-hearing-day'] %}
+                                {{ data['general-directions-hearing-day'] }} {{ data['monthName'][data['general-directions-hearing-month']] }} {{ data['general-directions-hearing-year'] }} at {{ data['general-directions-hearing-hour'] }}:{{ data['general-directions-hearing-minute'] }}:{{ data['general-directions-hearing-second'] }}
+                              {% else %}
+                                23 November 2022 at 12:30:00
+                              {% endif %}
+                              </dd> -->
+                            
+                          
+                          <!-- Buttons -->
+                          <div class="govuk-button-group govuk-!-margin-top-6">
+                            <button class="govuk-button govuk-button--secondary" data-module="govuk-button" name="submit-button" value="previous">
+                                Previous
+                            </button>
+                            <button class="govuk-button" data-module="govuk-button" name="submit-button" value="continue">
+                                Send for checking
+                            </button>
+                          </div>
+                        </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+          </main>
+      </div>      
+  </div>
+</html>
+
+{% block footer %}
+{% include "includes/newfooter.html" %}
+{% endblock %}
