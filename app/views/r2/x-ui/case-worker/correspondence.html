@@ -10,7 +10,7 @@
               <div class="govuk-width-container">
                 <div class="govuk-grid-row" style="width:1300px; margin-left: -90px;">
 
-               {% if (data['correspondence']) %}
+                  {% if (data['correspondence'] == 1) %}
                   <div class="govuk-notification-banner govuk-notification-banner--success" role="alert" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
                     <div class="govuk-notification-banner__header">
                       <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
@@ -19,6 +19,17 @@
                     </div>
                     <div class="govuk-notification-banner__content">
                       <p class="govuk-body">Request for further information sent</p>
+                    </div>
+                  </div>
+                  {% elseif (data['correspondence'] == 2) %}
+                  <div class="govuk-notification-banner govuk-notification-banner--success" role="alert" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
+                    <div class="govuk-notification-banner__header">
+                      <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+                        Success
+                      </h2>
+                    </div>
+                    <div class="govuk-notification-banner__content">
+                      <p class="govuk-body">Blank letter created and sent for checking</p>
                     </div>
                   </div>
                   {% endif %}
