@@ -2844,6 +2844,40 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
   })
 
 
+  /*********** Blank letter  ***********/
+  router.post('/r2/x-ui/case-worker/blank-letter-content', function(req, res) {
+    if (req.body['submit-button'] === 'continue') {
+      res.redirect('/r2/x-ui/case-worker/blank-letter-recipients')
+    }
+    // }
+    else if (req.body['submit-button'] === 'previous') {
+      res.redirect('/r2/x-ui/case-worker/')
+    }
+  })
+
+
+  router.post('/r2/x-ui/case-worker/blank-letter-recipients', function(req, res) {
+    if (req.body['submit-button'] === 'continue') {
+      res.redirect('/r2/x-ui/case-worker/blank-letter-preview')
+    }
+    // }
+    else if (req.body['submit-button'] === 'previous') {
+      res.redirect('/r2/x-ui/case-worker/blank-letter-content')
+    }
+  })
+
+
+  router.post('/r2/x-ui/case-worker/blank-letter-preview', function(req, res) {
+    if (req.body['submit-button'] === 'continue') {
+      res.redirect('/r2/x-ui/case-worker/blank-letter-check-your-answers')
+    }
+    // }
+    else if (req.body['submit-button'] === 'previous') {
+      res.redirect('/r2/x-ui/case-worker/blank-letter-recipients')
+    }
+  })
+
+
 // ******************************************** X-UI Judge ********************************************
 // ************************************************************************************************************************************
 
