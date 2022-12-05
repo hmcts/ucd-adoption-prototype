@@ -2681,7 +2681,7 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
       res.redirect('/r2/x-ui/case-worker/final-adoption-order-4-preview-draft')
     }
     else {
-      res.redirect('/r2/x-ui/case-worker/final-adoption-order-3-recipients')
+      res.redirect('/r2/x-ui/case-worker/final-adoption-order-2')
     }
   })
 
@@ -2691,7 +2691,7 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
       res.redirect('/r2/x-ui/case-worker/final-adoption-order-5-check-your-answers')
     }
     else {
-      res.redirect('/r2/x-ui/case-worker/final-adoption-order-4-preview-draft')
+      res.redirect('/r2/x-ui/case-worker/final-adoption-order-3-recipients')
     }
   })
 

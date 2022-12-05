@@ -18,6 +18,30 @@
                       <!-- <h3 class="govuk-heading-m govuk-!-margin-bottom-6">Registration details</h3> -->
   
                       <div class="govuk-form-group">
+                        <fieldset class="govuk-fieldset">
+                          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                            <label class="govuk-label govuk-!-font-weight-bold" for="sender-email-address">
+                              Has date of birth been proved?
+                            </label>
+                          </legend>
+                          <div class="govuk-radios" data-module="govuk-radios">
+                            <div class="govuk-radios__item">
+                              <input class="govuk-radios__input" id="Yes" name="date-birth-proved" type="radio" value="Yes">
+                              <label class="govuk-label govuk-radios__label" for="Yes">
+                                Yes
+                              </label>
+                            </div>
+                            <div class="govuk-radios__item">
+                              <input class="govuk-radios__input" id="No" name="date-birth-proved" type="radio" value="No">
+                              <label class="govuk-label govuk-radios__label" for="No">
+                                No
+                              </label>
+                            </div>
+                          </div>
+                        </fieldset>
+                      </div>
+
+                      <div class="govuk-form-group">
                         <fieldset class="govuk-fieldset" aria-describedby="place-birth-proved-radio-hint">
                           <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
                             <label class="govuk-label govuk-!-font-weight-bold" for="sender-email-address">
@@ -256,6 +280,27 @@
                         <input class="govuk-input govuk-input--width-20 govuk-!-margin-bottom-3" id="final-adoption-child-country" name="final-adoption-child-country" type="text" value="{{data['final-adoption-child-country']}}">                        
                       </div>                    
 
+                      <div class="govuk-form-group">
+                        <fieldset class="govuk-fieldset">
+                          <div class="govuk-radios" data-module="govuk-radios">
+                            <label class="govuk-label govuk-label--s" for="contact-by-email">
+                              Send or save as draft
+                            </label>
+                            <div class="govuk-radios__item">
+                              <input class="govuk-radios__input" id="send" name="final-adoption-send-or-save-and-send-radios" type="radio" value="send" {% if data['final-adoption-send-or-save-and-send-radios'] === 'send' %} checked {% endif %}>
+                              <label class="govuk-label govuk-radios__label" for="send">
+                                Send for check and send
+                              </label>
+                            </div>
+                            <div class="govuk-radios__item">
+                              <input class="govuk-radios__input" id="draft" name="final-adoption-send-or-save-and-send-radios" type="radio" value="draft" {% if data['final-adoption-send-or-save-and-send-radios'] === 'draft' %} checked {% endif %}>
+                              <label class="govuk-label govuk-radios__label" for="draft">
+                                Save as draft
+                              </label>
+                            </div>
+                          </div>                        
+                        </fieldset>
+                      </div>
 
                       <!-- Buttons -->
                       {% include "../../../includes/buttons-xui.html" %}
