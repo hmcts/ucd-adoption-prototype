@@ -2668,6 +2668,12 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
 
   router.post('/r2/x-ui/case-worker/final-adoption-order-2', function(req, res) {
     if (req.body['submit-button'] === 'continue') {
+      if (req.body['final-adoption-send-or-save-and-send-radios'] === 'draft') {
+        req.session.data.newDraftOrder = 1
+      }
+      else {
+        req.session.data.sentForCheckingOrder = 1
+      }
       res.redirect('/r2/x-ui/case-worker/final-adoption-order-3-recipients')
     }
     else {
@@ -2698,7 +2704,7 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
 
   router.post('/r2/x-ui/case-worker/final-adoption-order-5-check-your-answers', function(req, res) {
     if (req.body['submit-button'] === 'continue') {
-      res.redirect('/r2/x-ui/case-worker/final-adoption-order-5-check-your-answers')
+      res.redirect('/r2/x-ui/case-worker/draft-orders')
     }
     else {
       res.redirect('/r2/x-ui/case-worker/final-adoption-order-4-preview-draft')
