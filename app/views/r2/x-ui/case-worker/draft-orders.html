@@ -152,17 +152,17 @@
                         <h1 class="govuk-heading-l">Orders</h2>
                           <p><a href="" class="govuk-link govuk-link--no-visited-state">Edit draft order</a></p>
                           
-                          {% if (data['newOrder'] === 1) %}
+                          {% if (data['newDraftOrder'] === 1 or data['sentForCheckingOrder'] === 1) %}
                           <dt class="complex-panel">
                             Order 2
                           </dt>
                           <dl class="govuk-summary-list">
                             <div class="govuk-summary-list__row">
                               <dt class="govuk-summary-list__value">
-                                Order
+                                Draft order
                               </dt>
                               <dd class="govuk-summary-list__value">
-                                <a href="">gatekeepingorder.pdf</a>
+                                <a href="">draftorder2.pdf</a>
                               </dd>
                               <dd class="govuk-summary-list__value">
                                 &nbsp;
@@ -173,7 +173,17 @@
                                 Order type
                               </dt>
                               <dd class="govuk-summary-list__value">
-                                Gatekeeping order
+                                {% if data['xui-type-order'] %}
+                                  {% if data['xui-type-order'] == 'adoption' %}
+                                    Final adoption order
+                                  {% elseif data['xui-type-order'] == 'general' %}
+                                    General directions order 
+                                  {% else %}
+                                    General management (gatekeeping) order
+                                  {% endif %}
+                                {% else %}
+                                  Final adoption order
+                                {% endif %}
                               </dd>
                               <dd class="govuk-summary-list__value">
                                 &nbsp;
@@ -248,12 +258,12 @@
 
 
                           <dt class="complex-panel">
-                            Order 1
+                            Draft order 1
                           </dt>
                           <dl class="govuk-summary-list">
                             <div class="govuk-summary-list__row">
                               <dt class="govuk-summary-list__value">
-                                Order
+                                Draft order
                               </dt>
                               <dd class="govuk-summary-list__value">
                                 <a href="">order123.pdf</a>
