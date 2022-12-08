@@ -196,7 +196,10 @@ module.exports = {
 "gatekeepingFurtherHearingLengthMinutes": 0,
 
 "dashboardUpload": undefined,
-"dashboardQuestion": undefined
+"dashboardQuestion": undefined,
+
+"newDraftOrder": 0,
+"sentForCheckingOrder": 0
 
 
 

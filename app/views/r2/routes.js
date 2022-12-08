@@ -2447,7 +2447,15 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
 
 
   router.post('/r2/x-ui/case-worker/gatekeeping-order-3', function(req, res) {
+    console.log("Gatekeeping radios: ", req.body['gatekeeping-send-or-save-and-send-radios'])
     if (req.body['submit-button'] === 'continue') {
+      if (req.body['gatekeeping-send-or-save-and-send-radios'] === 'draft') {
+        req.session.data.newDraftOrder = 1
+      }
+      else {
+        req.session.data.sentForCheckingOrder = 1
+      }
+
       res.redirect('/r2/x-ui/case-worker/gatekeeping-order-4-select-recipient')
     }
     else {
@@ -2468,8 +2476,7 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
 
   router.post('/r2/x-ui/case-worker/gatekeeping-order-check-your-answers', function(req, res) {
     if (req.body['submit-button'] === 'continue') {
-      req.session.data.newOrder = 1
-      res.redirect('/r2/x-ui/case-worker/orders')
+      res.redirect('/r2/x-ui/case-worker/draft-orders')
     }
     else {
       res.redirect('/r2/x-ui/case-worker/gatekeeping-order-6-order-preview')
@@ -2667,6 +2674,7 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
 
 
   router.post('/r2/x-ui/case-worker/final-adoption-order-2', function(req, res) {
+    console.log("Gatekeeping radios: ", req.body['final-adoption-send-or-save-and-send-radios'])
     if (req.body['submit-button'] === 'continue') {
       if (req.body['final-adoption-send-or-save-and-send-radios'] === 'draft') {
         req.session.data.newDraftOrder = 1
