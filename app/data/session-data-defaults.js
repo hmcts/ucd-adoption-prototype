@@ -199,8 +199,18 @@ module.exports = {
 "dashboardQuestion": undefined,
 
 "newDraftOrder": 0,
-"sentForCheckingOrder": 0
+"sentForCheckingOrder": 0,
 
+"dateMovedIn": 0,
+"adoptionCertificateStatus": 0,
+"childDetailsStatus": 0,
+"agencyStatus": 0,
+"familyCourtStatus": 0,
+"firstApplicantPersonalDetailsStatus": 0,
+"secondApplicantPersonalDetailsStatus": 0,
+"firstApplicantContactDetailsStatus": 0,
+"secondApplicantContactDetailsStatus": 0,
+"submitStatus": 0
 
 
 ,}
