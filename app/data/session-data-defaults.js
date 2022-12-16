@@ -210,7 +210,13 @@ module.exports = {
 "secondApplicantPersonalDetailsStatus": 0,
 "firstApplicantContactDetailsStatus": 0,
 "secondApplicantContactDetailsStatus": 0,
-"submitStatus": 0
+"submitStatus": 0,
+"motherStatus": 0,
+"fatherStatus": 0,
+"otherParentStatus": 0,
+"placementStatus": 0,
+"siblingStatus": 0,
+"childUpload": 0
 
 
 ,}
