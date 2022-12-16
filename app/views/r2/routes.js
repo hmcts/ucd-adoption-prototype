@@ -5140,6 +5140,8 @@ router.post('/r2/dss/case-reference-number', function(req, res) {
 })
 
 
+
+
 router.post('/r2/dss/child-details', function(req, res) {
   var errors = []
   if (req.body['child-name'] === '') {
@@ -5173,9 +5175,7 @@ router.post('/r2/dss/check-your-answers', function(req, res) {
   res.redirect('/r2/dss/confirmation')
 })
 
-
-
-
+ 
 
     // router.post('/r2/citizen-dashboard/respond-to-query/query', function(req, res) {
     //   res.redirect('/r2/citizen-dashboard/respond-to-query/what-has-court-requested')
