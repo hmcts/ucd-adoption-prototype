@@ -3500,6 +3500,7 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
     if (req.body['submit-button'] === 'save-and-continue') {
       if (errors.length === 0) {
         if (req.body['father-in-certificate'] == 'No') {
+          req.session.data.fatherStatus = 'in progress'
           res.redirect('/r2/la-portal/father-identity-known')
         }
         else {
