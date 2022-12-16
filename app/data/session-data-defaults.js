@@ -201,6 +201,7 @@ module.exports = {
 "newDraftOrder": 0,
 "sentForCheckingOrder": 0,
 
+// A58
 "dateMovedIn": 0,
 "adoptionCertificateStatus": 0,
 "childDetailsStatus": 0,
@@ -211,6 +212,8 @@ module.exports = {
 "firstApplicantContactDetailsStatus": 0,
 "secondApplicantContactDetailsStatus": 0,
 "submitStatus": 0,
+
+/****  LA portal */
 "motherStatus": 0,
 "fatherStatus": 0,
 "otherParentStatus": 0,
