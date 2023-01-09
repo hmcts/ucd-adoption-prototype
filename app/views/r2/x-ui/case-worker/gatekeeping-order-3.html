@@ -191,7 +191,43 @@
                       {% if data['gatekeeping-leave-oppose-checkbox'] != undefined %}
                         <p class="govuk-!-font-weight-bold govuk-!-margin-bottom-2">Leave to oppose</p>
 
-                        <p>A birth parent who wants to oppose the making of an adoption order or seek contact with the child is invited to notify the court in writing by (14 days from the date of this order).</p>
+                        <p>A birth parent who wants to oppose the making of an adoption order or seek contact with the child is invited to notify the court in writing by 
+                          <div class="govuk-form-group">
+                            <fieldset class="govuk-fieldset" role="group" aria-describedby="date-told-la-hint">
+                              <legend class="govuk-fieldset__legend govuk-fieldset__legend--l govuk-!-margin-bottom-1">
+                              </legend>
+    
+                              <div class="govuk-date-input" id="report-date">
+                                <div class="govuk-date-input__item">
+                                  <div class="govuk-form-group">
+                                    <label class="govuk-label govuk-date-input__label" for="gatekeeping-date-order-made-day">
+                                      Day
+                                    </label>
+                                    <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="gatekeeping-date-order-made-day" name="gatekeeping-date-order-made-day" type="text" inputmode="numeric" value="{{ data['gatekeeping-date-order-made-day'] }}">
+                                  </div>
+                                </div>
+                                
+                                <div class="govuk-date-input__item">
+                                  <div class="govuk-form-group">
+                                    <label class="govuk-label govuk-date-input__label" for="gatekeeping-date-order-made-month">
+                                      Month
+                                    </label>
+                                    <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="gatekeeping-date-order-made-month" name="gatekeeping-date-order-made-month" type="text" inputmode="numeric" value="{{ data['gatekeeping-date-order-made-month'] }}">
+                                  </div>
+                                </div>
+                                
+                                <div class="govuk-date-input__item">
+                                  <div class="govuk-form-group">
+                                    <label class="govuk-label govuk-date-input__label" for="gatekeeping-date-order-made-year">
+                                      Year
+                                    </label>
+                                    <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="gatekeeping-date-order-made-year" name="gatekeeping-date-order-made-year" type="text" inputmode="numeric" value="{{ data['gatekeeping-date-order-made-year'] }}">
+                                  </div>
+                                </div>
+                              </div>
+                            </fieldset>
+                          </div>
+                        </p>
                         <p>A birth parent can only oppose the making of an Adoption Order if they have first been given permission to do so by the Court.</p>
                         <p>A birth parent who wishes to apply to the court for permission to oppose the making of an adoption order must send a statement to the court setting out how circumstances have changed since the date when the Placement Order was made. If you have any certificates or other documents of courses completed or work, you have done these should be attached to the statement.</p> 
                         <p>The statement should then also explain to the court why it would be in the best interests of the child for you to be given permission to oppose the adoption.</p>
