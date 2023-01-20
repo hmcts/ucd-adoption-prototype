@@ -81,7 +81,7 @@ module.exports = (router) => {
     var errors = []
     if (req.body['domicile'] === undefined) {
       errors.push({
-      text: 'Please answer the question',
+      text: 'Select if the UK, Channel Islands or Isle of Man is the main country of residence for you, and the other applicant',
       href: '#domicile'
       })
     }
