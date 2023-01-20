@@ -34,7 +34,7 @@ module.exports = (router) => {
     var errors = []
     if (req.body['child-married'] === undefined) {
       errors.push({
-      text: 'Please answer the question',
+      text: 'Select if the child is married or in a civil partnership',
       href: '#married'
       })
     }
@@ -58,7 +58,7 @@ module.exports = (router) => {
     var errors = []
     if (req.body['under-21'] === undefined) {
       errors.push({
-      text: 'Please answer the question',
+      text: 'Select if you, and the other applicant if relevant, are both aged 21 or over',
       href: '#under-21'
       })
     }
@@ -81,7 +81,7 @@ module.exports = (router) => {
     var errors = []
     if (req.body['domicile'] === undefined) {
       errors.push({
-      text: 'Please answer the question',
+      text: 'Select if the UK, Channel Islands or Isle of Man is the main country of residence for you, and the other applicant',
       href: '#domicile'
       })
     }
@@ -104,7 +104,7 @@ module.exports = (router) => {
     var errors = []
     if (req.body['lived-uk'] === undefined) {
       errors.push({
-      text: 'Please answer the question',
+      text: 'Select if you, and the other applicant if relevant, have lived in the UK, Channel Islands or Isle of Man for the last 12 months',
       href: '#lived-uk'
       })
     }
@@ -150,7 +150,7 @@ router.post('/r2/eligibility/under-18-2', function(req, res) {
   var errors = []
   if (req.body['child-under-18-2'] === undefined) {
     errors.push({
-    text: "Please answer the question",
+    text: "Select if the child will be under 18 years old on the date you submit your application",
     href: '#under-18-2'
     })
   }
@@ -173,7 +173,7 @@ router.post('/r2/eligibility/married-2', function(req, res) {
   var errors = []
   if (req.body['child-married-2'] === undefined) {
     errors.push({
-    text: 'Please answer the question',
+    text: 'Select if the child is married or in a civil partnership',
     href: '#married'
     })
   }
@@ -196,7 +196,7 @@ router.post('/r2/eligibility/under-21-2', function(req, res) {
   var errors = []
   if (req.body['under-21-2'] === undefined) {
     errors.push({
-    text: 'Please answer the question',
+    text: 'Select if you, and the other applicant if relevant, are both aged 21 or over',
     href: '#under-21'
     })
   }
@@ -218,7 +218,7 @@ router.post('/r2/eligibility/domicile-2', function(req, res) {
   var errors = []
   if (req.body['domicile-2'] === undefined) {
     errors.push({
-    text: 'Please answer the question',
+    text: 'Select if the UK, Channel Islands or Isle of Man is the main country of residence for you, and the other applicant',
     href: '#domicile'
     })
   }
@@ -240,7 +240,7 @@ router.post('/r2/eligibility/lived-uk-2', function(req, res) {
   var errors = []
   if (req.body['lived-uk-2'] === undefined) {
     errors.push({
-    text: 'Please answer the question',
+    text: 'Select if you, and the other applicant if relevant, have lived in the UK, Channel Islands or Isle of Man for the last 12 months',
     href: '#lived-uk'
     })
   }
