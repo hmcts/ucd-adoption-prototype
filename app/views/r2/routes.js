@@ -10,7 +10,7 @@ module.exports = (router) => {
     var errors = []
     if (req.body['child-under-18'] === undefined) {
       errors.push({
-      text: "Please answer the question",
+      text: "Select if the child will be under 18 years old on the date you submit your application",
       href: '#under-18'
       })
     }
