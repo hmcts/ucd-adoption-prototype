@@ -4263,7 +4263,7 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
     var errors = []
     if (req.body['child-sex'] === undefined) {
       errors.push({
-      text: 'Please select an answer',
+      text: 'Please select child\'s sex at birth',
       href: '#child-sex'
       })
     }
@@ -4492,7 +4492,7 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
     var errors = []
     if (req.body['mother-have-address'] === undefined) {
       errors.push({
-      text: 'Please answer the question',
+      text: 'Select whether the birth mother\'s address is known',
       href: '#mother-have-address'
       })
     }
