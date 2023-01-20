@@ -34,7 +34,7 @@ module.exports = (router) => {
     var errors = []
     if (req.body['child-married'] === undefined) {
       errors.push({
-      text: 'Please answer the question',
+      text: 'Select if the child is married or in a civil partnership',
       href: '#married'
       })
     }
