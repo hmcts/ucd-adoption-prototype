@@ -20,46 +20,9 @@
                     <p><a href="">Preview draft in PDF (opens in a new tab)</a></p> -->
 
                     <p>Preview and check the orders in draft. You can make changes on the next page.</p>
-                    {% if (data['final-adoption-recipient-first-applicant'] !== undefined or data['final-adoption-recipient-second-applicant'] !== undefined) %}
-                      <p><a href="">Applicants_final_order_draft_pdf (opens in a new tab)</a></p>
-                    {% endif %}
+                    <p><a href="">A76r.pdf (opens in a new tab)</a></p>
+                    <p><a href="">A206.pdf (opens in a new tab)</a></p>
 
-                    {% if data['final-adoption-recipient-birth-mother'] !== undefined %}
-                      <p><a href="">Birth_mother_final_order_draft_pdf (opens in a new tab)</a></p>
-                    {% endif %}
-
-                    {% if data['final-adoption-recipient-birth-father'] !== undefined %}
-                      <p><a href="">Birth_father_final_order_draft_pdf (opens in a new tab)</a></p>
-                    {% endif %}
-
-                    {% if data['final-adoption-recipient-adoption-agency'] !== undefined %}
-                      <p><a href="">Adoption_agency_final_order_draft_pdf (opens in a new tab)</a></p>
-                    {% endif %}
-
-                    {% if data['final-adoption-recipient-child-la'] !== undefined %}
-                      <p><a href="">Child_local_authority_final_order_draft_pdf (opens in a new tab)</a></p>
-                    {% endif %}
-
-                    {% if data['final-adoption-recipient-applicants-la'] !== undefined %}
-                      <p><a href="">Applicant_local_authority_final_order_draft_pdf (opens in a new tab)</a></p>
-                    {% endif %}
-
-                    {% if data['final-adoption-recipient-other-adoption-agency'] !== undefined %}
-                      <p><a href="">Other_adoption_agency_final_order_draft_pdf (opens in a new tab)</a></p>
-                    {% endif %}
-
-                    {% if data['final-adoption-recipient-other-party-pr'] !== undefined %}
-                      <p><a href="">Other_person_with_parental_responsibilities_final_order_draft_pdf (opens in a new tab)</a></p>
-                    {% endif %}
-
-                    {% if data['final-adoption-recipient-cafcass'] !== undefined %}
-                      <p><a href="">Cafcass_final_order_draft_pdf (opens in a new tab)</a></p>
-                    {% endif %}
-                    
-                    {% if (data['final-adoption-recipient-first-applicant'] == undefined and data['final-adoption-recipient-second-applicant'] == undefined and data['final-adoption-recipient-birth-mother'] == undefined and data['final-adoption-recipient-birth-father'] == undefined and data['final-adoption-recipient-adoption-agency'] == undefined and data['final-adoption-recipient-child-la'] == undefined and data['final-adoption-recipient-applicants-la'] == undefined and data['final-adoption-recipient-other-adoption-agency'] == undefined and data['final-adoption-recipient-other-party-pr'] == undefined and data['final-adoption-recipient-cafcass'] == undefined) %}
-                      <p><a href="">xxx_final_order_draft_pdf (opens in a new tab)</a></p>
-                    {% endif %}
-      
                     <!-- Buttons -->
                     {% include "../../../includes/buttons-xui.html" %}
                   </form>

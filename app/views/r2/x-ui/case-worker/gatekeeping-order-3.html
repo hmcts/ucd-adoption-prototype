@@ -28,7 +28,7 @@
                           <fieldset class="govuk-fieldset">
                             <div class="govuk-radios" data-module="govuk-radios">
                               <label class="govuk-label govuk-label--s govuk-!-margin-top-4 govuk-!-margin-bottom-4" for="contact-by-email">
-                                Applicants attendance
+                                Applicants attendance edit
                               </label>
                               <div class="govuk-radios__item">
                                 <input class="govuk-radios__input" id="applicants-may-not-attend" name="gatekeeping-attendance-applicant-radios" type="radio" value="applicants-may-not-attend" {% if data['gatekeeping-attendance-applicant-radios'] === 'applicants-may-not-attend' %} checked {% endif %}>
@@ -168,7 +168,7 @@
                                   <div class="govuk-checkboxes__item">
                                     <input class="govuk-checkboxes__input" id="gatekeeping-attendance-birth-parents-7" name="gatekeeping-attendance-birth-parents-copy" type="checkbox">
                                     <label class="govuk-label govuk-checkboxes__label" for="gatekeeping-attendance-birth-parents-7">
-                                      7. In the event that the birth parents do not attend either in person or via video link the court will:
+                                      7. In the event that the birth parents do not attend or otherwise make representations as to why an order should not be made the court shall:
                                       <br>&nbsp;&nbsp;&nbsp;a. determine whether it is satisfied that the birth parents were each served with a copy of this order; and, if so
                                       <br>&nbsp;&nbsp;&nbsp;b. consider whether a final order should be made at that hearing
                                     </label>
@@ -196,8 +196,8 @@
                             <fieldset class="govuk-fieldset" role="group" aria-describedby="date-told-la-hint">
                               <legend class="govuk-fieldset__legend govuk-fieldset__legend--l govuk-!-margin-bottom-1">
                                 <label class="govuk-label govuk-label--s" for="LA directions">
-                              Date
-                            </label>
+                                  Date
+                                </label>
                               </legend>
     
                               <div class="govuk-date-input" id="report-date">
@@ -278,7 +278,7 @@
                             <div class="govuk-radios__item">
                               <input class="govuk-radios__input" id="send" name="gatekeeping-send-or-save-and-send-radios" type="radio" value="send" {% if data['gatekeeping-send-or-save-and-send-radios'] === 'send' %} checked {% endif %}>
                               <label class="govuk-label govuk-radios__label" for="send">
-                                Send for checking
+                                Send for check and send
                               </label>
                             </div>
                             <div class="govuk-radios__item">

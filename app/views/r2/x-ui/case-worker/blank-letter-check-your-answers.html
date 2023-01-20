@@ -23,7 +23,7 @@
                         <dl class="govuk-summary-list">
                           <div class="govuk-summary-list__row">
                             <dt class="govuk-summary-list__key">
-                              Content for the letter
+                              Annotations
                             </dt>
                             <dd class="govuk-summary-list__value">
                               {% if data['blank-letter-annotations'] %}
@@ -89,9 +89,6 @@
                               {% if data['blank-letter-recipient-cafcass'] %}
                                 <p>{{ data['blank-letter-recipient-cafcass'] }}</p>
                               {% endif %}
-                              {% if data['blank-letter-recipient-reporting-officer'] %}
-                                <p>{{ data['blank-letter-recipient-reporting-officer'] }}</p>
-                              {% endif %}                              
                             </dd>
                             <dd class="govuk-summary-list__actions">
                               <a class="govuk-link" href="gatekeeping-order-4-select-recipient.html">

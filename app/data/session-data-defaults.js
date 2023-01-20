@@ -196,30 +196,8 @@ module.exports = {
 "gatekeepingFurtherHearingLengthMinutes": 0,
 
 "dashboardUpload": undefined,
-"dashboardQuestion": undefined,
+"dashboardQuestion": undefined
 
-"newDraftOrder": 0,
-"sentForCheckingOrder": 0,
-
-// A58
-"dateMovedIn": 0,
-"adoptionCertificateStatus": 0,
-"childDetailsStatus": 0,
-"agencyStatus": 0,
-"familyCourtStatus": 0,
-"firstApplicantPersonalDetailsStatus": 0,
-"secondApplicantPersonalDetailsStatus": 0,
-"firstApplicantContactDetailsStatus": 0,
-"secondApplicantContactDetailsStatus": 0,
-"submitStatus": 0,
-
-/****  LA portal */
-"motherStatus": 0,
-"fatherStatus": 0,
-"otherParentStatus": 0,
-"placementStatus": 0,
-"siblingStatus": 0,
-"childUpload": 0
 
 
 ,}
