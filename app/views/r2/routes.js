@@ -104,7 +104,7 @@ module.exports = (router) => {
     var errors = []
     if (req.body['lived-uk'] === undefined) {
       errors.push({
-      text: 'Please answer the question',
+      text: 'Select if you, and the other applicant if relevant, have lived in the UK, Channel Islands or Isle of Man for the last 12 months',
       href: '#lived-uk'
       })
     }
