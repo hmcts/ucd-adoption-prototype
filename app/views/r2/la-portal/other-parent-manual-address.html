@@ -54,7 +54,7 @@ Apply to adopt a child
 
           <div class="govuk-form-group {% if (firstLineError != '') %} govuk-form-group--error{% endif %}">
             <label class="govuk-label" for="address-line-1">
-              Building and street <span class="govuk-visually-hidden">line 1 of 2</span>
+              Address line 1 <span class="govuk-visually-hidden">line 1 of 2</span>
             </label>
             {% if firstLineError != '' %}
             <span id="contact-error" class="govuk-error-message">
@@ -64,12 +64,18 @@ Apply to adopt a child
 
             <input class="govuk-input {% if (firstLineError != '') %} govuk-input--error{% endif %}" id="address-line-1" name="other-parent-address-line-1" type="text" autocomplete="address-line1" value="{{ data['other-parent-address-line-1'] }}"></div>
 
-          <div class="govuk-form-group">
-            <label class="govuk-label" for="address-line-2">
-              <span class="govuk-visually-hidden">Building and street line 2 of 2</span>
-            </label>
-            <input class="govuk-input" id="address-line-2" name="other-parent-address-line-2" type="text" autocomplete="address-line2" value="{{ data['other-parent-address-line-2'] }}"></div>
-
+            <div class="govuk-form-group {% if (firstLineError != '') %} govuk-form-group--error{% endif %}">
+              <label class="govuk-label" for="address-line-1">
+                Address line 2 <span class="govuk-visually-hidden">line 1 of 2</span>
+              </label>
+              {% if firstLineError != '' %}
+              <span id="contact-error" class="govuk-error-message">
+                <span class="govuk-visually-hidden">Error:</span> {{ firstLineError }}
+              </span>
+              {% endif %}
+  
+              <input class="govuk-input {% if (firstLineError != '') %} govuk-input--error{% endif %}" id="address-line-1" name="other-parent-address-line-1" type="text" autocomplete="address-line1" value="{{ data['other-parent-address-line-1'] }}"></div>
+  
             <div class="govuk-form-group {% if (townError != '') %} govuk-form-group--error{% endif %}">
             <label class="govuk-label" for="address-town">
               Town or city
@@ -83,7 +89,7 @@ Apply to adopt a child
 
           <div class="govuk-form-group">
             <label class="govuk-label" for="address-county">
-              County
+              County (optional)
             </label>
             <input class="govuk-input govuk-!-width-two-thirds" id="address-county" name="other-parent-address-county" type="text" value="{{ data['other-parent-address-county'] }}"></div>
 
