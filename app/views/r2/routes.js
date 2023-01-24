@@ -4263,7 +4263,7 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
     var errors = []
     if (req.body['child-sex'] === undefined) {
       errors.push({
-      text: 'Please select child\'s sex at birth',
+      text: 'Select child\'s sex at birth ',
       href: '#child-sex'
       })
     }
