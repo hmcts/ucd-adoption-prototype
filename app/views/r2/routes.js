@@ -20,7 +20,7 @@ router.post('/r2/eligibility/multiple-children', function(req, res) {
       res.redirect('/r2/eligibility/interstitial-start')
     }
     else {
-      res.redirect('/r2/application/number-of-applicants')
+      res.redirect('/r2/eligibility/under-18')
     }
   }
   else {
