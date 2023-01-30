@@ -10,7 +10,7 @@ router.post('/r2/eligibility/multiple-children', function(req, res) {
   var errors = []
   if (req.body['multiple-children'] === undefined) {
     errors.push({
-    text: "Select if are you applying to adopt more than one child",
+    text: "Select if you are applying to adopt more than one child",
     href: '#multiple-children'
     })
   }
