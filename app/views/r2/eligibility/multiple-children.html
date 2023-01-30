@@ -16,7 +16,7 @@ Apply to adopt a child
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
 
-      {% set under18Error = '' %}
+      {% set multiplechildrenError = '' %}
 
       {% if errors | length > 0 %}
       {{ govukErrorSummary({
@@ -24,34 +24,34 @@ Apply to adopt a child
         errorList: errors
       }) }}
       {% for error in errors %}
-        {% if error.href == '#under-18-2' %}
-          {% set under18Error = error.text %}
+        {% if error.href == '#under-18' %}
+          {% set multiplechildrenError = error.text %}
         {% endif %}
       {% endfor %}
       {% endif %}
 
 
-        <form action="/r2/eligibility/under-18-2" method="post" class="form">
+        <form action="/r2/eligibility/multiple-children" method="post" class="form">
 
-          <div class="govuk-form-group {% if (under18Error != '')%} govuk-form-group--error {% endif %}">
+          <div class="govuk-form-group {% if (multiplechildrenError != '')%} govuk-form-group--error {% endif %}">
             <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
             <span class="govuk-caption-l">Eligibility to apply to adopt</span>
             <h1 class="govuk-fieldset__heading">
-              Will the child be under 18 years old on the date you submit your application?
+              Are you applying to adopt more than one child?
             </h1>
           </legend>
 
-          {% if under18Error != '' %}
+          {% if multiplechildrenError != '' %}
             <span class="govuk-error-message govuk-form">
-              <span class="govuk-visually-hidden">Error:</span> {{ under18Error }}
+              <span class="govuk-visually-hidden">Error:</span> {{ multiplechildrenError }}
             </span>
           {% endif %}
 
-            <fieldset class="govuk-fieldset" role="group" aria-describedby="child-under-18">
+            <fieldset class="govuk-fieldset" role="group" aria-describedby="multiple-children">
 
               <div class="govuk-radios govuk-radios--conditional" data-module="govuk-radios">
                 <div class="govuk-radios__item">
-                  <input class="govuk-radios__input" id="yes" name="child-under-18-2" type="radio"
+                  <input class="govuk-radios__input" id="yes" name="multiple-children" type="radio"
                     value="Yes">
                   <label class="govuk-label govuk-radios__label" for="yes">
                     Yes
@@ -60,16 +60,12 @@ Apply to adopt a child
 
                 <div class="govuk-radios govuk-radios--conditional" data-module="govuk-radios">
                   <div class="govuk-radios__item">
-                    <input class="govuk-radios__input" id="no" name="child-under-18-2" type="radio" value="No" data-aria-controls="conditional-contact">
-                    <label class="govuk-label govuk-radios__label" for="child-under-18-2">
+                    <input class="govuk-radios__input" id="no" name="multiple-children" type="radio" value="No" data-aria-controls="conditional-contact">
+                    <label class="govuk-label govuk-radios__label" for="multiple-children">
                       No
                     </label>
                   </div>
-                  <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-contact">
-                    <div class="govuk-form-group">
-                      <p>You can only apply to adopt a child if they are under 18 years old on the date your application is submitted.</p>         
-                      <p><a href="https://www.gov.uk/child-adoption">More about adoption</a></p>
-                  </div>
+                  
                 </div>
 
             </fieldset>

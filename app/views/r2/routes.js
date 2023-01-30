@@ -5,6 +5,30 @@ module.exports = (router) => {
 // ******************************************** ELIGIBILITY ********************************************
 // ************************************************************************************************************************************
 
+// ********************** Eligibility - Multiple Children **********************
+router.post('/r2/eligibility/multiple-children', function(req, res) {
+  var errors = []
+  if (req.body['multiple-children'] === undefined) {
+    errors.push({
+    text: "Select if are you applying to adopt more than one child",
+    href: '#multiple-children'
+    })
+  }
+
+  if (errors.length === 0) {
+    if (req.body['multiple-children'] === "Yes") {
+      res.redirect('/r2/eligibility/interstitial-start')
+    }
+    else {
+      res.redirect('/r2/application/number-of-applicants')
+    }
+  }
+  else {
+      res.render('.//r2/eligibility/multiple-children', { errors: errors })
+  }
+
+})
+
 // ********************** Eligibility **********************
   router.post('/r2/eligibility/under-18', function(req, res) {
     var errors = []
