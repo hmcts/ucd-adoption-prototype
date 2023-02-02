@@ -1,0 +1,136 @@
+{% extends "layout-signed-in.html" %}
+
+{% block pageTitle %}
+Apply to adopt a child
+{% endblock %}
+
+{% block beforeContent %}
+<a class="govuk-back-link" href="javascript:history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-width-container">
+  <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+
+          <form action="#" method="post" class="form">
+
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                <!-- <span class="govuk-caption-l">{{ data['paySubmit'] }}</span> -->
+            <h1 class="govuk-fieldset__heading">
+              Enter card details
+            </h1>
+            </legend>
+
+    <div class="payment-summary-wrap">
+      <div class="payment-summary">
+          <h2 class="govuk-heading-m">Payment summary</h2>
+          <p id="payment-description" class="govuk-body">
+          Adoption fee
+          </p>
+          <p class="govuk-body govuk-!-margin-bottom-0">
+          Total amount:<br>
+          <span id="amount" class="amount govuk-!-font-size-36 govuk-!-font-weight-bold" data-amount="183.00">£183.00</span>
+          </p>
+      </div>
+    </div>
+
+
+    <div class="govuk-form-group govuk-!-margin-top-4">
+
+        <dl class="govuk-summary-list">
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Card
+              </dt>
+              <dd class="govuk-summary-list__value">
+                ••••••••••••1234
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link govuk-link--no-visited-state" href="enter-card-details">
+                  Change<span class="govuk-visually-hidden"> card number</span>
+                </a>
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Expiry date
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {{ data['expiry-date-month'] }} / {{ data['expiry-date-year'] }}
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link govuk-link--no-visited-state" href="enter-card-details">
+                  Change<span class="govuk-visually-hidden"> expiry date</span>
+                </a>
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Name on card
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {{ data ['card-name'] }}
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link govuk-link--no-visited-state" href="enter-card-details">
+                  Change<span class="govuk-visually-hidden"> card name</span>
+                </a>
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Billing address
+              </dt>
+              <dd class="govuk-summary-list__value">
+                <p class="govuk-body">{{data ['billing-building-1'] }}, {{data ['billing-building-2'] }}, {{data ['billing-town'] }}, {{data ['billing-postcode'] }}, {{data ['billing-country'] }}</p>
+                <p class="govuk-body">sarah.phillips@example.com</p>
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link govuk-link--no-visited-state" href="enter-card-details">
+                  Change<span class="govuk-visually-hidden"> billing address</span>
+                </a>
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Confirmation email
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  <p class="govuk-body">{{ data['contact-details'] }}</p>
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                  <a class="govuk-link govuk-link--no-visited-state" href="enter-card-details">
+                    Change<span class="govuk-visually-hidden"> contact details</span>
+                  </a>
+                </dd>
+              </div>
+          </dl>
+       
+
+          <div class="govuk-button-group govuk-!-margin-top-6">
+              <button class="govuk-button" data-module="govuk-button" name="continue" value="save-and-continue">
+              Confirm payment
+              </button>
+          </div>
+
+          <div class="govuk-button-group">
+              <a href="#" class="govuk-link--no-visited-state">Cancel payment</a>
+          </div>
+
+          </form>
+
+  </div>
+
+  <style>
+    .payment-summary {
+  
+    background: #F3F2F1;
+    padding: 10px;
+    border-top: solid 2px #1E6FB8;
+  
+    }
+</style>
+{% endblock %}
+
