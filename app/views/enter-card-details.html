@@ -1,0 +1,218 @@
+{% extends "layout-signed-in.html" %}
+
+{% block pageTitle %}
+Apply to adopt a child
+{% endblock %}
+
+{% block beforeContent %}
+<a class="govuk-back-link" href="javascript:history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-width-container">
+  <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+
+          <form action="/r2/check-pay-and-submit/payment" method="post" class="form">
+
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                <!-- <span class="govuk-caption-l">{{ data['paySubmit'] }}</span> -->
+            <h1 class="govuk-fieldset__heading">
+              Enter card details
+            </h1>
+            </legend>
+
+    <div class="payment-summary-wrap">
+      <div class="payment-summary">
+          <h2 class="govuk-heading-m">Payment summary</h2>
+          <p id="payment-description" class="govuk-body">
+          Adoption fee
+          </p>
+          <p class="govuk-body govuk-!-margin-bottom-0">
+          Total amount:<br>
+          <span id="amount" class="amount govuk-!-font-size-36 govuk-!-font-weight-bold" data-amount="183.00">£183.00</span>
+          </p>
+      </div>
+    </div>
+
+
+    <div class="govuk-form-group govuk-!-margin-top-4">
+        <h2 class="govuk-label-wrapper"><label class="govuk-label govuk-label--s" for="card-number">
+            Card number
+          </label>
+        </h2>
+        <div id="card-number-hint" class="govuk-hint">
+          Accepted credit and debit card types
+        </div>
+        <div class="card-type-wrapper">
+          <ul class="govuk-list">
+          <li><img src="public/images/card-visa.svg" alt="Visa"></li>
+          <li><img  src="public/images/card-mastercard.svg" alt="Mastercard"></li>
+          <li><img src="public/images/card-amex.svg" alt="American Express"></li>
+          <li><img src="public/images/card-jcb.svg" alt="JCB"></li>
+          <li><img src="public/images/card-discover.svg" alt="Discover"></li>
+          <li><img src="public/images/card-union.svg" alt="Union Pay"></li>
+        </div>
+        <input class="govuk-input govuk-input--width-20" id="card-number" name="card-number" type="text" aria-describedby="card-number-hint">
+    
+
+      <fieldset class="govuk-fieldset govuk-!-margin-top-4" role="group" aria-describedby="expiry-date-hint">
+        <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+          <h2 class="govuk-fieldset__heading">
+            Expiry date
+          </h2>
+        </legend>
+        <div id="expiry-date-hint" class="govuk-hint">
+          For example, 10/25
+        </div>
+        <div class="govuk-date-input" id="expiry-date">
+          <div class="govuk-date-input__item">
+            <div class="govuk-form-group">
+              <label class="govuk-label govuk-date-input__label" for="expiry-date-month">
+                Month
+              </label>
+              <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="expiry-date-month" name="expiry-date-month" type="text" inputmode="numeric">
+            </div>
+          </div>
+          
+          <div class="govuk-date-input__item">
+            <div class="govuk-form-group">
+              <label class="govuk-label govuk-date-input__label" for="expiry-date-year">
+                Year
+              </label>
+              <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="expiry-date-year" name="expiry-date-year" type="text" inputmode="numeric">
+            </div>
+          </div>
+        </div>
+      </fieldset>
+
+   
+        <h2 class="govuk-label-wrapper govuk-!-margin-top-4"><label class="govuk-label govuk-label--s" for="card-name">
+            Name on card
+          </label>
+        </h2>
+        <input class="govuk-input govuk-input--width-20" id="card-name" name="card-name" type="text" aria-describedby="card-name-hint">
+
+        <h2 class="govuk-label-wrapper govuk-!-margin-top-4"><label class="govuk-label govuk-label--s" for="card-code">
+          Card security code
+        </label>
+      </h2>
+      <div id="card-code-hint" class="govuk-hint">
+        The last 3 digits on the back of the card
+      </div>
+      <div class="cvv-wrapper">
+      <input class="govuk-input govuk-input--width-3" id="card-code" name="card-code" type="text" aria-describedby="card-code-hint">
+      <img class="" src="public/images/cvv.png" alt="Card security code"></div>
+  
+    </div>
+
+    <hr>
+    <div class="govuk-form-group govuk-!-margin-top-4">
+      <div class="">
+        <h2 class="govuk-heading-s" for="billing-address">
+          Billing address
+        </h2>
+        <div id="billing-address-hint" class="govuk-hint">
+          This is the address associated with the card
+        </div>
+          <label class="govuk-label" for="billing-country">
+            Country or territory
+          </label>
+          <input class="govuk-input govuk-!-width-one-half" id="billing-country" name="billing-country" type="text">
+      </div>
+
+      <div class="govuk-!-margin-top-4">
+        <label class="govuk-label" for="billing-building-1">
+          Building number or name and street
+        </label>
+        <input class="govuk-input govuk-!-width-two-thirds" id="billing-building-1" name="billing-building-1" type="text">
+        <label class="govuk-label" for="billing-building-2" aria-label="Second line of building number or name and street">
+        </label>
+        <input class="govuk-input govuk-!-width-two-thirds" id="billing-building-2" name="billing-building-2" type="text">
+      </div>
+
+      <div class="govuk-!-margin-top-4">
+        <label class="govuk-label" for="billing-town">
+          Town or city
+        </label>
+        <input class="govuk-input govuk-!-width-one-half" id="billing-town" name="billing-town" type="text">
+      </div>
+
+      <div class="govuk-!-margin-top-4">
+        <label class="govuk-label" for="billing-postcode">
+          Postcode
+        </label>
+        <input class="govuk-input govuk-!-width-one-quarter" id="billing-postcode" name="billing-postcode" type="text">
+      </div>
+    </div>
+
+    <hr>
+
+      <div class="govuk-form-group govuk-!-margin-top-4">
+          <h2 class="govuk-heading-s" for="contact-details">
+            Contact details
+          </h2>
+          <div id="contact-details-hint" class="govuk-hint">
+            We’ll send your payment confirmation here
+          </div>
+            <label class="govuk-label" for="contact-details">
+              Email
+            </label>
+            <input class="govuk-input govuk-!-width-two-thirds" id="contact-details" name="contact-details" type="text">
+      </div>
+
+          <div class="govuk-button-group govuk-!-margin-top-6">
+              <button class="govuk-button" data-module="govuk-button" name="continue" value="save-and-continue">
+              Continue
+              </button>
+          </div>
+
+          <div class="govuk-button-group">
+              <a href="#" class="govuk-link--no-visited-state">Cancel payment</a>
+          </div>
+
+          </form>
+
+  </div>
+
+
+<style>
+  .payment-summary {
+
+  background: #F3F2F1;
+  padding: 10px;
+  border-top: solid 2px #1E6FB8;
+
+  }
+
+  .card-type-wrapper img {
+    width: 50px;
+    height: 50px;
+    border: solid grey 1px;
+    border-radius: 2px;
+    padding: 2px;
+    margin-right: 2px;
+    
+  }
+
+  .cvv-wrapper img {
+    width: 50px;
+    /* border: solid 1px;
+    border-radius: 5px; */
+    padding: 1px;
+    display: inline;
+    position: relative;
+    transform: translate(0%, 30%);
+  }
+
+  ul > li {
+    display: inline;
+    text-align: center;
+    align-items: center;
+    
+
+}
+</style>
+{% endblock %}
+
