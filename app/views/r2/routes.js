@@ -3152,7 +3152,7 @@ router.post('/r2/children/orders-placement-court', function(req, res) {
       if (errors.length === 0) {
 //        req.session.data.reviewStatus = 'completed'
           res.redirect('/r2/check-pay-and-submit/pay-and-submit')
-          // res.redirect('https://products.payments.service.gov.uk/pay/02133e4814ea416cb7a1e540b49a8545')
+          // res.redirect('enter-card-details')
       }
       else {
         res.render('.//r2/check-pay-and-submit/declaration', { errors: errors })
@@ -6437,7 +6437,7 @@ router.post('/r2/dss/check-your-answers', function(req, res) {
   //       res.redirect('/r2/check-pay-and-submit/get-hwf-reference')
   //     }
   //     else {
-  //       res.redirect('https://products.payments.service.gov.uk/pay/02133e4814ea416cb7a1e540b49a8545')
+  //       res.redirect('enter-card-details')
   //     }
   //   }
   //   else {
