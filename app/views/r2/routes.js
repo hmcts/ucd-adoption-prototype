@@ -7395,6 +7395,12 @@ router.post('/r2/dss/check-your-answers', function(req, res) {
 //       }
 //   })
 
+router.post('/clear-session-data', function (req, res) {
+  req.session.data = {}
+  res.render('prototype-admin/clear-data-success')
+  res.redirect('/under-18-2')
+})
+
 //   // Error messages on how-to-get-tax-letters
 //   router.post('/sps/work-in-progress/how-to-get-tax-letters', (req, res) => {
 //       var errors = []

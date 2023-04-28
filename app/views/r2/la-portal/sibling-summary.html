@@ -46,15 +46,17 @@ Apply to adopt a child
         {% for id in data['siblingOrderId'] %}
 
         <div class="govuk-summary-list__row">
-          <dd class="govuk-summary-list__value govuk-!-text-align-left">
+
+          <dd class="govuk-summary-list__value govuk-!-width-one-third govuk-summary-list__value--spacing">
             {{ data['siblingOrderNumber'][id]}} 
           </dd>
-          <dd class="govuk-summary-list__value govuk-!-text-align-right">
+          <dd class="govuk-summary-list__value govuk-!-width-one-third govuk-summary-list__value--spacing">
             {{ data['siblingRelationship'][id]}}
           </dd>
-          <dd class="govuk-summary-list__value govuk-!-text-align-left">
+          <dd class="govuk-summary-list__value govuk-!-width-one-half">
             {{ data['siblingOrderType'][id]}}
           </dd>
+                    
           <dd class="govuk-summary-list__actions">
             {% if data['siblingOrderCompleted'][id] == "No" %}
             <strong class="govuk-tag govuk-tag--yellow">
